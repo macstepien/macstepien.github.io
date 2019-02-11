@@ -1,0 +1,110 @@
+
+
+[
+  
+  
+    
+    
+      {
+        "title": "2D Racing",
+        "excerpt": "\n  \n  Image with caption\n\n\n",
+        "content": "\n  \n  Image with caption\n\n\n",
+        "url": "/oprogramowanie/2019/02/10/2dracing/"
+      },
+    
+      {
+        "title": "3D Viewer",
+        "excerpt": "\n",
+        "content": "\n",
+        "url": "/oprogramowanie/2019/02/10/3dviewer/"
+      },
+    
+      {
+        "title": "Blu",
+        "excerpt": "\n",
+        "content": "\n",
+        "url": "/oprogramowanie/2019/02/10/Blu/"
+      },
+    
+      {
+        "title": "Fuzz",
+        "excerpt": "\n",
+        "content": "\n",
+        "url": "/elektronika/2019/02/10/fuzz/"
+      },
+    
+      {
+        "title": "Gry konsolowe",
+        "excerpt": "Kółko i krzyżyk, Snake oraz Pong napisane w C++ w ramach projektu z Informatyki w Gimnazjum.\n\n",
+        "content": "Kółko i krzyżyk, Snake oraz Pong napisane w C++ w ramach projektu z Informatyki w Gimnazjum.\n\nGry napisałem jako moje pierwsze większe projekty w C++. Pierwsza gra kółko i krzyżyk była napisana na podstawie przykładu w kursie C++, który przerabiałem - “Od Zera do Gier Kodera”. Ma format 3x3 i dodatkowo posiada ranking graczy.\n\n\n  \n  Kółko i krzyżyk\n\n\n\n  \n  Snake\n\n\n\n  \n  Pong\n\n",
+        "url": "/oprogramowanie/2019/02/10/gry-konsolowe/"
+      },
+    
+      {
+        "title": "Robot mapujący",
+        "excerpt": "\n",
+        "content": "\n",
+        "url": "/roboty/2019/02/10/mappingrobot/"
+      },
+    
+      {
+        "title": "Stereowizja",
+        "excerpt": "\n",
+        "content": "\n",
+        "url": "/oprogramowanie/2019/02/10/stereovision/"
+      },
+    
+      {
+        "title": "Cewka Tesli",
+        "excerpt": "\n",
+        "content": "\n",
+        "url": "/elektronika/2019/02/10/teslacoil/"
+      },
+    
+  
+  
+  
+  {
+    "title": "About this website",
+    "excerpt": "\n",
+    "content": "I’m not sure yet what this website is about, but I’m sure I’ll work it out soon.\n",
+    "url": "/about/"
+  },
+  
+  {
+    "title": "Categories",
+    "excerpt": "Category index\n",
+    "content": "\n",
+    "url": "/categories/"
+  },
+  
+  {
+    "title": "Projekty",
+    "excerpt": "Category index\n",
+    "content": "\n",
+    "url": "/projekty/"
+  },
+  
+  {
+    "title": "Blog",
+    "excerpt": "\n",
+    "content": "\n",
+    "url": "/blog/"
+  },
+  
+  {
+    "title": "Welcome to my website",
+    "excerpt": "\n",
+    "content": "There isn’t much going on here yet, but watch this space\n",
+    "url": "/"
+  },
+  
+  {
+    "title": "Blog",
+    "excerpt": "\n",
+    "content": "\n",
+    "url": "/blog/page2/"
+  }
+  
+]
+
