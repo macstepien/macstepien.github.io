@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About this website
+title: 
 ---
 
-I'm not sure yet what this website is about, but I'm sure I'll work it out soon.
+{% include button.html text="Github" icon="github" link="https://github.com/TheDarkPhoenix" color="#0366d6" %}

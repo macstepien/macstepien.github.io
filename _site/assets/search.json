@@ -6,21 +6,21 @@
     
     
       {
+        "title": "2D Racing",
+        "excerpt": "Gra wyścigowa 2D z widokiem od góry. Napisana w języku C++ przy pomocy bibliotek SFML oraz Box2D.\n\n",
+        "content": "Gra wyścigowa 2D z widokiem od góry. Napisana w języku C++ przy pomocy bibliotek SFML oraz Box2D.\n\n\n  \n  \n\n\nGra ta została wykonana także w ramach projektu z Informatyki. Umożliwia ściganie się z przeciwnikami na różnych torach. Możemy także tworzyć własne trasy w osobnym edytorze, który także napisałem w ramach projektu. Tor podzielony jest na kwadraty o określonym typie: prosta, zekręt w lewo, prawo, trawa oraz meta.\n\n  \n  \n\n\nEdytor map  github\n\n\nDzięki zawarciu w pliku tekstowym informacji o odpowiednich kwadratach oraz odczycie aktualnej pozycji samochodu wprowadziłem pewną formę sztucznej inteligencji, z którą możemy się wyścigować. Przeciwnicy reagują na znalezienie się na fragmencie toru odpowiednio skręcaniem, przyspieszaniem lub hamowaniem. Cała symulacja jazdy oraz zderzeń oparta jest na bibliotece Box2D. Dzięki temu udało mi się uzyskać realistyczne interakcje między samochodami.\n\n  \n  \n\n\n2DRacing  github\n\n",
+        "url": "/oprogramowanie/2019/02/10/2dracing/"
+      },
+    
+      {
         "title": "Gry konsolowe",
         "excerpt": "Kółko i krzyżyk, Snake oraz Pong napisane w C++ w ramach projektu z Informatyki w Gimnazjum.\n\n",
-        "content": "Kółko i krzyżyk, Snake oraz Pong napisane w C++ w ramach projektu z Informatyki w Gimnazjum.\n\nSnake\n\n  \n  \n\n\nKlasyczna gra, w której zbieramy wężem dolary. Do wyboru 3 tryby trudności, w których wąż różnie zmienia prędkość. Odpowiednio do trybu większa jest także nagroda za zbieranie punktów. Dostępny jest także ranking najlepszych graczy.\n\n  \n  \n\n\nGithub  github\n\n\nKółko i krzyżyk\n\n  \n  \n\n\nPierwsza gra kółko i krzyżyk była napisana na podstawie przykładu w kursie C++, który przerabiałem - “Od Zera do Gier Kodera”. Przeznaczona jest dla dwóch graczy. Ma format 3x3, pole do postawienia znaku wybiera się za pomocą odpowiednich cyfr. W programie sprawdzane są następnie ułożenia znaków, które prowadzą do remisu lub zwycięstwa jednego z graczy.\n\n  \n  \n\n\nGithub  github\n\n\nPong\n\n  \n  \n\n\nGra przeznaczona dla dwóch graczy. Odbijamy piłkę aż do przepuszczenia jej przez jednego z graczy. Gra toczy się do ustalonej wcześniej ilości punktów.\n\n  \n  \n\n\nGithub  github\n\n",
+        "content": "Kółko i krzyżyk, Snake oraz Pong napisane w C++ w ramach projektu z Informatyki w Gimnazjum.\n\nSnake\n\n  \n  \n\n\nKlasyczna gra, w której zbieramy wężem dolary. Do wyboru 3 tryby trudności, w których wąż różnie zmienia prędkość. Odpowiednio do trybu większa jest także nagroda za zbieranie punktów. Dostępny jest także ranking najlepszych graczy.\n\n  \n  \n\n\nSnake  github\n\n\nKółko i krzyżyk\n\n  \n  \n\n\nGrę kółko i krzyżyk napisałem na podstawie przykładu w kursie C++, który przerabiałem - “Od Zera do Gier Kodera”. Przeznaczona jest dla dwóch graczy. Ma format 3x3, pole do postawienia znaku wybiera się za pomocą odpowiednich cyfr. W programie sprawdzane są następnie ułożenia znaków, które prowadzą do remisu lub zwycięstwa jednego z graczy.\n\n  \n  \n\n\nTicTacToe  github\n\n\nPong\n\n  \n  \n\n\nGra przeznaczona dla dwóch graczy. Odbijamy piłkę aż do przepuszczenia jej przez jednego z graczy. Gra toczy się do ustalonej wcześniej ilości punktów.\n\n  \n  \n\n\nPong  github\n\n",
         "url": "/oprogramowanie/2019/02/10/gry-konsolowe/"
       },
     
   
   
-  
-  {
-    "title": "About this website",
-    "excerpt": "\n",
-    "content": "I’m not sure yet what this website is about, but I’m sure I’ll work it out soon.\n",
-    "url": "/about/"
-  },
   
   {
     "title": "Categories",
@@ -41,13 +41,6 @@
     "excerpt": "\n",
     "content": "\n",
     "url": "/blog/"
-  },
-  
-  {
-    "title": "Welcome to my website",
-    "excerpt": "\n",
-    "content": "There isn’t much going on here yet, but watch this space\n",
-    "url": "/"
   }
   
 ]

@@ -1,4 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-02-12T16:02:48+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Projekty</title><subtitle>Opisy projektów</subtitle><entry><title type="html">Gry konsolowe</title><link href="http://localhost:4000/oprogramowanie/2019/02/10/gry-konsolowe/" rel="alternate" type="text/html" title="Gry konsolowe" /><published>2019-02-10T00:00:00+01:00</published><updated>2019-02-10T00:00:00+01:00</updated><id>http://localhost:4000/oprogramowanie/2019/02/10/gry-konsolowe</id><content type="html" xml:base="http://localhost:4000/oprogramowanie/2019/02/10/gry-konsolowe/">&lt;p&gt;Kółko i krzyżyk, Snake oraz Pong napisane w C++ w ramach projektu z Informatyki w Gimnazjum.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-02-12T19:06:21+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Projekty</title><subtitle>Opisy projektów</subtitle><entry><title type="html">2D Racing</title><link href="http://localhost:4000/oprogramowanie/2019/02/10/2dracing/" rel="alternate" type="text/html" title="2D Racing" /><published>2019-02-10T00:00:00+01:00</published><updated>2019-02-10T00:00:00+01:00</updated><id>http://localhost:4000/oprogramowanie/2019/02/10/2dracing</id><content type="html" xml:base="http://localhost:4000/oprogramowanie/2019/02/10/2dracing/">&lt;p&gt;Gra wyścigowa 2D z widokiem od góry. Napisana w języku C++ przy pomocy bibliotek SFML oraz Box2D.&lt;/p&gt;
+
+&lt;figure class=&quot;figure  figure--center&quot;&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/2dracing1.png&quot; alt=&quot;&quot; width=&quot;500&quot; height=&quot;800&quot; /&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Gra ta została wykonana także w ramach projektu z Informatyki. Umożliwia ściganie się z przeciwnikami na różnych torach. Możemy także tworzyć własne trasy w osobnym edytorze, który także napisałem w ramach projektu. Tor podzielony jest na kwadraty o określonym typie: prosta, zekręt w lewo, prawo, trawa oraz meta.&lt;/p&gt;
+&lt;div class=&quot;embed-container&quot;&gt;
+  &lt;iframe width=&quot;720&quot; height=&quot;405&quot; src=&quot;https://drive.google.com/file/d/1caP0KGbfBlv4BPnuFSBJOfECxKKN5w26/preview&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;
+  &lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/TheDarkPhoenix/2DRacing-Map-Editor&quot; style=&quot;background: #0366d6&quot;&gt;Edytor map  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Dzięki zawarciu w pliku tekstowym informacji o odpowiednich kwadratach oraz odczycie aktualnej pozycji samochodu wprowadziłem pewną formę sztucznej inteligencji, z którą możemy się wyścigować. Przeciwnicy reagują na znalezienie się na fragmencie toru odpowiednio skręcaniem, przyspieszaniem lub hamowaniem. Cała symulacja jazdy oraz zderzeń oparta jest na bibliotece Box2D. Dzięki temu udało mi się uzyskać realistyczne interakcje między samochodami.&lt;/p&gt;
+&lt;div class=&quot;embed-container&quot;&gt;
+  &lt;iframe width=&quot;720&quot; height=&quot;405&quot; src=&quot;https://drive.google.com/file/d/1R87yQX23XnZ25PLVj8EW65OP0qda675Z/preview&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;
+  &lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/TheDarkPhoenix/2DRacing&quot; style=&quot;background: #0366d6&quot;&gt;2DRacing  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
+&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Gra wyścigowa 2D z widokiem od góry. Napisana w języku C++ przy pomocy bibliotek SFML oraz Box2D.</summary></entry><entry><title type="html">Gry konsolowe</title><link href="http://localhost:4000/oprogramowanie/2019/02/10/gry-konsolowe/" rel="alternate" type="text/html" title="Gry konsolowe" /><published>2019-02-10T00:00:00+01:00</published><updated>2019-02-10T00:00:00+01:00</updated><id>http://localhost:4000/oprogramowanie/2019/02/10/gry-konsolowe</id><content type="html" xml:base="http://localhost:4000/oprogramowanie/2019/02/10/gry-konsolowe/">&lt;p&gt;Kółko i krzyżyk, Snake oraz Pong napisane w C++ w ramach projektu z Informatyki w Gimnazjum.&lt;/p&gt;
 
 &lt;h3 id=&quot;snake&quot;&gt;Snake&lt;/h3&gt;
 &lt;figure class=&quot;figure  figure--center&quot;&gt;
@@ -12,7 +35,7 @@
   &lt;/iframe&gt;
 &lt;/div&gt;
 
-&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/TheDarkPhoenix/Snake&quot; style=&quot;background: #0366d6&quot;&gt;Github  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
+&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/TheDarkPhoenix/Snake&quot; style=&quot;background: #0366d6&quot;&gt;Snake  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
 &lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;kółko-i-krzyżyk&quot;&gt;Kółko i krzyżyk&lt;/h3&gt;
@@ -21,13 +44,13 @@
   
 &lt;/figure&gt;
 
-&lt;p&gt;Pierwsza gra kółko i krzyżyk była napisana na podstawie przykładu w kursie C++, który przerabiałem - “Od Zera do Gier Kodera”. Przeznaczona jest dla dwóch graczy. Ma format 3x3, pole do postawienia znaku wybiera się za pomocą odpowiednich cyfr. W programie sprawdzane są następnie ułożenia znaków, które prowadzą do remisu lub zwycięstwa jednego z graczy.&lt;/p&gt;
+&lt;p&gt;Grę kółko i krzyżyk napisałem na podstawie przykładu w kursie C++, który przerabiałem - “Od Zera do Gier Kodera”. Przeznaczona jest dla dwóch graczy. Ma format 3x3, pole do postawienia znaku wybiera się za pomocą odpowiednich cyfr. W programie sprawdzane są następnie ułożenia znaków, które prowadzą do remisu lub zwycięstwa jednego z graczy.&lt;/p&gt;
 &lt;div class=&quot;embed-container&quot;&gt;
   &lt;iframe width=&quot;720&quot; height=&quot;405&quot; src=&quot;https://drive.google.com/file/d/1Q2bL16jL_gJDGnQfmYu-IHg7uz9K_L1g/preview&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;
   &lt;/iframe&gt;
 &lt;/div&gt;
 
-&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/TheDarkPhoenix/TicTacToe&quot; style=&quot;background: #0366d6&quot;&gt;Github  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
+&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/TheDarkPhoenix/TicTacToe&quot; style=&quot;background: #0366d6&quot;&gt;TicTacToe  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
 &lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;pong&quot;&gt;Pong&lt;/h3&gt;
@@ -42,5 +65,5 @@
   &lt;/iframe&gt;
 &lt;/div&gt;
 
-&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/TheDarkPhoenix/Pong&quot; style=&quot;background: #0366d6&quot;&gt;Github  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
+&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/TheDarkPhoenix/Pong&quot; style=&quot;background: #0366d6&quot;&gt;Pong  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
 &lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Kółko i krzyżyk, Snake oraz Pong napisane w C++ w ramach projektu z Informatyki w Gimnazjum.</summary></entry></feed>

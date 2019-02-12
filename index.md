@@ -1,9 +1,9 @@
 ---
-title: Welcome to my website
+title: 
 layout: page
-feature_image: "pics/viewer1.png"
-feature_text: |
-  ## Hello world
+feature_image: "pics/tlo.jpg"
+ 
 ---
 
-There isn't much going on here yet, but watch this space
+Strona poświęcona różnym projektom z zakresu programowania, elektroniki oraz budowy robotów.
+

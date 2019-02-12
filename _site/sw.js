@@ -1,8 +1,8 @@
-const version = '20190212160248';
+const version = '20190212190621';
 const cacheName = `static::${version}`;
 
 const buildContentBlob = () => {
-  return ["/oprogramowanie/2019/02/10/gry-konsolowe/","/about/","/categories/","/projekty/","/blog/","/","/manifest.json","/assets/search.json","/assets/styles.css","/redirects.json","/sitemap.xml","/robots.txt","/feed.xml","", "/assets/default-offline-image.png", "/assets/scripts/fetch.js"
+  return ["/oprogramowanie/2019/02/10/gry-konsolowe/","/oprogramowanie/2019/02/10/2dracing/","/about/","/categories/","/projekty/","/blog/","/","/manifest.json","/assets/search.json","/assets/styles.css","/redirects.json","/sitemap.xml","/robots.txt","/feed.xml","", "/assets/default-offline-image.png", "/assets/scripts/fetch.js"
   ]
 }
 
