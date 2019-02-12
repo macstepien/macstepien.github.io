@@ -6,59 +6,10 @@
     
     
       {
-        "title": "2D Racing",
-        "excerpt": "\n  \n  Image with caption\n\n\n",
-        "content": "\n  \n  Image with caption\n\n\n",
-        "url": "/oprogramowanie/2019/02/10/2dracing/"
-      },
-    
-      {
-        "title": "3D Viewer",
-        "excerpt": "\n",
-        "content": "\n",
-        "url": "/oprogramowanie/2019/02/10/3dviewer/"
-      },
-    
-      {
-        "title": "Blu",
-        "excerpt": "\n",
-        "content": "\n",
-        "url": "/oprogramowanie/2019/02/10/Blu/"
-      },
-    
-      {
-        "title": "Fuzz",
-        "excerpt": "\n",
-        "content": "\n",
-        "url": "/elektronika/2019/02/10/fuzz/"
-      },
-    
-      {
         "title": "Gry konsolowe",
         "excerpt": "Kółko i krzyżyk, Snake oraz Pong napisane w C++ w ramach projektu z Informatyki w Gimnazjum.\n\n",
-        "content": "Kółko i krzyżyk, Snake oraz Pong napisane w C++ w ramach projektu z Informatyki w Gimnazjum.\n\nKółko i krzyżyk\n\n  \n  \n\n\nPierwsza gra kółko i krzyżyk była napisana na podstawie przykładu w kursie C++, który przerabiałem - “Od Zera do Gier Kodera”. Przeznaczona jest dla dwóch graczy. Ma format 3x3, pole do postawienia znaku wybiera się za pomocą odpowiednich cyfr. W programie sprawdzane są następnie ułożenia znaków, które prowadzą do remisu lub zwycięstwa jednego z graczy.\n\n  \n  \n\n\nGithub  github\n\n\nSnake\n\n  \n  \n\n\nKlasyczna gra, w której zbieramy wężem dolary. Do wyboru 3 tryby trudności, w których wąż różnie zmienia prędkość. Odpowiednio do trybu większa jest także nagroda za zbieranie punktów. Dostępny jest także ranking najlepszych graczy.\n\n  \n  \n\n\nGithub  github\n\n\nPong\n\n  \n  \n\n\nGra przeznaczona dla dwóch graczy. Odbijamy piłkę aż do przepuszczenia jej przez jednego z graczy. Gra toczy się do ustalonej wcześniej ilości punktów.\n\nGithub  github\n\n",
+        "content": "Kółko i krzyżyk, Snake oraz Pong napisane w C++ w ramach projektu z Informatyki w Gimnazjum.\n\nSnake\n\n  \n  \n\n\nKlasyczna gra, w której zbieramy wężem dolary. Do wyboru 3 tryby trudności, w których wąż różnie zmienia prędkość. Odpowiednio do trybu większa jest także nagroda za zbieranie punktów. Dostępny jest także ranking najlepszych graczy.\n\n  \n  \n\n\nGithub  github\n\n\nKółko i krzyżyk\n\n  \n  \n\n\nPierwsza gra kółko i krzyżyk była napisana na podstawie przykładu w kursie C++, który przerabiałem - “Od Zera do Gier Kodera”. Przeznaczona jest dla dwóch graczy. Ma format 3x3, pole do postawienia znaku wybiera się za pomocą odpowiednich cyfr. W programie sprawdzane są następnie ułożenia znaków, które prowadzą do remisu lub zwycięstwa jednego z graczy.\n\n  \n  \n\n\nGithub  github\n\n\nPong\n\n  \n  \n\n\nGra przeznaczona dla dwóch graczy. Odbijamy piłkę aż do przepuszczenia jej przez jednego z graczy. Gra toczy się do ustalonej wcześniej ilości punktów.\n\n  \n  \n\n\nGithub  github\n\n",
         "url": "/oprogramowanie/2019/02/10/gry-konsolowe/"
-      },
-    
-      {
-        "title": "Robot mapujący",
-        "excerpt": "\n",
-        "content": "\n",
-        "url": "/roboty/2019/02/10/mappingrobot/"
-      },
-    
-      {
-        "title": "Stereowizja",
-        "excerpt": "\n",
-        "content": "\n",
-        "url": "/oprogramowanie/2019/02/10/stereovision/"
-      },
-    
-      {
-        "title": "Cewka Tesli",
-        "excerpt": "\n",
-        "content": "\n",
-        "url": "/elektronika/2019/02/10/teslacoil/"
       },
     
   
@@ -97,13 +48,6 @@
     "excerpt": "\n",
     "content": "There isn’t much going on here yet, but watch this space\n",
     "url": "/"
-  },
-  
-  {
-    "title": "Blog",
-    "excerpt": "\n",
-    "content": "\n",
-    "url": "/blog/page2/"
   }
   
 ]
