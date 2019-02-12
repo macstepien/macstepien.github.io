@@ -25,7 +25,7 @@ baseurl: ''
 title: 'Projekty'
 description: 'Opisy projektów'
 permalink: pretty
-logo: "/pics/logo.png"
+logo: "/pics/logo1.png"
 
 # Pagination
 paginate: 5
