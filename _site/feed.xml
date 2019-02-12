@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-02-12T19:06:21+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Projekty</title><subtitle>Opisy projektów</subtitle><entry><title type="html">2D Racing</title><link href="http://localhost:4000/oprogramowanie/2019/02/10/2dracing/" rel="alternate" type="text/html" title="2D Racing" /><published>2019-02-10T00:00:00+01:00</published><updated>2019-02-10T00:00:00+01:00</updated><id>http://localhost:4000/oprogramowanie/2019/02/10/2dracing</id><content type="html" xml:base="http://localhost:4000/oprogramowanie/2019/02/10/2dracing/">&lt;p&gt;Gra wyścigowa 2D z widokiem od góry. Napisana w języku C++ przy pomocy bibliotek SFML oraz Box2D.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-02-13T00:34:26+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Projekty</title><subtitle>Opisy projektów</subtitle><entry><title type="html">2D Racing</title><link href="http://localhost:4000/oprogramowanie/2019/02/10/2dracing/" rel="alternate" type="text/html" title="2D Racing" /><published>2019-02-10T00:00:00+01:00</published><updated>2019-02-10T00:00:00+01:00</updated><id>http://localhost:4000/oprogramowanie/2019/02/10/2dracing</id><content type="html" xml:base="http://localhost:4000/oprogramowanie/2019/02/10/2dracing/">&lt;p&gt;Gra wyścigowa 2D z widokiem od góry. Napisana w języku C++ przy pomocy bibliotek SFML oraz Box2D.&lt;/p&gt;
 
 &lt;figure class=&quot;figure  figure--center&quot;&gt;
   &lt;img class=&quot;image&quot; src=&quot;/pics/2dracing1.png&quot; alt=&quot;&quot; width=&quot;500&quot; height=&quot;800&quot; /&gt;
@@ -21,7 +21,37 @@
 &lt;/div&gt;
 
 &lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/TheDarkPhoenix/2DRacing&quot; style=&quot;background: #0366d6&quot;&gt;2DRacing  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
-&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Gra wyścigowa 2D z widokiem od góry. Napisana w języku C++ przy pomocy bibliotek SFML oraz Box2D.</summary></entry><entry><title type="html">Gry konsolowe</title><link href="http://localhost:4000/oprogramowanie/2019/02/10/gry-konsolowe/" rel="alternate" type="text/html" title="Gry konsolowe" /><published>2019-02-10T00:00:00+01:00</published><updated>2019-02-10T00:00:00+01:00</updated><id>http://localhost:4000/oprogramowanie/2019/02/10/gry-konsolowe</id><content type="html" xml:base="http://localhost:4000/oprogramowanie/2019/02/10/gry-konsolowe/">&lt;p&gt;Kółko i krzyżyk, Snake oraz Pong napisane w C++ w ramach projektu z Informatyki w Gimnazjum.&lt;/p&gt;
+&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Gra wyścigowa 2D z widokiem od góry. Napisana w języku C++ przy pomocy bibliotek SFML oraz Box2D.</summary></entry><entry><title type="html">3D Viewer</title><link href="http://localhost:4000/oprogramowanie/2019/02/10/3dviewer/" rel="alternate" type="text/html" title="3D Viewer" /><published>2019-02-10T00:00:00+01:00</published><updated>2019-02-10T00:00:00+01:00</updated><id>http://localhost:4000/oprogramowanie/2019/02/10/3dviewer</id><content type="html" xml:base="http://localhost:4000/oprogramowanie/2019/02/10/3dviewer/">&lt;p&gt;Program służący do wyświetlania perspektywicznego punktów w 3D.&lt;/p&gt;
+
+&lt;figure class=&quot;figure  figure--center&quot;&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/viewer1.png&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Program ten napisałem w ramach lekcji Informatyki w Liceum. Zaimplementowałem wczytywanie chmur punktów z pliku txt. Są one w formacie współrzędne (X, Y, Z), a następnie kolory (R, G, B). Chmury punktów uzyskiwałem poprzez kamery stereowizyjne. Stworzyłem także możliwość wyświetlania kształtów geometrycznych, na przykład domku. Całość została napisana w Pascalu.&lt;/p&gt;
+
+&lt;figure class=&quot;figure  figure--center&quot;&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/viewer2.png&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/TheDarkPhoenix/3DViewer&quot; style=&quot;background: #0366d6&quot;&gt;3DViewer  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
+&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Program służący do wyświetlania perspektywicznego punktów w 3D.</summary></entry><entry><title type="html">Blu</title><link href="http://localhost:4000/oprogramowanie/2019/02/10/Blu/" rel="alternate" type="text/html" title="Blu" /><published>2019-02-10T00:00:00+01:00</published><updated>2019-02-10T00:00:00+01:00</updated><id>http://localhost:4000/oprogramowanie/2019/02/10/Blu</id><content type="html" xml:base="http://localhost:4000/oprogramowanie/2019/02/10/Blu/">&lt;p&gt;Gra, w której jeździmy samochodem po wzgórzach zbierając monety oraz paliwo. Wykonana w języku C++ wraz z bibliotekami SFML oraz Box2D.&lt;/p&gt;
+
+&lt;figure class=&quot;figure  figure--center&quot;&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/blu3przyciete.png&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Grę wykonałem w ramach projektu z Informatyki w Gimnazjum. Pomysł gry bazuje na popularnej w tym okresie grze Hill Climb Racing. Symulacja fizyczna gry oparta jest na bibliotece Box2D. Im dłużej jedziemy tym spotykamy trudniejsze wzgórza, zdobywamy monety o wyżeszej wartości oraz rzadziej znajdujemy paliwo. W tej grze dodałem także odgłosy silnika oraz muzykę.&lt;/p&gt;
+
+&lt;div class=&quot;embed-container&quot;&gt;
+  &lt;iframe width=&quot;720&quot; height=&quot;405&quot; src=&quot;https://drive.google.com/file/d/1Y6MSQTErHeviAvjcM72Dg4Yf7ICjT7Cu/preview&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;
+  &lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/TheDarkPhoenix/Blu&quot; style=&quot;background: #0366d6&quot;&gt;Blu  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
+&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Gra, w której jeździmy samochodem po wzgórzach zbierając monety oraz paliwo. Wykonana w języku C++ wraz z bibliotekami SFML oraz Box2D.</summary></entry><entry><title type="html">Gry konsolowe</title><link href="http://localhost:4000/oprogramowanie/2019/02/10/gry-konsolowe/" rel="alternate" type="text/html" title="Gry konsolowe" /><published>2019-02-10T00:00:00+01:00</published><updated>2019-02-10T00:00:00+01:00</updated><id>http://localhost:4000/oprogramowanie/2019/02/10/gry-konsolowe</id><content type="html" xml:base="http://localhost:4000/oprogramowanie/2019/02/10/gry-konsolowe/">&lt;p&gt;Kółko i krzyżyk, Snake oraz Pong napisane w C++ w ramach projektu z Informatyki w Gimnazjum.&lt;/p&gt;
 
 &lt;h3 id=&quot;snake&quot;&gt;Snake&lt;/h3&gt;
 &lt;figure class=&quot;figure  figure--center&quot;&gt;
