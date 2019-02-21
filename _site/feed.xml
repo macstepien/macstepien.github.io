@@ -1,4 +1,170 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-02-13T00:34:26+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Projekty</title><subtitle>Opisy projektów</subtitle><entry><title type="html">2D Racing</title><link href="http://localhost:4000/oprogramowanie/2019/02/10/2dracing/" rel="alternate" type="text/html" title="2D Racing" /><published>2019-02-10T00:00:00+01:00</published><updated>2019-02-10T00:00:00+01:00</updated><id>http://localhost:4000/oprogramowanie/2019/02/10/2dracing</id><content type="html" xml:base="http://localhost:4000/oprogramowanie/2019/02/10/2dracing/">&lt;p&gt;Gra wyścigowa 2D z widokiem od góry. Napisana w języku C++ przy pomocy bibliotek SFML oraz Box2D.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-02-21T16:00:36+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Projekty</title><subtitle>Opisy projektów</subtitle><entry><title type="html">Hexapod</title><link href="http://localhost:4000/roboty/2018/06/08/hexapod/" rel="alternate" type="text/html" title="Hexapod" /><published>2018-06-08T00:00:00+02:00</published><updated>2018-06-08T00:00:00+02:00</updated><id>http://localhost:4000/roboty/2018/06/08/hexapod</id><content type="html" xml:base="http://localhost:4000/roboty/2018/06/08/hexapod/">&lt;p&gt;Sześcionogi stwór z kamerkami.&lt;/p&gt;
+
+&lt;p&gt;Projekt, którym zajmowałem się przez pierwsze 2 lata studiów w ramach działalności koła naukowego Integra. Moim wkładem było oprogramowanie to sterowania robota oraz stereowizji.&lt;/p&gt;
+
+&lt;figure class=&quot;figure  figure--center&quot;&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/Hexapod/hexi.jpg&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Do poruszania konstrukcją wykorzystane zostało 18 serw Hitec po 3 na każdą nogę. Jako główny komputer robota wykorzystalismy Raspberry Pi 2. Komunikowała się ona z sterownikiem serw Pololu poprzez interfejs UART umożliwiając zadawanie odpowiednich pozycji serw. Całą konstrukcję zasila bateria LiPol o pojemności 4000 mAh, co pozwalało na ok. 1h użytkowania robota. Napięcie z akumulatora  dostowywaliśmy za pomocą przetwornic (3 do zasilania serw oraz 1 dla Raspberry). Wykorzystaliśmy także przetwornik ADC MCP3008, aby móc mierzyć aktualne napięcie na baterii. Komunikował się on z Raspberry za pomocą SPI, a następnie napięcie było wysyłane i wyświetlane w aplikacji klienta.&lt;/p&gt;
+
+&lt;h2 id=&quot;oprogramowanie&quot;&gt;Oprogramowanie&lt;/h2&gt;
+
+&lt;figure class=&quot;figure  figure--center&quot;&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/Hexapod/symulacja.png&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Robot jest sterowany z poziomu laptopa, który komunikuje się z Raspberry poprzez WiFi przez protokół TCP. Do poruszania robotem można używać zarówno pada jak i klawiatury. W trakcie pokazów stosowaliśmy pad do Xboxa. W celu odpowiedniego sterowania najpierw została napisana aplikacja przy użyciu języka C++ oraz biblioteki OpenCV obrazującą model matematyczny robota. Na tym modelu została zaimplementowana kinematyka odwrotna, na której następnie stworzono modele poruszania się robota. Odpowiednio przeliczono uzyskane kąty na sygnały PWM dla serwonapędów, które następnie były wysyłane do sterownika.&lt;/p&gt;
+&lt;h3 id=&quot;aplikacja&quot;&gt;Aplikacja&lt;/h3&gt;
+&lt;p&gt;Ostatecznie aplikacja została rozdzielona na dwie. Jedna jest uruchamiana na laptopie. Zawiera wizualizacje modelu robota. Do drugiej są wysyłane odpowiednie komendy, na które fizycznie reaguje. Z Raspberry wysyłana jest informacja do aplikacji z aktualnym napięciem na baterii, dzięki czemu jej poziom jest na bieżąco monitorowany. Dodatkowa aplikacja służy do realizacji stereowizji. Raspberry wysyła obrazy z obu kamer przy użyciu programu gstreamer, który daje lepsze efekty pod względem opóźnień, co do innego popularnego programu MJPG streamer. Na laptopie oba obrazy są odbierane. Następnie przy użyciu odpowiednich macierzy - uzyskanych podczas kalibracji - przekształcana oraz liczona jest macierz obrazu dysparcji. Zastosowano także filtr po przeliczeniu dysparcji, który dość znacznie poprawia uzyskane rezultaty.&lt;/p&gt;
+
+&lt;p&gt;Aplikacja modelu Hexapoda
+Aplikacje można pracować w 2 trybach:
+po podaniu adresu IP Raspberry laptop się z nią połączy i będzie wysyłać odpowiednie komunikaty
+bez podania adresu będzie funkcjonować tylko jako model Hexapoda
+Tryb modelu
+W trybie modelu można poruszać się po środowisku za pomocą klawiszy W/S/A/D/Q/E oraz barów alfa, beta i gamma służących do zmiany kąta widzenia. Modelem robota poruszać można za pomocą klawiszy w/s/a/d/q/e oraz numerów służących do wyboru odpowiedniego trybu chodzenia robota.&lt;/p&gt;
+
+&lt;div class=&quot;embed-container&quot;&gt;
+  &lt;iframe width=&quot;720&quot; height=&quot;405&quot; src=&quot;https://drive.google.com/file/d/1-2V-3Jp_7RpoSwEOZEm2NZDnmNW3E-5M/preview&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;
+  &lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Tryb połączenia z Hexapodem
+Sterowanie aplikacją na laptopie nie zmienia się. Różnica z poprzednio omówionym trybem (tryb modelu) jest taka, iż teraz odpowiednie komendy wysyłane są także do Hexapoda. Dodatkowo wyświetlane na ekranie laptopa jest również napięcie na baterii.&lt;/p&gt;
+
+&lt;div class=&quot;embed-container&quot;&gt;
+  &lt;iframe width=&quot;720&quot; height=&quot;405&quot; src=&quot;https://drive.google.com/file/d/1gxw-k9vYHoB053OKuwQykvRbqoU_h9jQ/preview&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;
+  &lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;embed-container&quot;&gt;
+  &lt;iframe width=&quot;720&quot; height=&quot;405&quot; src=&quot;https://drive.google.com/file/d/14VnDA5TNAc8yevAEbiauvsbd-HcN76SV/preview&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;
+  &lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Bliższy opis zrealizowanej aplikacji&lt;/p&gt;
+&lt;h4 id=&quot;gui&quot;&gt;GUI&lt;/h4&gt;
+&lt;p&gt;Zadaniem najbardziej oddalonym od samej idei Hexapoda był moduł wyświetlania, czyli GUI. Do wyświetlania użyto wyłącznie prostego okienkowego trybu wyświetlania dołączonego do biblioteki OpenCV w celu debugowania. Zastosowano rzutowanie perspektywiczne zgodnie ze wzorami zawartymi w [1], aby otrzymać symulację w 3D. Zdefiniowano płaszczyznę kamery, na którą odbywało się rzutowanie świata 3D symulacji. Dodano przesuwanie płaszczyzną kamery za pomocą przycisków oraz możliwość jej obracania przy pomocy toolbarów.&lt;/p&gt;
+&lt;h4 id=&quot;robot&quot;&gt;Robot&lt;/h4&gt;
+&lt;p&gt;To jest główny moduł odpowiedzialny za obliczenia związane ze sterowaniem robota. Zawarto w nim implementację kinematyki odwrotnej w podejściu trygonometrycznym opisaną w [2]. Główna klasa robota zawiera klasę nóg robota, które są wydzielone. Jest osobna klasa, w której znajdują się różne algorytmy chodzenia.&lt;/p&gt;
+&lt;h4 id=&quot;chodzenie&quot;&gt;Chodzenie&lt;/h4&gt;
+&lt;p&gt;Najlepsze efekty dawało chodzenie po paraboli. Dobierane są kolejne punkty paraboli, która zaczyna się w miejscu, gdzie aktualnie znajduje się końcówka nogi robota. Kończy się tam, gdzie ma się ostatecznie znaleźć. Przy użyciu kinematyki odwrotnej wyliczane są kąty tak, aby końcówka danej nogi znalazła się w punkcie docelowym.&lt;/p&gt;
+&lt;h4 id=&quot;pozostałe-moduły&quot;&gt;Pozostałe moduły&lt;/h4&gt;
+&lt;p&gt;Umieszczono model kontrolera, który odpowiednio interpretuje wysłane komendy na funkcje, np.: chodzenia lub poruszania bazą robota. Znajduje się tutaj również moduł do komunikacji z serwami (tylko w wersji programu dla Raspberry). Zamieniane są wyliczone kąty dla każdej nogi na odpowiednie sygnały PWM, dla każdego serwa (jedna noga składa się z trzech serwonapędów). Następnie są one wysyłane.&lt;/p&gt;
+&lt;h4 id=&quot;tcp&quot;&gt;TCP&lt;/h4&gt;
+&lt;p&gt;W module TCP znajduję się cały kod do komunikacji pomiędzy Raspberry a laptopem. Kod został zaczerpnięty z [3]. W ramach komunikacji laptop łączy się z Raspberry i na porcie 8081 odbiera aktualne napięcie baterii, które Raspberry stale udostępnia. Komunikacja w ramach odczytu napięcia baterii odbywa się w osobnym wątku, aby nie zakłócać pozostałych operacji. Natomiast na port 8080 aplikacja z laptopa wysyła podane komendy.&lt;/p&gt;
+
+&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/TheDarkPhoenix/Snake&quot; style=&quot;background: #0366d6&quot;&gt;Aplikacja na laptopa  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/TheDarkPhoenix/Snake&quot; style=&quot;background: #0366d6&quot;&gt;Aplikacja na Raspberry  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;aplikacja-stereowizji&quot;&gt;Aplikacja Stereowizji&lt;/h2&gt;
+&lt;p&gt;Etapy realizacji stereowizji&lt;/p&gt;
+&lt;h3 id=&quot;wykonanie-zdjęć-kalibracyjnych&quot;&gt;Wykonanie zdjęć kalibracyjnych&lt;/h3&gt;
+&lt;p&gt;Aby skalibrować parę stereowizyjną wykonywane są zdjęcia ustalonego wzoru, np. szachownicy. W tym celu napisano aplikację, która wyświetlała obraz z obu kamer. Co ustalony czas zapisywała zdjęcie pod odpowiednią nazwą oraz tworzyła listę utworzonych obrazów. Wykonano około 50 zdjęć tak, aby jak najlepiej pokryć cały obszar widoku kamer.&lt;/p&gt;
+
+&lt;figure class=&quot;figure  figure--center&quot;&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/Hexapod/stereo12.png&quot; alt=&quot;Przykładowa para zdjęć wykonanych podczas kalibracji&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;caption&quot;&gt;Przykładowa para zdjęć wykonanych podczas kalibracji&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Widoczny na zdjęciach zamieszczonych powyżej jest także następny napotkany problem - obiektywy w obudowach kamer zamontowane były nierówno. Oczywiście to przesunięcie eliminowane jest podczas kalibracji, jednak w rezultacie podczas właściwej stereowizji ograniczone jest pole widzenia od góry i dołu (część pixeli widoczna jest tylko przez jedną kamerkę).&lt;/p&gt;
+&lt;h3 id=&quot;kalibracja&quot;&gt;Kalibracja&lt;/h3&gt;
+&lt;p&gt;Do samej kalibracji użyto przykładu z książki Learning OpenCV. W parametrach wywołania umieszczano wysokość oraz szerokość szachownicy (liczba pól), a także długość boku kwadratu w centymetrach. Bardzo ważne jest, aby szachownica miała kwadratowe pola, gdyż przy użyciu szachownicy o bokach różniących się nieznacznie cały proces kalibracji zostałby przeprowadzony niepoprawnie wraz z listą zdjęć, powstałych w trakcie tej błędnej kalibracji.&lt;/p&gt;
+
+&lt;figure class=&quot;figure  figure--center&quot;&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/Hexapod/stereo3.png&quot; alt=&quot;Wynik wykrywania krawędzi szachownicy&quot; width=&quot;400&quot; height=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;caption&quot;&gt;Wynik wykrywania krawędzi szachownicy&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&quot;figure  figure--center&quot;&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/Hexapod/stereo4.png&quot; alt=&quot;Wynik rektyfikacji&quot; width=&quot;700&quot; height=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;caption&quot;&gt;Wynik rektyfikacji&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;W wyniku działania kalibracji otrzymano parametry zewnętrzne oraz wewnętrzne kamer, które następnie używane były do właściwej stereowizji. Uzyskano błędy:
+błąd średniokwadratowy (RMS) = 0.0503053
+średni błąd epipolarny = 0.517146
+Są to wartości niskie, co świadczy o poprawnie wykonanej kalibracji.&lt;/p&gt;
+&lt;h3 id=&quot;wybór-algorytmu-oraz-dobranie-parametrów&quot;&gt;Wybór algorytmu oraz dobranie parametrów&lt;/h3&gt;
+&lt;p&gt;Najpierw przetestowano dostępne w bibliotece OpenCV algorytmy BM i SGBM. Lepsze rezultaty uzyskano dla SGBM. Jest on bardziej wymagający obliczeniowo, aczkolwiek przy rozdzielczości 320x240 można było uzyskać dobre przetwarzanie w czasie rzeczywistym. Następnie dobrano optymalne parametry dla tego algorytmu. W tym celu napisano aplikację na podstawie przykładu użycia SGBM zawartego w bibliotece OpenCV. Dodano do niej suwak tak, aby można było wygodnie zmieniać parametry i obserwować uzyskiwane rezultatu. Następnie dla przykładowej pary obrazów dobierano parametry w taki sposób, aby uzyskać jak najlepsze efekty.&lt;/p&gt;
+
+&lt;figure class=&quot;figure  figure--center&quot;&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/Hexapod/stereo5.png&quot; alt=&quot;Widok okna z paskami do zmiany parametrów&quot; width=&quot;400&quot; height=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;caption&quot;&gt;Widok okna z paskami do zmiany parametrów&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&quot;figure  figure--center&quot;&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/Hexapod/stereo6.png&quot; alt=&quot;Przykładowa scena użyta do doboru parametrów&quot; width=&quot;400&quot; height=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;caption&quot;&gt;Przykładowa scena użyta do doboru parametrów&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&quot;figure  figure--center&quot;&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/Hexapod/stereo7.png&quot; alt=&quot;Wynik przeprowadzenia stereowizji dla jednego zestawu parametrów&quot; width=&quot;400&quot; height=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;caption&quot;&gt;Wynik przeprowadzenia stereowizji dla jednego zestawu parametrów&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&quot;figure  figure--center&quot;&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/Hexapod/stereo8.png&quot; alt=&quot;Wynik przeprowadzenia stereowizji dla innej pary parametrów&quot; width=&quot;400&quot; height=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;caption&quot;&gt;Wynik przeprowadzenia stereowizji dla innej pary parametrów&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h3 id=&quot;dobranie-parametrów-dla-postfiltracji&quot;&gt;Dobranie parametrów dla postfiltracji&lt;/h3&gt;
+&lt;p&gt;W celu uzyskania gładszego obrazu stereowizyjnego zastosowano postfiltrację, która dodana została stosunkowo niedawno do modułów dodatkowych biblioteki OpenCV - contrib.&lt;/p&gt;
+
+&lt;figure class=&quot;figure  figure--center&quot;&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/Hexapod/stereo9.png&quot; alt=&quot;Efekt przeprowadzenia algorytmu SGBM przy optymalnych parametrach&quot; width=&quot;400&quot; height=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;caption&quot;&gt;Efekt przeprowadzenia algorytmu SGBM przy optymalnych parametrach&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&quot;figure  figure--center&quot;&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/Hexapod/stereo10.png&quot; alt=&quot;Efekt przeprowadzenia postfiltracji&quot; width=&quot;400&quot; height=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;caption&quot;&gt;Efekt przeprowadzenia postfiltracji&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Jak widać po przeprowadzeniu postfiltracji znacznie poprawił się uzyskany rezultat.&lt;/p&gt;
+&lt;h3 id=&quot;ostateczna-aplikacja&quot;&gt;Ostateczna aplikacja&lt;/h3&gt;
+&lt;p&gt;W ostatecznej aplikacji połączone zostały wszystkie opisane elementy. W wyniku czego otrzymano przesył obrazu z obu kamer na laptopa. Tam obraz był rektyfikowany, a pixele były dopasowywane za pomocą algorytmu SGBM. Przy użyciu posfiltracji obraz dysparcji jest poprawiany i na koniec wyświetlany. Dalszym etapem rozwojowym może być przeliczenie chmury punktów na podstawie dysparcji oraz następnie wykrywanie i omijanie przeszkód.&lt;/p&gt;
+
+&lt;h3 id=&quot;etapy-działania-stereowizji&quot;&gt;Etapy działania stereowizji&lt;/h3&gt;
+&lt;p&gt;rektyfikacja na podstawie parametrów uzyskanych podczas kalibracji
+SGBM z parametrami wcześniej wyznaczonymi
+postfiltracja&lt;/p&gt;
+
+&lt;p&gt;Poza samą realizacją stereowizji ważnym elementem był także optymalny przesył obrazu z obu kamer. Pierwszym podejściem było użycie MJPGstreamera. Efekty jednak nie były zadowalające. Klatki, które nie zostały jeszcze wysłane, były składowane w buforze. W wyniku czego, im dłużej działała aplikacja, tym większe było opóźnienie. Dodatkowo występowała różnica czasu pomiędzy klatkami z obu kamer, co w przypadku stereowizji jest nieakceptowalne. Dlatego zdecydowano się użyć gstreamera. Jest on bardziej zaawansowany, przez co uruchomienie go zajęło więcej czasu. Jednak uzyskany efekt jest bardzo dobry. W jego działaniu, jeśli nie zdąży się wysłać klatki przed przybyciem następnej, to zostaje ona porzucona. W wyniku tego wyeliminowane zostało rosnące opóźnienie. Dlatego też nie występowało już opóźnienie pomiędzy klatkami. Rozdzielczość przesyłanych obrazów wynosi 320x240. Przeprowadzono także testy dla rozdzielczości 640x480, ale spadek FPS (ang. “Frames per second”), czyli klatek na sekundę, był nieproporcjonalny do wzrostu jakości.&lt;/p&gt;
+
+&lt;h1 id=&quot;osiągnięcia&quot;&gt;Osiągnięcia&lt;/h1&gt;
+&lt;h2 id=&quot;zawody-robotyczne&quot;&gt;Zawody robotyczne&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Robocomp 2017 w Krakowie (kategoria Freestyle)&lt;/li&gt;
+  &lt;li&gt;Robotic Arena 2017 we Wrocławiu (kategorie Freestyle oraz wyścig robotów kroczących). Podczas tych zawodów zajęto pierwsze miejsce w kategorii wyścig robotów kroczących.&lt;/li&gt;
+  &lt;li&gt;Robomaticon 2018 w Warszawie (kategoria Freestyle)&lt;/li&gt;
+  &lt;li&gt;Robotic Tournament 2018 w Rybniku (kategoria Freestyle)
+    &lt;h2 id=&quot;wydarzenia&quot;&gt;Wydarzenia&lt;/h2&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Targi pracy Kariera IT&lt;/li&gt;
+  &lt;li&gt;TEDxAGHUniversity&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Sześcionogi stwór z kamerkami.</summary></entry><entry><title type="html">3D Viewer</title><link href="http://localhost:4000/oprogramowanie/2015/04/09/3dviewer/" rel="alternate" type="text/html" title="3D Viewer" /><published>2015-04-09T00:00:00+02:00</published><updated>2015-04-09T00:00:00+02:00</updated><id>http://localhost:4000/oprogramowanie/2015/04/09/3dviewer</id><content type="html" xml:base="http://localhost:4000/oprogramowanie/2015/04/09/3dviewer/">&lt;p&gt;Program służący do wyświetlania perspektywicznego punktów w 3D.&lt;/p&gt;
+
+&lt;figure class=&quot;figure  figure--center&quot;&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/viewer1.png&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Program ten napisałem w ramach lekcji Informatyki w Liceum. Zaimplementowałem wczytywanie chmur punktów z pliku txt. Są one w formacie współrzędne (X, Y, Z), a następnie kolory (R, G, B). Chmury punktów uzyskiwałem poprzez kamery stereowizyjne. Stworzyłem także możliwość wyświetlania kształtów geometrycznych, na przykład domku. Całość została napisana w Pascalu.&lt;/p&gt;
+
+&lt;figure class=&quot;figure  figure--center&quot;&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/viewer2.png&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/TheDarkPhoenix/3DViewer&quot; style=&quot;background: #0366d6&quot;&gt;3DViewer  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
+&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Program służący do wyświetlania perspektywicznego punktów w 3D.</summary></entry><entry><title type="html">2D Racing</title><link href="http://localhost:4000/oprogramowanie/2014/01/18/2dracing/" rel="alternate" type="text/html" title="2D Racing" /><published>2014-01-18T00:00:00+01:00</published><updated>2014-01-18T00:00:00+01:00</updated><id>http://localhost:4000/oprogramowanie/2014/01/18/2dracing</id><content type="html" xml:base="http://localhost:4000/oprogramowanie/2014/01/18/2dracing/">&lt;p&gt;Gra wyścigowa 2D z widokiem od góry. Napisana w języku C++ przy pomocy bibliotek SFML oraz Box2D.&lt;/p&gt;
 
 &lt;figure class=&quot;figure  figure--center&quot;&gt;
   &lt;img class=&quot;image&quot; src=&quot;/pics/2dracing1.png&quot; alt=&quot;&quot; width=&quot;500&quot; height=&quot;800&quot; /&gt;
@@ -21,22 +187,7 @@
 &lt;/div&gt;
 
 &lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/TheDarkPhoenix/2DRacing&quot; style=&quot;background: #0366d6&quot;&gt;2DRacing  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
-&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Gra wyścigowa 2D z widokiem od góry. Napisana w języku C++ przy pomocy bibliotek SFML oraz Box2D.</summary></entry><entry><title type="html">3D Viewer</title><link href="http://localhost:4000/oprogramowanie/2019/02/10/3dviewer/" rel="alternate" type="text/html" title="3D Viewer" /><published>2019-02-10T00:00:00+01:00</published><updated>2019-02-10T00:00:00+01:00</updated><id>http://localhost:4000/oprogramowanie/2019/02/10/3dviewer</id><content type="html" xml:base="http://localhost:4000/oprogramowanie/2019/02/10/3dviewer/">&lt;p&gt;Program służący do wyświetlania perspektywicznego punktów w 3D.&lt;/p&gt;
-
-&lt;figure class=&quot;figure  figure--center&quot;&gt;
-  &lt;img class=&quot;image&quot; src=&quot;/pics/viewer1.png&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
-  
-&lt;/figure&gt;
-
-&lt;p&gt;Program ten napisałem w ramach lekcji Informatyki w Liceum. Zaimplementowałem wczytywanie chmur punktów z pliku txt. Są one w formacie współrzędne (X, Y, Z), a następnie kolory (R, G, B). Chmury punktów uzyskiwałem poprzez kamery stereowizyjne. Stworzyłem także możliwość wyświetlania kształtów geometrycznych, na przykład domku. Całość została napisana w Pascalu.&lt;/p&gt;
-
-&lt;figure class=&quot;figure  figure--center&quot;&gt;
-  &lt;img class=&quot;image&quot; src=&quot;/pics/viewer2.png&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
-  
-&lt;/figure&gt;
-
-&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/TheDarkPhoenix/3DViewer&quot; style=&quot;background: #0366d6&quot;&gt;3DViewer  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
-&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Program służący do wyświetlania perspektywicznego punktów w 3D.</summary></entry><entry><title type="html">Blu</title><link href="http://localhost:4000/oprogramowanie/2019/02/10/Blu/" rel="alternate" type="text/html" title="Blu" /><published>2019-02-10T00:00:00+01:00</published><updated>2019-02-10T00:00:00+01:00</updated><id>http://localhost:4000/oprogramowanie/2019/02/10/Blu</id><content type="html" xml:base="http://localhost:4000/oprogramowanie/2019/02/10/Blu/">&lt;p&gt;Gra, w której jeździmy samochodem po wzgórzach zbierając monety oraz paliwo. Wykonana w języku C++ wraz z bibliotekami SFML oraz Box2D.&lt;/p&gt;
+&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Gra wyścigowa 2D z widokiem od góry. Napisana w języku C++ przy pomocy bibliotek SFML oraz Box2D.</summary></entry><entry><title type="html">Blu</title><link href="http://localhost:4000/oprogramowanie/2013/09/23/Blu/" rel="alternate" type="text/html" title="Blu" /><published>2013-09-23T00:00:00+02:00</published><updated>2013-09-23T00:00:00+02:00</updated><id>http://localhost:4000/oprogramowanie/2013/09/23/Blu</id><content type="html" xml:base="http://localhost:4000/oprogramowanie/2013/09/23/Blu/">&lt;p&gt;Gra, w której jeździmy samochodem po wzgórzach zbierając monety oraz paliwo. Wykonana w języku C++ wraz z bibliotekami SFML oraz Box2D.&lt;/p&gt;
 
 &lt;figure class=&quot;figure  figure--center&quot;&gt;
   &lt;img class=&quot;image&quot; src=&quot;/pics/blu3przyciete.png&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
@@ -51,7 +202,7 @@
 &lt;/div&gt;
 
 &lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/TheDarkPhoenix/Blu&quot; style=&quot;background: #0366d6&quot;&gt;Blu  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
-&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Gra, w której jeździmy samochodem po wzgórzach zbierając monety oraz paliwo. Wykonana w języku C++ wraz z bibliotekami SFML oraz Box2D.</summary></entry><entry><title type="html">Gry konsolowe</title><link href="http://localhost:4000/oprogramowanie/2019/02/10/gry-konsolowe/" rel="alternate" type="text/html" title="Gry konsolowe" /><published>2019-02-10T00:00:00+01:00</published><updated>2019-02-10T00:00:00+01:00</updated><id>http://localhost:4000/oprogramowanie/2019/02/10/gry-konsolowe</id><content type="html" xml:base="http://localhost:4000/oprogramowanie/2019/02/10/gry-konsolowe/">&lt;p&gt;Kółko i krzyżyk, Snake oraz Pong napisane w C++ w ramach projektu z Informatyki w Gimnazjum.&lt;/p&gt;
+&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Gra, w której jeździmy samochodem po wzgórzach zbierając monety oraz paliwo. Wykonana w języku C++ wraz z bibliotekami SFML oraz Box2D.</summary></entry><entry><title type="html">Gry konsolowe</title><link href="http://localhost:4000/oprogramowanie/2013/05/31/gry-konsolowe/" rel="alternate" type="text/html" title="Gry konsolowe" /><published>2013-05-31T00:00:00+02:00</published><updated>2013-05-31T00:00:00+02:00</updated><id>http://localhost:4000/oprogramowanie/2013/05/31/gry-konsolowe</id><content type="html" xml:base="http://localhost:4000/oprogramowanie/2013/05/31/gry-konsolowe/">&lt;p&gt;Kółko i krzyżyk, Snake oraz Pong napisane w C++ w ramach projektu z Informatyki w Gimnazjum.&lt;/p&gt;
 
 &lt;h3 id=&quot;snake&quot;&gt;Snake&lt;/h3&gt;
 &lt;figure class=&quot;figure  figure--center&quot;&gt;
