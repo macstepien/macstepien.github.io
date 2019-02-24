@@ -22,8 +22,8 @@ plugins:
 # Site settings
 url: 'https://thedarkphoenix.github.io/'
 baseurl: ''
-title: 'Projekty'
-description: 'Opisy projektów'
+title: 'Maciej Stępień'
+description: 'Projekty'
 permalink: pretty
 logo: "/pics/logo1.png"
 

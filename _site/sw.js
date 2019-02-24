@@ -1,8 +1,8 @@
-const version = '20190221160036';
+const version = '20190224160509';
 const cacheName = `static::${version}`;
 
 const buildContentBlob = () => {
-  return ["/roboty/2018/06/08/hexapod/","/oprogramowanie/2015/04/09/3dviewer/","/oprogramowanie/2014/01/18/2dracing/","/oprogramowanie/2013/09/23/Blu/","/oprogramowanie/2013/05/31/gry-konsolowe/","/about/","/categories/","/projekty/","/blog/","/","/manifest.json","/assets/search.json","/assets/styles.css","/redirects.json","/sitemap.xml","/robots.txt","/feed.xml","/pics/logo1.png", "/assets/default-offline-image.png", "/assets/scripts/fetch.js"
+  return ["/roboty/2018/06/08/hexapod/","/roboty/2015/08/25/mapping-robot/","/oprogramowanie/2015/04/09/3dviewer/","/oprogramowanie/2014/01/18/2dracing/","/oprogramowanie/2013/09/23/Blu/","/oprogramowanie/2013/05/31/gry-konsolowe/","/about/","/categories/","/projekty/","/blog/","/","/manifest.json","/assets/search.json","/assets/styles.css","/redirects.json","/sitemap.xml","/robots.txt","/blog/page2/","/feed.xml","/pics/logo1.png", "/assets/default-offline-image.png", "/assets/scripts/fetch.js"
   ]
 }
 

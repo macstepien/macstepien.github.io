@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-02-21T16:00:36+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Projekty</title><subtitle>Opisy projektów</subtitle><entry><title type="html">Hexapod</title><link href="http://localhost:4000/roboty/2018/06/08/hexapod/" rel="alternate" type="text/html" title="Hexapod" /><published>2018-06-08T00:00:00+02:00</published><updated>2018-06-08T00:00:00+02:00</updated><id>http://localhost:4000/roboty/2018/06/08/hexapod</id><content type="html" xml:base="http://localhost:4000/roboty/2018/06/08/hexapod/">&lt;p&gt;Sześcionogi stwór z kamerkami.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-02-24T16:05:09+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Maciej Stępień</title><subtitle>Projekty</subtitle><entry><title type="html">Hexapod</title><link href="http://localhost:4000/roboty/2018/06/08/hexapod/" rel="alternate" type="text/html" title="Hexapod" /><published>2018-06-08T00:00:00+02:00</published><updated>2018-06-08T00:00:00+02:00</updated><id>http://localhost:4000/roboty/2018/06/08/hexapod</id><content type="html" xml:base="http://localhost:4000/roboty/2018/06/08/hexapod/">&lt;p&gt;Sześcionogi stwór z kamerkami.&lt;/p&gt;
 
-&lt;p&gt;Projekt, którym zajmowałem się przez pierwsze 2 lata studiów w ramach działalności koła naukowego Integra. Moim wkładem było oprogramowanie to sterowania robota oraz stereowizji.&lt;/p&gt;
+&lt;p&gt;Projekt, którym zajmowałem się przez pierwsze 2 lata studiów w ramach działalności koła naukowego Integra. Moim wkładem było oprogramowanie do sterowania robota oraz stereowizji.&lt;/p&gt;
 
 &lt;figure class=&quot;figure  figure--center&quot;&gt;
   &lt;img class=&quot;image&quot; src=&quot;/pics/Hexapod/hexi.jpg&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
@@ -149,7 +149,58 @@ postfiltracja&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;Targi pracy Kariera IT&lt;/li&gt;
   &lt;li&gt;TEDxAGHUniversity&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Sześcionogi stwór z kamerkami.</summary></entry><entry><title type="html">3D Viewer</title><link href="http://localhost:4000/oprogramowanie/2015/04/09/3dviewer/" rel="alternate" type="text/html" title="3D Viewer" /><published>2015-04-09T00:00:00+02:00</published><updated>2015-04-09T00:00:00+02:00</updated><id>http://localhost:4000/oprogramowanie/2015/04/09/3dviewer</id><content type="html" xml:base="http://localhost:4000/oprogramowanie/2015/04/09/3dviewer/">&lt;p&gt;Program służący do wyświetlania perspektywicznego punktów w 3D.&lt;/p&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;figure  figure--center&quot;&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/Hexapod/robotic_arena.jpg&quot; alt=&quot;Prezentacja na zawodach Robotic Arena&quot; width=&quot;400&quot; height=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;caption&quot;&gt;Prezentacja na zawodach Robotic Arena&lt;/figcaption&gt;
+&lt;/figure&gt;</content><author><name></name></author><summary type="html">Sześcionogi stwór z kamerkami.</summary></entry><entry><title type="html">Robot mapujący</title><link href="http://localhost:4000/roboty/2015/08/25/mapping-robot/" rel="alternate" type="text/html" title="Robot mapujący" /><published>2015-08-25T00:00:00+02:00</published><updated>2015-08-25T00:00:00+02:00</updated><id>http://localhost:4000/roboty/2015/08/25/mapping-robot</id><content type="html" xml:base="http://localhost:4000/roboty/2015/08/25/mapping-robot/">&lt;p&gt;Robot laptopa wożący pokój mapujący.&lt;/p&gt;
+
+&lt;figure class=&quot;figure  figure--center&quot;&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/RobotMapujacy/front.jpg&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Ten robot jest drugą, uproszczoną wersją robota uniwersalnego. Wyciągając wnioski z poprzedniej konstrukcji uprościłem robota i jego jedynym zadaniem było mapowanie pomieszczeń. Także aby zadanie się udało zamieniłem Stereowizję na Kinecta, ponieważ rezultaty z niej osiągane nie były zadowalające. Dodałem także enkodery na koła, jednak wciąż zbyt pewny siebie zrobiłem swoje - inkrementalne bazujące na transoptorach. Nie sprawdzały się one idealnie, ale jednak pozwoliły osiągnąć rezultaty.&lt;/p&gt;
+
+&lt;figure class=&quot;figure  figure--center&quot;&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/RobotMapujacy/test.jpg&quot; alt=&quot;Prototypowanie eletkroniki&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;caption&quot;&gt;Prototypowanie eletkroniki&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Także w ramach zabawy z robotem zrealizowałem regulator PID i zadawałem punkt, do którego robot dojeżdżał.&lt;/p&gt;
+
+&lt;div class=&quot;embed-container&quot;&gt;
+  &lt;iframe width=&quot;720&quot; height=&quot;405&quot; src=&quot;https://drive.google.com/file/d/1SI5PMQt-zXZ0vf6xvoXPK_p1-t72E7ty/preview&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;
+  &lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Aby stworzyć mapę najpierw podrzebowałem odpowiednio obrobić dane. W danych głębi z Kinecta zawarte były informacje o podłodze oraz obiektach. Musiałem pozbyć się podłogi. Do osiągnięcia tego testowałem 2 metody: dopasowywanie płaszczyzny oparte na RANSACu z OpenCV oraz metodą UV-disparity, która przyspieszała obliczenia - wykrywałem linię zamiast płaszczyzny.&lt;/p&gt;
+
+&lt;figure class=&quot;figure  figure--center&quot;&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/RobotMapujacy/side.jpg&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Na tworzoną mapę typu Grid map nakładałem następnie wykryte obiekty. Do wyliczenia przesunięcia robota używałem wyłącznie enkoderów.&lt;/p&gt;
+&lt;figure class=&quot;figure  figure--center&quot;&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/RobotMapujacy/map.jpg&quot; alt=&quot;&quot; width=&quot;500&quot; height=&quot;800&quot; /&gt;
+  
+&lt;/figure&gt;
+
+&lt;div class=&quot;embed-container&quot;&gt;
+  &lt;iframe width=&quot;720&quot; height=&quot;405&quot; src=&quot;https://drive.google.com/file/d/11cBjTDrB67s6sojRpdoVRc-anlgDSwj5/preview&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;
+  &lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Próbowałem także wykorzystać SLAMa, aby zniwelować niedoskonałości enkoderów. Jednak tutaj barierą był system operacyjny - Windows, na którym nie udało mi się uruchomić żadnej implementacji. Było to także zbyt skomplikowane zadanie jak na wiedzę, którą posiadałem, aby stworzyć własną implementację.&lt;/p&gt;
+
+&lt;figure class=&quot;figure  figure--center&quot;&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/RobotMapujacy/pcb.jpg&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Do sterowania robotem użyłem mikrokontrolera Atmega88Pa. Komunikował się on z komputerem poprzez interfejs UART, wykorzystałem tutaj przejściówkę na USB. Sterował on silnikami - serwami pracy ciągłej. Także mierzył napięcie z transoptorów, zliczając impulsy poprzez zastowanie odpowiedniego progu. Także dla testu wykorzystałem podczerwony czujnik odległości. Do zasilenia całej konstrukcji użyłem akumulatora żelowego. Poprzez mikrokontroler mierzyłem jego napięcie, sprawdzając czy się rozładował. Musiałem także zastosować przetwornicę Step-Up, aby zasilić Kinecta, który wymaga 12V.&lt;/p&gt;</content><author><name></name></author><summary type="html">Robot laptopa wożący pokój mapujący.</summary></entry><entry><title type="html">3D Viewer</title><link href="http://localhost:4000/oprogramowanie/2015/04/09/3dviewer/" rel="alternate" type="text/html" title="3D Viewer" /><published>2015-04-09T00:00:00+02:00</published><updated>2015-04-09T00:00:00+02:00</updated><id>http://localhost:4000/oprogramowanie/2015/04/09/3dviewer</id><content type="html" xml:base="http://localhost:4000/oprogramowanie/2015/04/09/3dviewer/">&lt;p&gt;Program służący do wyświetlania perspektywicznego punktów w 3D.&lt;/p&gt;
 
 &lt;figure class=&quot;figure  figure--center&quot;&gt;
   &lt;img class=&quot;image&quot; src=&quot;/pics/viewer1.png&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
