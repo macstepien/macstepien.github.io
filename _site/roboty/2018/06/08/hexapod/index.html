@@ -306,15 +306,16 @@ Są to wartości niskie, co świadczy o poprawnie wykonanej kalibracji.</p>
 SGBM z parametrami wcześniej wyznaczonymi
 postfiltracja</p>
 
-<p>Poza samą realizacją stereowizji ważnym elementem był także optymalny przesył obrazu z obu kamer. Pierwszym podejściem było użycie MJPGstreamera. Efekty jednak nie były zadowalające. Klatki, które nie zostały jeszcze wysłane, były składowane w buforze. W wyniku czego, im dłużej działała aplikacja, tym większe było opóźnienie. Dodatkowo występowała różnica czasu pomiędzy klatkami z obu kamer, co w przypadku stereowizji jest nieakceptowalne. Dlatego zdecydowano się użyć gstreamera. Jest on bardziej zaawansowany, przez co uruchomienie go zajęło więcej czasu. Jednak uzyskany efekt jest bardzo dobry. W jego działaniu, jeśli nie zdąży się wysłać klatki przed przybyciem następnej, to zostaje ona porzucona. W wyniku tego wyeliminowane zostało rosnące opóźnienie. Dlatego też nie występowało już opóźnienie pomiędzy klatkami. Rozdzielczość przesyłanych obrazów wynosi 320x240. Przeprowadzono także testy dla rozdzielczości 640x480, ale spadek FPS (ang. “Frames per second”), czyli klatek na sekundę, był nieproporcjonalny do wzrostu jakości.</p>
+<p>Poza samą realizacją stereowizji ważnym elementem był także optymalny przesył obrazu z obu kamer. Pierwszym podejściem było użycie MJPGstreamera. Efekty jednak nie były zadowalające. Klatki, które nie zostały jeszcze wysłane, były składowane w buforze. W wyniku czego, im dłużej działała aplikacja, tym większe było opóźnienie. Dodatkowo występowała różnica czasu pomiędzy klatkami z obu kamer, co w przypadku stereowizji jest nieakceptowalne. Dlatego zdecydowano się użyć gstreamera. Jest on bardziej zaawansowany, przez co uruchomienie go zajęło więcej czasu. Jednak uzyskany efekt jest bardzo dobry. W jego działaniu, jeśli nie zdąży się wysłać klatki przed przybyciem następnej, to zostaje ona porzucona. W wyniku tego wyeliminowane zostało rosnące opóźnienie. Dlatego też nie występowało już opóźnienie pomiędzy klatkami. Rozdzielczość przesyłanych obrazów wynosi 320x240. Przeprowadzono także testy dla rozdzielczości 640x480, ale spadek FPS był nieproporcjonalny do wzrostu jakości.</p>
 
 <h3 id="osiągnięcia">Osiągnięcia</h3>
 <h4 id="zawody-robotyczne">Zawody robotyczne</h4>
 <ul>
   <li>Robocomp 2017 w Krakowie (kategoria Freestyle)</li>
-  <li>Robotic Arena 2017 we Wrocławiu (kategorie Freestyle oraz wyścig robotów kroczących). Podczas tych zawodów zajęto pierwsze miejsce w kategorii wyścig robotów kroczących.</li>
+  <li>Robotic Arena 2017 we Wrocławiu (kategorie Freestyle oraz wyścig robotów kroczących). Pierwsze miejsce w kategorii wyścig robotów kroczących.</li>
   <li>Robomaticon 2018 w Warszawie (kategoria Freestyle)</li>
-  <li>Robotic Tournament 2018 w Rybniku (kategoria Freestyle)
+  <li>Robotic Tournament 2018 w Rybniku (kategoria Freestyle)</li>
+  <li>Robotic Arena 2019 we Wrocławiu. Drugie miejsce w kategorii wyścig robotów kroczących.
     <h4 id="wydarzenia">Wydarzenia</h4>
   </li>
   <li>Targi pracy Kariera IT</li>
