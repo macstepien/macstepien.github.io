@@ -179,53 +179,45 @@ applyToggle('.list--nav', '.button', 640)
 
 <p>Do poruszania konstrukcją wykorzystane zostało 18 serw Hitec po 3 na każdą nogę. Jako główny komputer robota wykorzystalismy Raspberry Pi 2. Komunikowała się ona z sterownikiem serw Pololu poprzez interfejs UART umożliwiając zadawanie odpowiednich pozycji serw. Całą konstrukcję zasila bateria LiPol o pojemności 4000 mAh, co pozwalało na ok. 1h użytkowania robota. Napięcie z akumulatora  dostowywaliśmy za pomocą przetwornic (3 do zasilania serw oraz 1 dla Raspberry). Wykorzystaliśmy także przetwornik ADC MCP3008, aby móc mierzyć aktualne napięcie na baterii. Komunikował się on z Raspberry za pomocą SPI, a następnie napięcie było wysyłane i wyświetlane w aplikacji klienta.</p>
 
-<h2 id="oprogramowanie">Oprogramowanie</h2>
+<div class="embed-container">
+  <iframe width="720" height="405" src="https://drive.google.com/file/d/1noQKXlQ1vrXButIVJD5pkWKFF4-6Anj4/preview" frameborder="0" allowfullscreen="">
+  </iframe>
+</div>
+
+<p>Robot jest sterowany z poziomu laptopa, który komunikuje się z Raspberry poprzez WiFi przez protokół TCP. Do poruszania robotem można używać zarówno pada jak i klawiatury. W celu odpowiedniego sterowania najpierw napisałem aplikację obrazującą model matematyczny robota. Na tym modelu została zaimplementowana kinematyka odwrotna, na której następnie stworzyłem modele poruszania się robota. Odpowiednio przeliczone uzyskane kąty na sygnały PWM dla serwonapędów były wysyłane do sterownika.</p>
 
 <figure class="figure  figure--center">
   <img class="image" src="/pics/Hexapod/symulacja.png" alt="" width="600" height="800" />
   
 </figure>
 
-<p>Robot jest sterowany z poziomu laptopa, który komunikuje się z Raspberry poprzez WiFi przez protokół TCP. Do poruszania robotem można używać zarówno pada jak i klawiatury. W trakcie pokazów stosowaliśmy pad do Xboxa. W celu odpowiedniego sterowania najpierw została napisana aplikacja przy użyciu języka C++ oraz biblioteki OpenCV obrazującą model matematyczny robota. Na tym modelu została zaimplementowana kinematyka odwrotna, na której następnie stworzono modele poruszania się robota. Odpowiednio przeliczono uzyskane kąty na sygnały PWM dla serwonapędów, które następnie były wysyłane do sterownika.</p>
-<h3 id="aplikacja">Aplikacja</h3>
-<p>Ostatecznie aplikacja została rozdzielona na dwie. Jedna jest uruchamiana na laptopie. Zawiera wizualizacje modelu robota. Do drugiej są wysyłane odpowiednie komendy, na które fizycznie reaguje. Z Raspberry wysyłana jest informacja do aplikacji z aktualnym napięciem na baterii, dzięki czemu jej poziom jest na bieżąco monitorowany. Dodatkowa aplikacja służy do realizacji stereowizji. Raspberry wysyła obrazy z obu kamer przy użyciu programu gstreamer, który daje lepsze efekty pod względem opóźnień, co do innego popularnego programu MJPG streamer. Na laptopie oba obrazy są odbierane. Następnie przy użyciu odpowiednich macierzy - uzyskanych podczas kalibracji - przekształcana oraz liczona jest macierz obrazu dysparcji. Zastosowano także filtr po przeliczeniu dysparcji, który dość znacznie poprawia uzyskane rezultaty.</p>
+<h2 id="sterowanie-robotem">Sterowanie robotem</h2>
+<p>Aplikacja uruchamiana na laptopie zawiera wizualizacje modelu robota oraz odbiera sygnały sterowania od użytkownika, które następnie przekazuje do programu na Raspberry. On natomiast dokonuje odpowiednich przeliczeń na sygnały PWM, które następnie przekazuje do sterownika serw. Z Raspberry wysyłana jest także informacja zwrotna do aplikacji użytkownika z aktualnym napięciem na baterii, dzięki czemu jej poziom jest na bieżąco monitorowany. Osobny program służy do realizacji stereowizji. Raspberry wysyła obrazy z obu kamer przy użyciu programu gstreamer. Na laptopie oba obrazy są odbierane i następnie przy użyciu odpowiednich macierzy (uzyskanych podczas kalibracji) przekształcana oraz liczona jest macierz obrazu dysparcji. Zastosowałem także filtr po przeliczeniu dysparcji, który dodatkowo poprawia rezultaty.</p>
 
-<p>Aplikacja modelu Hexapoda
-Aplikacje można pracować w 2 trybach:
-po podaniu adresu IP Raspberry laptop się z nią połączy i będzie wysyłać odpowiednie komunikaty
-bez podania adresu będzie funkcjonować tylko jako model Hexapoda
-Tryb modelu
-W trybie modelu można poruszać się po środowisku za pomocą klawiszy W/S/A/D/Q/E oraz barów alfa, beta i gamma służących do zmiany kąta widzenia. Modelem robota poruszać można za pomocą klawiszy w/s/a/d/q/e oraz numerów służących do wyboru odpowiedniego trybu chodzenia robota.</p>
+<p>Aplikacje modelu Hexapoda można pracować w 2 trybach:</p>
+
+<h4 id="tryb-modelu">Tryb modelu</h4>
+<p>W trybie modelu można poruszać się po środowisku za pomocą klawiszy W/S/A/D/Q/E oraz barów alfa, beta i gamma służących do zmiany kąta widzenia. Modelem robota poruszać można za pomocą klawiszy w/s/a/d/q/e oraz numerów służących do wyboru odpowiedniego trybu chodzenia robota.</p>
 
 <div class="embed-container">
   <iframe width="720" height="405" src="https://drive.google.com/file/d/1-2V-3Jp_7RpoSwEOZEm2NZDnmNW3E-5M/preview" frameborder="0" allowfullscreen="">
   </iframe>
 </div>
 
-<p>Tryb połączenia z Hexapodem
-Sterowanie aplikacją na laptopie nie zmienia się. Różnica z poprzednio omówionym trybem (tryb modelu) jest taka, iż teraz odpowiednie komendy wysyłane są także do Hexapoda. Dodatkowo wyświetlane na ekranie laptopa jest również napięcie na baterii.</p>
+<h4 id="tryb-połączenia-z-hexapodem">Tryb połączenia z Hexapodem</h4>
+<p>Uruchamia się jeśli dodatkowo przekażemy do programu przy uruchomieniu adres IP Raspberry. Sterowanie aplikacją na laptopie nie zmienia się. Różnica z poprzednio omówionym trybem (tryb modelu) jest taka, iż teraz odpowiednie komendy wysyłane są także do Hexapoda. Dodatkowo wyświetlane na ekranie laptopa jest również napięcie na baterii.</p>
 
-<div class="embed-container">
-  <iframe width="720" height="405" src="https://drive.google.com/file/d/1gxw-k9vYHoB053OKuwQykvRbqoU_h9jQ/preview" frameborder="0" allowfullscreen="">
-  </iframe>
-</div>
-
-<div class="embed-container">
-  <iframe width="720" height="405" src="https://drive.google.com/file/d/14VnDA5TNAc8yevAEbiauvsbd-HcN76SV/preview" frameborder="0" allowfullscreen="">
-  </iframe>
-</div>
-
-<p>Bliższy opis zrealizowanej aplikacji</p>
+<p>Bliższy opis elementów zrealizowanej aplikacji</p>
 <h4 id="gui">GUI</h4>
-<p>Zadaniem najbardziej oddalonym od samej idei Hexapoda był moduł wyświetlania, czyli GUI. Do wyświetlania użyto wyłącznie prostego okienkowego trybu wyświetlania dołączonego do biblioteki OpenCV w celu debugowania. Zastosowano rzutowanie perspektywiczne zgodnie ze wzorami zawartymi w [1], aby otrzymać symulację w 3D. Zdefiniowano płaszczyznę kamery, na którą odbywało się rzutowanie świata 3D symulacji. Dodano przesuwanie płaszczyzną kamery za pomocą przycisków oraz możliwość jej obracania przy pomocy toolbarów.</p>
+<p>Zadaniem najbardziej oddalonym od samej idei Hexapoda był moduł wyświetlania, czyli GUI. Do wyświetlania użyto wyłącznie prostego okienkowego trybu wyświetlania dołączonego do biblioteki OpenCV w celu debugowania. Zastosowałem rzutowanie perspektywiczne zgodnie ze wzorami zawartymi w <a href="https://en.wikipedia.org/wiki/3D_projection" title="1">1</a>, aby otrzymać symulację w 3D. Zdefiniowałem płaszczyznę kamery, na którą odbywało się rzutowanie świata 3D symulacji. Dodałęm także przesuwanie płaszczyzną kamery za pomocą przycisków oraz możliwość jej obracania przy pomocy toolbarów.</p>
 <h4 id="robot">Robot</h4>
-<p>To jest główny moduł odpowiedzialny za obliczenia związane ze sterowaniem robota. Zawarto w nim implementację kinematyki odwrotnej w podejściu trygonometrycznym opisaną w [2]. Główna klasa robota zawiera klasę nóg robota, które są wydzielone. Jest osobna klasa, w której znajdują się różne algorytmy chodzenia.</p>
+<p>To jest główny moduł odpowiedzialny za obliczenia związane ze sterowaniem robota. Zawarłem w nim implementację kinematyki odwrotnej w podejściu trygonometrycznym opisaną w <a href="https://oscarliang.com/inverse-kinematics-and-trigonometry-basics/" title="2">2</a>. Główna klasa robota zawiera klasę nóg robota, które są wydzielone. Jest osobna klasa, w której znajdują się różne algorytmy chodzenia.</p>
 <h4 id="chodzenie">Chodzenie</h4>
 <p>Najlepsze efekty dawało chodzenie po paraboli. Dobierane są kolejne punkty paraboli, która zaczyna się w miejscu, gdzie aktualnie znajduje się końcówka nogi robota. Kończy się tam, gdzie ma się ostatecznie znaleźć. Przy użyciu kinematyki odwrotnej wyliczane są kąty tak, aby końcówka danej nogi znalazła się w punkcie docelowym.</p>
 <h4 id="pozostałe-moduły">Pozostałe moduły</h4>
-<p>Umieszczono model kontrolera, który odpowiednio interpretuje wysłane komendy na funkcje, np.: chodzenia lub poruszania bazą robota. Znajduje się tutaj również moduł do komunikacji z serwami (tylko w wersji programu dla Raspberry). Zamieniane są wyliczone kąty dla każdej nogi na odpowiednie sygnały PWM, dla każdego serwa (jedna noga składa się z trzech serwonapędów). Następnie są one wysyłane.</p>
+<p>Kontroler, który odpowiednio interpretuje wysłane komendy na funkcje, np.: chodzenia lub poruszania bazą robota. Znajduje się tutaj również moduł do komunikacji z serwami (tylko w wersji programu dla Raspberry). Zamieniane są wyliczone kąty dla każdej nogi na odpowiednie sygnały PWM, dla każdego serwa (jedna noga składa się z trzech serwonapędów). Następnie są one wysyłane.</p>
 <h4 id="tcp">TCP</h4>
-<p>W module TCP znajduję się cały kod do komunikacji pomiędzy Raspberry a laptopem. Kod został zaczerpnięty z [3]. W ramach komunikacji laptop łączy się z Raspberry i na porcie 8081 odbiera aktualne napięcie baterii, które Raspberry stale udostępnia. Komunikacja w ramach odczytu napięcia baterii odbywa się w osobnym wątku, aby nie zakłócać pozostałych operacji. Natomiast na port 8080 aplikacja z laptopa wysyła podane komendy.</p>
+<p>W module TCP znajduję się cały kod do komunikacji pomiędzy Raspberry a laptopem. Kod został zaczerpnięty z <a href="https://github.com/vichargrave/tcpsockets" title="3">3</a>. W ramach komunikacji laptop łączy się z Raspberry i na porcie 8081 odbiera aktualne napięcie baterii, które Raspberry stale udostępnia. Komunikacja w ramach odczytu napięcia baterii odbywa się w osobnym wątku, aby nie zakłócać pozostałych operacji. Natomiast na port 8080 aplikacja z laptopa wysyła podane komendy.</p>
 
 <p><a class="button" href="https://github.com/TheDarkPhoenix/HexapodPC" style="background: #0366d6">Aplikacja na laptopa  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
 </a></p>
@@ -233,10 +225,10 @@ Sterowanie aplikacją na laptopie nie zmienia się. Różnica z poprzednio omów
 <p><a class="button" href="https://github.com/TheDarkPhoenix/HexapodRaspberry" style="background: #0366d6">Aplikacja na Raspberry  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
 </a></p>
 
-<h2 id="aplikacja-stereowizji">Aplikacja Stereowizji</h2>
-<p>Etapy realizacji stereowizji</p>
+<h2 id="stereowizja">Stereowizja</h2>
+<p>Poniżej przedstawie krótki opis etapów realizacji stereowizji:</p>
 <h3 id="wykonanie-zdjęć-kalibracyjnych">Wykonanie zdjęć kalibracyjnych</h3>
-<p>Aby skalibrować parę stereowizyjną wykonywane są zdjęcia ustalonego wzoru, np. szachownicy. W tym celu napisano aplikację, która wyświetlała obraz z obu kamer. Co ustalony czas zapisywała zdjęcie pod odpowiednią nazwą oraz tworzyła listę utworzonych obrazów. Wykonano około 50 zdjęć tak, aby jak najlepiej pokryć cały obszar widoku kamer.</p>
+<p>Aby skalibrować parę stereowizyjną wykonywane są zdjęcia ustalonego wzoru, np. szachownicy. W tym celu napisałem aplikację, która wyświetlała obraz z obu kamer. Co ustalony czas zapisywała zdjęcie pod odpowiednią nazwą oraz tworzyła listę utworzonych obrazów. Wykonałem około 50 zdjęć tak, aby jak najlepiej pokryć cały obszar widoku kamer.</p>
 
 <figure class="figure  figure--center">
   <img class="image" src="/pics/Hexapod/stereo12.png" alt="Przykładowa para zdjęć wykonanych podczas kalibracji" width="600" height="800" />
@@ -245,7 +237,7 @@ Sterowanie aplikacją na laptopie nie zmienia się. Różnica z poprzednio omów
 
 <p>Widoczny na zdjęciach zamieszczonych powyżej jest także następny napotkany problem - obiektywy w obudowach kamer zamontowane były nierówno. Oczywiście to przesunięcie eliminowane jest podczas kalibracji, jednak w rezultacie podczas właściwej stereowizji ograniczone jest pole widzenia od góry i dołu (część pixeli widoczna jest tylko przez jedną kamerkę).</p>
 <h3 id="kalibracja">Kalibracja</h3>
-<p>Do samej kalibracji użyto przykładu z książki Learning OpenCV. W parametrach wywołania umieszczano wysokość oraz szerokość szachownicy (liczba pól), a także długość boku kwadratu w centymetrach. Bardzo ważne jest, aby szachownica miała kwadratowe pola, gdyż przy użyciu szachownicy o bokach różniących się nieznacznie cały proces kalibracji zostałby przeprowadzony niepoprawnie wraz z listą zdjęć, powstałych w trakcie tej błędnej kalibracji.</p>
+<p>Do samej kalibracji użyłem przykładu z książki Learning OpenCV. W parametrach wywołania umieszczano wysokość oraz szerokość szachownicy (liczba pól), a także długość boku kwadratu w centymetrach. Bardzo ważne jest, aby szachownica miała kwadratowe pola, gdyż przy użyciu szachownicy o bokach różniących się nieznacznie cały proces kalibracji zostałby przeprowadzony niepoprawnie wraz z listą zdjęć, powstałych w trakcie tej błędnej kalibracji.</p>
 
 <figure class="figure  figure--center">
   <img class="image" src="/pics/Hexapod/stereo3.png" alt="Wynik wykrywania krawędzi szachownicy" width="400" height="800" />
@@ -257,12 +249,12 @@ Sterowanie aplikacją na laptopie nie zmienia się. Różnica z poprzednio omów
   <figcaption class="caption">Wynik rektyfikacji</figcaption>
 </figure>
 
-<p>W wyniku działania kalibracji otrzymano parametry zewnętrzne oraz wewnętrzne kamer, które następnie używane były do właściwej stereowizji. Uzyskano błędy:
+<p>W wyniku działania kalibracji otrzymałem parametry zewnętrzne oraz wewnętrzne kamer, które następnie używane były do właściwej stereowizji. Uzyskano błędy:
 błąd średniokwadratowy (RMS) = 0.0503053
 średni błąd epipolarny = 0.517146
 Są to wartości niskie, co świadczy o poprawnie wykonanej kalibracji.</p>
 <h3 id="wybór-algorytmu-oraz-dobranie-parametrów">Wybór algorytmu oraz dobranie parametrów</h3>
-<p>Najpierw przetestowano dostępne w bibliotece OpenCV algorytmy BM i SGBM. Lepsze rezultaty uzyskano dla SGBM. Jest on bardziej wymagający obliczeniowo, aczkolwiek przy rozdzielczości 320x240 można było uzyskać dobre przetwarzanie w czasie rzeczywistym. Następnie dobrano optymalne parametry dla tego algorytmu. W tym celu napisano aplikację na podstawie przykładu użycia SGBM zawartego w bibliotece OpenCV. Dodano do niej suwak tak, aby można było wygodnie zmieniać parametry i obserwować uzyskiwane rezultatu. Następnie dla przykładowej pary obrazów dobierano parametry w taki sposób, aby uzyskać jak najlepsze efekty.</p>
+<p>Najpierw przetestowałem dostępne w bibliotece OpenCV algorytmy BM i SGBM, lepsze rezultaty uzyskałem dla SGBM. Jest on bardziej wymagający obliczeniowo, aczkolwiek przy rozdzielczości 320x240 można było uzyskać dobre przetwarzanie w czasie rzeczywistym. Następnie dobrałem optymalne parametry dla tego algorytmu. W tym celu napisałem aplikację na podstawie przykładu użycia SGBM zawartego w bibliotece OpenCV. Dodałem do niej suwak tak, aby można było wygodnie zmieniać parametry i obserwować uzyskiwane rezultatu.</p>
 
 <figure class="figure  figure--center">
   <img class="image" src="/pics/Hexapod/stereo5.png" alt="Widok okna z paskami do zmiany parametrów" width="400" height="800" />
@@ -275,17 +267,12 @@ Są to wartości niskie, co świadczy o poprawnie wykonanej kalibracji.</p>
 </figure>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Hexapod/stereo7.png" alt="Wynik przeprowadzenia stereowizji dla jednego zestawu parametrów" width="400" height="800" />
-  <figcaption class="caption">Wynik przeprowadzenia stereowizji dla jednego zestawu parametrów</figcaption>
-</figure>
-
-<figure class="figure  figure--center">
-  <img class="image" src="/pics/Hexapod/stereo8.png" alt="Wynik przeprowadzenia stereowizji dla innej pary parametrów" width="400" height="800" />
-  <figcaption class="caption">Wynik przeprowadzenia stereowizji dla innej pary parametrów</figcaption>
+  <img class="image" src="/pics/Hexapod/stereo7.png" alt="Wynik przeprowadzenia stereowizji" width="400" height="800" />
+  <figcaption class="caption">Wynik przeprowadzenia stereowizji</figcaption>
 </figure>
 
 <h3 id="dobranie-parametrów-dla-postfiltracji">Dobranie parametrów dla postfiltracji</h3>
-<p>W celu uzyskania gładszego obrazu stereowizyjnego zastosowano postfiltrację, która dodana została stosunkowo niedawno do modułów dodatkowych biblioteki OpenCV - contrib.</p>
+<p>W celu uzyskania gładszego obrazu stereowizyjnego zastosowałem postfiltrację, która dodana została stosunkowo niedawno do modułów dodatkowych biblioteki OpenCV - contrib.</p>
 
 <figure class="figure  figure--center">
   <img class="image" src="/pics/Hexapod/stereo9.png" alt="Efekt przeprowadzenia algorytmu SGBM przy optymalnych parametrach" width="400" height="800" />
@@ -297,14 +284,8 @@ Są to wartości niskie, co świadczy o poprawnie wykonanej kalibracji.</p>
   <figcaption class="caption">Efekt przeprowadzenia postfiltracji</figcaption>
 </figure>
 
-<p>Jak widać po przeprowadzeniu postfiltracji znacznie poprawił się uzyskany rezultat.</p>
 <h3 id="ostateczna-aplikacja">Ostateczna aplikacja</h3>
 <p>W ostatecznej aplikacji połączone zostały wszystkie opisane elementy. W wyniku czego otrzymano przesył obrazu z obu kamer na laptopa. Tam obraz był rektyfikowany, a pixele były dopasowywane za pomocą algorytmu SGBM. Przy użyciu posfiltracji obraz dysparcji jest poprawiany i na koniec wyświetlany. Dalszym etapem rozwojowym może być przeliczenie chmury punktów na podstawie dysparcji oraz następnie wykrywanie i omijanie przeszkód.</p>
-
-<h3 id="etapy-działania-stereowizji">Etapy działania stereowizji</h3>
-<p>rektyfikacja na podstawie parametrów uzyskanych podczas kalibracji
-SGBM z parametrami wcześniej wyznaczonymi
-postfiltracja</p>
 
 <p>Poza samą realizacją stereowizji ważnym elementem był także optymalny przesył obrazu z obu kamer. Pierwszym podejściem było użycie MJPGstreamera. Efekty jednak nie były zadowalające. Klatki, które nie zostały jeszcze wysłane, były składowane w buforze. W wyniku czego, im dłużej działała aplikacja, tym większe było opóźnienie. Dodatkowo występowała różnica czasu pomiędzy klatkami z obu kamer, co w przypadku stereowizji jest nieakceptowalne. Dlatego zdecydowano się użyć gstreamera. Jest on bardziej zaawansowany, przez co uruchomienie go zajęło więcej czasu. Jednak uzyskany efekt jest bardzo dobry. W jego działaniu, jeśli nie zdąży się wysłać klatki przed przybyciem następnej, to zostaje ona porzucona. W wyniku tego wyeliminowane zostało rosnące opóźnienie. Dlatego też nie występowało już opóźnienie pomiędzy klatkami. Rozdzielczość przesyłanych obrazów wynosi 320x240. Przeprowadzono także testy dla rozdzielczości 640x480, ale spadek FPS był nieproporcjonalny do wzrostu jakości.</p>
 
