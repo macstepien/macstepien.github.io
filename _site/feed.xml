@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-03-27T20:04:54+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Maciej Stępień</title><subtitle>Projekty</subtitle><entry><title type="html">Czołg</title><link href="http://localhost:4000/roboty/2019/03/27/tank/" rel="alternate" type="text/html" title="Czołg" /><published>2019-03-27T00:00:00+01:00</published><updated>2019-03-27T00:00:00+01:00</updated><id>http://localhost:4000/roboty/2019/03/27/tank</id><content type="html" xml:base="http://localhost:4000/roboty/2019/03/27/tank/">&lt;p&gt;Pojazd uniwersalny oparty o Raspberry Pi Zero.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-03-27T20:30:07+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Maciej Stępień</title><subtitle>Projekty</subtitle><entry><title type="html">Czołg</title><link href="http://localhost:4000/roboty/2019/03/27/tank/" rel="alternate" type="text/html" title="Czołg" /><published>2019-03-27T00:00:00+01:00</published><updated>2019-03-27T00:00:00+01:00</updated><id>http://localhost:4000/roboty/2019/03/27/tank</id><content type="html" xml:base="http://localhost:4000/roboty/2019/03/27/tank/">&lt;p&gt;Pojazd uniwersalny oparty o Raspberry Pi Zero.&lt;/p&gt;
 
 &lt;figure class=&quot;figure  figure--center&quot;&gt;
   &lt;img class=&quot;image&quot; src=&quot;/pics/Czolg/front.jpg&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
@@ -191,7 +191,31 @@ Są to wartości niskie, co świadczy o poprawnie wykonanej kalibracji.&lt;/p&gt
   &lt;figcaption class=&quot;caption&quot;&gt;Prezentacja na zawodach Robotic Arena fot. Politechnika Wrocławska&lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://www.integra.agh.edu.pl/robot-kroczacy-freestyle/&quot; title=&quot;Strona projektu&quot;&gt;Strona projektu&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Sześcionogi stwór z kamerkami.</summary></entry><entry><title type="html">Robot mapujący</title><link href="http://localhost:4000/roboty/2015/08/25/mapping-robot/" rel="alternate" type="text/html" title="Robot mapujący" /><published>2015-08-25T00:00:00+02:00</published><updated>2015-08-25T00:00:00+02:00</updated><id>http://localhost:4000/roboty/2015/08/25/mapping-robot</id><content type="html" xml:base="http://localhost:4000/roboty/2015/08/25/mapping-robot/">&lt;p&gt;Robot laptopa wożący pokój mapujący.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.integra.agh.edu.pl/robot-kroczacy-freestyle/&quot; title=&quot;Strona projektu&quot;&gt;Strona projektu&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Sześcionogi stwór z kamerkami.</summary></entry><entry><title type="html">Cewka Tesli</title><link href="http://localhost:4000/elektronika/2015/12/10/cewkatesli/" rel="alternate" type="text/html" title="Cewka Tesli" /><published>2015-12-10T00:00:00+01:00</published><updated>2015-12-10T00:00:00+01:00</updated><id>http://localhost:4000/elektronika/2015/12/10/cewkatesli</id><content type="html" xml:base="http://localhost:4000/elektronika/2015/12/10/cewkatesli/">&lt;p&gt;Robi się groźnie.&lt;/p&gt;
+
+&lt;figure class=&quot;figure  figure--center&quot;&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/cewkatesli/wieksza.jpg&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Projekt cewki tesli wykonany na podstawie 
+&lt;a href=&quot;https://www.electroboom.com/?p=521&quot; title=&quot;ElectroBoom&quot;&gt;ElectroBoom&lt;/a&gt;
+oraz
+&lt;a href=&quot;https://www.youtube.com/watch?v=4OC7cwI4RNM&quot; title=&quot;Ludic Science&quot;&gt;Ludic Science&lt;/a&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;figure  figure--center&quot;&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/cewkatesli/oryginal.jpg&quot; alt=&quot;&quot; width=&quot;400&quot; height=&quot;800&quot; /&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Najpierw wykonałem mniejszą wersję opartą na jednym tranzystorze, zasilaną baterią 9V.&lt;/p&gt;
+
+&lt;figure class=&quot;figure  figure--center&quot;&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/cewkatesli/nawijanie.jpg&quot; alt=&quot;Nawijanie cewki&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;caption&quot;&gt;Nawijanie cewki&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Następnie wykonałem cewkę o większych rozmiarach, w ktrórej zastosowałem 4 tranzystory oraz dodatkowy radiator, aby zapewnić odpowiednie chłodzenie. Jako źródło energii użyłem zasilacza od drukarki.&lt;/p&gt;</content><author><name></name></author><summary type="html">Robi się groźnie.</summary></entry><entry><title type="html">Robot mapujący</title><link href="http://localhost:4000/roboty/2015/08/25/mapping-robot/" rel="alternate" type="text/html" title="Robot mapujący" /><published>2015-08-25T00:00:00+02:00</published><updated>2015-08-25T00:00:00+02:00</updated><id>http://localhost:4000/roboty/2015/08/25/mapping-robot</id><content type="html" xml:base="http://localhost:4000/roboty/2015/08/25/mapping-robot/">&lt;p&gt;Robot laptopa wożący pokój mapujący.&lt;/p&gt;
 
 &lt;figure class=&quot;figure  figure--center&quot;&gt;
   &lt;img class=&quot;image&quot; src=&quot;/pics/RobotMapujacy/front.jpg&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
