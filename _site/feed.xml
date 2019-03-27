@@ -1,4 +1,54 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-02-27T15:55:34+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Maciej Stępień</title><subtitle>Projekty</subtitle><entry><title type="html">Hexapod</title><link href="http://localhost:4000/roboty/2018/06/08/hexapod/" rel="alternate" type="text/html" title="Hexapod" /><published>2018-06-08T00:00:00+02:00</published><updated>2018-06-08T00:00:00+02:00</updated><id>http://localhost:4000/roboty/2018/06/08/hexapod</id><content type="html" xml:base="http://localhost:4000/roboty/2018/06/08/hexapod/">&lt;p&gt;Sześcionogi stwór z kamerkami.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-03-27T19:27:10+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Maciej Stępień</title><subtitle>Projekty</subtitle><entry><title type="html">Czołg</title><link href="http://localhost:4000/roboty/2019/03/27/tank/" rel="alternate" type="text/html" title="Czołg" /><published>2019-03-27T00:00:00+01:00</published><updated>2019-03-27T00:00:00+01:00</updated><id>http://localhost:4000/roboty/2019/03/27/tank</id><content type="html" xml:base="http://localhost:4000/roboty/2019/03/27/tank/">&lt;p&gt;Pojazd uniwersalny oparty o Raspberry Pi Zero.&lt;/p&gt;
+
+&lt;figure class=&quot;figure  figure--center&quot;&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/Czolg/front.jpg&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Umożliwia obserwację obrazu z kamerki, odczyt napięcia na baterii (poziom rozładowania ), temperatury z Raspberry oraz wartości enkoderów. Dotychczas odczytów z enkoderów nie wykorzystałem w sposób praktyczny, jednak zamieszczenie ich umożliwi dalszy rozwój konstrukcji.&lt;/p&gt;
+
+&lt;div class=&quot;embed-container&quot;&gt;
+  &lt;iframe width=&quot;720&quot; height=&quot;405&quot; src=&quot;https://drive.google.com/file/d/1QSsrb819J34oQ7zTbSGpt-7YVE9Y9KgX/preview&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;
+  &lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Projekt ten zaczął się od płytki PCB.&lt;/p&gt;
+&lt;figure class=&quot;figure  figure--center&quot;&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/Czolg/pierwotna.jpg&quot; alt=&quot;Płytka wraz z podłączonymi wszystkimi elementami&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;caption&quot;&gt;Płytka wraz z podłączonymi wszystkimi elementami&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Miała być wykorzystana do sterowania robotem z następującymi elementami:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;dwa silniki z enkoderami&lt;/li&gt;
+  &lt;li&gt;trzy serwa&lt;/li&gt;
+  &lt;li&gt;komunikacja z Raspberry pooprzez SPI&lt;/li&gt;
+  &lt;li&gt;pomiar napięcia z baterii&lt;/li&gt;
+  &lt;li&gt;dwa LEDy ( uruchomienie oraz rozładowanie)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;figure  figure--center&quot;&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/Czolg/testowanie.jpg&quot; alt=&quot;Złożony schemat prototypowany na płytce stykowej&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;caption&quot;&gt;Złożony schemat prototypowany na płytce stykowej&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Jako źródło zasilania wykorzystałem LiPola oraz 2 przetwornicę: jedną do logigki oraz drugą do serw. W trakcie realizacji projektu jednak zorientowałem się, że ten mikrokontroler jest za słaby. Było to spowodowane tym, że potrzebowałem 3 kanałów PWM do serw oraz 2 do sterowania prędkością silników. Nie miałem jednak dostępnej takiej liczby, dlatego sygnały PWM dla serw musiałem generować programowo, przez co znacznie wzrosło obciążenie procesora. Doliczając do tego bardzo często przerwania zewnętrzne z dwóch enkoderów, nie byłem w stanie dostarczyć wystarczająco dokładnego przebiegu PWM by sterować serwami. Dlatego ostatecznie pominąłem użycie serw w tym projekcie.&lt;/p&gt;
+
+&lt;figure class=&quot;figure  figure--center&quot;&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/Czolg/plytkawobudowie.jpg&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Konstrukcja czołgu została wykonana na drukarce 3D, a jej projekt zaczerpnąłem z 
+&lt;a href=&quot;https://www.thingiverse.com/thing:652851&quot; title=&quot;Konstrukcja&quot;&gt;https://www.thingiverse.com/thing:652851&lt;/a&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;figure  figure--center&quot;&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/Czolg/plytka.jpg&quot; alt=&quot;Płytka po wytrawieniu&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;caption&quot;&gt;Płytka po wytrawieniu&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Robotem steruje się poprzez przeglądarkę. W tym celu użyłem skryptu z &lt;a href=&quot;https://hackaday.io/project/25092-zerobot-raspberry-pi-zero-fpv-robot/log/97988-the-new-zerobot-pro&quot; title=&quot;Skrypt&quot;&gt;https://hackaday.io/project/25092-zerobot-raspberry-pi-zero-fpv-robot/log/97988-the-new-zerobot-pro&lt;/a&gt;
+,który odpowiednio przerobiłem do swoich potrzeb ( zamiana sterowania na takie wykorzystujące SPI).&lt;/p&gt;</content><author><name></name></author><summary type="html">Pojazd uniwersalny oparty o Raspberry Pi Zero.</summary></entry><entry><title type="html">Hexapod</title><link href="http://localhost:4000/roboty/2018/06/08/hexapod/" rel="alternate" type="text/html" title="Hexapod" /><published>2018-06-08T00:00:00+02:00</published><updated>2018-06-08T00:00:00+02:00</updated><id>http://localhost:4000/roboty/2018/06/08/hexapod</id><content type="html" xml:base="http://localhost:4000/roboty/2018/06/08/hexapod/">&lt;p&gt;Sześcionogi stwór z kamerkami.&lt;/p&gt;
 
 &lt;p&gt;Projekt, którym zajmowałem się przez pierwsze 2 lata studiów w ramach działalności koła naukowego Integra. Moim wkładem było oprogramowanie do sterowania robota oraz stereowizji.&lt;/p&gt;
 
@@ -118,6 +168,9 @@ Są to wartości niskie, co świadczy o poprawnie wykonanej kalibracji.&lt;/p&gt
 &lt;p&gt;W ostatecznej aplikacji połączone zostały wszystkie opisane elementy. W wyniku czego otrzymano przesył obrazu z obu kamer na laptopa. Tam obraz był rektyfikowany, a pixele były dopasowywane za pomocą algorytmu SGBM. Przy użyciu posfiltracji obraz dysparcji jest poprawiany i na koniec wyświetlany. Dalszym etapem rozwojowym może być przeliczenie chmury punktów na podstawie dysparcji oraz następnie wykrywanie i omijanie przeszkód.&lt;/p&gt;
 
 &lt;p&gt;Poza samą realizacją stereowizji ważnym elementem był także optymalny przesył obrazu z obu kamer. Pierwszym podejściem było użycie MJPGstreamera. Efekty jednak nie były zadowalające. Klatki, które nie zostały jeszcze wysłane, były składowane w buforze. W wyniku czego, im dłużej działała aplikacja, tym większe było opóźnienie. Dodatkowo występowała różnica czasu pomiędzy klatkami z obu kamer, co w przypadku stereowizji jest nieakceptowalne. Dlatego zdecydowano się użyć gstreamera. Jest on bardziej zaawansowany, przez co uruchomienie go zajęło więcej czasu. Jednak uzyskany efekt jest bardzo dobry. W jego działaniu, jeśli nie zdąży się wysłać klatki przed przybyciem następnej, to zostaje ona porzucona. W wyniku tego wyeliminowane zostało rosnące opóźnienie. Dlatego też nie występowało już opóźnienie pomiędzy klatkami. Rozdzielczość przesyłanych obrazów wynosi 320x240. Przeprowadzono także testy dla rozdzielczości 640x480, ale spadek FPS był nieproporcjonalny do wzrostu jakości.&lt;/p&gt;
+
+&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/TheDarkPhoenix/HexapodStereovision&quot; style=&quot;background: #0366d6&quot;&gt;Stereowizja  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
+&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;osiągnięcia&quot;&gt;Osiągnięcia&lt;/h3&gt;
 &lt;h4 id=&quot;zawody-robotyczne&quot;&gt;Zawody robotyczne&lt;/h4&gt;

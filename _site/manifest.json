@@ -4,12 +4,6 @@
   "short_name": "MaciejStępień",
   "theme_color": "#24292e",
   "background_color": "#ffffff",
-  "icons": [
-    {
-      "src": "/pics/logo1.png",
-      "sizes": "512x512"
-    }
-  ],
   "start_url": "/",
   "display": "standalone"
 }
