@@ -3,6 +3,10 @@ layout: post
 title: Robot mapujący
 categories:
 - Roboty
+excerpt: |
+ Robot laptopa wożący pokój mapujący.
+  
+ <img width="200" height="200" src="/pics/RobotMapujacy/front.jpg"> 
 ---
 
 Robot laptopa wożący pokój mapujący.

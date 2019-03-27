@@ -3,6 +3,10 @@ layout: post
 title: Gry konsolowe
 categories:
 - Oprogramowanie
+excerpt: |
+ Kółko i krzyżyk, Snake oraz Pong napisane w C++ w ramach projektu z Informatyki w Gimnazjum.
+  
+ <img width="200" height="200" src="/pics/Snake.png"> 
 ---
 
 Kółko i krzyżyk, Snake oraz Pong napisane w C++ w ramach projektu z Informatyki w Gimnazjum.

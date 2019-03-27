@@ -3,6 +3,10 @@ layout: post
 title: Robot uniwersalny
 categories:
 - Roboty
+excerpt: |
+ Miał robić kawę...
+  
+ <img width="150" height="150" src="/pics/RobotUniwersalny/robot.jpg"> 
 ---
 
 Miał robić kawę...

@@ -36,6 +36,7 @@ navigation_header:
   Home: /
   About: /about/
   Projekty: /projekty/
+  Kategorie: /categories/
 
 # Footer nav
 navigation_footer:
@@ -45,8 +46,4 @@ navigation_footer:
 collections:
   posts:
     title: Posts
-    output: true
-    description: "My thoughts and ideas"
-    feature_text: |
-      Welcome to my blog
-    feature_image: "pics/tlo.jpg"
+

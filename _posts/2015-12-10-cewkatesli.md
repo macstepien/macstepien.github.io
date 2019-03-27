@@ -3,6 +3,10 @@ layout: post
 title: Cewka Tesli
 categories:
 - Elektronika
+excerpt: |
+ Robi się groźnie.
+  
+ <img width="200" height="200" src="/pics/cewkatesli/wieksza.jpg"> 
 ---
 
 Robi się groźnie.
