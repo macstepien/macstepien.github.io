@@ -48,6 +48,13 @@
       },
     
       {
+        "title": "Efekt gitarowy Fuzz",
+        "excerpt": "\n",
+        "content": "Efekt gitarowy wykonany na podstawie schematu:\n\n  \n  \n\n",
+        "url": "/elektronika/2015/06/20/fuzz/"
+      },
+    
+      {
         "title": "Robot mapujący",
         "excerpt": "Robot laptopa wożący pokój mapujący.\n\n\n",
         "content": "Robot laptopa wożący pokój mapujący.\n\n\n  \n  \n\n\nTen robot jest drugą, uproszczoną wersją robota uniwersalnego. Wyciągając wnioski z poprzedniej konstrukcji uprościłem robota i jego jedynym zadaniem było mapowanie pomieszczeń. Także aby zadanie się udało zamieniłem Stereowizję na Kinecta, ponieważ rezultaty z niej osiągane nie były zadowalające. Dodałem także enkodery na koła, jednak wciąż zbyt pewny siebie zrobiłem swoje - inkrementalne bazujące na transoptorach. Nie sprawdzały się one idealnie, ale jednak pozwoliły osiągnąć rezultaty.\n\n\n  \n  Prototypowanie eletkroniki\n\n\nTakże w ramach zabawy z robotem zrealizowałem regulator PID i zadawałem punkt, do którego robot dojeżdżał.\n\nPID  github\n\n\n\n  \n  \n\n\nAby stworzyć mapę najpierw podrzebowałem odpowiednio obrobić dane. W danych głębi z Kinecta zawarte były informacje o podłodze oraz obiektach. Musiałem pozbyć się podłogi. Do osiągnięcia tego testowałem 2 metody: dopasowywanie płaszczyzny oparte na RANSACu z OpenCV oraz metodą UV-disparity, która przyspieszała obliczenia - wykrywałem linię zamiast płaszczyzny.\n\n\n  \n  \n\n\nNa tworzoną mapę typu Grid map nakładałem następnie wykryte obiekty. Do wyliczenia przesunięcia robota używałem wyłącznie enkoderów.\n\n  \n  \n\n\nMapowanie Kinect  github\n\n\n\n  \n  \n\n\nMapowanie Stereowizja  github\n\n\nPróbowałem także wykorzystać SLAMa, aby zniwelować niedoskonałości enkoderów. Jednak tutaj barierą był system operacyjny - Windows, na którym nie udało mi się uruchomić żadnej implementacji. Było to także zbyt skomplikowane zadanie jak na wiedzę, którą posiadałem, aby stworzyć własną implementację.\n\n\n  \n  \n\n\nDo sterowania robotem użyłem mikrokontrolera Atmega88Pa. Komunikował się on z komputerem poprzez interfejs UART, wykorzystałem tutaj przejściówkę na USB. Sterował on silnikami - serwami pracy ciągłej. Także mierzył napięcie z transoptorów, zliczając impulsy poprzez zastowanie odpowiedniego progu. Także dla testu wykorzystałem podczerwony czujnik odległości. Do zasilenia całej konstrukcji użyłem akumulatora żelowego. Poprzez mikrokontroler mierzyłem jego napięcie, sprawdzając czy się rozładował. Musiałem także zastosować przetwornicę Step-Up, aby zasilić Kinecta, który wymaga 12V.\n\nSterownik Robota  github\n\n",
