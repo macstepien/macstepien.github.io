@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-03-28T14:12:25+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Maciej Stępień</title><subtitle>Projekty</subtitle><entry><title type="html">Czołg</title><link href="http://localhost:4000/roboty/2019/03/27/tank/" rel="alternate" type="text/html" title="Czołg" /><published>2019-03-27T00:00:00+01:00</published><updated>2019-03-27T00:00:00+01:00</updated><id>http://localhost:4000/roboty/2019/03/27/tank</id><content type="html" xml:base="http://localhost:4000/roboty/2019/03/27/tank/">&lt;p&gt;Pojazd uniwersalny oparty o Raspberry Pi Zero.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-03-28T20:08:05+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Maciej Stępień</title><subtitle>Projekty</subtitle><entry><title type="html">Czołg</title><link href="http://localhost:4000/roboty/2019/03/27/tank/" rel="alternate" type="text/html" title="Czołg" /><published>2019-03-27T00:00:00+01:00</published><updated>2019-03-27T00:00:00+01:00</updated><id>http://localhost:4000/roboty/2019/03/27/tank</id><content type="html" xml:base="http://localhost:4000/roboty/2019/03/27/tank/">&lt;p&gt;Pojazd uniwersalny oparty o Raspberry Pi Zero.&lt;/p&gt;
 
 &lt;figure class=&quot;figure  figure--center&quot;&gt;
   &lt;img class=&quot;image&quot; src=&quot;/pics/Czolg/front.jpg&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
@@ -63,7 +63,7 @@
 &lt;p&gt;Do poruszania konstrukcją wykorzystane zostało 18 serw Hitec po 3 na każdą nogę. Jako główny komputer robota wykorzystalismy Raspberry Pi 2. Komunikowała się ona z sterownikiem serw Pololu poprzez interfejs UART umożliwiając zadawanie odpowiednich pozycji serw. Całą konstrukcję zasila bateria LiPol o pojemności 4000 mAh, co pozwalało na ok. 1h użytkowania robota. Napięcie z akumulatora  dostowywaliśmy za pomocą przetwornic (3 do zasilania serw oraz 1 dla Raspberry). Wykorzystaliśmy także przetwornik ADC MCP3008, aby móc mierzyć aktualne napięcie na baterii. Komunikował się on z Raspberry za pomocą SPI, a następnie napięcie było wysyłane i wyświetlane w aplikacji klienta.&lt;/p&gt;
 
 &lt;div class=&quot;embed-container&quot;&gt;
-  &lt;iframe width=&quot;720&quot; height=&quot;405&quot; src=&quot;https://drive.google.com/file/d/1noQKXlQ1vrXButIVJD5pkWKFF4-6Anj4/preview&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;
+  &lt;iframe width=&quot;720&quot; height=&quot;405&quot; src=&quot;https://drive.google.com/file/d/1kR9fSGo-6mLM5SdvNPUtoAvgJeeI8Lu-/preview&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;
   &lt;/iframe&gt;
 &lt;/div&gt;
 
@@ -83,7 +83,7 @@
 &lt;p&gt;W trybie modelu można poruszać się po środowisku za pomocą klawiszy W/S/A/D/Q/E oraz barów alfa, beta i gamma służących do zmiany kąta widzenia. Modelem robota poruszać można za pomocą klawiszy w/s/a/d/q/e oraz numerów służących do wyboru odpowiedniego trybu chodzenia robota.&lt;/p&gt;
 
 &lt;div class=&quot;embed-container&quot;&gt;
-  &lt;iframe width=&quot;720&quot; height=&quot;405&quot; src=&quot;https://drive.google.com/file/d/1-2V-3Jp_7RpoSwEOZEm2NZDnmNW3E-5M/preview&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;
+  &lt;iframe width=&quot;720&quot; height=&quot;405&quot; src=&quot;https://drive.google.com/file/d/1ixW05vog_nNaR9UR6ZqT5rZBkIWlBJeN/preview&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;
   &lt;/iframe&gt;
 &lt;/div&gt;
 
@@ -203,7 +203,7 @@ Są to wartości niskie, co świadczy o poprawnie wykonanej kalibracji.&lt;/p&gt
   
 &lt;/figure&gt;
 
-&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/TheDarkPhoenix/MappingRobotPID&quot; style=&quot;background: #0366d6&quot;&gt;PID  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
+&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/TheDarkPhoenix/LightOrb&quot; style=&quot;background: #0366d6&quot;&gt;Kod  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
 &lt;/a&gt;&lt;/p&gt;
 
 &lt;div class=&quot;embed-container&quot;&gt;
