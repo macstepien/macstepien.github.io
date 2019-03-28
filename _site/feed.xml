@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-03-28T14:02:13+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Maciej Stępień</title><subtitle>Projekty</subtitle><entry><title type="html">Czołg</title><link href="http://localhost:4000/roboty/2019/03/27/tank/" rel="alternate" type="text/html" title="Czołg" /><published>2019-03-27T00:00:00+01:00</published><updated>2019-03-27T00:00:00+01:00</updated><id>http://localhost:4000/roboty/2019/03/27/tank</id><content type="html" xml:base="http://localhost:4000/roboty/2019/03/27/tank/">&lt;p&gt;Pojazd uniwersalny oparty o Raspberry Pi Zero.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-03-28T14:10:52+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Maciej Stępień</title><subtitle>Projekty</subtitle><entry><title type="html">Czołg</title><link href="http://localhost:4000/roboty/2019/03/27/tank/" rel="alternate" type="text/html" title="Czołg" /><published>2019-03-27T00:00:00+01:00</published><updated>2019-03-27T00:00:00+01:00</updated><id>http://localhost:4000/roboty/2019/03/27/tank</id><content type="html" xml:base="http://localhost:4000/roboty/2019/03/27/tank/">&lt;p&gt;Pojazd uniwersalny oparty o Raspberry Pi Zero.&lt;/p&gt;
 
 &lt;figure class=&quot;figure  figure--center&quot;&gt;
   &lt;img class=&quot;image&quot; src=&quot;/pics/Czolg/front.jpg&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
@@ -298,14 +298,14 @@ oraz
 &lt;/figure&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">3D Viewer</title><link href="http://localhost:4000/oprogramowanie/2015/04/09/3dviewer/" rel="alternate" type="text/html" title="3D Viewer" /><published>2015-04-09T00:00:00+02:00</published><updated>2015-04-09T00:00:00+02:00</updated><id>http://localhost:4000/oprogramowanie/2015/04/09/3dviewer</id><content type="html" xml:base="http://localhost:4000/oprogramowanie/2015/04/09/3dviewer/">&lt;p&gt;Program służący do wyświetlania perspektywicznego punktów w 3D.&lt;/p&gt;
 
 &lt;figure class=&quot;figure  figure--center&quot;&gt;
-  &lt;img class=&quot;image&quot; src=&quot;/pics/viewer1.png&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/3dviewer/viewer1.png&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
   
 &lt;/figure&gt;
 
 &lt;p&gt;Program ten napisałem w ramach lekcji Informatyki w Liceum. Zaimplementowałem wczytywanie chmur punktów z pliku txt. Są one w formacie współrzędne (X, Y, Z), a następnie kolory (R, G, B). Chmury punktów uzyskiwałem poprzez kamery stereowizyjne. Stworzyłem także możliwość wyświetlania kształtów geometrycznych, na przykład domku. Całość została napisana w Pascalu.&lt;/p&gt;
 
 &lt;figure class=&quot;figure  figure--center&quot;&gt;
-  &lt;img class=&quot;image&quot; src=&quot;/pics/viewer2.png&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/3dviewer/viewer2.png&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
   
 &lt;/figure&gt;
 
@@ -355,7 +355,7 @@ oraz
 &lt;/figure&gt;</content><author><name></name></author><summary type="html">Projekt elektronicznej kostki wykonany na podstawie przykładu w książce &quot;Elektronika. Od praktyki do teorii&quot;</summary></entry><entry><title type="html">2D Racing</title><link href="http://localhost:4000/oprogramowanie/2014/01/18/2dracing/" rel="alternate" type="text/html" title="2D Racing" /><published>2014-01-18T00:00:00+01:00</published><updated>2014-01-18T00:00:00+01:00</updated><id>http://localhost:4000/oprogramowanie/2014/01/18/2dracing</id><content type="html" xml:base="http://localhost:4000/oprogramowanie/2014/01/18/2dracing/">&lt;p&gt;Gra wyścigowa 2D z widokiem od góry. Napisana w języku C++ przy pomocy bibliotek SFML oraz Box2D.&lt;/p&gt;
 
 &lt;figure class=&quot;figure  figure--center&quot;&gt;
-  &lt;img class=&quot;image&quot; src=&quot;/pics/2dracing1.png&quot; alt=&quot;&quot; width=&quot;500&quot; height=&quot;800&quot; /&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/2dracing/2dracing1.png&quot; alt=&quot;&quot; width=&quot;500&quot; height=&quot;800&quot; /&gt;
   
 &lt;/figure&gt;
 
