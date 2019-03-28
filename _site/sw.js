@@ -1,8 +1,8 @@
-const version = '20190328123944';
+const version = '20190328135447';
 const cacheName = `static::${version}`;
 
 const buildContentBlob = () => {
-  return ["/roboty/2019/03/27/tank/","/roboty/2018/06/08/hexapod/","/elektronika/2015/12/10/cewkatesli/","/roboty/2015/08/25/mapping-robot/","/oprogramowanie/2015/04/09/3dviewer/","/roboty/2014/08/28/universal-robots/","/elektronika/2014/03/22/elektronicznakostka/","/oprogramowanie/2014/01/18/2dracing/","/oprogramowanie/2013/09/23/Blu/","/oprogramowanie/2013/05/31/gry-konsolowe/","/about/","/categories/","/projekty/","/categories/","/","/manifest.json","/assets/search.json","/assets/styles.css","/redirects.json","/sitemap.xml","/robots.txt","/feed.xml","/pics/logo1.png", "/assets/default-offline-image.png", "/assets/scripts/fetch.js"
+  return ["/roboty/2019/03/27/tank/","/roboty/2018/06/08/hexapod/","/roboty/2017/05/26/move/","/elektronika/2015/12/10/cewkatesli/","/roboty/2015/08/25/mapping-robot/","/oprogramowanie/2015/04/09/3dviewer/","/roboty/2014/08/28/universal-robots/","/elektronika/2014/03/22/elektronicznakostka/","/oprogramowanie/2014/01/18/2dracing/","/oprogramowanie/2013/09/23/Blu/","/about/","/categories/","/projekty/","/categories/","/","/manifest.json","/assets/search.json","/assets/styles.css","/redirects.json","/sitemap.xml","/robots.txt","/feed.xml","/pics/logo1.png", "/assets/default-offline-image.png", "/assets/scripts/fetch.js"
   ]
 }
 

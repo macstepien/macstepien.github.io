@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-03-28T12:39:44+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Maciej Stępień</title><subtitle>Projekty</subtitle><entry><title type="html">Czołg</title><link href="http://localhost:4000/roboty/2019/03/27/tank/" rel="alternate" type="text/html" title="Czołg" /><published>2019-03-27T00:00:00+01:00</published><updated>2019-03-27T00:00:00+01:00</updated><id>http://localhost:4000/roboty/2019/03/27/tank</id><content type="html" xml:base="http://localhost:4000/roboty/2019/03/27/tank/">&lt;p&gt;Pojazd uniwersalny oparty o Raspberry Pi Zero.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-03-28T13:54:47+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Maciej Stępień</title><subtitle>Projekty</subtitle><entry><title type="html">Czołg</title><link href="http://localhost:4000/roboty/2019/03/27/tank/" rel="alternate" type="text/html" title="Czołg" /><published>2019-03-27T00:00:00+01:00</published><updated>2019-03-27T00:00:00+01:00</updated><id>http://localhost:4000/roboty/2019/03/27/tank</id><content type="html" xml:base="http://localhost:4000/roboty/2019/03/27/tank/">&lt;p&gt;Pojazd uniwersalny oparty o Raspberry Pi Zero.&lt;/p&gt;
 
 &lt;figure class=&quot;figure  figure--center&quot;&gt;
   &lt;img class=&quot;image&quot; src=&quot;/pics/Czolg/front.jpg&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
@@ -194,7 +194,22 @@ Są to wartości niskie, co świadczy o poprawnie wykonanej kalibracji.&lt;/p&gt
   &lt;figcaption class=&quot;caption&quot;&gt;Prezentacja na zawodach Robotic Arena fot. Politechnika Wrocławska&lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://www.integra.agh.edu.pl/robot-kroczacy-freestyle/&quot; title=&quot;Strona projektu&quot;&gt;Strona projektu&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Sześcionogi stwór z kamerkami.</summary></entry><entry><title type="html">Cewka Tesli</title><link href="http://localhost:4000/elektronika/2015/12/10/cewkatesli/" rel="alternate" type="text/html" title="Cewka Tesli" /><published>2015-12-10T00:00:00+01:00</published><updated>2015-12-10T00:00:00+01:00</updated><id>http://localhost:4000/elektronika/2015/12/10/cewkatesli</id><content type="html" xml:base="http://localhost:4000/elektronika/2015/12/10/cewkatesli/">&lt;p&gt;Robi się groźnie.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.integra.agh.edu.pl/robot-kroczacy-freestyle/&quot; title=&quot;Strona projektu&quot;&gt;Strona projektu&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Sześcionogi stwór z kamerkami.</summary></entry><entry><title type="html">Świecąca kulka</title><link href="http://localhost:4000/roboty/2017/05/26/move/" rel="alternate" type="text/html" title="Świecąca kulka" /><published>2017-05-26T00:00:00+02:00</published><updated>2017-05-26T00:00:00+02:00</updated><id>http://localhost:4000/roboty/2017/05/26/move</id><content type="html" xml:base="http://localhost:4000/roboty/2017/05/26/move/">&lt;p&gt;Kontroler zainspirowany rozwiązaniem z PlayStation. Użyłem kamerki internetowej oraz odpowiedniego kontrolera - latarki z kulką. Ruchy kulki są śledzone oraz przekładane na ruchy kursora myszy. Poprzez odpowiednie przygaszenie a następnie zaświecenie latarki symulowane jest kliknięcie.&lt;/p&gt;
+
+&lt;p&gt;W celu analizy obrazu użyłem bibliotekę OpenCV oraz metodę wykrywania przedstawioną w &lt;a href=&quot;https://forbot.pl/blog/opencv-2-wykrywanie-obiektow-id4888&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;figure  figure--center&quot;&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/RobotMapujacy/front.jpg&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/TheDarkPhoenix/MappingRobotPID&quot; style=&quot;background: #0366d6&quot;&gt;PID  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;embed-container&quot;&gt;
+  &lt;iframe width=&quot;720&quot; height=&quot;405&quot; src=&quot;https://drive.google.com/file/d/1SI5PMQt-zXZ0vf6xvoXPK_p1-t72E7ty/preview&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;
+  &lt;/iframe&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html">Robot laptopa wożący pokój mapujący.</summary></entry><entry><title type="html">Cewka Tesli</title><link href="http://localhost:4000/elektronika/2015/12/10/cewkatesli/" rel="alternate" type="text/html" title="Cewka Tesli" /><published>2015-12-10T00:00:00+01:00</published><updated>2015-12-10T00:00:00+01:00</updated><id>http://localhost:4000/elektronika/2015/12/10/cewkatesli</id><content type="html" xml:base="http://localhost:4000/elektronika/2015/12/10/cewkatesli/">&lt;p&gt;Robi się groźnie.&lt;/p&gt;
 
 &lt;figure class=&quot;figure  figure--center&quot;&gt;
   &lt;img class=&quot;image&quot; src=&quot;/pics/cewkatesli/wieksza.jpg&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
@@ -371,49 +386,4 @@ oraz
 &lt;/div&gt;
 
 &lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/TheDarkPhoenix/Blu&quot; style=&quot;background: #0366d6&quot;&gt;Blu  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
-&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Gra, w której jeździmy samochodem po wzgórzach zbierając monety oraz paliwo. Wykonana w języku C++ wraz z bibliotekami SFML oraz Box2D.</summary></entry><entry><title type="html">Gry konsolowe</title><link href="http://localhost:4000/oprogramowanie/2013/05/31/gry-konsolowe/" rel="alternate" type="text/html" title="Gry konsolowe" /><published>2013-05-31T00:00:00+02:00</published><updated>2013-05-31T00:00:00+02:00</updated><id>http://localhost:4000/oprogramowanie/2013/05/31/gry-konsolowe</id><content type="html" xml:base="http://localhost:4000/oprogramowanie/2013/05/31/gry-konsolowe/">&lt;p&gt;Kółko i krzyżyk, Snake oraz Pong napisane w C++ w ramach projektu z Informatyki w Gimnazjum.&lt;/p&gt;
-
-&lt;h3 id=&quot;snake&quot;&gt;Snake&lt;/h3&gt;
-&lt;figure class=&quot;figure  figure--center&quot;&gt;
-  &lt;img class=&quot;image&quot; src=&quot;/pics/Snake.png&quot; alt=&quot;&quot; width=&quot;300&quot; height=&quot;800&quot; /&gt;
-  
-&lt;/figure&gt;
-
-&lt;p&gt;Klasyczna gra, w której zbieramy wężem dolary. Do wyboru 3 tryby trudności, w których wąż różnie zmienia prędkość. Odpowiednio do trybu większa jest także nagroda za zbieranie punktów. Dostępny jest także ranking najlepszych graczy.&lt;/p&gt;
-&lt;div class=&quot;embed-container&quot;&gt;
-  &lt;iframe width=&quot;720&quot; height=&quot;405&quot; src=&quot;https://drive.google.com/file/d/1wd85fsMJ6XZK2NdQNGhOG2bNmd8uj463/preview&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;
-  &lt;/iframe&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/TheDarkPhoenix/Snake&quot; style=&quot;background: #0366d6&quot;&gt;Snake  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;kółko-i-krzyżyk&quot;&gt;Kółko i krzyżyk&lt;/h3&gt;
-&lt;figure class=&quot;figure  figure--center&quot;&gt;
-  &lt;img class=&quot;image&quot; src=&quot;/pics/TicTacToe.png&quot; alt=&quot;&quot; width=&quot;200&quot; height=&quot;800&quot; /&gt;
-  
-&lt;/figure&gt;
-
-&lt;p&gt;Grę kółko i krzyżyk napisałem na podstawie przykładu w kursie C++, który przerabiałem - “Od Zera do Gier Kodera”. Przeznaczona jest dla dwóch graczy. Ma format 3x3, pole do postawienia znaku wybiera się za pomocą odpowiednich cyfr. W programie sprawdzane są następnie ułożenia znaków, które prowadzą do remisu lub zwycięstwa jednego z graczy.&lt;/p&gt;
-&lt;div class=&quot;embed-container&quot;&gt;
-  &lt;iframe width=&quot;720&quot; height=&quot;405&quot; src=&quot;https://drive.google.com/file/d/1Q2bL16jL_gJDGnQfmYu-IHg7uz9K_L1g/preview&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;
-  &lt;/iframe&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/TheDarkPhoenix/TicTacToe&quot; style=&quot;background: #0366d6&quot;&gt;TicTacToe  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;pong&quot;&gt;Pong&lt;/h3&gt;
-&lt;figure class=&quot;figure  figure--center&quot;&gt;
-  &lt;img class=&quot;image&quot; src=&quot;/pics/Pong.png&quot; alt=&quot;&quot; width=&quot;250&quot; height=&quot;800&quot; /&gt;
-  
-&lt;/figure&gt;
-
-&lt;p&gt;Gra przeznaczona dla dwóch graczy. Odbijamy piłkę aż do przepuszczenia jej przez jednego z graczy. Gra toczy się do ustalonej wcześniej ilości punktów.&lt;/p&gt;
-&lt;div class=&quot;embed-container&quot;&gt;
-  &lt;iframe width=&quot;720&quot; height=&quot;405&quot; src=&quot;https://drive.google.com/file/d/1wRdGdo4UVV19p5ClMPSAclj0zW6mHq8E/preview&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;
-  &lt;/iframe&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/TheDarkPhoenix/Pong&quot; style=&quot;background: #0366d6&quot;&gt;Pong  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
-&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Kółko i krzyżyk, Snake oraz Pong napisane w C++ w ramach projektu z Informatyki w Gimnazjum.</summary></entry></feed>
+&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Gra, w której jeździmy samochodem po wzgórzach zbierając monety oraz paliwo. Wykonana w języku C++ wraz z bibliotekami SFML oraz Box2D.</summary></entry></feed>
