@@ -70,9 +70,9 @@
     
       {
         "title": "Świecąca kulka",
-        "excerpt": "Robot laptopa wożący pokój mapujący.\n\n\n",
-        "content": "Kontroler zainspirowany rozwiązaniem z PlayStation. Użyłem kamerki internetowej oraz odpowiedniego kontrolera - latarki z kulką. Ruchy kulki są śledzone oraz przekładane na ruchy kursora myszy. Poprzez odpowiednie przygaszenie a następnie zaświecenie latarki symulowane jest kliknięcie.\n\nW celu analizy obrazu użyłem bibliotekę OpenCV oraz metodę wykrywania przedstawioną w \n\n\n  \n  \n\n\nKod  github\n\n\n\n  \n  \n\n\n",
-        "url": "/roboty/2017/05/26/move/"
+        "excerpt": "Obsługa komputera poprzez ruchy kontrolerem.\n\n\n",
+        "content": "Obsługa komputera poprzez ruchy kontrolerem.\n\n\n  \n  \n\n\nKontroler zainspirowany rozwiązaniem z PlayStation. Użyłem kamerki internetowej oraz odpowiedniego kontrolera - latarki z kulką. Ruchy kulki są śledzone oraz przekładane na ruchy kursora myszy. Poprzez odpowiednie przygaszenie a następnie zaświecenie latarki symulowane jest kliknięcie.\n\nW celu analizy obrazu użyłem bibliotekę OpenCV oraz metodę wykrywania przedstawioną w https://forbot.pl/blog/opencv-2-wykrywanie-obiektow-id4888\n\n\n  \n  \n\n\nKod  github\n\n",
+        "url": "/oprogramowanie/2017/05/26/move/"
       },
     
       {
