@@ -18,6 +18,7 @@ plugins:
 - jekyll-feed
 - jemoji
 - jekyll-remote-theme
+- jekyll-analytics
 
 # Site settings
 url: 'https://thedarkphoenix.github.io/'
@@ -47,3 +48,7 @@ collections:
   posts:
     title: Projekty
 
+jekyll_analytics:
+  GoogleAnalytics:          # Add, if you want to track with Google Analytics
+    id: UA-138286459-1          # Required - replace with your tracking id
+    anonymizeIp: true      # Optional - Default: false - set to true for anonymized tracking
