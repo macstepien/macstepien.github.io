@@ -1,6 +1,7 @@
 # Set theme
 remote_theme: daviddarnes/alembic
 
+environment: prod
 # File excludes
 exclude:
 - README.md
