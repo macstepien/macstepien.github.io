@@ -6,7 +6,7 @@ categories:
 excerpt: |
  Robi się groźnie.
   
- <img width="200" height="200" src="/pics/cewkatesli/wieksza.jpg"> 
+ <img width="200" height="200" src="/pics/cewkatesli/miniwieksza.jpg"> 
 ---
 
 Robi się groźnie.

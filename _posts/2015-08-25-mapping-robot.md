@@ -6,7 +6,7 @@ categories:
 excerpt: |
  Robot laptopa wożący pokój mapujący.
   
- <img width="200" height="200" src="/pics/RobotMapujacy/front.jpg"> 
+ <img width="200" height="200" src="/pics/RobotMapujacy/minifront.jpg"> 
 ---
 
 Robot laptopa wożący pokój mapujący.

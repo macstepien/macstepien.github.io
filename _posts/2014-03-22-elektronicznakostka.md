@@ -6,7 +6,7 @@ categories:
 excerpt: |
  Projekt elektronicznej kostki wykonany na podstawie przykładu w książce "Elektronika. Od praktyki do teorii"
   
- <img width="200" height="200" src="/pics/elektronicznaKostka/szostka.jpg"> 
+ <img width="200" height="200" src="/pics/elektronicznaKostka/miniszostka.jpg"> 
 ---
 
 Projekt elektronicznej kostki wykonany na podstawie przykładu w książce "Elektronika. Od praktyki do teorii"

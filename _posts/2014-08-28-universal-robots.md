@@ -6,7 +6,7 @@ categories:
 excerpt: |
  Miał robić kawę...
   
- <img width="150" height="150" src="/pics/RobotUniwersalny/robot.jpg"> 
+ <img width="150" height="150" src="/pics/RobotUniwersalny/minirobot.jpg"> 
 ---
 
 Miał robić kawę...
