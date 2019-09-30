@@ -11,7 +11,7 @@ excerpt: |
  <img width="200" height="200" src="/pics/RosbotFollower/rosbot.jpg"> 
 ---
 
-In this tutorial I describe one way to make robot detect and follow people, it won't make a great spy but could be useful to carry luggage or groceries. Whole system was implemented on Husarion's ROSbot with ESP32 as a remote. To find people I used scans from LiDAR with my detector which turned out to be fast and quite reliable. I also tested other LiDAR approaches available on ROS - leg_detector and leg_tracker but in this case didn't perform well enough. Another way is upper_body_detector which uses RGBD camera to detect humans, but as name suggests it needs to see upper part of body - this will be a problem if we want our robot to stay close, also it didn't perform very well and was slower.
+In this tutorial I describe one way to make robot detect and follow people - it won't make a great spy but could be useful to carry luggage or groceries. Whole system was implemented on Husarion's ROSbot with ESP32 as a remote. To find people I used scans from LiDAR (RPLidar A2) with my detector, which turned out to be fast and quite reliable. I also tested other LiDAR approaches available on ROS - leg_detector and leg_tracker but in this case didn't perform well enough. Another package I checked is upper_body_detector, which uses RGBD camera to detect humans. As name suggests it needs to see upper part of body - this will be a problem if we want our robot to stay close, also in this case it didn't perform very well and was slower.
 
 {% include googleDrivePlayer.html id="1v5Gbrjno0eyKzPT_semViFL2a51i5ab7/preview" %}
 
@@ -26,7 +26,7 @@ Wire your ESP32 accordingly to schematics:
 
 {% include figure.html image="/pics/RosbotFollower/remoteSchematics.png" width="600" height="800" %}
 
-As a source of power you can use a Powerbank connected to the ESP
+As a source of power you can use a Powerbank connected to the ESP.
 #### Code
 Create new sketch in Arduino IDE and copy code:  
 [ESP Remote Code](https://github.com/TheDarkPhoenix/RosbotFollowerESPRemote/blob/master/rosbot_remote.ino)
@@ -56,7 +56,7 @@ roscore
 roslaunch rosbot_follower follower.launch
 ```
 
-After whole system is up and running stand in front of ROSbot, but not too far away. When you are detected blue LED on ESP should turn on. Then when you press first button (the one closer to ESP on schematics) and start walking robot should follow you. When LED turns off it means that algorithm lost detection of you and you need to recalibrate (stand closer to robot and wait untill blue LED is back on). If robot had false detection you can calibrate again by pressing second button. On RViz you can see visualization: scan from LiDAR and detections. Green spheres are detected legs and yellow ones are detected human position. Robot follows yellow ones, and if its position is (0,0) then no person was detected.
+After whole system is up and running stand in front of ROSbot, but not too far away. When you are detected blue LED on ESP should turn on. Then you can press first button (the one closer to ESP on schematics) and if you start walking robot should follow you. When LED turns off it means that algorithm lost detection of you and need to recalibrate (stand closer to robot and wait until blue LED is back on). If robot had false detection you can calibrate again by pressing second button. On RViz you can see visualization: scan from LiDAR and detections. Green spheres are detected legs and yellow ones are detected human position. Robot follows yellow ones, and if its position is (0,0) then no person was detected.
 
 {% include figure.html image="/pics/RosbotFollower/rviz2.png" width="600" height="800" %}
 
@@ -70,7 +70,7 @@ After whole system is up and running stand in front of ROSbot, but not too far a
 
 ## Algorithm walkthrough
 
-Main part of this code is scan callback where all the magic happens. In there data from LiDAR is analyzed and people are detected. Whole process consists of 5 steps:
+Main part of this code is scan callback where all the magic happens - data from LiDAR is analyzed and people are detected. Whole process consists of 5 steps:
 1. Clusterization
 2. Leg detection
 3. Human detection
@@ -157,8 +157,8 @@ def scanCallback(self, scan):
     	return
     ...
 ```
-In here we check results of clusterization. If we didn't detect anything, we continue movement in last seen human position. That is until our last seen position is too old - then we need to stop and assume we lost track of our human. We also signal it through LED.  
-When obstacle is detected then we pass special value - in first cluster first point is set to (0,0). Then robot needs to stop immediately as obstacle is too close. 
+In here we check results of clusterization. If we didn't detect anything, we continue movement in last seen human position. That is until our last seen position is too old - then we need to stop and assume we lost track of our human, which we signal through LED.  
+We pass special value when obstacle is detected - in first cluster first point is set to (0,0). In this case robot needs to stop immediately, as obstacle is too close. 
 
 * **detectionTimeout** - how much time (in seconds) we can trust last seen position and follow it
 
