@@ -34,12 +34,15 @@ Create new sketch in Arduino IDE and copy code:
 Then get your Husarnet join code and customize code as described in [ESP32 Husarnet Tutorial](https://www.hackster.io/khasreto/run-rosserial-over-the-internet-with-esp32-0615f5) 
 
 ### ROSbot 
-On ROSbot you will need to install two dependencies:
-* scikit learn python library (for clusterization)
+On ROSbot you will need to install following dependencies:
+* **scikit-learn** python library (for clusterization)
   ``` bash
   sudo apt-get install python-scikits-learn
   ```
-* rosbot_description package (for URDF visualization model and bridge node)  
+* **pykalman**  
+  Follow installation tutorial on [pykalman page](https://pykalman.github.io/)
+
+* **rosbot_description** package (for URDF visualization model and bridge node)  
   Go to your ROS workspace and clone repository:
   ``` bash
   cd ~/ros_workspace/src
