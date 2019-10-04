@@ -11,9 +11,9 @@ excerpt: |
  <img width="200" height="200" src="/pics/RosbotFollower/rosbot.jpg"> 
 ---
 
-In this tutorial I describe one way to make robot detect and follow people - it won't make a great spy but could be useful to carry luggage or groceries. Whole system was implemented on Husarion's ROSbot with ESP32 as a remote. To find people I used scans from LiDAR (RPLidar A2) with my detector, which turned out to be fast and quite reliable. I also tested other LiDAR approaches available on ROS - leg_detector and leg_tracker but in this case didn't perform well enough. Another package I checked is upper_body_detector, which uses RGBD camera to detect humans. As name suggests it needs to see upper part of body - this will be a problem if we want our robot to stay close, also in this case it didn't perform very well and was slower.
+In this tutorial I describe one way to make robot detect and follow people - it won't make a great spy but could be useful to carry luggage or groceries. Whole system was implemented on Husarion's ROSbot with ESP32 as a remote. To find people I used scans from LiDAR (RPLidar A2) with my detector, which is simple but turned out to be fast and quite reliable. I also checked other LiDAR approaches available on ROS - leg_detector and leg_tracker but in this case didn't perform well enough. Another package I tested is upper_body_detector, which uses RGBD camera to detect humans. As name suggests it needs to see upper part of body - this will be a problem if we want our robot to stay close, also in this case it didn't perform very well and was slower.
 
-{% include googleDrivePlayer.html id="1v5Gbrjno0eyKzPT_semViFL2a51i5ab7/preview" %}
+{% include googleDrivePlayer.html id="1jNWkf1M97UBEypOCILnGTzXXnH618SYN/preview" %}
 
 ## Setup
 ### ESP32 Remote
@@ -34,11 +34,29 @@ Create new sketch in Arduino IDE and copy code:
 Then get your Husarnet join code and customize code as described in [ESP32 Husarnet Tutorial](https://www.hackster.io/khasreto/run-rosserial-over-the-internet-with-esp32-0615f5) 
 
 ### ROSbot 
-First thing you will need to install scikit learn python library:
-``` bash
-sudo apt-get install python-scikits-learn
-```
-Then go to your ROS workspace, change directory to src:
+On ROSbot you will need to install two dependencies:
+* scikit learn python library (for clusterization)
+  ``` bash
+  sudo apt-get install python-scikits-learn
+  ```
+* rosbot_description package (for URDF visualization model and bridge node)  
+  Go to your ROS workspace and clone repository:
+  ``` bash
+  cd ~/ros_workspace/src
+  git clone https://github.com/husarion/rosbot_description.git
+  ```
+  Install dependencies:
+  ``` bash
+  cd ~/ros_workspace
+  rosdep install --from-paths src --ignore-src -r -y
+  ```
+  Build workspace:
+  ``` bash
+  cd ~/ros_workspace
+  catkin_make
+  ```
+
+Then go back to src folder in your workspace:
 ``` bash
 cd ~/ros_workspace/src
 ```
@@ -49,19 +67,24 @@ git clone https://github.com/TheDarkPhoenix/rosbot_follower.git
 ```
 
 ## Usage
-On ROSbot run these three commands in separate terminals:
-``` bash
-roscore 
-/opt/husarion/tools/rpi-linux/ros-core2-client /dev/ttyCORE2
-roslaunch rosbot_follower follower.launch
-```
+There are two options available: 
+* followerSlow - better if you have little space and walk slowly.  
+To run it you only need to copy this commande into new terminal window:
+  ``` bash
+  roslaunch rosbot_follower followerSlow.launch
+  ```
+* followerKalman - this one should be able to follow you with normal walking, but it also needs some space to gain speed.  
+  Roslaunch command:
+  ``` bash
+  roslaunch rosbot_follower followerKalman.launch
+  ```
 
-After whole system is up and running stand in front of ROSbot, but not too far away. When you are detected blue LED on ESP should turn on. Then you can press first button (the one closer to ESP on schematics) and if you start walking robot should follow you. When LED turns off it means that algorithm lost detection of you and need to recalibrate (stand closer to robot and wait until blue LED is back on). If robot had false detection you can calibrate again by pressing second button. On RViz you can see visualization: scan from LiDAR and detections. Green spheres are detected legs and yellow ones are detected human position. Robot follows yellow ones, and if its position is (0,0) then no person was detected.
+After whole system is up and running stand in front of ROSbot, but not too far away. When you are detected blue LED on ESP should turn on. Then you can press first button (the one closer to ESP on schematics) and if you start walking robot should follow you. When LED turns off it means that algorithm lost detection of you and need to recalibrate (stand closer to robot and wait until blue LED is back on). If robot had false detection you can calibrate again by pressing second button. On RViz you can see visualization: scan from LiDAR, robot model and detections. Green spheres are all potential legs, blue cylinders are detected legs and red tall cylinder is human position. In version with Kalman filter we also publish circle around human, which shows how much estimated position differs from measurement.
 
-{% include figure.html image="/pics/RosbotFollower/rviz2.png" width="600" height="800" %}
+{% include figure.html image="/pics/RosbotFollower/rviz.png" width="600" height="800" %}
 
 ### Troubleshooting
-* **LED doesn't turn on** - check RViz if you can see any detections (yellow sphere's position isn't (0, 0)). If there is a detection then press Dead Man's Button and try to walk. 
+* **LED doesn't turn on** - check RViz if you can see detected human (red cylinder). If there is a detection then press Dead Man's Button and try to walk. 
 * **ROSbot doesn't respond** - you should check your connection to ESP32. You can do so by echoing button topic:
    ``` bash
    rostopic echo /esp_remote/start
@@ -70,7 +93,7 @@ After whole system is up and running stand in front of ROSbot, but not too far a
 
 ## Algorithm walkthrough
 
-Main part of this code is scan callback where all the magic happens - data from LiDAR is analyzed and people are detected. Whole process consists of 5 steps:
+First we will go through slower version, as it is simpler. Main part of this code is scan callback where all the magic happens - data from LiDAR is analyzed and people are detected. Whole process consists of 5 steps:
 1. Clusterization
 2. Leg detection
 3. Human detection
@@ -102,7 +125,6 @@ def findClusters(self, scan):
             rospy.logerr("Obstacle detected")
             return [np.zeros((1, 2))]
         i += 1
-
     db = DBSCAN(eps=self.clusterizationMaxDistanceParam, 
                 min_samples=self.clusterizationMinSamplesParam).fit(pointsList)
     core_samples_mask = np.zeros_like(db.labels_, dtype=bool)
@@ -111,13 +133,11 @@ def findClusters(self, scan):
     n_clusters_ = len(set(labels)) - (1 if -1 in labels else 0)
     unique_labels = set(labels)
     clusterList = []
-
     for k in unique_labels:
         class_member_mask = (labels == k)
         xy = pointsList[class_member_mask & core_samples_mask]
         if xy.any():
             clusterList.append(xy)
-
     return clusterList
 ```
 
@@ -137,15 +157,15 @@ def scanCallback(self, scan):
     if len(clusterList) == 0:
     	rospy.logwarn("No clusters detected")
     	if rospy.get_time() - self.lastDetectionTime < self.detectionTimeout:
-    		humanPosition = self.lastHumanPosition
-    		self.controlRosbot(humanPosition)
+            humanPosition = self.lastHumanPosition
+            self.controlRosbot(humanPosition)
     	else:
-    		led = Bool()
-    		led.data = False
-    		self.ledPub.publish(led)
-    		self.positionCalibration = True
-    		rosbotControl = Twist()
-    		self.speedPub.publish(rosbotControl)
+            led = Bool()
+            led.data = False
+            self.ledPub.publish(led)
+            self.positionCalibration = True
+            rosbotControl = Twist()
+            self.speedPub.publish(rosbotControl)
     	return
     elif (clusterList[0][0, 0] == 0) and (clusterList[0][0, 1] == 0):
     	led = Bool()
@@ -175,30 +195,23 @@ def detectLegs(self, clusterList):
     i = 0
     sortedClusters = []
     for cluster in clusterList:
-
     	xMax = np.max(cluster[:, 0])
     	xMin = np.min(cluster[:, 0])
     	yMax = np.max(cluster[:, 1])
     	yMin = np.min(cluster[:, 1])
-
     	xDistance = xMax - xMin
     	yDistance = yMax - yMin
-    	
     	proportion = max(xDistance,yDistance)/min(xDistance, yDistance)
     	area = xDistance*yDistance
-    	
     	if not (max(xDistance,yDistance)-self.legWidth) < self.dLegWidth: 
     		continue
-    	
     	xMean = (xMax+xMin)/2
     	yMean = (yMax+yMin)/2
-
     	cone = Point()
     	cone.x = xMean
     	cone.y = yMean
     	cone.z = 0
     	sortedClusters.append(cone)
-
     sortedClusters.sort(key=lambda x: math.sqrt(x.x**2 + x.y**2))
     return sortedClusters
 ```
@@ -214,15 +227,15 @@ def scanCallback(self, scan):
     if len(sortedClusters) == 0:
     	rospy.logwarn("No legs detected")
     	if rospy.get_time() - self.lastDetectionTime < self.detectionTimeout:
-    		humanPosition = self.lastHumanPosition
-    		self.controlRosbot(humanPosition)
+            humanPosition = self.lastHumanPosition
+            self.controlRosbot(humanPosition)
     	else:
-    		led = Bool()
-    		led.data = False
-    		self.ledPub.publish(led)
-    		self.positionCalibration = True
-    		rosbotControl = Twist()
-    		self.speedPub.publish(rosbotControl)
+            led = Bool()
+            led.data = False
+            self.ledPub.publish(led)
+            self.positionCalibration = True
+            rosbotControl = Twist()
+            self.speedPub.publish(rosbotControl)
     	return
     ...
 ```
@@ -234,12 +247,13 @@ We estimate human position through analysis of legs detections:
 ```python
 def scanCallback(self, scan):
     ...
-    (firstLeg, secondLeg, humanPosition, twoLegsDetected) = self.detectHuman(sortedClusters)
+    (firstLeg, secondLeg, humanPosition, firstLegDetected, twoLegsDetected) = self.detectHuman(sortedClusters)
     ...
 ```
 ```python
 def detectHuman(self, sortedClusters):
     firstLeg = sortedClusters[0]
+    firstLegDetected = False
     twoLegsDetected = False
     secondLeg = Point()
     humanPosition = Point()
@@ -249,42 +263,42 @@ def detectHuman(self, sortedClusters):
     	secondLeg = sortedClusters[1]
     	legDistance = math.sqrt((firstLeg.x - secondLeg.x)**2 + (firstLeg.y - secondLeg.y)**2)
     	if legDistance < self.legDistanceThreshold:
-    		humanPositionTemp.x = (firstLeg.x+secondLeg.x)/2
-    		humanPositionTemp.y = (firstLeg.y+secondLeg.y)/2
-    		humanPositionTemp.z = 0
-    		twoLegsDetected = True
+            humanPositionTemp.x = (firstLeg.x+secondLeg.x)/2
+            humanPositionTemp.y = (firstLeg.y+secondLeg.y)/2
+            humanPositionTemp.z = 0
+            twoLegsDetected = True
     	else:
-    		humanPositionTemp = firstLeg
+            humanPositionTemp = firstLeg
     else:
     	humanPositionTemp = firstLeg
-    	
     if self.positionCalibration:
     	r = math.sqrt( humanPositionTemp.x ** 2 + humanPositionTemp.y ** 2)
     	if r < self.calibrationDistance and twoLegsDetected:
-    		self.lastHumanPosition = humanPositionTemp
-    		humanPosition = humanPositionTemp
-    		self.lastDetectionTime = rospy.get_time()
-    		self.positionCalibration = False
-    		led = Bool()
-    		led.data = True
-    		self.ledPub.publish(led)
+            self.lastHumanPosition = humanPositionTemp
+            humanPosition = humanPositionTemp
+            firstLegDetected = True
+            self.lastDetectionTime = rospy.get_time()
+            self.positionCalibration = False
+            led = Bool()
+            led.data = True
+            self.ledPub.publish(led)
     else:
     	distanceChange = math.sqrt((self.lastHumanPosition.x - humanPositionTemp.x)**2 \
     				+ (self.lastHumanPosition.y - humanPositionTemp.y)**2)
     	if distanceChange < self.humanPositionChangeThreshold:
-    		humanPosition = humanPositionTemp
-    		self.lastHumanPosition = humanPosition
-    		self.lastDetectionTime = rospy.get_time()
+            humanPosition = humanPositionTemp
+            firstLegDetected = True
+            self.lastHumanPosition = humanPosition
+            self.lastDetectionTime = rospy.get_time()
     	else: 
-    		if rospy.get_time() - self.lastDetectionTime < self.detectionTimeout:
-    			humanPosition = self.lastHumanPosition
-    		else:
-    			led = Bool()
-    			led.data = False
-    			self.ledPub.publish(led)
-    			self.positionCalibration = True
-
-    return (firstLeg, secondLeg, humanPosition, twoLegsDetected)
+            if rospy.get_time() - self.lastDetectionTime < self.detectionTimeout:
+                humanPosition = self.lastHumanPosition
+            else:
+                led = Bool()
+                led.data = False
+                self.ledPub.publish(led)
+                self.positionCalibration = True
+    return (firstLeg, secondLeg, humanPosition, firstLegDetected, twoLegsDetected)
 ```
 
 We assume our first detected leg is one closest to ROSbot. Second leg (if any available) is one closest to first leg (if it's close enough). With two legs detected we calculate possible human position as mean between legs, otherwise we use first leg as possible human position.  
@@ -300,13 +314,52 @@ Visualization of our detections
 ```python
 def scanCallback(self, scan):
     ...
-    self.publishMarkers(firstLeg, secondLeg, humanPosition, twoLegsDetected)
+    self.publishMarkers(firstLeg, secondLeg, humanPosition, firstLegDetected, twoLegsDetected, sortedClusters)
     ...
 ```
 
 ```python    
-def publishMarkers(self, firstLeg, secondLeg, humanPosition, twoLegsDetected):
+def publishMarkers(self, firstLeg, secondLeg, humanPosition, firstLegDetected, twoLegsDetected, sortedClusters):
     legMarker = Marker()
+    legMarker.header.frame_id = "laser"
+    legMarker.ns = "person"
+    legMarker.header.stamp = rospy.Time()
+    legMarker.type = Marker.CYLINDER
+    legMarker.action = Marker.ADD
+    legMarker.pose.orientation.x = 0.0
+    legMarker.pose.orientation.y = 0.0
+    legMarker.pose.orientation.z = 0.0
+    legMarker.pose.orientation.w = 1.0
+    legMarker.scale.x = 0.04
+    legMarker.scale.y = 0.04
+    legMarker.scale.z = 0.04
+    legMarker.color.a = 1.0
+    legMarker.color.r = 0.0
+    legMarker.color.g = 0.0
+    legMarker.color.b = 1.0
+    legMarker.lifetime = rospy.Duration(0.5)
+    if not self.positionCalibration:
+    	#first leg
+        if firstLegDetected:
+            legMarker.id = 1
+            legMarker.pose.position = firstLeg
+            legMarker.pose.position.z = 0.02
+            self.legPub.publish(legMarker)
+        #second leg
+        if twoLegsDetected:
+            legMarker.id = 2
+            legMarker.pose.position = secondLeg
+            self.legPub.publish(legMarker)
+    	#human position
+    	legMarker.id = 3
+    	legMarker.scale.z = 0.2
+    	legMarker.pose.position = humanPosition
+    	legMarker.pose.position.z = 0.1
+    	legMarker.color.r = 1.0
+    	legMarker.color.b = 0.0
+    	self.legPub.publish(legMarker)
+    legMarker = Marker()
+    legMarker.ns = "legs"
     legMarker.header.frame_id = "laser"
     legMarker.header.stamp = rospy.Time()
     legMarker.type = Marker.SPHERE
@@ -322,25 +375,16 @@ def publishMarkers(self, firstLeg, secondLeg, humanPosition, twoLegsDetected):
     legMarker.color.r = 0.0
     legMarker.color.g = 1.0
     legMarker.color.b = 0.0
-
-    #first leg
-    legMarker.id = 1
-    legMarker.pose.position = firstLeg
-    self.legPub.publish(legMarker)
-
-    #second leg
-    if twoLegsDetected:
-    	legMarker.id = 2
-    	legMarker.pose.position = secondLeg
+    legMarker.lifetime = rospy.Duration(0.2)
+    i = 1
+    for x in sortedClusters:
+    	legMarker.id = i
+    	i += 1
+    	legMarker.pose.position.x = x.x
+    	legMarker.pose.position.y = x.y
     	self.legPub.publish(legMarker)
-
-    #human position
-    legMarker.id = 3
-    legMarker.pose.position = humanPosition
-    legMarker.color.r = 1.0
-    self.legPub.publish(legMarker)
 ```
-Pretty straightforward: we publish markers with our legs (green) and human (yellow).
+Pretty straightforward: we publish markers with potential legs (green spheres), detected legs (if any found, blue cylinders) and human (red cylinder).
 
 ### 5. Control
 And final step is movement control:
@@ -353,17 +397,14 @@ def scanCallback(self, scan):
 def controlRosbot(self, humanPosition):
     r = math.sqrt( humanPosition.x ** 2 + humanPosition.y ** 2)
     a = math.atan2(humanPosition.y, -humanPosition.x)
-
     if r > self.minHumanDistance:
     	xSpeed = -r * self.speedPGain
     else:
     	xSpeed = 0
-
     if abs(a) > self.minHumanAngle:
     	zAngularSpeed = a * self.angularSpeedPGain
     else:
     	zAngularSpeed = 0
-
     rosbotControl = Twist()
     if rospy.get_time() - self.buttonTime < self.buttonTimeout and \
     		self.buttonState == True and not self.positionCalibration:
@@ -380,6 +421,51 @@ Firstly we convert our cartesian coordinates to polar ones. Then we calculate an
 * **speedPGain** - proportional gain for linear ROSbot speed (increase if you want your robot to go faster)
 * **angularSpeedPGain** - proportional gain for angular ROSbot speed (increase if you want your robot to turn faster)
 * **buttonTimeout** (seconds) - if we don’t receive new Dead Man’s Button message for that time ROSbot isn’t allowed to move
+
+### FollowerKalman
+ This version is improved slow follower - basically only additions are scoring system and Kalman filter. Also I changed some parameters to make it more suitable for higher speeds.  
+In order to implement Kalman filter I created Person class,  where human position is stored and updated. For Kalman Filter part I used code from [leg_tracker](https://github.com/angusleigh/leg_tracker). All the parameters for filter where well tuned, I only changed std_obs value. 
+* **std_obs** - increasing this value means you don't trust your measurements and as the effect your data is much more filtered. Be careful with changing it too much, because it causes your estimated human position to be slower to sudden changes - if you stop, filter won't trust as much your readings and as a result it will predict you will still move with some velocity. Consequently robot will continue moving forward and it will take some time to adjust to reality. On the other hand if you decrease it too much human position will fluctuate with uncertainties in leg detections.
+
+Next big change is that I added scoring system which uses all parameters: proportion, area, length and distance. It combines it with appropriate weights.
+``` python
+proportion = max(xDistance,yDistance)/min(xDistance, yDistance)
+area = xDistance*yDistance
+widthDifference = (max(xDistance,yDistance)-self.legWidth) - self.dLegWidth
+distanceFromRobot = math.sqrt(xMean**2 + yMean**2)
+score = 0
+score += distanceFromRobot * self.distanceWeight
+score += abs(proportion - self.destProportion) * self.proportionWeight
+score += abs(area - self.destArea) * self.areaWeight
+if widthDifference > 0:
+    score += (abs(widthDifference) * self.widthDifferenceWeight)**2
+if score < self.maxScore:
+    sortedClustersDetails.append([xMean, yMean, distanceFromRobot, proportion, area, widthDifference, score])
+```
+Parameters:
+* **destProportion** - our desired proportion, I set it based on readings I got
+* **destArea** - same as above but with area
+* **distanceWeight** - weight we give to distance from robot
+* **proportionWeight** - weight we set to distance between measured proportion and desired
+* **areaWeight** - don't set this weight too high, as it is not as reliable
+* **widthDifferenceWeight** - we set it really high, because when reading is too long, then it's probably not a leg 
+* **maxScore** - above that score we are certain that detection isn't a leg
+
+
+Parameters with updated values:
+* **minRange** (increased) - robot has to detect obstacles earlier
+* **speedPGain** (increased) - increase in proportional gain to obtain higher speed
+* **angularSpeedPGain** (increased) - same as above
+* **minHumanDistance** (decreased) - robot will start following earlier and be able to keep up with human
+* **humanPositionChangeThreshold** (increased) - person walks faster so position can change more
+* **detectionTimeout** (decreased) - higher speeds, so we decrease timeouts
+* **buttonTimeout** (decreased) - same as above
+  
+Lastly I added restrictions on obstacle detect - we only detect obstacle approximately in area where we can drive. Increasing minRange can cause ROSbot to be unable to move in narrow spaces.
+``` python
+if (alfa > -math.pi and alfa < -self.maxAngle) or \
+	(alfa > self.maxAngle and alfa < math.pi):
+```
 
 ## Summary
 In this tutorial you learned how to set up and run human following using ROSbot with ESP remote. After main algorithm walkthrough you should be also able to modify it to suit your robot.

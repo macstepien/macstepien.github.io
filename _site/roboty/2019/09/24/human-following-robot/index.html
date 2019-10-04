@@ -174,10 +174,10 @@
   &nbsp;&middot;&nbsp;<time datetime="2019-09-24T00:00:00+02:00" class="time">24 Sep 2019</time>
 </small>
 
-    <p>Main goal of this project is to detect and follow people. Whole system was implemented on Husarion’s ROSbot with ESP32 as a remote. To find people I used scans from LiDAR with my detector which turned out to be fast and quite reliable. I also tested other LiDAR approaches available on ROS - leg_detector and leg_tracker but in this case didn’t perform well enough. Another way is upper_body_detector which uses RGBD camera to detect humans, but as name suggests it needs to see upper part of body - this will be a problem if we want our robot to stay close, also it didn’t perform very well and was slower.</p>
+    <p>In this tutorial I describe one way to make robot detect and follow people - it won’t make a great spy but could be useful to carry luggage or groceries. Whole system was implemented on Husarion’s ROSbot with ESP32 as a remote. To find people I used scans from LiDAR (RPLidar A2) with my detector, which is simple but turned out to be fast and quite reliable. I also checked other LiDAR approaches available on ROS - leg_detector and leg_tracker but in this case didn’t perform well enough. Another package I tested is upper_body_detector, which uses RGBD camera to detect humans. As name suggests it needs to see upper part of body - this will be a problem if we want our robot to stay close, also in this case it didn’t perform very well and was slower.</p>
 
 <div class="embed-container">
-  <iframe width="720" height="405" src="https://drive.google.com/file/d/1v5Gbrjno0eyKzPT_semViFL2a51i5ab7/preview" frameborder="0" allowfullscreen="">
+  <iframe width="720" height="405" src="https://drive.google.com/file/d/1jNWkf1M97UBEypOCILnGTzXXnH618SYN/preview" frameborder="0" allowfullscreen="">
   </iframe>
 </div>
 
@@ -195,7 +195,7 @@
   
 </figure>
 
-<p>As a source of power you can use a Powerbank connected to the ESP</p>
+<p>As a source of power you can use a Powerbank connected to the ESP.</p>
 <h4 id="code">Code</h4>
 <p>Create new sketch in Arduino IDE and copy code:<br />
 <a href="https://github.com/TheDarkPhoenix/RosbotFollowerESPRemote/blob/master/rosbot_remote.ino">ESP Remote Code</a></p>
@@ -203,10 +203,29 @@
 <p>Then get your Husarnet join code and customize code as described in <a href="https://www.hackster.io/khasreto/run-rosserial-over-the-internet-with-esp32-0615f5">ESP32 Husarnet Tutorial</a></p>
 
 <h3 id="rosbot">ROSbot</h3>
-<p>First thing you will need to install scikit learn python library:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install </span>python-scikits-learn
-</code></pre></div></div>
-<p>Then go to your ROS workspace, change directory to src:</p>
+<p>On ROSbot you will need to install two dependencies:</p>
+<ul>
+  <li>scikit learn python library (for clusterization)
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install </span>python-scikits-learn
+</code></pre></div>    </div>
+  </li>
+  <li>rosbot_description package (for URDF visualization model and bridge node)<br />
+Go to your ROS workspace and clone repository:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/ros_workspace/src
+git clone https://github.com/husarion/rosbot_description.git
+</code></pre></div>    </div>
+    <p>Install dependencies:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/ros_workspace
+rosdep <span class="nb">install</span> <span class="nt">--from-paths</span> src <span class="nt">--ignore-src</span> <span class="nt">-r</span> <span class="nt">-y</span>
+</code></pre></div>    </div>
+    <p>Build workspace:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/ros_workspace
+catkin_make
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Then go back to src folder in your workspace:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/ros_workspace/src
 </code></pre></div></div>
 
@@ -215,22 +234,30 @@
 </code></pre></div></div>
 
 <h2 id="usage">Usage</h2>
-<p>On ROSbot run these three commands in separate terminals:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>roscore 
-/opt/husarion/tools/rpi-linux/ros-core2-client /dev/ttyCORE2
-roslaunch rosbot_follower follower.launch
-</code></pre></div></div>
+<p>There are two options available:</p>
+<ul>
+  <li>followerSlow - better if you have little space and walk slowly.<br />
+To run it you only need to copy this commande into new terminal window:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>roslaunch rosbot_follower followerSlow.launch
+</code></pre></div>    </div>
+  </li>
+  <li>followerKalman - this one should be able to follow you with normal walking, but it also needs some space to gain speed.<br />
+Roslaunch command:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>roslaunch rosbot_follower followerKalman.launch
+</code></pre></div>    </div>
+  </li>
+</ul>
 
-<p>After whole system is up and running stand in front of ROSbot, but not too far away. When you are detected blue LED on ESP should turn on. Then when you press first button (the one closer to ESP on schematics) and start walking robot should follow you. When LED turns off it means that algorithm lost detection of you and you need to recalibrate (stand closer to robot and wait untill blue LED is back on). If robot had false detection you can calibrate again by pressing second button. On RViz you can see visualization: scan from LiDAR and detections. Green spheres are detected legs and yellow ones are detected human position. Robot follows yellow ones, and if its position is (0,0) then no person was detected.</p>
+<p>After whole system is up and running stand in front of ROSbot, but not too far away. When you are detected blue LED on ESP should turn on. Then you can press first button (the one closer to ESP on schematics) and if you start walking robot should follow you. When LED turns off it means that algorithm lost detection of you and need to recalibrate (stand closer to robot and wait until blue LED is back on). If robot had false detection you can calibrate again by pressing second button. On RViz you can see visualization: scan from LiDAR, robot model and detections. Green spheres are all potential legs, blue cylinders are detected legs and red tall cylinder is human position. In version with Kalman filter we also publish circle around human, which shows how much estimated position differs from measurement.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/RosbotFollower/rviz2.png" alt="" width="600" height="800" />
+  <img class="image" src="/pics/RosbotFollower/rviz.png" alt="" width="600" height="800" />
   
 </figure>
 
 <h3 id="troubleshooting">Troubleshooting</h3>
 <ul>
-  <li><strong>LED doesn’t turn on</strong> - check RViz if you can see any detections (yellow sphere’s position isn’t (0, 0)). If there is a detection then press Dead Man’s Button and try to walk.</li>
+  <li><strong>LED doesn’t turn on</strong> - check RViz if you can see detected human (red cylinder). If there is a detection then press Dead Man’s Button and try to walk.</li>
   <li><strong>ROSbot doesn’t respond</strong> - you should check your connection to ESP32. You can do so by echoing button topic:
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> rostopic <span class="nb">echo</span> /esp_remote/start
 </code></pre></div>    </div>
@@ -240,7 +267,7 @@ roslaunch rosbot_follower follower.launch
 
 <h2 id="algorithm-walkthrough">Algorithm walkthrough</h2>
 
-<p>Main part of this code is scan callback where all the magic happens. In there data from LiDAR is analyzed and people are detected. Whole process consists of 5 steps:</p>
+<p>First we will go through slower version, as it is simpler. Main part of this code is scan callback where all the magic happens - data from LiDAR is analyzed and people are detected. Whole process consists of 5 steps:</p>
 <ol>
   <li>Clusterization</li>
   <li>Leg detection</li>
@@ -272,7 +299,6 @@ roslaunch rosbot_follower follower.launch
             <span class="n">rospy</span><span class="o">.</span><span class="n">logerr</span><span class="p">(</span><span class="s">"Obstacle detected"</span><span class="p">)</span>
             <span class="k">return</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))]</span>
         <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-
     <span class="n">db</span> <span class="o">=</span> <span class="n">DBSCAN</span><span class="p">(</span><span class="n">eps</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">clusterizationMaxDistanceParam</span><span class="p">,</span> 
                 <span class="n">min_samples</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">clusterizationMinSamplesParam</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">pointsList</span><span class="p">)</span>
     <span class="n">core_samples_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
@@ -281,13 +307,11 @@ roslaunch rosbot_follower follower.launch
     <span class="n">n_clusters_</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">in</span> <span class="n">labels</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
     <span class="n">unique_labels</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
     <span class="n">clusterList</span> <span class="o">=</span> <span class="p">[]</span>
-
     <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">unique_labels</span><span class="p">:</span>
         <span class="n">class_member_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">labels</span> <span class="o">==</span> <span class="n">k</span><span class="p">)</span>
         <span class="n">xy</span> <span class="o">=</span> <span class="n">pointsList</span><span class="p">[</span><span class="n">class_member_mask</span> <span class="o">&amp;</span> <span class="n">core_samples_mask</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">xy</span><span class="o">.</span><span class="nb">any</span><span class="p">():</span>
             <span class="n">clusterList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">xy</span><span class="p">)</span>
-
     <span class="k">return</span> <span class="n">clusterList</span>
 </code></pre></div></div>
 
@@ -308,15 +332,15 @@ roslaunch rosbot_follower follower.launch
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">clusterList</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
     	<span class="n">rospy</span><span class="o">.</span><span class="n">logwarn</span><span class="p">(</span><span class="s">"No clusters detected"</span><span class="p">)</span>
     	<span class="k">if</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">lastDetectionTime</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">detectionTimeout</span><span class="p">:</span>
-    		<span class="n">humanPosition</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lastHumanPosition</span>
-    		<span class="bp">self</span><span class="o">.</span><span class="n">controlRosbot</span><span class="p">(</span><span class="n">humanPosition</span><span class="p">)</span>
+            <span class="n">humanPosition</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lastHumanPosition</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">controlRosbot</span><span class="p">(</span><span class="n">humanPosition</span><span class="p">)</span>
     	<span class="k">else</span><span class="p">:</span>
-    		<span class="n">led</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
-    		<span class="n">led</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">False</span>
-    		<span class="bp">self</span><span class="o">.</span><span class="n">ledPub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">led</span><span class="p">)</span>
-    		<span class="bp">self</span><span class="o">.</span><span class="n">positionCalibration</span> <span class="o">=</span> <span class="bp">True</span>
-    		<span class="n">rosbotControl</span> <span class="o">=</span> <span class="n">Twist</span><span class="p">()</span>
-    		<span class="bp">self</span><span class="o">.</span><span class="n">speedPub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">rosbotControl</span><span class="p">)</span>
+            <span class="n">led</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+            <span class="n">led</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ledPub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">led</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">positionCalibration</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="n">rosbotControl</span> <span class="o">=</span> <span class="n">Twist</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">speedPub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">rosbotControl</span><span class="p">)</span>
     	<span class="k">return</span>
     <span class="k">elif</span> <span class="p">(</span><span class="n">clusterList</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">clusterList</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
     	<span class="n">led</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
@@ -328,8 +352,8 @@ roslaunch rosbot_follower follower.launch
     	<span class="k">return</span>
     <span class="o">...</span>
 </code></pre></div></div>
-<p>In here we check results of clusterization. If we didn’t detect anything, we continue movement in last seen human position. That is until our last seen position is too old - then we need to stop and assume we lost track of our human. We also signal it through LED.<br />
-When obstacle is detected then we pass special value - in first cluster first point is set to (0,0). Then robot needs to stop immediately as obstacle is too close.</p>
+<p>In here we check results of clusterization. If we didn’t detect anything, we continue movement in last seen human position. That is until our last seen position is too old - then we need to stop and assume we lost track of our human, which we signal through LED.<br />
+We pass special value when obstacle is detected - in first cluster first point is set to (0,0). In this case robot needs to stop immediately, as obstacle is too close.</p>
 
 <ul>
   <li><strong>detectionTimeout</strong> - how much time (in seconds) we can trust last seen position and follow it</li>
@@ -346,30 +370,23 @@ When obstacle is detected then we pass special value - in first cluster first po
     <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">sortedClusters</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">cluster</span> <span class="ow">in</span> <span class="n">clusterList</span><span class="p">:</span>
-
     	<span class="n">xMax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="nb">max</span><span class="p">(</span><span class="n">cluster</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
     	<span class="n">xMin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="nb">min</span><span class="p">(</span><span class="n">cluster</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
     	<span class="n">yMax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="nb">max</span><span class="p">(</span><span class="n">cluster</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
     	<span class="n">yMin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="nb">min</span><span class="p">(</span><span class="n">cluster</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
-
     	<span class="n">xDistance</span> <span class="o">=</span> <span class="n">xMax</span> <span class="o">-</span> <span class="n">xMin</span>
     	<span class="n">yDistance</span> <span class="o">=</span> <span class="n">yMax</span> <span class="o">-</span> <span class="n">yMin</span>
-    	
     	<span class="n">proportion</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">xDistance</span><span class="p">,</span><span class="n">yDistance</span><span class="p">)</span><span class="o">/</span><span class="nb">min</span><span class="p">(</span><span class="n">xDistance</span><span class="p">,</span> <span class="n">yDistance</span><span class="p">)</span>
     	<span class="n">area</span> <span class="o">=</span> <span class="n">xDistance</span><span class="o">*</span><span class="n">yDistance</span>
-    	
     	<span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">xDistance</span><span class="p">,</span><span class="n">yDistance</span><span class="p">)</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">legWidth</span><span class="p">)</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">dLegWidth</span><span class="p">:</span> 
     		<span class="k">continue</span>
-    	
     	<span class="n">xMean</span> <span class="o">=</span> <span class="p">(</span><span class="n">xMax</span><span class="o">+</span><span class="n">xMin</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
     	<span class="n">yMean</span> <span class="o">=</span> <span class="p">(</span><span class="n">yMax</span><span class="o">+</span><span class="n">yMin</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
-
     	<span class="n">cone</span> <span class="o">=</span> <span class="n">Point</span><span class="p">()</span>
     	<span class="n">cone</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">xMean</span>
     	<span class="n">cone</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">yMean</span>
     	<span class="n">cone</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">0</span>
     	<span class="n">sortedClusters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cone</span><span class="p">)</span>
-
     <span class="n">sortedClusters</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span><span class="o">.</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">sortedClusters</span>
 </code></pre></div></div>
@@ -386,15 +403,15 @@ When obstacle is detected then we pass special value - in first cluster first po
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sortedClusters</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
     	<span class="n">rospy</span><span class="o">.</span><span class="n">logwarn</span><span class="p">(</span><span class="s">"No legs detected"</span><span class="p">)</span>
     	<span class="k">if</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">lastDetectionTime</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">detectionTimeout</span><span class="p">:</span>
-    		<span class="n">humanPosition</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lastHumanPosition</span>
-    		<span class="bp">self</span><span class="o">.</span><span class="n">controlRosbot</span><span class="p">(</span><span class="n">humanPosition</span><span class="p">)</span>
+            <span class="n">humanPosition</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lastHumanPosition</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">controlRosbot</span><span class="p">(</span><span class="n">humanPosition</span><span class="p">)</span>
     	<span class="k">else</span><span class="p">:</span>
-    		<span class="n">led</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
-    		<span class="n">led</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">False</span>
-    		<span class="bp">self</span><span class="o">.</span><span class="n">ledPub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">led</span><span class="p">)</span>
-    		<span class="bp">self</span><span class="o">.</span><span class="n">positionCalibration</span> <span class="o">=</span> <span class="bp">True</span>
-    		<span class="n">rosbotControl</span> <span class="o">=</span> <span class="n">Twist</span><span class="p">()</span>
-    		<span class="bp">self</span><span class="o">.</span><span class="n">speedPub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">rosbotControl</span><span class="p">)</span>
+            <span class="n">led</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+            <span class="n">led</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ledPub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">led</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">positionCalibration</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="n">rosbotControl</span> <span class="o">=</span> <span class="n">Twist</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">speedPub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">rosbotControl</span><span class="p">)</span>
     	<span class="k">return</span>
     <span class="o">...</span>
 </code></pre></div></div>
@@ -405,11 +422,12 @@ When obstacle is detected then we pass special value - in first cluster first po
 <p>We estimate human position through analysis of legs detections:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">scanCallback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scan</span><span class="p">):</span>
     <span class="o">...</span>
-    <span class="p">(</span><span class="n">firstLeg</span><span class="p">,</span> <span class="n">secondLeg</span><span class="p">,</span> <span class="n">humanPosition</span><span class="p">,</span> <span class="n">twoLegsDetected</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">detectHuman</span><span class="p">(</span><span class="n">sortedClusters</span><span class="p">)</span>
+    <span class="p">(</span><span class="n">firstLeg</span><span class="p">,</span> <span class="n">secondLeg</span><span class="p">,</span> <span class="n">humanPosition</span><span class="p">,</span> <span class="n">firstLegDetected</span><span class="p">,</span> <span class="n">twoLegsDetected</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">detectHuman</span><span class="p">(</span><span class="n">sortedClusters</span><span class="p">)</span>
     <span class="o">...</span>
 </code></pre></div></div>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">detectHuman</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sortedClusters</span><span class="p">):</span>
     <span class="n">firstLeg</span> <span class="o">=</span> <span class="n">sortedClusters</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">firstLegDetected</span> <span class="o">=</span> <span class="bp">False</span>
     <span class="n">twoLegsDetected</span> <span class="o">=</span> <span class="bp">False</span>
     <span class="n">secondLeg</span> <span class="o">=</span> <span class="n">Point</span><span class="p">()</span>
     <span class="n">humanPosition</span> <span class="o">=</span> <span class="n">Point</span><span class="p">()</span>
@@ -419,42 +437,42 @@ When obstacle is detected then we pass special value - in first cluster first po
     	<span class="n">secondLeg</span> <span class="o">=</span> <span class="n">sortedClusters</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
     	<span class="n">legDistance</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">firstLeg</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">secondLeg</span><span class="o">.</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">firstLeg</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">secondLeg</span><span class="o">.</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
     	<span class="k">if</span> <span class="n">legDistance</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">legDistanceThreshold</span><span class="p">:</span>
-    		<span class="n">humanPositionTemp</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">firstLeg</span><span class="o">.</span><span class="n">x</span><span class="o">+</span><span class="n">secondLeg</span><span class="o">.</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
-    		<span class="n">humanPositionTemp</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">firstLeg</span><span class="o">.</span><span class="n">y</span><span class="o">+</span><span class="n">secondLeg</span><span class="o">.</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
-    		<span class="n">humanPositionTemp</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">0</span>
-    		<span class="n">twoLegsDetected</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="n">humanPositionTemp</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">firstLeg</span><span class="o">.</span><span class="n">x</span><span class="o">+</span><span class="n">secondLeg</span><span class="o">.</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+            <span class="n">humanPositionTemp</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">firstLeg</span><span class="o">.</span><span class="n">y</span><span class="o">+</span><span class="n">secondLeg</span><span class="o">.</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+            <span class="n">humanPositionTemp</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">twoLegsDetected</span> <span class="o">=</span> <span class="bp">True</span>
     	<span class="k">else</span><span class="p">:</span>
-    		<span class="n">humanPositionTemp</span> <span class="o">=</span> <span class="n">firstLeg</span>
+            <span class="n">humanPositionTemp</span> <span class="o">=</span> <span class="n">firstLeg</span>
     <span class="k">else</span><span class="p">:</span>
     	<span class="n">humanPositionTemp</span> <span class="o">=</span> <span class="n">firstLeg</span>
-    	
     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">positionCalibration</span><span class="p">:</span>
     	<span class="n">r</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="n">humanPositionTemp</span><span class="o">.</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">humanPositionTemp</span><span class="o">.</span><span class="n">y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
     	<span class="k">if</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">calibrationDistance</span> <span class="ow">and</span> <span class="n">twoLegsDetected</span><span class="p">:</span>
-    		<span class="bp">self</span><span class="o">.</span><span class="n">lastHumanPosition</span> <span class="o">=</span> <span class="n">humanPositionTemp</span>
-    		<span class="n">humanPosition</span> <span class="o">=</span> <span class="n">humanPositionTemp</span>
-    		<span class="bp">self</span><span class="o">.</span><span class="n">lastDetectionTime</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span>
-    		<span class="bp">self</span><span class="o">.</span><span class="n">positionCalibration</span> <span class="o">=</span> <span class="bp">False</span>
-    		<span class="n">led</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
-    		<span class="n">led</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">True</span>
-    		<span class="bp">self</span><span class="o">.</span><span class="n">ledPub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">led</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lastHumanPosition</span> <span class="o">=</span> <span class="n">humanPositionTemp</span>
+            <span class="n">humanPosition</span> <span class="o">=</span> <span class="n">humanPositionTemp</span>
+            <span class="n">firstLegDetected</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lastDetectionTime</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">positionCalibration</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="n">led</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+            <span class="n">led</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ledPub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">led</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
     	<span class="n">distanceChange</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">lastHumanPosition</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">humanPositionTemp</span><span class="o">.</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> \
     				<span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lastHumanPosition</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">humanPositionTemp</span><span class="o">.</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
     	<span class="k">if</span> <span class="n">distanceChange</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">humanPositionChangeThreshold</span><span class="p">:</span>
-    		<span class="n">humanPosition</span> <span class="o">=</span> <span class="n">humanPositionTemp</span>
-    		<span class="bp">self</span><span class="o">.</span><span class="n">lastHumanPosition</span> <span class="o">=</span> <span class="n">humanPosition</span>
-    		<span class="bp">self</span><span class="o">.</span><span class="n">lastDetectionTime</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span>
+            <span class="n">humanPosition</span> <span class="o">=</span> <span class="n">humanPositionTemp</span>
+            <span class="n">firstLegDetected</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lastHumanPosition</span> <span class="o">=</span> <span class="n">humanPosition</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lastDetectionTime</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span>
     	<span class="k">else</span><span class="p">:</span> 
-    		<span class="k">if</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">lastDetectionTime</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">detectionTimeout</span><span class="p">:</span>
-    			<span class="n">humanPosition</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lastHumanPosition</span>
-    		<span class="k">else</span><span class="p">:</span>
-    			<span class="n">led</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
-    			<span class="n">led</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">False</span>
-    			<span class="bp">self</span><span class="o">.</span><span class="n">ledPub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">led</span><span class="p">)</span>
-    			<span class="bp">self</span><span class="o">.</span><span class="n">positionCalibration</span> <span class="o">=</span> <span class="bp">True</span>
-
-    <span class="k">return</span> <span class="p">(</span><span class="n">firstLeg</span><span class="p">,</span> <span class="n">secondLeg</span><span class="p">,</span> <span class="n">humanPosition</span><span class="p">,</span> <span class="n">twoLegsDetected</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">lastDetectionTime</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">detectionTimeout</span><span class="p">:</span>
+                <span class="n">humanPosition</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lastHumanPosition</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">led</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
+                <span class="n">led</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">False</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ledPub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">led</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">positionCalibration</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">firstLeg</span><span class="p">,</span> <span class="n">secondLeg</span><span class="p">,</span> <span class="n">humanPosition</span><span class="p">,</span> <span class="n">firstLegDetected</span><span class="p">,</span> <span class="n">twoLegsDetected</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>We assume our first detected leg is one closest to ROSbot. Second leg (if any available) is one closest to first leg (if it’s close enough). With two legs detected we calculate possible human position as mean between legs, otherwise we use first leg as possible human position.<br />
@@ -471,12 +489,51 @@ When human position is not calibrated, then two legs have to be visible in range
 <p>Visualization of our detections</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">scanCallback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scan</span><span class="p">):</span>
     <span class="o">...</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">publishMarkers</span><span class="p">(</span><span class="n">firstLeg</span><span class="p">,</span> <span class="n">secondLeg</span><span class="p">,</span> <span class="n">humanPosition</span><span class="p">,</span> <span class="n">twoLegsDetected</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">publishMarkers</span><span class="p">(</span><span class="n">firstLeg</span><span class="p">,</span> <span class="n">secondLeg</span><span class="p">,</span> <span class="n">humanPosition</span><span class="p">,</span> <span class="n">firstLegDetected</span><span class="p">,</span> <span class="n">twoLegsDetected</span><span class="p">,</span> <span class="n">sortedClusters</span><span class="p">)</span>
     <span class="o">...</span>
 </code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">publishMarkers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">firstLeg</span><span class="p">,</span> <span class="n">secondLeg</span><span class="p">,</span> <span class="n">humanPosition</span><span class="p">,</span> <span class="n">twoLegsDetected</span><span class="p">):</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">publishMarkers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">firstLeg</span><span class="p">,</span> <span class="n">secondLeg</span><span class="p">,</span> <span class="n">humanPosition</span><span class="p">,</span> <span class="n">firstLegDetected</span><span class="p">,</span> <span class="n">twoLegsDetected</span><span class="p">,</span> <span class="n">sortedClusters</span><span class="p">):</span>
     <span class="n">legMarker</span> <span class="o">=</span> <span class="n">Marker</span><span class="p">()</span>
+    <span class="n">legMarker</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="s">"laser"</span>
+    <span class="n">legMarker</span><span class="o">.</span><span class="n">ns</span> <span class="o">=</span> <span class="s">"person"</span>
+    <span class="n">legMarker</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">stamp</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Time</span><span class="p">()</span>
+    <span class="n">legMarker</span><span class="o">.</span><span class="nb">type</span> <span class="o">=</span> <span class="n">Marker</span><span class="o">.</span><span class="n">CYLINDER</span>
+    <span class="n">legMarker</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="n">Marker</span><span class="o">.</span><span class="n">ADD</span>
+    <span class="n">legMarker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">legMarker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">legMarker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">legMarker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="n">legMarker</span><span class="o">.</span><span class="n">scale</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.04</span>
+    <span class="n">legMarker</span><span class="o">.</span><span class="n">scale</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.04</span>
+    <span class="n">legMarker</span><span class="o">.</span><span class="n">scale</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.04</span>
+    <span class="n">legMarker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="n">legMarker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">legMarker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">g</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">legMarker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="n">legMarker</span><span class="o">.</span><span class="n">lifetime</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Duration</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">positionCalibration</span><span class="p">:</span>
+    	<span class="c1">#first leg
+</span>        <span class="k">if</span> <span class="n">firstLegDetected</span><span class="p">:</span>
+            <span class="n">legMarker</span><span class="o">.</span><span class="nb">id</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">legMarker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">firstLeg</span>
+            <span class="n">legMarker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.02</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">legPub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">legMarker</span><span class="p">)</span>
+        <span class="c1">#second leg
+</span>        <span class="k">if</span> <span class="n">twoLegsDetected</span><span class="p">:</span>
+            <span class="n">legMarker</span><span class="o">.</span><span class="nb">id</span> <span class="o">=</span> <span class="mi">2</span>
+            <span class="n">legMarker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">secondLeg</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">legPub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">legMarker</span><span class="p">)</span>
+    	<span class="c1">#human position
+</span>    	<span class="n">legMarker</span><span class="o">.</span><span class="nb">id</span> <span class="o">=</span> <span class="mi">3</span>
+    	<span class="n">legMarker</span><span class="o">.</span><span class="n">scale</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.2</span>
+    	<span class="n">legMarker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">humanPosition</span>
+    	<span class="n">legMarker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.1</span>
+    	<span class="n">legMarker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="mf">1.0</span>
+    	<span class="n">legMarker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="mf">0.0</span>
+    	<span class="bp">self</span><span class="o">.</span><span class="n">legPub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">legMarker</span><span class="p">)</span>
+    <span class="n">legMarker</span> <span class="o">=</span> <span class="n">Marker</span><span class="p">()</span>
+    <span class="n">legMarker</span><span class="o">.</span><span class="n">ns</span> <span class="o">=</span> <span class="s">"legs"</span>
     <span class="n">legMarker</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="s">"laser"</span>
     <span class="n">legMarker</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">stamp</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Time</span><span class="p">()</span>
     <span class="n">legMarker</span><span class="o">.</span><span class="nb">type</span> <span class="o">=</span> <span class="n">Marker</span><span class="o">.</span><span class="n">SPHERE</span>
@@ -492,25 +549,16 @@ When human position is not calibrated, then two legs have to be visible in range
     <span class="n">legMarker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="mf">0.0</span>
     <span class="n">legMarker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">g</span> <span class="o">=</span> <span class="mf">1.0</span>
     <span class="n">legMarker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="mf">0.0</span>
-
-    <span class="c1">#first leg
-</span>    <span class="n">legMarker</span><span class="o">.</span><span class="nb">id</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">firstLeg</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">legPub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">legMarker</span><span class="p">)</span>
-
-    <span class="c1">#second leg
-</span>    <span class="k">if</span> <span class="n">twoLegsDetected</span><span class="p">:</span>
-    	<span class="n">legMarker</span><span class="o">.</span><span class="nb">id</span> <span class="o">=</span> <span class="mi">2</span>
-    	<span class="n">legMarker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">secondLeg</span>
+    <span class="n">legMarker</span><span class="o">.</span><span class="n">lifetime</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Duration</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">sortedClusters</span><span class="p">:</span>
+    	<span class="n">legMarker</span><span class="o">.</span><span class="nb">id</span> <span class="o">=</span> <span class="n">i</span>
+    	<span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    	<span class="n">legMarker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">x</span>
+    	<span class="n">legMarker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">y</span>
     	<span class="bp">self</span><span class="o">.</span><span class="n">legPub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">legMarker</span><span class="p">)</span>
-
-    <span class="c1">#human position
-</span>    <span class="n">legMarker</span><span class="o">.</span><span class="nb">id</span> <span class="o">=</span> <span class="mi">3</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">humanPosition</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="mf">1.0</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">legPub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">legMarker</span><span class="p">)</span>
 </code></pre></div></div>
-<p>Pretty straightforward: we publish markers with our legs (green) and human (yellow).</p>
+<p>Pretty straightforward: we publish markers with potential legs (green spheres), detected legs (if any found, blue cylinders) and human (red cylinder).</p>
 
 <h3 id="5-control">5. Control</h3>
 <p>And final step is movement control:</p>
@@ -521,17 +569,14 @@ When human position is not calibrated, then two legs have to be visible in range
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">controlRosbot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">humanPosition</span><span class="p">):</span>
     <span class="n">r</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="n">humanPosition</span><span class="o">.</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">humanPosition</span><span class="o">.</span><span class="n">y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
     <span class="n">a</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">atan2</span><span class="p">(</span><span class="n">humanPosition</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="n">humanPosition</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
-
     <span class="k">if</span> <span class="n">r</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">minHumanDistance</span><span class="p">:</span>
     	<span class="n">xSpeed</span> <span class="o">=</span> <span class="o">-</span><span class="n">r</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">speedPGain</span>
     <span class="k">else</span><span class="p">:</span>
     	<span class="n">xSpeed</span> <span class="o">=</span> <span class="mi">0</span>
-
     <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">minHumanAngle</span><span class="p">:</span>
     	<span class="n">zAngularSpeed</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">angularSpeedPGain</span>
     <span class="k">else</span><span class="p">:</span>
     	<span class="n">zAngularSpeed</span> <span class="o">=</span> <span class="mi">0</span>
-
     <span class="n">rosbotControl</span> <span class="o">=</span> <span class="n">Twist</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">buttonTime</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">buttonTimeout</span> <span class="ow">and</span> \
     		<span class="bp">self</span><span class="o">.</span><span class="n">buttonState</span> <span class="o">==</span> <span class="bp">True</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">positionCalibration</span><span class="p">:</span>
@@ -550,6 +595,54 @@ When human position is not calibrated, then two legs have to be visible in range
   <li><strong>angularSpeedPGain</strong> - proportional gain for angular ROSbot speed (increase if you want your robot to turn faster)</li>
   <li><strong>buttonTimeout</strong> (seconds) - if we don’t receive new Dead Man’s Button message for that time ROSbot isn’t allowed to move</li>
 </ul>
+
+<h3 id="followerkalman">FollowerKalman</h3>
+<p>This version is improved slow follower - basically only additions are scoring system and Kalman filter. Also I changed some parameters to make it more suitable for higher speeds.<br />
+In order to implement Kalman filter I created Person class,  where human position is stored and updated. For Kalman Filter part I used code from <a href="https://github.com/angusleigh/leg_tracker">leg_tracker</a>. All the parameters for filter where well tuned, I only changed std_obs value.</p>
+<ul>
+  <li><strong>std_obs</strong> - increasing this value means you don’t trust your measurements and as the effect your data is much more filtered. Be careful with changing it too much, because it causes your estimated human position to be slower to sudden changes - if you stop, filter won’t trust as much your readings and as a result it will predict you will still move with some velocity. Consequently robot will continue moving forward and it will take some time to adjust to reality. On the other hand if you decrease it too much human position will fluctuate with uncertainties in leg detections.</li>
+</ul>
+
+<p>Next big change is that I added scoring system which uses all parameters: proportion, area, length and distance. It combines it with appropriate weights.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">proportion</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">xDistance</span><span class="p">,</span><span class="n">yDistance</span><span class="p">)</span><span class="o">/</span><span class="nb">min</span><span class="p">(</span><span class="n">xDistance</span><span class="p">,</span> <span class="n">yDistance</span><span class="p">)</span>
+<span class="n">area</span> <span class="o">=</span> <span class="n">xDistance</span><span class="o">*</span><span class="n">yDistance</span>
+<span class="n">widthDifference</span> <span class="o">=</span> <span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">xDistance</span><span class="p">,</span><span class="n">yDistance</span><span class="p">)</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">legWidth</span><span class="p">)</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">dLegWidth</span>
+<span class="n">distanceFromRobot</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">xMean</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">yMean</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">score</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">score</span> <span class="o">+=</span> <span class="n">distanceFromRobot</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">distanceWeight</span>
+<span class="n">score</span> <span class="o">+=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">proportion</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">destProportion</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">proportionWeight</span>
+<span class="n">score</span> <span class="o">+=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">area</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">destArea</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">areaWeight</span>
+<span class="k">if</span> <span class="n">widthDifference</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">score</span> <span class="o">+=</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">widthDifference</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">widthDifferenceWeight</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<span class="k">if</span> <span class="n">score</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">maxScore</span><span class="p">:</span>
+    <span class="n">sortedClustersDetails</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">xMean</span><span class="p">,</span> <span class="n">yMean</span><span class="p">,</span> <span class="n">distanceFromRobot</span><span class="p">,</span> <span class="n">proportion</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="n">widthDifference</span><span class="p">,</span> <span class="n">score</span><span class="p">])</span>
+</code></pre></div></div>
+<p>Parameters:</p>
+<ul>
+  <li><strong>destProportion</strong> - our desired proportion, I set it based on readings I got</li>
+  <li><strong>destArea</strong> - same as above but with area</li>
+  <li><strong>distanceWeight</strong> - weight we give to distance from robot</li>
+  <li><strong>proportionWeight</strong> - weight we set to distance between measured proportion and desired</li>
+  <li><strong>areaWeight</strong> - don’t set this weight too high, as it is not as reliable</li>
+  <li><strong>widthDifferenceWeight</strong> - we set it really high, because when reading is too long, then it’s probably not a leg</li>
+  <li><strong>maxScore</strong> - above that score we are certain that detection isn’t a leg</li>
+</ul>
+
+<p>Parameters with updated values:</p>
+<ul>
+  <li><strong>minRange</strong> (increased) - robot has to detect obstacles earlier</li>
+  <li><strong>speedPGain</strong> (increased) - increase in proportional gain to obtain higher speed</li>
+  <li><strong>angularSpeedPGain</strong> (increased) - same as above</li>
+  <li><strong>minHumanDistance</strong> (decreased) - robot will start following earlier and be able to keep up with human</li>
+  <li><strong>humanPositionChangeThreshold</strong> (increased) - person walks faster so position can change more</li>
+  <li><strong>detectionTimeout</strong> (decreased) - higher speeds, so we decrease timeouts</li>
+  <li><strong>buttonTimeout</strong> (decreased) - same as above</li>
+</ul>
+
+<p>Lastly I added restrictions on obstacle detect - we only detect obstacle approximately in area where we can drive. Increasing minRange can cause ROSbot to be unable to move in narrow spaces.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="n">alfa</span> <span class="o">&gt;</span> <span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="ow">and</span> <span class="n">alfa</span> <span class="o">&lt;</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">maxAngle</span><span class="p">)</span> <span class="ow">or</span> \
+	<span class="p">(</span><span class="n">alfa</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">maxAngle</span> <span class="ow">and</span> <span class="n">alfa</span> <span class="o">&lt;</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">):</span>
+</code></pre></div></div>
 
 <h2 id="summary">Summary</h2>
 <p>In this tutorial you learned how to set up and run human following using ROSbot with ESP remote. After main algorithm walkthrough you should be also able to modify it to suit your robot.</p>
