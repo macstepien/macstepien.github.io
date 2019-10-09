@@ -18,7 +18,14 @@ In this tutorial I describe one way to make robot detect and follow people - it 
 ## Setup
 ### ESP32 Remote
 #### Environment
-ESP32 environment setup is similar to one in [Security Guard Robot tutorial](https://husarion.com/tutorials/ros-projects/security-guard-robot/). All things you need to prepare are described in [here](https://www.hackster.io/khasreto/run-rosserial-over-the-internet-with-esp32-0615f5). On ROSbot you will need to follow steps about Husarnet connection and Rosserial for Husarnet. Next requirement is to modify your Arduino IDE to be able to program ESP32. This step can be done on your computer (remember to also setup Rosserial for Husarnet) or ROSbot.
+
+You will need to follow tutorial about [setting up rosserial connection over Internet with ESP32](https://www.hackster.io/khasreto/run-rosserial-over-the-internet-with-esp32-0615f5). On ROSbot set up Husarnet connection and Rosserial for Husarnet. I recommend to set up Arduino IDE on your computer (remember to also get Rosserial for Husarnet). 
+
+#### Code
+Create new sketch in Arduino IDE and copy code:  
+[ESP Remote Code](https://github.com/TheDarkPhoenix/RosbotFollowerESPRemote/blob/master/rosbot_remote.ino)
+
+Then get your Husarnet join code and customize code as described in [ESP32 Husarnet Tutorial](https://www.hackster.io/khasreto/run-rosserial-over-the-internet-with-esp32-0615f5)
 
 #### Wiring
 
@@ -26,15 +33,10 @@ Wire your ESP32 accordingly to schematics:
 
 {% include figure.html image="/pics/RosbotFollower/remoteSchematics.png" width="600" height="800" %}
 
-As a source of power you can use a Powerbank connected to the ESP.
-#### Code
-Create new sketch in Arduino IDE and copy code:  
-[ESP Remote Code](https://github.com/TheDarkPhoenix/RosbotFollowerESPRemote/blob/master/rosbot_remote.ino)
-
-Then get your Husarnet join code and customize code as described in [ESP32 Husarnet Tutorial](https://www.hackster.io/khasreto/run-rosserial-over-the-internet-with-esp32-0615f5) 
+As a source of power you can use a Powerbank connected to the ESP. 
 
 ### ROSbot 
-On ROSbot you will need to install following dependencies:
+This project is meant to run on CORE2 with Mbed firmware. So be sure that you updated your firmware as described in [ROSbot quick start](https://husarion.com/tutorials/howtostart/rosbot---quick-start/). On ROSbot you will need to install following dependencies:
 * **scikit-learn** python library (for clusterization)
   ``` bash
   sudo apt-get install python-scikits-learn
@@ -53,10 +55,14 @@ On ROSbot you will need to install following dependencies:
   cd ~/ros_workspace
   rosdep install --from-paths src --ignore-src -r -y
   ```
-  Build workspace:
-  ``` bash
-  cd ~/ros_workspace
-  catkin_make
+* **rosbot_ekf**  
+  Install dependency: 
+  ```bash
+  sudo apt-get install ros-kinetic-robot-localization
+  ```
+  Get package:
+  ```bash
+  git clone https://github.com/byq77/rosbot_ekf.git
   ```
 
 Then go back to src folder in your workspace:
@@ -64,9 +70,15 @@ Then go back to src folder in your workspace:
 cd ~/ros_workspace/src
 ```
 
-And download code:
+Download code:
 ``` bash
 git clone https://github.com/TheDarkPhoenix/rosbot_follower.git
+```
+
+And finally build your workspace:
+``` bash
+cd ~/ros_workspace
+catkin_make
 ```
 
 ## Usage
