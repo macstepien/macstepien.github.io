@@ -19,7 +19,7 @@ In this tutorial I describe one way to make robot detect and follow people - it 
 ### ESP32 Remote
 #### Environment
 
-You will need to follow tutorial about [setting up rosserial connection over Internet with ESP32](https://www.hackster.io/khasreto/run-rosserial-over-the-internet-with-esp32-0615f5). On ROSbot set up Husarnet connection and Rosserial for Husarnet. I recommend to set up Arduino IDE on your computer (remember to also get Rosserial for Husarnet). 
+You will need to follow tutorial about [setting up rosserial connection over Internet with ESP32](https://www.hackster.io/khasreto/run-rosserial-over-the-internet-with-esp32-0615f5). On ROSbot prepare Husarnet connection and Rosserial for Husarnet. I recommend to set up Arduino IDE on your computer (remember to also get Rosserial for Husarnet). 
 
 #### Code
 Create new sketch in Arduino IDE and copy code:  
@@ -439,7 +439,7 @@ Firstly we convert our cartesian coordinates to polar ones. Then we calculate an
 
 ### FollowerKalman
  This version is improved slow follower - basically only additions are scoring system and Kalman filter. Also I changed some parameters to make it more suitable for higher speeds.  
-In order to implement Kalman filter I created Person class,  where human position is stored and updated. For Kalman Filter part I used code from [leg_tracker](https://github.com/angusleigh/leg_tracker). All the parameters for filter where well tuned, I only changed std_obs value. 
+In order to implement Kalman filter I created Person class where human position is stored and updated. For Kalman Filter part I used code from [leg_tracker](https://github.com/angusleigh/leg_tracker). All the parameters for filter were well tuned, I only changed std_obs value. 
 * **std_obs** - increasing this value means you don't trust your measurements and as the effect your data is much more filtered. Be careful with changing it too much, because it causes your estimated human position to be slower to sudden changes - if you stop, filter won't trust as much your readings and as a result it will predict you will still move with some velocity. Consequently robot will continue moving forward and it will take some time to adjust to reality. On the other hand if you decrease it too much human position will fluctuate with uncertainties in leg detections.
 
 Next big change is that I added scoring system which uses all parameters: proportion, area, length and distance. It combines it with appropriate weights.
