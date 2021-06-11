@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "jekyll", "~> 3.8"
+gem "jekyll", "~> 3"
 gem "jekyll-sitemap", "~> 0.13"
 gem "jekyll-mentions", "~> 1.2"
 gem "jekyll-paginate", "~> 1.1"
