@@ -3,25 +3,28 @@
 
   <head>
     <!-- General meta -->
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     
 
     
-      <!-- Begin Jekyll SEO tag v2.5.0 -->
+      <!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>Human following robot | Maciej Stępień</title>
-<meta name="generator" content="Jekyll v3.8.5" />
+<meta name="generator" content="Jekyll v3.9.1" />
 <meta property="og:title" content="Human following robot" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Every move you make | Every step you take | I’ll follow you" />
 <meta property="og:description" content="Every move you make | Every step you take | I’ll follow you" />
-<link rel="canonical" href="http://localhost:4000/roboty/2019/09/24/human-following-robot/" />
-<meta property="og:url" content="http://localhost:4000/roboty/2019/09/24/human-following-robot/" />
+<link rel="canonical" href="http://0.0.0.0:4000/roboty/2019/09/24/human-following-robot/" />
+<meta property="og:url" content="http://0.0.0.0:4000/roboty/2019/09/24/human-following-robot/" />
 <meta property="og:site_name" content="Maciej Stępień" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-09-24T00:00:00+02:00" />
+<meta property="article:published_time" content="2019-09-24T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Human following robot" />
 <script type="application/ld+json">
-{"description":"Every move you make | Every step you take | I’ll follow you","@type":"BlogPosting","url":"http://localhost:4000/roboty/2019/09/24/human-following-robot/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/pics/logo1.png"}},"headline":"Human following robot","dateModified":"2019-09-24T00:00:00+02:00","datePublished":"2019-09-24T00:00:00+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/roboty/2019/09/24/human-following-robot/"},"@context":"http://schema.org"}</script>
+{"description":"Every move you make | Every step you take | I’ll follow you","@type":"BlogPosting","url":"http://0.0.0.0:4000/roboty/2019/09/24/human-following-robot/","headline":"Human following robot","dateModified":"2019-09-24T00:00:00-05:00","datePublished":"2019-09-24T00:00:00-05:00","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://0.0.0.0:4000/pics/logo1.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/roboty/2019/09/24/human-following-robot/"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     
@@ -39,7 +42,20 @@
 
     <!-- Overwrite this file with code you want before the closing head tag -->
 
-  </head>
+  
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-138286459-1', 'auto');
+	ga('send', 'pageview', { 'page': location.pathname + location.search + location.hash});
+	ga('set', 'anonymizeIp', true);
+    </script>
+    <!-- End Google Analytics -->
+    </head>
 
   <body class="layout-post  human-following-robot">
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="height: 0; position: absolute">
@@ -83,28 +99,28 @@
       
 
       <li class="item  item--nav">
-        <a href=""></a>
+        <a href="/">Home</a>
       </li>
     
 
       
 
       <li class="item  item--nav">
-        <a href=""></a>
+        <a href="/about/">About</a>
       </li>
     
 
       
 
       <li class="item  item--nav">
-        <a href=""></a>
+        <a href="/projekty/">Projekty</a>
       </li>
     
 
       
 
       <li class="item  item--nav">
-        <a href=""></a>
+        <a href="/categories/">Kategorie</a>
       </li>
     
   </ul>
@@ -171,7 +187,7 @@
     
       <span class="label  label--category"><a href="/categories/#roboty">Roboty</a></span>
     
-  &nbsp;&middot;&nbsp;<time datetime="2019-09-24T00:00:00+02:00" class="time">24 Sep 2019</time>
+  &nbsp;&middot;&nbsp;<time datetime="2019-09-24T00:00:00-05:00" class="time">24 Sep 2019</time>
 </small>
 
     <p>In this tutorial I describe one way to make robot detect and follow people - it won’t make a great spy but could be useful to carry luggage or groceries. Whole system was implemented on Husarion’s ROSbot with ESP32 as a remote. To find people I used scans from LiDAR (RPLidar A2) with my detector, which is simple but turned out to be fast and quite reliable. I also checked other LiDAR approaches available on ROS - leg_detector and leg_tracker but in this case didn’t perform well enough. Another package I tested is upper_body_detector, which uses RGBD camera to detect humans. As name suggests it needs to see upper part of body - this will be a problem if we want our robot to stay close, also in this case it didn’t perform very well and was slower.</p>
@@ -184,7 +200,14 @@
 <h2 id="setup">Setup</h2>
 <h3 id="esp32-remote">ESP32 Remote</h3>
 <h4 id="environment">Environment</h4>
-<p>ESP32 environment setup is similar to one in <a href="https://husarion.com/tutorials/ros-projects/security-guard-robot/">Security Guard Robot tutorial</a>. All things you need to prepare are described in <a href="https://www.hackster.io/khasreto/run-rosserial-over-the-internet-with-esp32-0615f5">here</a>. On ROSbot you will need to follow steps about Husarnet connection and Rosserial for Husarnet. Next requirement is to modify your Arduino IDE to be able to program ESP32. This step can be done on your computer (remember to also setup Rosserial for Husarnet) or ROSbot.</p>
+
+<p>You will need to follow tutorial about <a href="https://www.hackster.io/khasreto/run-rosserial-over-the-internet-with-esp32-0615f5">setting up rosserial connection over Internet with ESP32</a>. On ROSbot prepare Husarnet connection and Rosserial for Husarnet. I recommend to set up Arduino IDE on your computer (remember to also get Rosserial for Husarnet).</p>
+
+<h4 id="code">Code</h4>
+<p>Create new sketch in Arduino IDE and copy code:<br />
+<a href="https://github.com/TheDarkPhoenix/RosbotFollowerESPRemote/blob/master/rosbot_remote.ino">ESP Remote Code</a></p>
+
+<p>Then get your Husarnet join code and customize code as described in <a href="https://www.hackster.io/khasreto/run-rosserial-over-the-internet-with-esp32-0615f5">ESP32 Husarnet Tutorial</a></p>
 
 <h4 id="wiring">Wiring</h4>
 
@@ -196,20 +219,19 @@
 </figure>
 
 <p>As a source of power you can use a Powerbank connected to the ESP.</p>
-<h4 id="code">Code</h4>
-<p>Create new sketch in Arduino IDE and copy code:<br />
-<a href="https://github.com/TheDarkPhoenix/RosbotFollowerESPRemote/blob/master/rosbot_remote.ino">ESP Remote Code</a></p>
-
-<p>Then get your Husarnet join code and customize code as described in <a href="https://www.hackster.io/khasreto/run-rosserial-over-the-internet-with-esp32-0615f5">ESP32 Husarnet Tutorial</a></p>
 
 <h3 id="rosbot">ROSbot</h3>
-<p>On ROSbot you will need to install two dependencies:</p>
+<p>This project is meant to run on CORE2 with Mbed firmware. So be sure that you updated your firmware as described in <a href="https://husarion.com/tutorials/howtostart/rosbot---quick-start/">ROSbot quick start</a>. On ROSbot you will need to install following dependencies:</p>
 <ul>
-  <li>scikit learn python library (for clusterization)
+  <li><strong>scikit-learn</strong> python library (for clusterization)
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install </span>python-scikits-learn
 </code></pre></div>    </div>
   </li>
-  <li>rosbot_description package (for URDF visualization model and bridge node)<br />
+  <li>
+    <p><strong>pykalman</strong><br />
+Follow installation tutorial on <a href="https://pykalman.github.io/">pykalman page</a></p>
+  </li>
+  <li><strong>rosbot_description</strong> package (for URDF visualization model and bridge node)<br />
 Go to your ROS workspace and clone repository:
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/ros_workspace/src
 git clone https://github.com/husarion/rosbot_description.git
@@ -218,9 +240,13 @@ git clone https://github.com/husarion/rosbot_description.git
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/ros_workspace
 rosdep <span class="nb">install</span> <span class="nt">--from-paths</span> src <span class="nt">--ignore-src</span> <span class="nt">-r</span> <span class="nt">-y</span>
 </code></pre></div>    </div>
-    <p>Build workspace:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/ros_workspace
-catkin_make
+  </li>
+  <li><strong>rosbot_ekf</strong><br />
+Install dependency:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install </span>ros-kinetic-robot-localization
+</code></pre></div>    </div>
+    <p>Get package:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/byq77/rosbot_ekf.git
 </code></pre></div>    </div>
   </li>
 </ul>
@@ -229,8 +255,13 @@ catkin_make
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/ros_workspace/src
 </code></pre></div></div>
 
-<p>And download code:</p>
+<p>Download code:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/TheDarkPhoenix/rosbot_follower.git
+</code></pre></div></div>
+
+<p>And finally build your workspace:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/ros_workspace
+catkin_make
 </code></pre></div></div>
 
 <h2 id="usage">Usage</h2>
@@ -278,40 +309,40 @@ Roslaunch command:
 
 <h3 id="1-clusterization">1. Clusterization</h3>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">scanCallback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scan</span><span class="p">):</span>
-    <span class="n">clusterList</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">findClusters</span><span class="p">(</span><span class="n">scan</span><span class="p">)</span>
-    <span class="o">...</span>
+    <span class="n">clusterList</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">findClusters</span><span class="p">(</span><span class="n">scan</span><span class="p">)</span>
+    <span class="p">...</span>
 </code></pre></div></div>
 
 <p>First we find clusters in our scan using Euclidean Clusterization Algorithm:</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">findClusters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scan</span><span class="p">):</span>
-    <span class="n">pointsList</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="n">pointsList</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
     <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">scan</span><span class="o">.</span><span class="n">ranges</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">r</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">minRange</span> <span class="ow">and</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">maxRange</span><span class="p">:</span>
-            <span class="n">alfa</span> <span class="o">=</span> <span class="n">scan</span><span class="o">.</span><span class="n">angle_min</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="n">scan</span><span class="o">.</span><span class="n">angle_increment</span>
-            <span class="n">x</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">alfa</span><span class="p">)</span>
-            <span class="n">y</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">alfa</span><span class="p">)</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">alfa</span> <span class="o">&gt;</span> <span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="ow">and</span> <span class="n">alfa</span> <span class="o">&lt;</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">maxAngle</span><span class="p">)</span> <span class="ow">or</span> \
-                <span class="p">(</span><span class="n">alfa</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">maxAngle</span> <span class="ow">and</span> <span class="n">alfa</span> <span class="o">&lt;</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">):</span>
-                <span class="n">pointsList</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pointsList</span><span class="p">,</span> <span class="p">[[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">minRange</span><span class="p">:</span>
-            <span class="n">rospy</span><span class="o">.</span><span class="n">logerr</span><span class="p">(</span><span class="s">"Obstacle detected"</span><span class="p">)</span>
-            <span class="k">return</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))]</span>
+    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">scan</span><span class="p">.</span><span class="n">ranges</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">r</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">minRange</span> <span class="ow">and</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">maxRange</span><span class="p">:</span>
+            <span class="n">alfa</span> <span class="o">=</span> <span class="n">scan</span><span class="p">.</span><span class="n">angle_min</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="n">scan</span><span class="p">.</span><span class="n">angle_increment</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">math</span><span class="p">.</span><span class="n">cos</span><span class="p">(</span><span class="n">alfa</span><span class="p">)</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">math</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="n">alfa</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">alfa</span> <span class="o">&gt;</span> <span class="o">-</span><span class="n">math</span><span class="p">.</span><span class="n">pi</span> <span class="ow">and</span> <span class="n">alfa</span> <span class="o">&lt;</span> <span class="o">-</span><span class="bp">self</span><span class="p">.</span><span class="n">maxAngle</span><span class="p">)</span> <span class="ow">or</span> \
+                <span class="p">(</span><span class="n">alfa</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">maxAngle</span> <span class="ow">and</span> <span class="n">alfa</span> <span class="o">&lt;</span> <span class="n">math</span><span class="p">.</span><span class="n">pi</span><span class="p">):</span>
+                <span class="n">pointsList</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">pointsList</span><span class="p">,</span> <span class="p">[[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">minRange</span><span class="p">:</span>
+            <span class="n">rospy</span><span class="p">.</span><span class="n">logerr</span><span class="p">(</span><span class="s">"Obstacle detected"</span><span class="p">)</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))]</span>
         <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="n">db</span> <span class="o">=</span> <span class="n">DBSCAN</span><span class="p">(</span><span class="n">eps</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">clusterizationMaxDistanceParam</span><span class="p">,</span> 
-                <span class="n">min_samples</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">clusterizationMinSamplesParam</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">pointsList</span><span class="p">)</span>
-    <span class="n">core_samples_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
-    <span class="n">core_samples_mask</span><span class="p">[</span><span class="n">db</span><span class="o">.</span><span class="n">core_sample_indices_</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
-    <span class="n">labels</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">labels_</span>
+    <span class="n">db</span> <span class="o">=</span> <span class="n">DBSCAN</span><span class="p">(</span><span class="n">eps</span><span class="o">=</span><span class="bp">self</span><span class="p">.</span><span class="n">clusterizationMaxDistanceParam</span><span class="p">,</span> 
+                <span class="n">min_samples</span><span class="o">=</span><span class="bp">self</span><span class="p">.</span><span class="n">clusterizationMinSamplesParam</span><span class="p">).</span><span class="n">fit</span><span class="p">(</span><span class="n">pointsList</span><span class="p">)</span>
+    <span class="n">core_samples_mask</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+    <span class="n">core_samples_mask</span><span class="p">[</span><span class="n">db</span><span class="p">.</span><span class="n">core_sample_indices_</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="n">labels_</span>
     <span class="n">n_clusters_</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">in</span> <span class="n">labels</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
     <span class="n">unique_labels</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
     <span class="n">clusterList</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">unique_labels</span><span class="p">:</span>
         <span class="n">class_member_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">labels</span> <span class="o">==</span> <span class="n">k</span><span class="p">)</span>
         <span class="n">xy</span> <span class="o">=</span> <span class="n">pointsList</span><span class="p">[</span><span class="n">class_member_mask</span> <span class="o">&amp;</span> <span class="n">core_samples_mask</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">xy</span><span class="o">.</span><span class="nb">any</span><span class="p">():</span>
-            <span class="n">clusterList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">xy</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">xy</span><span class="p">.</span><span class="nb">any</span><span class="p">():</span>
+            <span class="n">clusterList</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">xy</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">clusterList</span>
 </code></pre></div></div>
 
@@ -328,29 +359,29 @@ Roslaunch command:
 
 <p>Back to scanCallback:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">scanCallback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scan</span><span class="p">):</span>
-    <span class="o">...</span>
+    <span class="p">...</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">clusterList</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-    	<span class="n">rospy</span><span class="o">.</span><span class="n">logwarn</span><span class="p">(</span><span class="s">"No clusters detected"</span><span class="p">)</span>
-    	<span class="k">if</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">lastDetectionTime</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">detectionTimeout</span><span class="p">:</span>
-            <span class="n">humanPosition</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lastHumanPosition</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">controlRosbot</span><span class="p">(</span><span class="n">humanPosition</span><span class="p">)</span>
+    	<span class="n">rospy</span><span class="p">.</span><span class="n">logwarn</span><span class="p">(</span><span class="s">"No clusters detected"</span><span class="p">)</span>
+    	<span class="k">if</span> <span class="n">rospy</span><span class="p">.</span><span class="n">get_time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="p">.</span><span class="n">lastDetectionTime</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">detectionTimeout</span><span class="p">:</span>
+            <span class="n">humanPosition</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">lastHumanPosition</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">controlRosbot</span><span class="p">(</span><span class="n">humanPosition</span><span class="p">)</span>
     	<span class="k">else</span><span class="p">:</span>
             <span class="n">led</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
-            <span class="n">led</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">False</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">ledPub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">led</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">positionCalibration</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="n">led</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">ledPub</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="n">led</span><span class="p">)</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">positionCalibration</span> <span class="o">=</span> <span class="bp">True</span>
             <span class="n">rosbotControl</span> <span class="o">=</span> <span class="n">Twist</span><span class="p">()</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">speedPub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">rosbotControl</span><span class="p">)</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">speedPub</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="n">rosbotControl</span><span class="p">)</span>
     	<span class="k">return</span>
     <span class="k">elif</span> <span class="p">(</span><span class="n">clusterList</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">clusterList</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
     	<span class="n">led</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
-    	<span class="n">led</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">False</span>
-    	<span class="bp">self</span><span class="o">.</span><span class="n">ledPub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">led</span><span class="p">)</span>
-    	<span class="bp">self</span><span class="o">.</span><span class="n">positionCalibration</span> <span class="o">=</span> <span class="bp">True</span>
+    	<span class="n">led</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">False</span>
+    	<span class="bp">self</span><span class="p">.</span><span class="n">ledPub</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="n">led</span><span class="p">)</span>
+    	<span class="bp">self</span><span class="p">.</span><span class="n">positionCalibration</span> <span class="o">=</span> <span class="bp">True</span>
     	<span class="n">rosbotControl</span> <span class="o">=</span> <span class="n">Twist</span><span class="p">()</span>
-    	<span class="bp">self</span><span class="o">.</span><span class="n">speedPub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">rosbotControl</span><span class="p">)</span>
+    	<span class="bp">self</span><span class="p">.</span><span class="n">speedPub</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="n">rosbotControl</span><span class="p">)</span>
     	<span class="k">return</span>
-    <span class="o">...</span>
+    <span class="p">...</span>
 </code></pre></div></div>
 <p>In here we check results of clusterization. If we didn’t detect anything, we continue movement in last seen human position. That is until our last seen position is too old - then we need to stop and assume we lost track of our human, which we signal through LED.<br />
 We pass special value when obstacle is detected - in first cluster first point is set to (0,0). In this case robot needs to stop immediately, as obstacle is too close.</p>
@@ -362,32 +393,32 @@ We pass special value when obstacle is detected - in first cluster first point i
 <h3 id="2-leg-detection">2. Leg detection</h3>
 <p>Next step is leg detection:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">scanCallback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scan</span><span class="p">):</span>
-    <span class="o">...</span>
-    <span class="n">sortedClusters</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">detectLegs</span><span class="p">(</span><span class="n">clusterList</span><span class="p">)</span>
-    <span class="o">...</span>
+    <span class="p">...</span>
+    <span class="n">sortedClusters</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">detectLegs</span><span class="p">(</span><span class="n">clusterList</span><span class="p">)</span>
+    <span class="p">...</span>
 </code></pre></div></div>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">detectLegs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">clusterList</span><span class="p">):</span>
     <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">sortedClusters</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">cluster</span> <span class="ow">in</span> <span class="n">clusterList</span><span class="p">:</span>
-    	<span class="n">xMax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="nb">max</span><span class="p">(</span><span class="n">cluster</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
-    	<span class="n">xMin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="nb">min</span><span class="p">(</span><span class="n">cluster</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
-    	<span class="n">yMax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="nb">max</span><span class="p">(</span><span class="n">cluster</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
-    	<span class="n">yMin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="nb">min</span><span class="p">(</span><span class="n">cluster</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+    	<span class="n">xMax</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nb">max</span><span class="p">(</span><span class="n">cluster</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
+    	<span class="n">xMin</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nb">min</span><span class="p">(</span><span class="n">cluster</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
+    	<span class="n">yMax</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nb">max</span><span class="p">(</span><span class="n">cluster</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+    	<span class="n">yMin</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nb">min</span><span class="p">(</span><span class="n">cluster</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
     	<span class="n">xDistance</span> <span class="o">=</span> <span class="n">xMax</span> <span class="o">-</span> <span class="n">xMin</span>
     	<span class="n">yDistance</span> <span class="o">=</span> <span class="n">yMax</span> <span class="o">-</span> <span class="n">yMin</span>
     	<span class="n">proportion</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">xDistance</span><span class="p">,</span><span class="n">yDistance</span><span class="p">)</span><span class="o">/</span><span class="nb">min</span><span class="p">(</span><span class="n">xDistance</span><span class="p">,</span> <span class="n">yDistance</span><span class="p">)</span>
     	<span class="n">area</span> <span class="o">=</span> <span class="n">xDistance</span><span class="o">*</span><span class="n">yDistance</span>
-    	<span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">xDistance</span><span class="p">,</span><span class="n">yDistance</span><span class="p">)</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">legWidth</span><span class="p">)</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">dLegWidth</span><span class="p">:</span> 
+    	<span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">xDistance</span><span class="p">,</span><span class="n">yDistance</span><span class="p">)</span><span class="o">-</span><span class="bp">self</span><span class="p">.</span><span class="n">legWidth</span><span class="p">)</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">dLegWidth</span><span class="p">:</span> 
     		<span class="k">continue</span>
     	<span class="n">xMean</span> <span class="o">=</span> <span class="p">(</span><span class="n">xMax</span><span class="o">+</span><span class="n">xMin</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
     	<span class="n">yMean</span> <span class="o">=</span> <span class="p">(</span><span class="n">yMax</span><span class="o">+</span><span class="n">yMin</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
     	<span class="n">cone</span> <span class="o">=</span> <span class="n">Point</span><span class="p">()</span>
-    	<span class="n">cone</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">xMean</span>
-    	<span class="n">cone</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">yMean</span>
-    	<span class="n">cone</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">0</span>
-    	<span class="n">sortedClusters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cone</span><span class="p">)</span>
-    <span class="n">sortedClusters</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span><span class="o">.</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+    	<span class="n">cone</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">xMean</span>
+    	<span class="n">cone</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">yMean</span>
+    	<span class="n">cone</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">0</span>
+    	<span class="n">sortedClusters</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">cone</span><span class="p">)</span>
+    <span class="n">sortedClusters</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">math</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span><span class="p">.</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">sortedClusters</span>
 </code></pre></div></div>
 
@@ -399,21 +430,21 @@ We pass special value when obstacle is detected - in first cluster first point i
 </ul>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">scanCallback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scan</span><span class="p">):</span>
-    <span class="o">...</span>
+    <span class="p">...</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sortedClusters</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-    	<span class="n">rospy</span><span class="o">.</span><span class="n">logwarn</span><span class="p">(</span><span class="s">"No legs detected"</span><span class="p">)</span>
-    	<span class="k">if</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">lastDetectionTime</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">detectionTimeout</span><span class="p">:</span>
-            <span class="n">humanPosition</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lastHumanPosition</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">controlRosbot</span><span class="p">(</span><span class="n">humanPosition</span><span class="p">)</span>
+    	<span class="n">rospy</span><span class="p">.</span><span class="n">logwarn</span><span class="p">(</span><span class="s">"No legs detected"</span><span class="p">)</span>
+    	<span class="k">if</span> <span class="n">rospy</span><span class="p">.</span><span class="n">get_time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="p">.</span><span class="n">lastDetectionTime</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">detectionTimeout</span><span class="p">:</span>
+            <span class="n">humanPosition</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">lastHumanPosition</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">controlRosbot</span><span class="p">(</span><span class="n">humanPosition</span><span class="p">)</span>
     	<span class="k">else</span><span class="p">:</span>
             <span class="n">led</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
-            <span class="n">led</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">False</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">ledPub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">led</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">positionCalibration</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="n">led</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">ledPub</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="n">led</span><span class="p">)</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">positionCalibration</span> <span class="o">=</span> <span class="bp">True</span>
             <span class="n">rosbotControl</span> <span class="o">=</span> <span class="n">Twist</span><span class="p">()</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">speedPub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">rosbotControl</span><span class="p">)</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">speedPub</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="n">rosbotControl</span><span class="p">)</span>
     	<span class="k">return</span>
-    <span class="o">...</span>
+    <span class="p">...</span>
 </code></pre></div></div>
 
 <p>Similar to previous step we check results of leg detection. No legs found - we allow ROSbot to move for some time. This step is necessary to smooth out movement - sometimes in only one frame we don’t detect any legs, which can cause robot to stop and go.</p>
@@ -421,9 +452,9 @@ We pass special value when obstacle is detected - in first cluster first point i
 <h3 id="3-human-detection">3. Human detection</h3>
 <p>We estimate human position through analysis of legs detections:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">scanCallback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scan</span><span class="p">):</span>
-    <span class="o">...</span>
-    <span class="p">(</span><span class="n">firstLeg</span><span class="p">,</span> <span class="n">secondLeg</span><span class="p">,</span> <span class="n">humanPosition</span><span class="p">,</span> <span class="n">firstLegDetected</span><span class="p">,</span> <span class="n">twoLegsDetected</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">detectHuman</span><span class="p">(</span><span class="n">sortedClusters</span><span class="p">)</span>
-    <span class="o">...</span>
+    <span class="p">...</span>
+    <span class="p">(</span><span class="n">firstLeg</span><span class="p">,</span> <span class="n">secondLeg</span><span class="p">,</span> <span class="n">humanPosition</span><span class="p">,</span> <span class="n">firstLegDetected</span><span class="p">,</span> <span class="n">twoLegsDetected</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">detectHuman</span><span class="p">(</span><span class="n">sortedClusters</span><span class="p">)</span>
+    <span class="p">...</span>
 </code></pre></div></div>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">detectHuman</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sortedClusters</span><span class="p">):</span>
     <span class="n">firstLeg</span> <span class="o">=</span> <span class="n">sortedClusters</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -433,45 +464,45 @@ We pass special value when obstacle is detected - in first cluster first point i
     <span class="n">humanPosition</span> <span class="o">=</span> <span class="n">Point</span><span class="p">()</span>
     <span class="n">humanPositionTemp</span> <span class="o">=</span> <span class="n">Point</span><span class="p">()</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sortedClusters</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
-    	<span class="n">sortedClusters</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">x</span><span class="o">.</span><span class="n">x</span><span class="o">-</span><span class="n">firstLeg</span><span class="o">.</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">y</span><span class="o">-</span><span class="n">firstLeg</span><span class="o">.</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+    	<span class="n">sortedClusters</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">math</span><span class="p">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">x</span><span class="p">.</span><span class="n">x</span><span class="o">-</span><span class="n">firstLeg</span><span class="p">.</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">y</span><span class="o">-</span><span class="n">firstLeg</span><span class="p">.</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
     	<span class="n">secondLeg</span> <span class="o">=</span> <span class="n">sortedClusters</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    	<span class="n">legDistance</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">firstLeg</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">secondLeg</span><span class="o">.</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">firstLeg</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">secondLeg</span><span class="o">.</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-    	<span class="k">if</span> <span class="n">legDistance</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">legDistanceThreshold</span><span class="p">:</span>
-            <span class="n">humanPositionTemp</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">firstLeg</span><span class="o">.</span><span class="n">x</span><span class="o">+</span><span class="n">secondLeg</span><span class="o">.</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
-            <span class="n">humanPositionTemp</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">firstLeg</span><span class="o">.</span><span class="n">y</span><span class="o">+</span><span class="n">secondLeg</span><span class="o">.</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
-            <span class="n">humanPositionTemp</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">0</span>
+    	<span class="n">legDistance</span> <span class="o">=</span> <span class="n">math</span><span class="p">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">firstLeg</span><span class="p">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">secondLeg</span><span class="p">.</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">firstLeg</span><span class="p">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">secondLeg</span><span class="p">.</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    	<span class="k">if</span> <span class="n">legDistance</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">legDistanceThreshold</span><span class="p">:</span>
+            <span class="n">humanPositionTemp</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">firstLeg</span><span class="p">.</span><span class="n">x</span><span class="o">+</span><span class="n">secondLeg</span><span class="p">.</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+            <span class="n">humanPositionTemp</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">firstLeg</span><span class="p">.</span><span class="n">y</span><span class="o">+</span><span class="n">secondLeg</span><span class="p">.</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+            <span class="n">humanPositionTemp</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="n">twoLegsDetected</span> <span class="o">=</span> <span class="bp">True</span>
     	<span class="k">else</span><span class="p">:</span>
             <span class="n">humanPositionTemp</span> <span class="o">=</span> <span class="n">firstLeg</span>
     <span class="k">else</span><span class="p">:</span>
     	<span class="n">humanPositionTemp</span> <span class="o">=</span> <span class="n">firstLeg</span>
-    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">positionCalibration</span><span class="p">:</span>
-    	<span class="n">r</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="n">humanPositionTemp</span><span class="o">.</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">humanPositionTemp</span><span class="o">.</span><span class="n">y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
-    	<span class="k">if</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">calibrationDistance</span> <span class="ow">and</span> <span class="n">twoLegsDetected</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">lastHumanPosition</span> <span class="o">=</span> <span class="n">humanPositionTemp</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">positionCalibration</span><span class="p">:</span>
+    	<span class="n">r</span> <span class="o">=</span> <span class="n">math</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="n">humanPositionTemp</span><span class="p">.</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">humanPositionTemp</span><span class="p">.</span><span class="n">y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+    	<span class="k">if</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">calibrationDistance</span> <span class="ow">and</span> <span class="n">twoLegsDetected</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">lastHumanPosition</span> <span class="o">=</span> <span class="n">humanPositionTemp</span>
             <span class="n">humanPosition</span> <span class="o">=</span> <span class="n">humanPositionTemp</span>
             <span class="n">firstLegDetected</span> <span class="o">=</span> <span class="bp">True</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">lastDetectionTime</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">positionCalibration</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">lastDetectionTime</span> <span class="o">=</span> <span class="n">rospy</span><span class="p">.</span><span class="n">get_time</span><span class="p">()</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">positionCalibration</span> <span class="o">=</span> <span class="bp">False</span>
             <span class="n">led</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
-            <span class="n">led</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">True</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">ledPub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">led</span><span class="p">)</span>
+            <span class="n">led</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">ledPub</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="n">led</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-    	<span class="n">distanceChange</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">lastHumanPosition</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">humanPositionTemp</span><span class="o">.</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> \
-    				<span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lastHumanPosition</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">humanPositionTemp</span><span class="o">.</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-    	<span class="k">if</span> <span class="n">distanceChange</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">humanPositionChangeThreshold</span><span class="p">:</span>
+    	<span class="n">distanceChange</span> <span class="o">=</span> <span class="n">math</span><span class="p">.</span><span class="n">sqrt</span><span class="p">((</span><span class="bp">self</span><span class="p">.</span><span class="n">lastHumanPosition</span><span class="p">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">humanPositionTemp</span><span class="p">.</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> \
+    				<span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">lastHumanPosition</span><span class="p">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">humanPositionTemp</span><span class="p">.</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    	<span class="k">if</span> <span class="n">distanceChange</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">humanPositionChangeThreshold</span><span class="p">:</span>
             <span class="n">humanPosition</span> <span class="o">=</span> <span class="n">humanPositionTemp</span>
             <span class="n">firstLegDetected</span> <span class="o">=</span> <span class="bp">True</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">lastHumanPosition</span> <span class="o">=</span> <span class="n">humanPosition</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">lastDetectionTime</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">lastHumanPosition</span> <span class="o">=</span> <span class="n">humanPosition</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">lastDetectionTime</span> <span class="o">=</span> <span class="n">rospy</span><span class="p">.</span><span class="n">get_time</span><span class="p">()</span>
     	<span class="k">else</span><span class="p">:</span> 
-            <span class="k">if</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">lastDetectionTime</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">detectionTimeout</span><span class="p">:</span>
-                <span class="n">humanPosition</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lastHumanPosition</span>
+            <span class="k">if</span> <span class="n">rospy</span><span class="p">.</span><span class="n">get_time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="p">.</span><span class="n">lastDetectionTime</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">detectionTimeout</span><span class="p">:</span>
+                <span class="n">humanPosition</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">lastHumanPosition</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">led</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">()</span>
-                <span class="n">led</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">False</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">ledPub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">led</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">positionCalibration</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="n">led</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">False</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">ledPub</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="n">led</span><span class="p">)</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">positionCalibration</span> <span class="o">=</span> <span class="bp">True</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">firstLeg</span><span class="p">,</span> <span class="n">secondLeg</span><span class="p">,</span> <span class="n">humanPosition</span><span class="p">,</span> <span class="n">firstLegDetected</span><span class="p">,</span> <span class="n">twoLegsDetected</span><span class="p">)</span>
 </code></pre></div></div>
 
@@ -488,103 +519,103 @@ When human position is not calibrated, then two legs have to be visible in range
 <h3 id="4-marker-publishing">4. Marker publishing</h3>
 <p>Visualization of our detections</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">scanCallback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scan</span><span class="p">):</span>
-    <span class="o">...</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">publishMarkers</span><span class="p">(</span><span class="n">firstLeg</span><span class="p">,</span> <span class="n">secondLeg</span><span class="p">,</span> <span class="n">humanPosition</span><span class="p">,</span> <span class="n">firstLegDetected</span><span class="p">,</span> <span class="n">twoLegsDetected</span><span class="p">,</span> <span class="n">sortedClusters</span><span class="p">)</span>
-    <span class="o">...</span>
+    <span class="p">...</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">publishMarkers</span><span class="p">(</span><span class="n">firstLeg</span><span class="p">,</span> <span class="n">secondLeg</span><span class="p">,</span> <span class="n">humanPosition</span><span class="p">,</span> <span class="n">firstLegDetected</span><span class="p">,</span> <span class="n">twoLegsDetected</span><span class="p">,</span> <span class="n">sortedClusters</span><span class="p">)</span>
+    <span class="p">...</span>
 </code></pre></div></div>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">publishMarkers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">firstLeg</span><span class="p">,</span> <span class="n">secondLeg</span><span class="p">,</span> <span class="n">humanPosition</span><span class="p">,</span> <span class="n">firstLegDetected</span><span class="p">,</span> <span class="n">twoLegsDetected</span><span class="p">,</span> <span class="n">sortedClusters</span><span class="p">):</span>
     <span class="n">legMarker</span> <span class="o">=</span> <span class="n">Marker</span><span class="p">()</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="s">"laser"</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="n">ns</span> <span class="o">=</span> <span class="s">"person"</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">stamp</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Time</span><span class="p">()</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="nb">type</span> <span class="o">=</span> <span class="n">Marker</span><span class="o">.</span><span class="n">CYLINDER</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="n">Marker</span><span class="o">.</span><span class="n">ADD</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.0</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.0</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.0</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="mf">1.0</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="n">scale</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.04</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="n">scale</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.04</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="n">scale</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.04</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="mf">1.0</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="mf">0.0</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">g</span> <span class="o">=</span> <span class="mf">0.0</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="mf">1.0</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="n">lifetime</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Duration</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">positionCalibration</span><span class="p">:</span>
+    <span class="n">legMarker</span><span class="p">.</span><span class="n">header</span><span class="p">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="s">"laser"</span>
+    <span class="n">legMarker</span><span class="p">.</span><span class="n">ns</span> <span class="o">=</span> <span class="s">"person"</span>
+    <span class="n">legMarker</span><span class="p">.</span><span class="n">header</span><span class="p">.</span><span class="n">stamp</span> <span class="o">=</span> <span class="n">rospy</span><span class="p">.</span><span class="n">Time</span><span class="p">()</span>
+    <span class="n">legMarker</span><span class="p">.</span><span class="nb">type</span> <span class="o">=</span> <span class="n">Marker</span><span class="p">.</span><span class="n">CYLINDER</span>
+    <span class="n">legMarker</span><span class="p">.</span><span class="n">action</span> <span class="o">=</span> <span class="n">Marker</span><span class="p">.</span><span class="n">ADD</span>
+    <span class="n">legMarker</span><span class="p">.</span><span class="n">pose</span><span class="p">.</span><span class="n">orientation</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">legMarker</span><span class="p">.</span><span class="n">pose</span><span class="p">.</span><span class="n">orientation</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">legMarker</span><span class="p">.</span><span class="n">pose</span><span class="p">.</span><span class="n">orientation</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">legMarker</span><span class="p">.</span><span class="n">pose</span><span class="p">.</span><span class="n">orientation</span><span class="p">.</span><span class="n">w</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="n">legMarker</span><span class="p">.</span><span class="n">scale</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.04</span>
+    <span class="n">legMarker</span><span class="p">.</span><span class="n">scale</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.04</span>
+    <span class="n">legMarker</span><span class="p">.</span><span class="n">scale</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.04</span>
+    <span class="n">legMarker</span><span class="p">.</span><span class="n">color</span><span class="p">.</span><span class="n">a</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="n">legMarker</span><span class="p">.</span><span class="n">color</span><span class="p">.</span><span class="n">r</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">legMarker</span><span class="p">.</span><span class="n">color</span><span class="p">.</span><span class="n">g</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">legMarker</span><span class="p">.</span><span class="n">color</span><span class="p">.</span><span class="n">b</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="n">legMarker</span><span class="p">.</span><span class="n">lifetime</span> <span class="o">=</span> <span class="n">rospy</span><span class="p">.</span><span class="n">Duration</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="p">.</span><span class="n">positionCalibration</span><span class="p">:</span>
     	<span class="c1">#first leg
 </span>        <span class="k">if</span> <span class="n">firstLegDetected</span><span class="p">:</span>
-            <span class="n">legMarker</span><span class="o">.</span><span class="nb">id</span> <span class="o">=</span> <span class="mi">1</span>
-            <span class="n">legMarker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">firstLeg</span>
-            <span class="n">legMarker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.02</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">legPub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">legMarker</span><span class="p">)</span>
+            <span class="n">legMarker</span><span class="p">.</span><span class="nb">id</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">legMarker</span><span class="p">.</span><span class="n">pose</span><span class="p">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">firstLeg</span>
+            <span class="n">legMarker</span><span class="p">.</span><span class="n">pose</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.02</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">legPub</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="n">legMarker</span><span class="p">)</span>
         <span class="c1">#second leg
 </span>        <span class="k">if</span> <span class="n">twoLegsDetected</span><span class="p">:</span>
-            <span class="n">legMarker</span><span class="o">.</span><span class="nb">id</span> <span class="o">=</span> <span class="mi">2</span>
-            <span class="n">legMarker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">secondLeg</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">legPub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">legMarker</span><span class="p">)</span>
+            <span class="n">legMarker</span><span class="p">.</span><span class="nb">id</span> <span class="o">=</span> <span class="mi">2</span>
+            <span class="n">legMarker</span><span class="p">.</span><span class="n">pose</span><span class="p">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">secondLeg</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">legPub</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="n">legMarker</span><span class="p">)</span>
     	<span class="c1">#human position
-</span>    	<span class="n">legMarker</span><span class="o">.</span><span class="nb">id</span> <span class="o">=</span> <span class="mi">3</span>
-    	<span class="n">legMarker</span><span class="o">.</span><span class="n">scale</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.2</span>
-    	<span class="n">legMarker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">humanPosition</span>
-    	<span class="n">legMarker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.1</span>
-    	<span class="n">legMarker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="mf">1.0</span>
-    	<span class="n">legMarker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="mf">0.0</span>
-    	<span class="bp">self</span><span class="o">.</span><span class="n">legPub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">legMarker</span><span class="p">)</span>
+</span>    	<span class="n">legMarker</span><span class="p">.</span><span class="nb">id</span> <span class="o">=</span> <span class="mi">3</span>
+    	<span class="n">legMarker</span><span class="p">.</span><span class="n">scale</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.2</span>
+    	<span class="n">legMarker</span><span class="p">.</span><span class="n">pose</span><span class="p">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">humanPosition</span>
+    	<span class="n">legMarker</span><span class="p">.</span><span class="n">pose</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.1</span>
+    	<span class="n">legMarker</span><span class="p">.</span><span class="n">color</span><span class="p">.</span><span class="n">r</span> <span class="o">=</span> <span class="mf">1.0</span>
+    	<span class="n">legMarker</span><span class="p">.</span><span class="n">color</span><span class="p">.</span><span class="n">b</span> <span class="o">=</span> <span class="mf">0.0</span>
+    	<span class="bp">self</span><span class="p">.</span><span class="n">legPub</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="n">legMarker</span><span class="p">)</span>
     <span class="n">legMarker</span> <span class="o">=</span> <span class="n">Marker</span><span class="p">()</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="n">ns</span> <span class="o">=</span> <span class="s">"legs"</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="s">"laser"</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">stamp</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Time</span><span class="p">()</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="nb">type</span> <span class="o">=</span> <span class="n">Marker</span><span class="o">.</span><span class="n">SPHERE</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="n">Marker</span><span class="o">.</span><span class="n">ADD</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.0</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.0</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.0</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="mf">1.0</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="n">scale</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.04</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="n">scale</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.04</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="n">scale</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.04</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="mf">1.0</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="mf">0.0</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">g</span> <span class="o">=</span> <span class="mf">1.0</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="mf">0.0</span>
-    <span class="n">legMarker</span><span class="o">.</span><span class="n">lifetime</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Duration</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+    <span class="n">legMarker</span><span class="p">.</span><span class="n">ns</span> <span class="o">=</span> <span class="s">"legs"</span>
+    <span class="n">legMarker</span><span class="p">.</span><span class="n">header</span><span class="p">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="s">"laser"</span>
+    <span class="n">legMarker</span><span class="p">.</span><span class="n">header</span><span class="p">.</span><span class="n">stamp</span> <span class="o">=</span> <span class="n">rospy</span><span class="p">.</span><span class="n">Time</span><span class="p">()</span>
+    <span class="n">legMarker</span><span class="p">.</span><span class="nb">type</span> <span class="o">=</span> <span class="n">Marker</span><span class="p">.</span><span class="n">SPHERE</span>
+    <span class="n">legMarker</span><span class="p">.</span><span class="n">action</span> <span class="o">=</span> <span class="n">Marker</span><span class="p">.</span><span class="n">ADD</span>
+    <span class="n">legMarker</span><span class="p">.</span><span class="n">pose</span><span class="p">.</span><span class="n">orientation</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">legMarker</span><span class="p">.</span><span class="n">pose</span><span class="p">.</span><span class="n">orientation</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">legMarker</span><span class="p">.</span><span class="n">pose</span><span class="p">.</span><span class="n">orientation</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">legMarker</span><span class="p">.</span><span class="n">pose</span><span class="p">.</span><span class="n">orientation</span><span class="p">.</span><span class="n">w</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="n">legMarker</span><span class="p">.</span><span class="n">scale</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.04</span>
+    <span class="n">legMarker</span><span class="p">.</span><span class="n">scale</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.04</span>
+    <span class="n">legMarker</span><span class="p">.</span><span class="n">scale</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.04</span>
+    <span class="n">legMarker</span><span class="p">.</span><span class="n">color</span><span class="p">.</span><span class="n">a</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="n">legMarker</span><span class="p">.</span><span class="n">color</span><span class="p">.</span><span class="n">r</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">legMarker</span><span class="p">.</span><span class="n">color</span><span class="p">.</span><span class="n">g</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="n">legMarker</span><span class="p">.</span><span class="n">color</span><span class="p">.</span><span class="n">b</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">legMarker</span><span class="p">.</span><span class="n">lifetime</span> <span class="o">=</span> <span class="n">rospy</span><span class="p">.</span><span class="n">Duration</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
     <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">sortedClusters</span><span class="p">:</span>
-    	<span class="n">legMarker</span><span class="o">.</span><span class="nb">id</span> <span class="o">=</span> <span class="n">i</span>
+    	<span class="n">legMarker</span><span class="p">.</span><span class="nb">id</span> <span class="o">=</span> <span class="n">i</span>
     	<span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-    	<span class="n">legMarker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">x</span>
-    	<span class="n">legMarker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">y</span>
-    	<span class="bp">self</span><span class="o">.</span><span class="n">legPub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">legMarker</span><span class="p">)</span>
+    	<span class="n">legMarker</span><span class="p">.</span><span class="n">pose</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">x</span>
+    	<span class="n">legMarker</span><span class="p">.</span><span class="n">pose</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">y</span>
+    	<span class="bp">self</span><span class="p">.</span><span class="n">legPub</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="n">legMarker</span><span class="p">)</span>
 </code></pre></div></div>
 <p>Pretty straightforward: we publish markers with potential legs (green spheres), detected legs (if any found, blue cylinders) and human (red cylinder).</p>
 
 <h3 id="5-control">5. Control</h3>
 <p>And final step is movement control:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">scanCallback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scan</span><span class="p">):</span>
-    <span class="o">...</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">controlRosbot</span><span class="p">(</span><span class="n">humanPosition</span><span class="p">)</span>
+    <span class="p">...</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">controlRosbot</span><span class="p">(</span><span class="n">humanPosition</span><span class="p">)</span>
 </code></pre></div></div>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">controlRosbot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">humanPosition</span><span class="p">):</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="n">humanPosition</span><span class="o">.</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">humanPosition</span><span class="o">.</span><span class="n">y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">atan2</span><span class="p">(</span><span class="n">humanPosition</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="n">humanPosition</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">r</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">minHumanDistance</span><span class="p">:</span>
-    	<span class="n">xSpeed</span> <span class="o">=</span> <span class="o">-</span><span class="n">r</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">speedPGain</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">math</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="n">humanPosition</span><span class="p">.</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">humanPosition</span><span class="p">.</span><span class="n">y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">math</span><span class="p">.</span><span class="n">atan2</span><span class="p">(</span><span class="n">humanPosition</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="n">humanPosition</span><span class="p">.</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">r</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">minHumanDistance</span><span class="p">:</span>
+    	<span class="n">xSpeed</span> <span class="o">=</span> <span class="o">-</span><span class="n">r</span> <span class="o">*</span> <span class="bp">self</span><span class="p">.</span><span class="n">speedPGain</span>
     <span class="k">else</span><span class="p">:</span>
     	<span class="n">xSpeed</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">minHumanAngle</span><span class="p">:</span>
-    	<span class="n">zAngularSpeed</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">angularSpeedPGain</span>
+    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">minHumanAngle</span><span class="p">:</span>
+    	<span class="n">zAngularSpeed</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="bp">self</span><span class="p">.</span><span class="n">angularSpeedPGain</span>
     <span class="k">else</span><span class="p">:</span>
     	<span class="n">zAngularSpeed</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">rosbotControl</span> <span class="o">=</span> <span class="n">Twist</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">buttonTime</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">buttonTimeout</span> <span class="ow">and</span> \
-    		<span class="bp">self</span><span class="o">.</span><span class="n">buttonState</span> <span class="o">==</span> <span class="bp">True</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">positionCalibration</span><span class="p">:</span>
-    	<span class="n">rosbotControl</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">xSpeed</span>
-    	<span class="n">rosbotControl</span><span class="o">.</span><span class="n">angular</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">zAngularSpeed</span>
-    	<span class="bp">self</span><span class="o">.</span><span class="n">speedPub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">rosbotControl</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">rospy</span><span class="p">.</span><span class="n">get_time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="p">.</span><span class="n">buttonTime</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">buttonTimeout</span> <span class="ow">and</span> \
+    		<span class="bp">self</span><span class="p">.</span><span class="n">buttonState</span> <span class="o">==</span> <span class="bp">True</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="p">.</span><span class="n">positionCalibration</span><span class="p">:</span>
+    	<span class="n">rosbotControl</span><span class="p">.</span><span class="n">linear</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">xSpeed</span>
+    	<span class="n">rosbotControl</span><span class="p">.</span><span class="n">angular</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">zAngularSpeed</span>
+    	<span class="bp">self</span><span class="p">.</span><span class="n">speedPub</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="n">rosbotControl</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-    	<span class="bp">self</span><span class="o">.</span><span class="n">speedPub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">rosbotControl</span><span class="p">)</span>
+    	<span class="bp">self</span><span class="p">.</span><span class="n">speedPub</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="n">rosbotControl</span><span class="p">)</span>
 </code></pre></div></div>
 <p>Firstly we convert our cartesian coordinates to polar ones. Then we calculate angular and linear speed for ROSbot with proportional controller. We publish it if we receive message from remote that allow robot to move.</p>
 
@@ -598,7 +629,7 @@ When human position is not calibrated, then two legs have to be visible in range
 
 <h3 id="followerkalman">FollowerKalman</h3>
 <p>This version is improved slow follower - basically only additions are scoring system and Kalman filter. Also I changed some parameters to make it more suitable for higher speeds.<br />
-In order to implement Kalman filter I created Person class,  where human position is stored and updated. For Kalman Filter part I used code from <a href="https://github.com/angusleigh/leg_tracker">leg_tracker</a>. All the parameters for filter where well tuned, I only changed std_obs value.</p>
+In order to implement Kalman filter I created Person class where human position is stored and updated. For Kalman Filter part I used code from <a href="https://github.com/angusleigh/leg_tracker">leg_tracker</a>. All the parameters for filter were well tuned, I only changed std_obs value.</p>
 <ul>
   <li><strong>std_obs</strong> - increasing this value means you don’t trust your measurements and as the effect your data is much more filtered. Be careful with changing it too much, because it causes your estimated human position to be slower to sudden changes - if you stop, filter won’t trust as much your readings and as a result it will predict you will still move with some velocity. Consequently robot will continue moving forward and it will take some time to adjust to reality. On the other hand if you decrease it too much human position will fluctuate with uncertainties in leg detections.</li>
 </ul>
@@ -606,16 +637,16 @@ In order to implement Kalman filter I created Person class,  where human positio
 <p>Next big change is that I added scoring system which uses all parameters: proportion, area, length and distance. It combines it with appropriate weights.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">proportion</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">xDistance</span><span class="p">,</span><span class="n">yDistance</span><span class="p">)</span><span class="o">/</span><span class="nb">min</span><span class="p">(</span><span class="n">xDistance</span><span class="p">,</span> <span class="n">yDistance</span><span class="p">)</span>
 <span class="n">area</span> <span class="o">=</span> <span class="n">xDistance</span><span class="o">*</span><span class="n">yDistance</span>
-<span class="n">widthDifference</span> <span class="o">=</span> <span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">xDistance</span><span class="p">,</span><span class="n">yDistance</span><span class="p">)</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">legWidth</span><span class="p">)</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">dLegWidth</span>
-<span class="n">distanceFromRobot</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">xMean</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">yMean</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">widthDifference</span> <span class="o">=</span> <span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">xDistance</span><span class="p">,</span><span class="n">yDistance</span><span class="p">)</span><span class="o">-</span><span class="bp">self</span><span class="p">.</span><span class="n">legWidth</span><span class="p">)</span> <span class="o">-</span> <span class="bp">self</span><span class="p">.</span><span class="n">dLegWidth</span>
+<span class="n">distanceFromRobot</span> <span class="o">=</span> <span class="n">math</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">xMean</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">yMean</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">score</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">score</span> <span class="o">+=</span> <span class="n">distanceFromRobot</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">distanceWeight</span>
-<span class="n">score</span> <span class="o">+=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">proportion</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">destProportion</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">proportionWeight</span>
-<span class="n">score</span> <span class="o">+=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">area</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">destArea</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">areaWeight</span>
+<span class="n">score</span> <span class="o">+=</span> <span class="n">distanceFromRobot</span> <span class="o">*</span> <span class="bp">self</span><span class="p">.</span><span class="n">distanceWeight</span>
+<span class="n">score</span> <span class="o">+=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">proportion</span> <span class="o">-</span> <span class="bp">self</span><span class="p">.</span><span class="n">destProportion</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="p">.</span><span class="n">proportionWeight</span>
+<span class="n">score</span> <span class="o">+=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">area</span> <span class="o">-</span> <span class="bp">self</span><span class="p">.</span><span class="n">destArea</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="p">.</span><span class="n">areaWeight</span>
 <span class="k">if</span> <span class="n">widthDifference</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="n">score</span> <span class="o">+=</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">widthDifference</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">widthDifferenceWeight</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
-<span class="k">if</span> <span class="n">score</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">maxScore</span><span class="p">:</span>
-    <span class="n">sortedClustersDetails</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">xMean</span><span class="p">,</span> <span class="n">yMean</span><span class="p">,</span> <span class="n">distanceFromRobot</span><span class="p">,</span> <span class="n">proportion</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="n">widthDifference</span><span class="p">,</span> <span class="n">score</span><span class="p">])</span>
+    <span class="n">score</span> <span class="o">+=</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">widthDifference</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="p">.</span><span class="n">widthDifferenceWeight</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<span class="k">if</span> <span class="n">score</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">maxScore</span><span class="p">:</span>
+    <span class="n">sortedClustersDetails</span><span class="p">.</span><span class="n">append</span><span class="p">([</span><span class="n">xMean</span><span class="p">,</span> <span class="n">yMean</span><span class="p">,</span> <span class="n">distanceFromRobot</span><span class="p">,</span> <span class="n">proportion</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="n">widthDifference</span><span class="p">,</span> <span class="n">score</span><span class="p">])</span>
 </code></pre></div></div>
 <p>Parameters:</p>
 <ul>
@@ -640,8 +671,8 @@ In order to implement Kalman filter I created Person class,  where human positio
 </ul>
 
 <p>Lastly I added restrictions on obstacle detect - we only detect obstacle approximately in area where we can drive. Increasing minRange can cause ROSbot to be unable to move in narrow spaces.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="n">alfa</span> <span class="o">&gt;</span> <span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="ow">and</span> <span class="n">alfa</span> <span class="o">&lt;</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">maxAngle</span><span class="p">)</span> <span class="ow">or</span> \
-	<span class="p">(</span><span class="n">alfa</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">maxAngle</span> <span class="ow">and</span> <span class="n">alfa</span> <span class="o">&lt;</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">):</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="n">alfa</span> <span class="o">&gt;</span> <span class="o">-</span><span class="n">math</span><span class="p">.</span><span class="n">pi</span> <span class="ow">and</span> <span class="n">alfa</span> <span class="o">&lt;</span> <span class="o">-</span><span class="bp">self</span><span class="p">.</span><span class="n">maxAngle</span><span class="p">)</span> <span class="ow">or</span> \
+	<span class="p">(</span><span class="n">alfa</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">maxAngle</span> <span class="ow">and</span> <span class="n">alfa</span> <span class="o">&lt;</span> <span class="n">math</span><span class="p">.</span><span class="n">pi</span><span class="p">):</span>
 </code></pre></div></div>
 
 <h2 id="summary">Summary</h2>
@@ -665,7 +696,7 @@ In order to implement Kalman filter I created Person class,  where human positio
 <footer class="footer">
   <div class="container">
     <div class="copyright  typeset">
-      <small class="small">&copy; Maciej Stępień 2019</small>
+      <small class="small">&copy; Maciej Stępień 2021</small>
     </div>
 
     
