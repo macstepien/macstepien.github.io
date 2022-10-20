@@ -42,8 +42,8 @@
     
       {
         "title": "3D Viewer",
-        "excerpt": "Program służący do wyświetlania perspektywicznego punktów w 3D.\n\n\n",
-        "content": "Program służący do wyświetlania perspektywicznego punktów w 3D.\n\n\n  \n  \n\n\nProgram ten napisałem w ramach lekcji Informatyki w Liceum. Zaimplementowałem wczytywanie chmur punktów z pliku txt. Są one w formacie współrzędne (X, Y, Z), a następnie kolory (R, G, B). Chmury punktów uzyskiwałem poprzez kamery stereowizyjne. Stworzyłem także możliwość wyświetlania kształtów geometrycznych, na przykład domku. Całość została napisana w Pascalu.\n\n\n  \n  \n\n\n3DViewer  github\n\n",
+        "excerpt": "A piece of software for the perspective display of points in 3D.\n\n\n",
+        "content": "A piece of software for the perspective display of points in 3D.\n\n\n  \n  \n\n\nI wrote this program as part of a Computer Science lesson in High School. I implemented the loading of point clouds from a txt file. They are in the format of coordinates (X, Y, Z) and colors (R, G, B). I obtained the point clouds through stereo vision camera. It is also possible to display geometric shapes, such as a house. The whole thing was written in Pascal.\n\n\n  \n  \n\n\n3DViewer  github\n\n",
         "url": "/oprogramowanie/2015/04/09/3dviewer/"
       },
     
@@ -107,7 +107,7 @@
   },
   
   {
-    "title": "Projekty",
+    "title": "Projects",
     "excerpt": "Category index\n",
     "content": "\n",
     "url": "/categories/"

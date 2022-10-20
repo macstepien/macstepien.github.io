@@ -25,7 +25,7 @@ plugins:
 url: "https://macstepien.github.io/"
 baseurl: ""
 title: "Maciej Stępień"
-description: "Projekty"
+description: "Projects"
 permalink: pretty
 logo: "/pics/logo1.png"
 
@@ -39,9 +39,9 @@ navigation_header:
     url: /
   - title: About
     url: /about/
-  - title: Projekty
+  - title: Projects
     url: /projekty/
-  - title: Kategorie
+  - title: Categories
     url: /categories/
 
 # Footer nav
@@ -51,7 +51,7 @@ navigation_footer:
 # Collections
 collections:
   posts:
-    title: Projekty
+    title: Projects
 
 jekyll_analytics:
   GoogleAnalytics: # Add, if you want to track with Google Analytics
