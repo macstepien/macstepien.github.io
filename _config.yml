@@ -40,7 +40,7 @@ navigation_header:
   - title: About
     url: /about/
   - title: Projects
-    url: /projekty/
+    url: /
   - title: Categories
     url: /categories/
 

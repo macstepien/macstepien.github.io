@@ -53,8 +53,8 @@
 <lastmod>2019-09-24T00:00:00+02:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:4000/2022/10/20/2022-10-20-roomac/</loc>
-<lastmod>2022-10-20T20:52:51+02:00</lastmod>
+<loc>http://localhost:4000/roboty/2022/10/20/roomac/</loc>
+<lastmod>2022-10-20T00:00:00+02:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/about/</loc>
@@ -63,10 +63,7 @@
 <loc>http://localhost:4000/categories/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/projekty/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/categories/</loc>
+<loc>http://localhost:4000/home/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/</loc>
