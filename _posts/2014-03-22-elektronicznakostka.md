@@ -1,24 +1,24 @@
 ---
 layout: post
-title: Elektroniczna kostka
+title: Electronic dice
 categories:
-- Elektronika
+  - Elektronika
 excerpt: |
- Projekt elektronicznej kostki wykonany na podstawie przykładu w książce "Elektronika. Od praktyki do teorii"
-  
- <img width="200" height="200" src="/pics/elektronicznaKostka/miniszostka.jpg"> 
+  Electronic dice based on the example from the book "Electronics. From practice to theory"
+   
+  <img width="200" height="200" src="/pics/elektronicznaKostka/miniszostka.jpg">
 ---
 
-Projekt elektronicznej kostki wykonany na podstawie przykładu w książce "Elektronika. Od praktyki do teorii"
+Electronic dice based on the example from the book "Electronics. From practice to theory"
 
 {% include figure.html image="/pics/elektronicznaKostka/szostka.jpg" width="600" height="800" %}
 
-W układzie wykorzystany jest układ czasowy 555 do generacji impulsów, które następnie zliczane są w szóstkach. Odpowiednie liczby są wyświetlane na diodach. Proces zatrzymywany jest przez wciśnięcie przycisku co powoduje zatrzymanie się na "losowej" wartości. Impulsy są generowany na tyle szybko, że nie da sie wychwycić jaka aktualnie cyfra jest wyświetlana.
+The circuit uses a 555 timer circuit to generate pulses, which are then counted in sixes. The corresponding numbers are displayed on the LEDs. The process is stopped by pressing a button, which stops at a "random" value. The pulses are generated so fast that it is impossible to catch what digit is currently displayed.
 
-Proces wykonania:
+Construction steps:
 
-{% include figure.html image="/pics/elektronicznaKostka/prototyp.jpg" width="600" height="800" caption="Prototyp na płytce stykowej" %}
+{% include figure.html image="/pics/elektronicznaKostka/prototyp.jpg" width="600" height="800" caption="Prototype on a breadboard" %}
 
-{% include figure.html image="/pics/elektronicznaKostka/elementy.jpg" width="600" height="800" caption="Płytka uniwersalna wraz z użytymi elementami" %}
+{% include figure.html image="/pics/elektronicznaKostka/elementy.jpg" width="600" height="800" caption="Universal board with the components used" %}
 
-{% include figure.html image="/pics/elektronicznaKostka/trojka.jpg" width="600" height="800" caption="Zmontowana kostka" %}
+{% include figure.html image="/pics/elektronicznaKostka/trojka.jpg" width="600" height="800" caption="Finished dice" %}

@@ -1,27 +1,26 @@
 ---
 layout: post
-title: Robot uniwersalny
+title: General-purpose robot
 categories:
-- Roboty
+  - Roboty
 excerpt: |
- Miał robić kawę...
-  
- <img width="150" height="150" src="/pics/RobotUniwersalny/minirobot.jpg"> 
+  It was supposed to make coffee...
+   
+  <img width="150" height="150" src="/pics/RobotUniwersalny/minirobot.jpg">
 ---
 
-Miał robić kawę...
+It was supposed to make coffee...
 
-Tutaj wyobraźnia mnie poniosła i chciałem zrobić robota uniwersalnego zdolnego do wykonywania różnych czynności np. przygotować napoje, "chodzić" do sklepu. Oczywiście w zamyśle miała być to pierwsza wersja, na której chciałem zbadać moje możliwości. Podnosić miał jedynie atrapy, a poruszać się jedynie po domu.
+This is where my imagination got carried away and I wanted to make a multipurpose robot capable of performing various activities, e.g. prepare drinks, "walk" to the store. Of course, this was intended to be the first version, on which I wanted to test my capabilities. It was to lift only dummies, and move only around the house.
 
 {% include figure.html image="/pics/RobotUniwersalny/robot.jpg" width="300" height="800" %}
 
-Piękna była to konstrukcja i bardzo skomplikowana. Do obsługi wszystkich kończyn planowałem zastosować 11 serw. Znacznie przekroczyło to liczbę kanałów PWM w mikrokontrolerze Atmega88Pa. Dlatego właśnie zmuszony byłem zastosować programowe generowanie PWM, które znacznie bardziej obciąża procesor. Z tego właśnie powodu zmuszony byłem użyć drugi mikrokontroler odpowiedzialny za komunikację z komputerem, sterowaniem silnikami oraz zadawanie poprzez SPI położeń serw do drugiego mikrokontrolera. Wiele rzeczy mogło się zepsuć po drodze, dlatego gdy ostatecznie nie mogłem zapanować nad serwami nie wiedziałem co się dzieje. Dopiero po dłuższym czasie doszedłem do wniosku, że musiałem mieć za słabe źródło zasilania, coś czego wcześniej nawet nie brałem pod uwagę. Jednak pomimo niedziałających serw nie porzuciłem tej konstrukcji. Wciąż miałem działające silniki, którymi mogłem sterować z poziomu komputera. Zająłem się w takim razie niezbędnym elementem takiego robota - wykrywaniem przeszkód oraz mapowaniem. W tym celu chciałem zasotosować parę stereowizyjną. Po wielu przygodach udało mi się wreszcie doprowadzić stereowizję do poziomu zadowalającego. Wciąż jednak występowało dużo szumów - szczególnie na podłodze. Nic dziwnego, podłoga, ściana, to mało szczegółów i ciężko jest uzyskać pewny obraz głębi. Udało się zatem mniej więcej wykrywać przeszkody, jednak gdy doszedł do tego ruch to już kompletnie co innego. Zastosowane kamerki internetowe zwracały poruszone obrazy co jeszcze pogarszało wynik wykrywania. Do tego nie zastosowałem enkoderów, ponieważ planowałem wykrywać punkty szczególne i póżniej na podstawie ich oraz uzyskanej mapy głębokości obliczać przesunięcie. Po takich jednak rozczarowujących efektach stereowizji nie próbowałem już tego rozwiązania.
+It was a beautiful design and very complicated. I planned to use 11 servos to operate all the limbs. This greatly exceeded the number of PWM channels in the Atmega88Pa microcontroller. That is why I was forced to use software PWM generation, which puts much more load on the processor. It was for this reason that I was forced to use a second microcontroller responsible for communicating with the computer, controlling the motors, and setting servo positions to the second microcontroller via SPI. A lot of things could have gone wrong along the way, so when I finally couldn't control the servos I didn't know what was going on. Only after a long time did I come to the conclusion that I must have had a power supply that was too weak, something I hadn't even considered before. However, despite the non-functioning servos, I did not abandon the design. I still had working motors that I could control from the computer. Then I took care of an essential element of such a robot - obstacle detection and mapping. For this purpose, I wanted to use stereo vision pair. After many experiments, I finally managed to bring the stereo vision to a satisfactory level. However, there was still a lot of noise - especially on the floor. Not surprisingly, the floor, the wall, is not much detail and it's hard to get a reliable depth image. So it was more or less successful in detecting obstacles, but when it came to motion it was a completely different matter. The webcams used returned moving images which made the detection result even worse. I did not use encoders, because I planned to detect landmarks and later calculate the displacement based on them and the resulting depth map. However, after such disappointing stereo vision results I did not try this solution anymore.
 
 {% include figure.html image="/pics/RobotUniwersalny/plytka.jpg" width="600" height="800" %}
 
-Pomimo, że nie spełnił moich oczekiwań to wyszła z niego ciekawa konstrukcja. I mój początek przygody ze stereowizją i mapowaniem. 
+Despite the fact that it did not meet my expectations, it was an interesting construction. And my introduction to stereo vision and SLAM.
 
-W tej konstrukcji wzorowałem się na robocie PR2. Domyślną wersję tej konstrukcji chciałem wykonać 2 razy większą. Zastosowanie tutaj zgięcia w połowie miało na celu zwiększyć zakres chwytania - możliwość schylenia się. Jednak głównym celem była możliwość przetransformowania się w robota jeżdżącego, co umowżliwiłoby wspinanie się po schodach oraz większych przeszkodach. Domyślnie w napędzie chciałem zastosować gąsienice. 
+PR2 was my inspiration for this robot. In the final version of this robot I wanted to make it 2 times larger. The use of a rotational joint in the waist was to increase the gripping range - the ability to bend down. However, the main goal was to be able to transform, which would enable it to climb stairs and larger obstacles. By default, I wanted to use tracks.
 
 {% include figure.html image="/pics/RobotUniwersalny/parts.jpg" width="600" height="800" %}
-

@@ -735,21 +735,21 @@ oraz
   &lt;figcaption class=&quot;caption&quot;&gt;Nawijanie cewki&lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;Następnie wykonałem cewkę o większych rozmiarach, w ktrórej zastosowałem 4 tranzystory oraz dodatkowy radiator, aby zapewnić odpowiednie chłodzenie. Jako źródło energii użyłem zasilacza od drukarki.&lt;/p&gt;</content><author><name></name></author><category term="Elektronika" /><summary type="html">Robi się groźnie.</summary></entry><entry><title type="html">Robot mapujący</title><link href="http://0.0.0.0:4000/roboty/2015/08/25/mapping-robot/" rel="alternate" type="text/html" title="Robot mapujący" /><published>2015-08-25T00:00:00-05:00</published><updated>2015-08-25T00:00:00-05:00</updated><id>http://0.0.0.0:4000/roboty/2015/08/25/mapping-robot</id><content type="html" xml:base="http://0.0.0.0:4000/roboty/2015/08/25/mapping-robot/">&lt;p&gt;Robot laptopa wożący pokój mapujący.&lt;/p&gt;
+&lt;p&gt;Następnie wykonałem cewkę o większych rozmiarach, w ktrórej zastosowałem 4 tranzystory oraz dodatkowy radiator, aby zapewnić odpowiednie chłodzenie. Jako źródło energii użyłem zasilacza od drukarki.&lt;/p&gt;</content><author><name></name></author><category term="Elektronika" /><summary type="html">Robi się groźnie.</summary></entry><entry><title type="html">Mapping robot</title><link href="http://0.0.0.0:4000/roboty/2015/08/25/mapping-robot/" rel="alternate" type="text/html" title="Mapping robot" /><published>2015-08-25T00:00:00-05:00</published><updated>2015-08-25T00:00:00-05:00</updated><id>http://0.0.0.0:4000/roboty/2015/08/25/mapping-robot</id><content type="html" xml:base="http://0.0.0.0:4000/roboty/2015/08/25/mapping-robot/">&lt;p&gt;Robot that drives around and creates a map of the environment.&lt;/p&gt;
 
 &lt;figure class=&quot;figure  figure--center&quot;&gt;
   &lt;img class=&quot;image&quot; src=&quot;/pics/RobotMapujacy/front.jpg&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
   
 &lt;/figure&gt;
 
-&lt;p&gt;Ten robot jest drugą, uproszczoną wersją robota uniwersalnego. Wyciągając wnioski z poprzedniej konstrukcji uprościłem robota i jego jedynym zadaniem było mapowanie pomieszczeń. Także aby zadanie się udało zamieniłem Stereowizję na Kinecta, ponieważ rezultaty z niej osiągane nie były zadowalające. Dodałem także enkodery na koła, jednak wciąż zbyt pewny siebie zrobiłem swoje - inkrementalne bazujące na transoptorach. Nie sprawdzały się one idealnie, ale jednak pozwoliły osiągnąć rezultaty.&lt;/p&gt;
+&lt;p&gt;This robot is the second, simplified version of the general-purpose robot. Learning from the previous design, I simplified the robot and its only task was to map rooms. Also to make the task successful I replaced the Stereovision with Kinect, as the results from it were not satisfactory. I also added encoders to the wheels, but still  I made my own - incremental based on optocouplers. They didn't work perfectly, but still allowed to achieve good results.&lt;/p&gt;
 
 &lt;figure class=&quot;figure  figure--center&quot;&gt;
   &lt;img class=&quot;image&quot; src=&quot;/pics/RobotMapujacy/test.jpg&quot; alt=&quot;Prototypowanie eletkroniki&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
   &lt;figcaption class=&quot;caption&quot;&gt;Prototypowanie eletkroniki&lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;Także w ramach zabawy z robotem zrealizowałem regulator PID i zadawałem punkt, do którego robot dojeżdżał.&lt;/p&gt;
+&lt;p&gt;Also, as part of this project, I realized a PID controller and set a point which the robot would reach.&lt;/p&gt;
 
 &lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/macstepien/MappingRobotPID&quot; style=&quot;background: #0366d6&quot;&gt;PID  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
 &lt;/a&gt;&lt;/p&gt;
@@ -793,7 +793,7 @@ oraz
 &lt;p&gt;Do sterowania robotem użyłem mikrokontrolera Atmega88Pa. Komunikował się on z komputerem poprzez interfejs UART, wykorzystałem tutaj przejściówkę na USB. Sterował on silnikami - serwami pracy ciągłej. Także mierzył napięcie z transoptorów, zliczając impulsy poprzez zastowanie odpowiedniego progu. Także dla testu wykorzystałem podczerwony czujnik odległości. Do zasilenia całej konstrukcji użyłem akumulatora żelowego. Poprzez mikrokontroler mierzyłem jego napięcie, sprawdzając czy się rozładował. Musiałem także zastosować przetwornicę Step-Up, aby zasilić Kinecta, który wymaga 12V.&lt;/p&gt;
 
 &lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/macstepien/MappingRobotControler&quot; style=&quot;background: #0366d6&quot;&gt;Sterownik Robota  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
-&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="Roboty" /><summary type="html">Robot laptopa wożący pokój mapujący.</summary></entry><entry><title type="html">3D Viewer</title><link href="http://0.0.0.0:4000/oprogramowanie/2015/04/09/3dviewer/" rel="alternate" type="text/html" title="3D Viewer" /><published>2015-04-09T00:00:00-05:00</published><updated>2015-04-09T00:00:00-05:00</updated><id>http://0.0.0.0:4000/oprogramowanie/2015/04/09/3dviewer</id><content type="html" xml:base="http://0.0.0.0:4000/oprogramowanie/2015/04/09/3dviewer/">&lt;p&gt;A piece of software for the perspective display of points in 3D.&lt;/p&gt;
+&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="Roboty" /><summary type="html">Robot that drives around and creates a map of the environment.</summary></entry><entry><title type="html">3D Viewer</title><link href="http://0.0.0.0:4000/oprogramowanie/2015/04/09/3dviewer/" rel="alternate" type="text/html" title="3D Viewer" /><published>2015-04-09T00:00:00-05:00</published><updated>2015-04-09T00:00:00-05:00</updated><id>http://0.0.0.0:4000/oprogramowanie/2015/04/09/3dviewer</id><content type="html" xml:base="http://0.0.0.0:4000/oprogramowanie/2015/04/09/3dviewer/">&lt;p&gt;A piece of software for the perspective display of points in 3D.&lt;/p&gt;
 
 &lt;figure class=&quot;figure  figure--center&quot;&gt;
   &lt;img class=&quot;image&quot; src=&quot;/pics/3dviewer/viewer1.png&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
@@ -808,51 +808,52 @@ oraz
 &lt;/figure&gt;
 
 &lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/macstepien/3DViewer&quot; style=&quot;background: #0366d6&quot;&gt;3DViewer  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
-&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="Oprogramowanie" /><summary type="html">A piece of software for the perspective display of points in 3D.</summary></entry><entry><title type="html">Robot uniwersalny</title><link href="http://0.0.0.0:4000/roboty/2014/08/28/universal-robots/" rel="alternate" type="text/html" title="Robot uniwersalny" /><published>2014-08-28T00:00:00-05:00</published><updated>2014-08-28T00:00:00-05:00</updated><id>http://0.0.0.0:4000/roboty/2014/08/28/universal-robots</id><content type="html" xml:base="http://0.0.0.0:4000/roboty/2014/08/28/universal-robots/">&lt;p&gt;Miał robić kawę…&lt;/p&gt;
+&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="Oprogramowanie" /><summary type="html">A piece of software for the perspective display of points in 3D.</summary></entry><entry><title type="html">General-purpose robot</title><link href="http://0.0.0.0:4000/roboty/2014/08/28/universal-robots/" rel="alternate" type="text/html" title="General-purpose robot" /><published>2014-08-28T00:00:00-05:00</published><updated>2014-08-28T00:00:00-05:00</updated><id>http://0.0.0.0:4000/roboty/2014/08/28/universal-robots</id><content type="html" xml:base="http://0.0.0.0:4000/roboty/2014/08/28/universal-robots/">&lt;p&gt;It was supposed to make coffee…&lt;/p&gt;
 
-&lt;p&gt;Tutaj wyobraźnia mnie poniosła i chciałem zrobić robota uniwersalnego zdolnego do wykonywania różnych czynności np. przygotować napoje, “chodzić” do sklepu. Oczywiście w zamyśle miała być to pierwsza wersja, na której chciałem zbadać moje możliwości. Podnosić miał jedynie atrapy, a poruszać się jedynie po domu.&lt;/p&gt;
+&lt;p&gt;This is where my imagination got carried away and I wanted to make a multipurpose robot capable of performing various activities, e.g. prepare drinks, ”walk” to the store. Of course, this was intended to be the first version, on which I wanted to test my capabilities. It was to lift only dummies, and move only around the house.&lt;/p&gt;
 
 &lt;figure class=&quot;figure  figure--center&quot;&gt;
   &lt;img class=&quot;image&quot; src=&quot;/pics/RobotUniwersalny/robot.jpg&quot; alt=&quot;&quot; width=&quot;300&quot; height=&quot;800&quot; /&gt;
   
 &lt;/figure&gt;
 
-&lt;p&gt;Piękna była to konstrukcja i bardzo skomplikowana. Do obsługi wszystkich kończyn planowałem zastosować 11 serw. Znacznie przekroczyło to liczbę kanałów PWM w mikrokontrolerze Atmega88Pa. Dlatego właśnie zmuszony byłem zastosować programowe generowanie PWM, które znacznie bardziej obciąża procesor. Z tego właśnie powodu zmuszony byłem użyć drugi mikrokontroler odpowiedzialny za komunikację z komputerem, sterowaniem silnikami oraz zadawanie poprzez SPI położeń serw do drugiego mikrokontrolera. Wiele rzeczy mogło się zepsuć po drodze, dlatego gdy ostatecznie nie mogłem zapanować nad serwami nie wiedziałem co się dzieje. Dopiero po dłuższym czasie doszedłem do wniosku, że musiałem mieć za słabe źródło zasilania, coś czego wcześniej nawet nie brałem pod uwagę. Jednak pomimo niedziałających serw nie porzuciłem tej konstrukcji. Wciąż miałem działające silniki, którymi mogłem sterować z poziomu komputera. Zająłem się w takim razie niezbędnym elementem takiego robota - wykrywaniem przeszkód oraz mapowaniem. W tym celu chciałem zasotosować parę stereowizyjną. Po wielu przygodach udało mi się wreszcie doprowadzić stereowizję do poziomu zadowalającego. Wciąż jednak występowało dużo szumów - szczególnie na podłodze. Nic dziwnego, podłoga, ściana, to mało szczegółów i ciężko jest uzyskać pewny obraz głębi. Udało się zatem mniej więcej wykrywać przeszkody, jednak gdy doszedł do tego ruch to już kompletnie co innego. Zastosowane kamerki internetowe zwracały poruszone obrazy co jeszcze pogarszało wynik wykrywania. Do tego nie zastosowałem enkoderów, ponieważ planowałem wykrywać punkty szczególne i póżniej na podstawie ich oraz uzyskanej mapy głębokości obliczać przesunięcie. Po takich jednak rozczarowujących efektach stereowizji nie próbowałem już tego rozwiązania.&lt;/p&gt;
+&lt;p&gt;
+It was a beautiful design and very complicated. I planned to use 11 servos to operate all the limbs. This greatly exceeded the number of PWM channels in the Atmega88Pa microcontroller. That is why I was forced to use software PWM generation, which puts much more load on the processor. It was for this reason that I was forced to use a second microcontroller responsible for communicating with the computer, controlling the motors, and setting servo positions to the second microcontroller via SPI. A lot of things could have gone wrong along the way, so when I finally couldn't control the servos I didn't know what was going on. Only after a long time did I come to the conclusion that I must have had a power supply that was too weak, something I hadn't even considered before. However, despite the non-functioning servos, I did not abandon the design. I still had working motors that I could control from the computer. Then I took care of an essential element of such a robot - obstacle detection and mapping. For this purpose, I wanted to use stereo vision pair. After many experiments, I finally managed to bring the stereo vision to a satisfactory level. However, there was still a lot of noise - especially on the floor. Not surprisingly, the floor, the wall, is not much detail and it's hard to get a reliable depth image. So it was more or less successful in detecting obstacles, but when it came to motion it was a completely different matter. The webcams used returned moving images which made the detection result even worse. I did not use encoders, because I planned to detect landmarks and later calculate the displacement based on them and the resulting depth map. However, after such disappointing stereo vision results I did not try this solution anymore.&lt;/p&gt;
 
 &lt;figure class=&quot;figure  figure--center&quot;&gt;
   &lt;img class=&quot;image&quot; src=&quot;/pics/RobotUniwersalny/plytka.jpg&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
   
 &lt;/figure&gt;
 
-&lt;p&gt;Pomimo, że nie spełnił moich oczekiwań to wyszła z niego ciekawa konstrukcja. I mój początek przygody ze stereowizją i mapowaniem.&lt;/p&gt;
+&lt;p&gt;Despite the fact that it did not meet my expectations, it was an interesting construction. And my introduction to stereo vision and SLAM.&lt;/p&gt;
 
-&lt;p&gt;W tej konstrukcji wzorowałem się na robocie PR2. Domyślną wersję tej konstrukcji chciałem wykonać 2 razy większą. Zastosowanie tutaj zgięcia w połowie miało na celu zwiększyć zakres chwytania - możliwość schylenia się. Jednak głównym celem była możliwość przetransformowania się w robota jeżdżącego, co umowżliwiłoby wspinanie się po schodach oraz większych przeszkodach. Domyślnie w napędzie chciałem zastosować gąsienice.&lt;/p&gt;
+&lt;p&gt;PR2 was my inspiration for this robot. In the final version of this robot I wanted to make it 2 times larger. The use of a rotational joint in the waist was to increase the gripping range - the ability to bend down. However, the main goal was to be able to transform, which would enable it to climb stairs and larger obstacles. By default, I wanted to use tracks.&lt;/p&gt;
 
 &lt;figure class=&quot;figure  figure--center&quot;&gt;
   &lt;img class=&quot;image&quot; src=&quot;/pics/RobotUniwersalny/parts.jpg&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
   
-&lt;/figure&gt;</content><author><name></name></author><category term="Roboty" /><summary type="html">Miał robić kawę...</summary></entry><entry><title type="html">Elektroniczna kostka</title><link href="http://0.0.0.0:4000/elektronika/2014/03/22/elektronicznakostka/" rel="alternate" type="text/html" title="Elektroniczna kostka" /><published>2014-03-22T00:00:00-05:00</published><updated>2014-03-22T00:00:00-05:00</updated><id>http://0.0.0.0:4000/elektronika/2014/03/22/elektronicznakostka</id><content type="html" xml:base="http://0.0.0.0:4000/elektronika/2014/03/22/elektronicznakostka/">&lt;p&gt;Projekt elektronicznej kostki wykonany na podstawie przykładu w książce “Elektronika. Od praktyki do teorii”&lt;/p&gt;
+&lt;/figure&gt;</content><author><name></name></author><category term="Roboty" /><summary type="html">It was supposed to make coffee...</summary></entry><entry><title type="html">Electronic dice</title><link href="http://0.0.0.0:4000/elektronika/2014/03/22/elektronicznakostka/" rel="alternate" type="text/html" title="Electronic dice" /><published>2014-03-22T00:00:00-05:00</published><updated>2014-03-22T00:00:00-05:00</updated><id>http://0.0.0.0:4000/elektronika/2014/03/22/elektronicznakostka</id><content type="html" xml:base="http://0.0.0.0:4000/elektronika/2014/03/22/elektronicznakostka/">&lt;p&gt;Electronic dice based on the example from the book “Electronics. From practice to theory“&lt;/p&gt;
 
 &lt;figure class=&quot;figure  figure--center&quot;&gt;
   &lt;img class=&quot;image&quot; src=&quot;/pics/elektronicznaKostka/szostka.jpg&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
   
 &lt;/figure&gt;
 
-&lt;p&gt;W układzie wykorzystany jest układ czasowy 555 do generacji impulsów, które następnie zliczane są w szóstkach. Odpowiednie liczby są wyświetlane na diodach. Proces zatrzymywany jest przez wciśnięcie przycisku co powoduje zatrzymanie się na “losowej” wartości. Impulsy są generowany na tyle szybko, że nie da sie wychwycić jaka aktualnie cyfra jest wyświetlana.&lt;/p&gt;
+&lt;p&gt;The circuit uses a 555 timer circuit to generate pulses, which are then counted in sixes. The corresponding numbers are displayed on the LEDs. The process is stopped by pressing a button, which stops at a "random" value. The pulses are generated so fast that it is impossible to catch what digit is currently displayed.&lt;/p&gt;
 
-&lt;p&gt;Proces wykonania:&lt;/p&gt;
+&lt;p&gt;Construction steps:&lt;/p&gt;
 
 &lt;figure class=&quot;figure  figure--center&quot;&gt;
-  &lt;img class=&quot;image&quot; src=&quot;/pics/elektronicznaKostka/prototyp.jpg&quot; alt=&quot;Prototyp na płytce stykowej&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
-  &lt;figcaption class=&quot;caption&quot;&gt;Prototyp na płytce stykowej&lt;/figcaption&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/elektronicznaKostka/prototyp.jpg&quot; alt=&quot;Prototype on a breadboard&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;caption&quot;&gt;Prototype on a breadboard&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;figure class=&quot;figure  figure--center&quot;&gt;
-  &lt;img class=&quot;image&quot; src=&quot;/pics/elektronicznaKostka/elementy.jpg&quot; alt=&quot;Płytka uniwersalna wraz z użytymi elementami&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
-  &lt;figcaption class=&quot;caption&quot;&gt;Płytka uniwersalna wraz z użytymi elementami&lt;/figcaption&gt;
+  &lt;img class=&quot;image&quot; src=&quot;/pics/elektronicznaKostka/elementy.jpg&quot; alt=&quot;Universal board with the components used&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;caption&quot;&gt;Universal board with the components used&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;figure class=&quot;figure  figure--center&quot;&gt;
-  &lt;img class=&quot;image&quot; src=&quot;/pics/elektronicznaKostka/trojka.jpg&quot; alt=&quot;Zmontowana kostka&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
-  &lt;figcaption class=&quot;caption&quot;&gt;Zmontowana kostka&lt;/figcaption&gt;
-&lt;/figure&gt;</content><author><name></name></author><category term="Elektronika" /><summary type="html">Projekt elektronicznej kostki wykonany na podstawie przykładu w książce &quot;Elektronika. Od praktyki do teorii&quot;</summary></entry></feed>
+  &lt;img class=&quot;image&quot; src=&quot;/pics/elektronicznaKostka/trojka.jpg&quot; alt=&quot;Finished dice&quot; width=&quot;600&quot; height=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;caption&quot;&gt;Finished dice&lt;/figcaption&gt;
+&lt;/figure&gt;</content><author><name></name></author><category term="Elektronika" /><summary type="html">Electronic dice based on the example from the book &quot;Electronics. From practice to theory&quot;</summary></entry></feed>

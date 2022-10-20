@@ -1,23 +1,23 @@
 ---
 layout: post
-title: Robot mapujący
+title: Mapping robot
 categories:
   - Roboty
 excerpt: |
-  Robot laptopa wożący pokój mapujący.
+  Robot that drives around and creates a map of the environment.
    
   <img width="200" height="200" src="/pics/RobotMapujacy/minifront.jpg">
 ---
 
-Robot laptopa wożący pokój mapujący.
+Robot that drives around and creates a map of the environment.
 
 {% include figure.html image="/pics/RobotMapujacy/front.jpg" width="600" height="800" %}
 
-Ten robot jest drugą, uproszczoną wersją robota uniwersalnego. Wyciągając wnioski z poprzedniej konstrukcji uprościłem robota i jego jedynym zadaniem było mapowanie pomieszczeń. Także aby zadanie się udało zamieniłem Stereowizję na Kinecta, ponieważ rezultaty z niej osiągane nie były zadowalające. Dodałem także enkodery na koła, jednak wciąż zbyt pewny siebie zrobiłem swoje - inkrementalne bazujące na transoptorach. Nie sprawdzały się one idealnie, ale jednak pozwoliły osiągnąć rezultaty.
+This robot is the second, simplified version of the general-purpose robot. Learning from the previous design, I simplified the robot and its only task was to map rooms. Also to make the task successful I replaced the Stereovision with Kinect, as the results from it were not satisfactory. I also added encoders to the wheels, but still I made my own - incremental based on optocouplers. They didn't work perfectly, but still allowed to achieve good results.
 
 {% include figure.html image="/pics/RobotMapujacy/test.jpg"  width="600" height="800" caption="Prototypowanie eletkroniki" %}
 
-Także w ramach zabawy z robotem zrealizowałem regulator PID i zadawałem punkt, do którego robot dojeżdżał.
+Also, as part of this project, I realized a PID controller and set a point which the robot would reach.
 
 {% include button.html text="PID" icon="github" link="https://github.com/macstepien/MappingRobotPID" color="#0366d6" %}
 
