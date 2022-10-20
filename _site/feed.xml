@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-10-20T21:18:08+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Maciej Stępień</title><subtitle>Projects</subtitle><entry><title type="html">Roomac</title><link href="http://localhost:4000/roboty/2022/10/20/roomac/" rel="alternate" type="text/html" title="Roomac" /><published>2022-10-20T00:00:00+02:00</published><updated>2022-10-20T00:00:00+02:00</updated><id>http://localhost:4000/roboty/2022/10/20/roomac</id><content type="html" xml:base="http://localhost:4000/roboty/2022/10/20/roomac/"><![CDATA[<p>Roomac is a low-cost autonomous mobile manipulation robot. It consists of differential drive mobile base and 5-DoF manipulator with gripper. Whole construction costed around 550$ and using this platform I was able to prepare proof-of-concept application - bringing bottle to the user.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-10-20T22:58:33+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Maciej Stępień</title><subtitle>Projects</subtitle><entry><title type="html">Roomac</title><link href="http://localhost:4000/robots/2022/10/20/roomac/" rel="alternate" type="text/html" title="Roomac" /><published>2022-10-20T00:00:00+02:00</published><updated>2022-10-20T00:00:00+02:00</updated><id>http://localhost:4000/robots/2022/10/20/roomac</id><content type="html" xml:base="http://localhost:4000/robots/2022/10/20/roomac/"><![CDATA[<p>Roomac is a low-cost autonomous mobile manipulation robot. It consists of differential drive mobile base and 5-DoF manipulator with gripper. Whole construction costed around 550$ and using this platform I was able to prepare proof-of-concept application - bringing bottle to the user.</p>
 
 <div class="embed-container">
   <iframe width="720" height="405" src="https://drive.google.com/file/d/15o_CPwpEsHFUy_6dhViRdDjdI0ZCkai7/preview" frameborder="0" allowfullscreen="">
   </iframe>
-</div>]]></content><author><name></name></author><category term="Roboty" /><summary type="html"><![CDATA[Affordable autonomous mobile manipulation robot]]></summary></entry><entry><title type="html">Human following robot</title><link href="http://localhost:4000/roboty/2019/09/24/human-following-robot/" rel="alternate" type="text/html" title="Human following robot" /><published>2019-09-24T00:00:00+02:00</published><updated>2019-09-24T00:00:00+02:00</updated><id>http://localhost:4000/roboty/2019/09/24/human-following-robot</id><content type="html" xml:base="http://localhost:4000/roboty/2019/09/24/human-following-robot/"><![CDATA[<p>In this tutorial I describe one way to make robot detect and follow people - it won’t make a great spy but could be useful to carry luggage or groceries. Whole system was implemented on Husarion’s ROSbot with ESP32 as a remote. To find people I used scans from LiDAR (RPLidar A2) with my detector, which is simple but turned out to be fast and quite reliable. I also checked other LiDAR approaches available on ROS - leg_detector and leg_tracker but in this case didn’t perform well enough. Another package I tested is upper_body_detector, which uses RGBD camera to detect humans. As name suggests it needs to see upper part of body - this will be a problem if we want our robot to stay close, also in this case it didn’t perform very well and was slower.</p>
+</div>]]></content><author><name></name></author><category term="Robots" /><summary type="html"><![CDATA[Affordable autonomous mobile manipulation robot]]></summary></entry><entry><title type="html">Human following robot</title><link href="http://localhost:4000/robots/2019/09/24/human-following-robot/" rel="alternate" type="text/html" title="Human following robot" /><published>2019-09-24T00:00:00+02:00</published><updated>2019-09-24T00:00:00+02:00</updated><id>http://localhost:4000/robots/2019/09/24/human-following-robot</id><content type="html" xml:base="http://localhost:4000/robots/2019/09/24/human-following-robot/"><![CDATA[<p>In this tutorial I describe one way to make robot detect and follow people - it won’t make a great spy but could be useful to carry luggage or groceries. Whole system was implemented on Husarion’s ROSbot with ESP32 as a remote. To find people I used scans from LiDAR (RPLidar A2) with my detector, which is simple but turned out to be fast and quite reliable. I also checked other LiDAR approaches available on ROS - leg_detector and leg_tracker but in this case didn’t perform well enough. Another package I tested is upper_body_detector, which uses RGBD camera to detect humans. As name suggests it needs to see upper part of body - this will be a problem if we want our robot to stay close, also in this case it didn’t perform very well and was slower.</p>
 
 <div class="embed-container">
   <iframe width="720" height="405" src="https://drive.google.com/file/d/1jNWkf1M97UBEypOCILnGTzXXnH618SYN/preview" frameborder="0" allowfullscreen="">
@@ -526,7 +526,7 @@ In order to implement Kalman filter I created Person class where human position 
 
 <h2 id="summary">Summary</h2>
 
-<p>In this tutorial you learned how to set up and run human following using ROSbot with ESP remote. After main algorithm walkthrough you should be also able to modify it to suit your robot.</p>]]></content><author><name></name></author><category term="Roboty" /><summary type="html"><![CDATA[Every move you make | Every step you take | I'll follow you]]></summary></entry><entry><title type="html">Czołg</title><link href="http://localhost:4000/roboty/2019/03/27/tank/" rel="alternate" type="text/html" title="Czołg" /><published>2019-03-27T00:00:00+01:00</published><updated>2019-03-27T00:00:00+01:00</updated><id>http://localhost:4000/roboty/2019/03/27/tank</id><content type="html" xml:base="http://localhost:4000/roboty/2019/03/27/tank/"><![CDATA[<p>Pojazd uniwersalny oparty o Raspberry Pi Zero.</p>
+<p>In this tutorial you learned how to set up and run human following using ROSbot with ESP remote. After main algorithm walkthrough you should be also able to modify it to suit your robot.</p>]]></content><author><name></name></author><category term="Robots" /><summary type="html"><![CDATA[Every move you make | Every step you take | I'll follow you]]></summary></entry><entry><title type="html">Tank</title><link href="http://localhost:4000/robots/2019/03/27/tank/" rel="alternate" type="text/html" title="Tank" /><published>2019-03-27T00:00:00+01:00</published><updated>2019-03-27T00:00:00+01:00</updated><id>http://localhost:4000/robots/2019/03/27/tank</id><content type="html" xml:base="http://localhost:4000/robots/2019/03/27/tank/"><![CDATA[<p>Pojazd uniwersalny oparty o Raspberry Pi Zero.</p>
 
 <figure class="figure  figure--center">
   <img class="image" src="/pics/Czolg/front.jpg" alt="" width="600" height="800" />
@@ -580,7 +580,7 @@ In order to implement Kalman filter I created Person class where human position 
 ,który odpowiednio przerobiłem do swoich potrzeb ( zamiana sterowania na takie wykorzystujące SPI).</p>
 
 <p><a class="button" href="https://github.com/macstepien/Tank" style="background: #0366d6">Projekt  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
-</a></p>]]></content><author><name></name></author><category term="Roboty" /><summary type="html"><![CDATA[Pojazd uniwersalny oparty o Raspberry Pi Zero.]]></summary></entry><entry><title type="html">Hexapod</title><link href="http://localhost:4000/roboty/2018/06/08/hexapod/" rel="alternate" type="text/html" title="Hexapod" /><published>2018-06-08T00:00:00+02:00</published><updated>2018-06-08T00:00:00+02:00</updated><id>http://localhost:4000/roboty/2018/06/08/hexapod</id><content type="html" xml:base="http://localhost:4000/roboty/2018/06/08/hexapod/"><![CDATA[<p>Sześcionogi stwór z kamerkami.</p>
+</a></p>]]></content><author><name></name></author><category term="Robots" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Hexapod</title><link href="http://localhost:4000/robots/2018/06/08/hexapod/" rel="alternate" type="text/html" title="Hexapod" /><published>2018-06-08T00:00:00+02:00</published><updated>2018-06-08T00:00:00+02:00</updated><id>http://localhost:4000/robots/2018/06/08/hexapod</id><content type="html" xml:base="http://localhost:4000/robots/2018/06/08/hexapod/"><![CDATA[<p>Sześcionogi stwór z kamerkami.</p>
 
 <p>Projekt, którym zajmowałem się przez pierwsze 2 lata studiów w ramach działalności koła naukowego Integra. Moim wkładem było oprogramowanie do sterowania robota oraz stereowizji.</p>
 
@@ -750,29 +750,29 @@ Są to wartości niskie, co świadczy o poprawnie wykonanej kalibracji.</p>
   <figcaption class="caption">Prezentacja na zawodach Robotic Arena fot. Politechnika Wrocławska</figcaption>
 </figure>
 
-<p><a href="http://www.integra.agh.edu.pl/robot-kroczacy-freestyle/" title="Strona projektu">Strona projektu</a></p>]]></content><author><name></name></author><category term="Roboty" /><summary type="html"><![CDATA[Sześcionogi stwór z kamerkami.]]></summary></entry><entry><title type="html">Świecąca kulka</title><link href="http://localhost:4000/oprogramowanie/2017/05/26/move/" rel="alternate" type="text/html" title="Świecąca kulka" /><published>2017-05-26T00:00:00+02:00</published><updated>2017-05-26T00:00:00+02:00</updated><id>http://localhost:4000/oprogramowanie/2017/05/26/move</id><content type="html" xml:base="http://localhost:4000/oprogramowanie/2017/05/26/move/"><![CDATA[<p>Obsługa komputera poprzez ruchy kontrolerem.</p>
+<p><a href="http://www.integra.agh.edu.pl/robot-kroczacy-freestyle/" title="Strona projektu">Strona projektu</a></p>]]></content><author><name></name></author><category term="Robots" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Luminous ball</title><link href="http://localhost:4000/software/2017/05/26/move/" rel="alternate" type="text/html" title="Luminous ball" /><published>2017-05-26T00:00:00+02:00</published><updated>2017-05-26T00:00:00+02:00</updated><id>http://localhost:4000/software/2017/05/26/move</id><content type="html" xml:base="http://localhost:4000/software/2017/05/26/move/"><![CDATA[<p>Operate the computer by moving the controller.</p>
 
 <figure class="figure  figure--center">
   <img class="image" src="/pics/swiecacaKulka/kontroler.jpg" alt="" width="300" height="300" />
   
 </figure>
 
-<p>Kontroler zainspirowany rozwiązaniem z PlayStation. Użyłem kamerki internetowej oraz odpowiedniego kontrolera - latarki z kulką. Ruchy kulki są śledzone oraz przekładane na ruchy kursora myszy. Poprzez odpowiednie przygaszenie a następnie zaświecenie latarki symulowane jest kliknięcie.</p>
+<p>The controller inspired by the PlayStation Move. I used a webcam and a controller - a flashlight with a ball. The ball’s movements are tracked and translated into mouse cursor movements. By turning the flashlight on and off a mouse click is simulated.</p>
 
-<p>W celu analizy obrazu użyłem bibliotekę OpenCV oraz metodę wykrywania przedstawioną w <a href="https://forbot.pl/blog/opencv-2-wykrywanie-obiektow-id4888">https://forbot.pl/blog/opencv-2-wykrywanie-obiektow-id4888</a></p>
+<p>To analyze the image I used the OpenCV library and the detection method outlined in the <a href="https://forbot.pl/blog/opencv-2-wykrywanie-obiektow-id4888">https://forbot.pl/blog/opencv-2-wykrywanie-obiektow-id4888</a></p>
 
 <div class="embed-container">
   <iframe width="720" height="405" src="https://drive.google.com/file/d/1Ifl4nigfpzm73YRJDlyJJY3RQRywG9NQ/preview" frameborder="0" allowfullscreen="">
   </iframe>
 </div>
 
-<p><a class="button" href="https://github.com/macstepien/LightOrb" style="background: #0366d6">Kod  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
-</a></p>]]></content><author><name></name></author><category term="Oprogramowanie" /><summary type="html"><![CDATA[Obsługa komputera poprzez ruchy kontrolerem.]]></summary></entry><entry><title type="html">Efekt gitarowy Fuzz</title><link href="http://localhost:4000/elektronika/2016/08/28/fuzz/" rel="alternate" type="text/html" title="Efekt gitarowy Fuzz" /><published>2016-08-28T00:00:00+02:00</published><updated>2016-08-28T00:00:00+02:00</updated><id>http://localhost:4000/elektronika/2016/08/28/fuzz</id><content type="html" xml:base="http://localhost:4000/elektronika/2016/08/28/fuzz/"><![CDATA[<figure class="figure  figure--center">
+<p><a class="button" href="https://github.com/macstepien/LightOrb" style="background: #0366d6">Code  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
+</a></p>]]></content><author><name></name></author><category term="Software" /><summary type="html"><![CDATA[Operate the computer by moving the controller.]]></summary></entry><entry><title type="html">Fuzz guitar effect</title><link href="http://localhost:4000/electronics/2016/08/28/fuzz/" rel="alternate" type="text/html" title="Fuzz guitar effect" /><published>2016-08-28T00:00:00+02:00</published><updated>2016-08-28T00:00:00+02:00</updated><id>http://localhost:4000/electronics/2016/08/28/fuzz</id><content type="html" xml:base="http://localhost:4000/electronics/2016/08/28/fuzz/"><![CDATA[<figure class="figure  figure--center">
   <img class="image" src="/pics/fuzz/front.jpg" alt="" width="600" height="" />
   
 </figure>
 
-<p>Efekt gitarowy wykonany na podstawie schematu:</p>
+<p>Guitar effect made from a schematic:</p>
 <figure class="figure  figure--center">
   <img class="image" src="/pics/fuzz/fuzzSchemat.gif" alt="" width="600" height="800" />
   
@@ -781,16 +781,14 @@ Są to wartości niskie, co świadczy o poprawnie wykonanej kalibracji.</p>
 <figure class="figure  figure--center">
   <img class="image" src="/pics/fuzz/inside.jpg" alt="" width="600" height="" />
   
-</figure>]]></content><author><name></name></author><category term="Elektronika" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Cewka Tesli</title><link href="http://localhost:4000/elektronika/2015/12/10/cewkatesli/" rel="alternate" type="text/html" title="Cewka Tesli" /><published>2015-12-10T00:00:00+01:00</published><updated>2015-12-10T00:00:00+01:00</updated><id>http://localhost:4000/elektronika/2015/12/10/cewkatesli</id><content type="html" xml:base="http://localhost:4000/elektronika/2015/12/10/cewkatesli/"><![CDATA[<p>Robi się groźnie.</p>
-
-<figure class="figure  figure--center">
+</figure>]]></content><author><name></name></author><category term="Electronics" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Tesla coil</title><link href="http://localhost:4000/electronics/2015/12/10/cewkatesli/" rel="alternate" type="text/html" title="Tesla coil" /><published>2015-12-10T00:00:00+01:00</published><updated>2015-12-10T00:00:00+01:00</updated><id>http://localhost:4000/electronics/2015/12/10/cewkatesli</id><content type="html" xml:base="http://localhost:4000/electronics/2015/12/10/cewkatesli/"><![CDATA[<figure class="figure  figure--center">
   <img class="image" src="/pics/cewkatesli/wieksza.jpg" alt="" width="600" height="800" />
   
 </figure>
 
-<p>Projekt cewki tesli wykonany na podstawie 
+<p>Inspired by
 <a href="https://www.electroboom.com/?p=521" title="ElectroBoom">ElectroBoom</a>
-oraz
+and
 <a href="https://www.youtube.com/watch?v=4OC7cwI4RNM" title="Ludic Science">Ludic Science</a></p>
 
 <figure class="figure  figure--center">
@@ -798,28 +796,28 @@ oraz
   
 </figure>
 
-<p>Najpierw wykonałem mniejszą wersję opartą na jednym tranzystorze, zasilaną baterią 9V.</p>
+<p>First I made a smaller version based on a single transistor, powered by a 9V battery.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/cewkatesli/nawijanie.jpg" alt="Nawijanie cewki" width="600" height="800" />
-  <figcaption class="caption">Nawijanie cewki</figcaption>
+  <img class="image" src="/pics/cewkatesli/nawijanie.jpg" alt="Coil winding" width="600" height="800" />
+  <figcaption class="caption">Coil winding</figcaption>
 </figure>
 
-<p>Następnie wykonałem cewkę o większych rozmiarach, w ktrórej zastosowałem 4 tranzystory oraz dodatkowy radiator, aby zapewnić odpowiednie chłodzenie. Jako źródło energii użyłem zasilacza od drukarki.</p>]]></content><author><name></name></author><category term="Elektronika" /><summary type="html"><![CDATA[Robi się groźnie.]]></summary></entry><entry><title type="html">Mapping robot</title><link href="http://localhost:4000/roboty/2015/08/25/mapping-robot/" rel="alternate" type="text/html" title="Mapping robot" /><published>2015-08-25T00:00:00+02:00</published><updated>2015-08-25T00:00:00+02:00</updated><id>http://localhost:4000/roboty/2015/08/25/mapping-robot</id><content type="html" xml:base="http://localhost:4000/roboty/2015/08/25/mapping-robot/"><![CDATA[<p>Robot that drives around and creates a map of the environment.</p>
+<p>Then I made a larger coil, in which I used 4 transistors and an additional heat sink to ensure adequate cooling. I used a power supply from a printer as a power source.</p>]]></content><author><name></name></author><category term="Electronics" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Mapping robot</title><link href="http://localhost:4000/robots/2015/08/25/mapping-robot/" rel="alternate" type="text/html" title="Mapping robot" /><published>2015-08-25T00:00:00+02:00</published><updated>2015-08-25T00:00:00+02:00</updated><id>http://localhost:4000/robots/2015/08/25/mapping-robot</id><content type="html" xml:base="http://localhost:4000/robots/2015/08/25/mapping-robot/"><![CDATA[<p>Robot laptopa wożący pokój mapujący.</p>
 
 <figure class="figure  figure--center">
   <img class="image" src="/pics/RobotMapujacy/front.jpg" alt="" width="600" height="800" />
   
 </figure>
 
-<p>This robot is the second, simplified version of the general-purpose robot. Learning from the previous design, I simplified the robot and its only task was to map rooms. Also to make the task successful I replaced the Stereovision with Kinect, as the results from it were not satisfactory. I also added encoders to the wheels, but still I made my own - incremental based on optocouplers. They didn’t work perfectly, but still allowed to achieve good results.</p>
+<p>Ten robot jest drugą, uproszczoną wersją robota uniwersalnego. Wyciągając wnioski z poprzedniej konstrukcji uprościłem robota i jego jedynym zadaniem było mapowanie pomieszczeń. Także aby zadanie się udało zamieniłem Stereowizję na Kinecta, ponieważ rezultaty z niej osiągane nie były zadowalające. Dodałem także enkodery na koła, jednak wciąż zbyt pewny siebie zrobiłem swoje - inkrementalne bazujące na transoptorach. Nie sprawdzały się one idealnie, ale jednak pozwoliły osiągnąć rezultaty.</p>
 
 <figure class="figure  figure--center">
   <img class="image" src="/pics/RobotMapujacy/test.jpg" alt="Prototypowanie eletkroniki" width="600" height="800" />
   <figcaption class="caption">Prototypowanie eletkroniki</figcaption>
 </figure>
 
-<p>Also, as part of this project, I realized a PID controller and set a point which the robot would reach.</p>
+<p>Także w ramach zabawy z robotem zrealizowałem regulator PID i zadawałem punkt, do którego robot dojeżdżał.</p>
 
 <p><a class="button" href="https://github.com/macstepien/MappingRobotPID" style="background: #0366d6">PID  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
 </a></p>
@@ -863,14 +861,14 @@ oraz
 <p>Do sterowania robotem użyłem mikrokontrolera Atmega88Pa. Komunikował się on z komputerem poprzez interfejs UART, wykorzystałem tutaj przejściówkę na USB. Sterował on silnikami - serwami pracy ciągłej. Także mierzył napięcie z transoptorów, zliczając impulsy poprzez zastowanie odpowiedniego progu. Także dla testu wykorzystałem podczerwony czujnik odległości. Do zasilenia całej konstrukcji użyłem akumulatora żelowego. Poprzez mikrokontroler mierzyłem jego napięcie, sprawdzając czy się rozładował. Musiałem także zastosować przetwornicę Step-Up, aby zasilić Kinecta, który wymaga 12V.</p>
 
 <p><a class="button" href="https://github.com/macstepien/MappingRobotControler" style="background: #0366d6">Sterownik Robota  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
-</a></p>]]></content><author><name></name></author><category term="Roboty" /><summary type="html"><![CDATA[Robot that drives around and creates a map of the environment.]]></summary></entry><entry><title type="html">3D Viewer</title><link href="http://localhost:4000/oprogramowanie/2015/04/09/3dviewer/" rel="alternate" type="text/html" title="3D Viewer" /><published>2015-04-09T00:00:00+02:00</published><updated>2015-04-09T00:00:00+02:00</updated><id>http://localhost:4000/oprogramowanie/2015/04/09/3dviewer</id><content type="html" xml:base="http://localhost:4000/oprogramowanie/2015/04/09/3dviewer/"><![CDATA[<p>A piece of software for the perspective display of points in 3D.</p>
+</a></p>]]></content><author><name></name></author><category term="Robots" /><summary type="html"><![CDATA[Robot that drives around and creates a map of the environment.]]></summary></entry><entry><title type="html">3D Viewer</title><link href="http://localhost:4000/software/2015/04/09/3dviewer/" rel="alternate" type="text/html" title="3D Viewer" /><published>2015-04-09T00:00:00+02:00</published><updated>2015-04-09T00:00:00+02:00</updated><id>http://localhost:4000/software/2015/04/09/3dviewer</id><content type="html" xml:base="http://localhost:4000/software/2015/04/09/3dviewer/"><![CDATA[<p>Program służący do wyświetlania perspektywicznego punktów w 3D.</p>
 
 <figure class="figure  figure--center">
   <img class="image" src="/pics/3dviewer/viewer1.png" alt="" width="600" height="800" />
   
 </figure>
 
-<p>I wrote this program as part of a Computer Science lesson in High School. I implemented the loading of point clouds from a txt file. They are in the format of coordinates (X, Y, Z) and colors (R, G, B). I obtained the point clouds through stereo vision camera. It is also possible to display geometric shapes, such as a house. The whole thing was written in Pascal.</p>
+<p>Program ten napisałem w ramach lekcji Informatyki w Liceum. Zaimplementowałem wczytywanie chmur punktów z pliku txt. Są one w formacie współrzędne (X, Y, Z), a następnie kolory (R, G, B). Chmury punktów uzyskiwałem poprzez kamery stereowizyjne. Stworzyłem także możliwość wyświetlania kształtów geometrycznych, na przykład domku. Całość została napisana w Pascalu.</p>
 
 <figure class="figure  figure--center">
   <img class="image" src="/pics/3dviewer/viewer2.png" alt="" width="600" height="800" />
@@ -878,27 +876,27 @@ oraz
 </figure>
 
 <p><a class="button" href="https://github.com/macstepien/3DViewer" style="background: #0366d6">3DViewer  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
-</a></p>]]></content><author><name></name></author><category term="Oprogramowanie" /><summary type="html"><![CDATA[A piece of software for the perspective display of points in 3D.]]></summary></entry><entry><title type="html">General-purpose robot</title><link href="http://localhost:4000/roboty/2014/08/28/universal-robots/" rel="alternate" type="text/html" title="General-purpose robot" /><published>2014-08-28T00:00:00+02:00</published><updated>2014-08-28T00:00:00+02:00</updated><id>http://localhost:4000/roboty/2014/08/28/universal-robots</id><content type="html" xml:base="http://localhost:4000/roboty/2014/08/28/universal-robots/"><![CDATA[<p>It was supposed to make coffee…</p>
+</a></p>]]></content><author><name></name></author><category term="Software" /><summary type="html"><![CDATA[A piece of software for the perspective display of points in 3D.]]></summary></entry><entry><title type="html">General-purpose robot</title><link href="http://localhost:4000/robots/2014/08/28/universal-robots/" rel="alternate" type="text/html" title="General-purpose robot" /><published>2014-08-28T00:00:00+02:00</published><updated>2014-08-28T00:00:00+02:00</updated><id>http://localhost:4000/robots/2014/08/28/universal-robots</id><content type="html" xml:base="http://localhost:4000/robots/2014/08/28/universal-robots/"><![CDATA[<p>Miał robić kawę…</p>
 
-<p>This is where my imagination got carried away and I wanted to make a multipurpose robot capable of performing various activities, e.g. prepare drinks, “walk” to the store. Of course, this was intended to be the first version, on which I wanted to test my capabilities. It was to lift only dummies, and move only around the house.</p>
+<p>Tutaj wyobraźnia mnie poniosła i chciałem zrobić robota uniwersalnego zdolnego do wykonywania różnych czynności np. przygotować napoje, “chodzić” do sklepu. Oczywiście w zamyśle miała być to pierwsza wersja, na której chciałem zbadać moje możliwości. Podnosić miał jedynie atrapy, a poruszać się jedynie po domu.</p>
 
 <figure class="figure  figure--center">
   <img class="image" src="/pics/RobotUniwersalny/robot.jpg" alt="" width="300" height="800" />
   
 </figure>
 
-<p>It was a beautiful design and very complicated. I planned to use 11 servos to operate all the limbs. This greatly exceeded the number of PWM channels in the Atmega88Pa microcontroller. That is why I was forced to use software PWM generation, which puts much more load on the processor. It was for this reason that I was forced to use a second microcontroller responsible for communicating with the computer, controlling the motors, and setting servo positions to the second microcontroller via SPI. A lot of things could have gone wrong along the way, so when I finally couldn’t control the servos I didn’t know what was going on. Only after a long time did I come to the conclusion that I must have had a power supply that was too weak, something I hadn’t even considered before. However, despite the non-functioning servos, I did not abandon the design. I still had working motors that I could control from the computer. Then I took care of an essential element of such a robot - obstacle detection and mapping. For this purpose, I wanted to use stereo vision pair. After many experiments, I finally managed to bring the stereo vision to a satisfactory level. However, there was still a lot of noise - especially on the floor. Not surprisingly, the floor, the wall, is not much detail and it’s hard to get a reliable depth image. So it was more or less successful in detecting obstacles, but when it came to motion it was a completely different matter. The webcams used returned moving images which made the detection result even worse. I did not use encoders, because I planned to detect landmarks and later calculate the displacement based on them and the resulting depth map. However, after such disappointing stereo vision results I did not try this solution anymore.</p>
+<p>Piękna była to konstrukcja i bardzo skomplikowana. Do obsługi wszystkich kończyn planowałem zastosować 11 serw. Znacznie przekroczyło to liczbę kanałów PWM w mikrokontrolerze Atmega88Pa. Dlatego właśnie zmuszony byłem zastosować programowe generowanie PWM, które znacznie bardziej obciąża procesor. Z tego właśnie powodu zmuszony byłem użyć drugi mikrokontroler odpowiedzialny za komunikację z komputerem, sterowaniem silnikami oraz zadawanie poprzez SPI położeń serw do drugiego mikrokontrolera. Wiele rzeczy mogło się zepsuć po drodze, dlatego gdy ostatecznie nie mogłem zapanować nad serwami nie wiedziałem co się dzieje. Dopiero po dłuższym czasie doszedłem do wniosku, że musiałem mieć za słabe źródło zasilania, coś czego wcześniej nawet nie brałem pod uwagę. Jednak pomimo niedziałających serw nie porzuciłem tej konstrukcji. Wciąż miałem działające silniki, którymi mogłem sterować z poziomu komputera. Zająłem się w takim razie niezbędnym elementem takiego robota - wykrywaniem przeszkód oraz mapowaniem. W tym celu chciałem zasotosować parę stereowizyjną. Po wielu przygodach udało mi się wreszcie doprowadzić stereowizję do poziomu zadowalającego. Wciąż jednak występowało dużo szumów - szczególnie na podłodze. Nic dziwnego, podłoga, ściana, to mało szczegółów i ciężko jest uzyskać pewny obraz głębi. Udało się zatem mniej więcej wykrywać przeszkody, jednak gdy doszedł do tego ruch to już kompletnie co innego. Zastosowane kamerki internetowe zwracały poruszone obrazy co jeszcze pogarszało wynik wykrywania. Do tego nie zastosowałem enkoderów, ponieważ planowałem wykrywać punkty szczególne i póżniej na podstawie ich oraz uzyskanej mapy głębokości obliczać przesunięcie. Po takich jednak rozczarowujących efektach stereowizji nie próbowałem już tego rozwiązania.</p>
 
 <figure class="figure  figure--center">
   <img class="image" src="/pics/RobotUniwersalny/plytka.jpg" alt="" width="600" height="800" />
   
 </figure>
 
-<p>Despite the fact that it did not meet my expectations, it was an interesting construction. And my introduction to stereo vision and SLAM.</p>
+<p>Pomimo, że nie spełnił moich oczekiwań to wyszła z niego ciekawa konstrukcja. I mój początek przygody ze stereowizją i mapowaniem.</p>
 
-<p>PR2 was my inspiration for this robot. In the final version of this robot I wanted to make it 2 times larger. The use of a rotational joint in the waist was to increase the gripping range - the ability to bend down. However, the main goal was to be able to transform, which would enable it to climb stairs and larger obstacles. By default, I wanted to use tracks.</p>
+<p>W tej konstrukcji wzorowałem się na robocie PR2. Domyślną wersję tej konstrukcji chciałem wykonać 2 razy większą. Zastosowanie tutaj zgięcia w połowie miało na celu zwiększyć zakres chwytania - możliwość schylenia się. Jednak głównym celem była możliwość przetransformowania się w robota jeżdżącego, co umowżliwiłoby wspinanie się po schodach oraz większych przeszkodach. Domyślnie w napędzie chciałem zastosować gąsienice.</p>
 
 <figure class="figure  figure--center">
   <img class="image" src="/pics/RobotUniwersalny/parts.jpg" alt="" width="600" height="800" />
   
-</figure>]]></content><author><name></name></author><category term="Roboty" /><summary type="html"><![CDATA[It was supposed to make coffee...]]></summary></entry></feed>
+</figure>]]></content><author><name></name></author><category term="Robots" /><summary type="html"><![CDATA[]]></summary></entry></feed>

@@ -1,15 +1,15 @@
 ---
 layout: post
-title: Gry konsolowe
+title: Command line games
 categories:
-  - Oprogramowanie
+  - Software
 excerpt: |
-  Tic-tac-toe, Snake and Pong written in C ++ as part of the Computer Science project at the Middle School.
+  Tic-tac-toe, Snake and Pong written in C ++ as part of the Computer Science project in the Middle School.
    
   <img width="200" height="200" src="/pics/gryKonsolowe/Snake.png">
 ---
 
-Tic-tac-toe, Snake and Pong written in C ++ as part of the Computer Science project at the Middle School.
+Tic-tac-toe, Snake and Pong written in C ++ as part of the Computer Science project in the Middle School.
 
 ### Snake
 
