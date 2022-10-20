@@ -4,28 +4,28 @@ remote_theme: daviddarnes/alembic
 environment: prod
 # File excludes
 exclude:
-- README.md
-- Gemfile
-- Gemfile.lock
+  - README.md
+  - Gemfile
+  - Gemfile.lock
 
 # Set plugins
 plugins:
-- jekyll-sitemap
-- jekyll-mentions
-- jekyll-paginate
-- jekyll-seo-tag
-- jekyll-redirect-from
-- jekyll-default-layout
-- jekyll-feed
-- jemoji
-- jekyll-remote-theme
-- jekyll-analytics
+  - jekyll-sitemap
+  - jekyll-mentions
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-redirect-from
+  - jekyll-default-layout
+  - jekyll-feed
+  - jemoji
+  - jekyll-remote-theme
+  - jekyll-analytics
 
 # Site settings
-url: 'https://thedarkphoenix.github.io/'
-baseurl: ''
-title: 'Maciej Stępień'
-description: 'Projekty'
+url: "https://macstepien.github.io/"
+baseurl: ""
+title: "Maciej Stępień"
+description: "Projekty"
 permalink: pretty
 logo: "/pics/logo1.png"
 
@@ -35,14 +35,14 @@ paginate_path: blog/page:num
 
 # Header nav
 navigation_header:
-- title: Home
-  url: /
-- title: About
-  url: /about/
-- title: Projekty
-  url: /projekty/
-- title: Kategorie
-  url: /categories/
+  - title: Home
+    url: /
+  - title: About
+    url: /about/
+  - title: Projekty
+    url: /projekty/
+  - title: Kategorie
+    url: /categories/
 
 # Footer nav
 navigation_footer:
@@ -54,6 +54,6 @@ collections:
     title: Projekty
 
 jekyll_analytics:
-  GoogleAnalytics:          # Add, if you want to track with Google Analytics
-    id: UA-138286459-1          # Required - replace with your tracking id
-    anonymizeIp: true      # Optional - Default: false - set to true for anonymized tracking
+  GoogleAnalytics: # Add, if you want to track with Google Analytics
+    id: UA-138286459-1 # Required - replace with your tracking id
+    anonymizeIp: true # Optional - Default: false - set to true for anonymized tracking

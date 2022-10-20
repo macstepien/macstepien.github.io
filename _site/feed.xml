@@ -13,7 +13,7 @@
 
 &lt;h4 id=&quot;code&quot;&gt;Code&lt;/h4&gt;
 &lt;p&gt;Create new sketch in Arduino IDE and copy code:&lt;br /&gt;
-&lt;a href=&quot;https://github.com/TheDarkPhoenix/RosbotFollowerESPRemote/blob/master/rosbot_remote.ino&quot;&gt;ESP Remote Code&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;https://github.com/macstepien/RosbotFollowerESPRemote/blob/master/rosbot_remote.ino&quot;&gt;ESP Remote Code&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Then get your Husarnet join code and customize code as described in &lt;a href=&quot;https://www.hackster.io/khasreto/run-rosserial-over-the-internet-with-esp32-0615f5&quot;&gt;ESP32 Husarnet Tutorial&lt;/a&gt;&lt;/p&gt;
 
@@ -64,7 +64,7 @@ Install dependency:
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Download code:&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/TheDarkPhoenix/rosbot_follower.git
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/macstepien/rosbot_follower.git
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;And finally build your workspace:&lt;/p&gt;
@@ -536,7 +536,7 @@ In order to implement Kalman filter I created Person class where human position 
 &lt;p&gt;Robotem steruje się poprzez przeglądarkę. W tym celu użyłem skryptu z &lt;a href=&quot;https://hackaday.io/project/25092-zerobot-raspberry-pi-zero-fpv-robot/log/97988-the-new-zerobot-pro&quot; title=&quot;Skrypt&quot;&gt;https://hackaday.io/project/25092-zerobot-raspberry-pi-zero-fpv-robot/log/97988-the-new-zerobot-pro&lt;/a&gt;
 ,który odpowiednio przerobiłem do swoich potrzeb ( zamiana sterowania na takie wykorzystujące SPI).&lt;/p&gt;
 
-&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/TheDarkPhoenix/Tank&quot; style=&quot;background: #0366d6&quot;&gt;Projekt  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
+&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/macstepien/Tank&quot; style=&quot;background: #0366d6&quot;&gt;Projekt  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
 &lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="Roboty" /><summary type="html">Pojazd uniwersalny oparty o Raspberry Pi Zero.</summary></entry><entry><title type="html">Hexapod</title><link href="http://0.0.0.0:4000/roboty/2018/06/08/hexapod/" rel="alternate" type="text/html" title="Hexapod" /><published>2018-06-08T00:00:00-05:00</published><updated>2018-06-08T00:00:00-05:00</updated><id>http://0.0.0.0:4000/roboty/2018/06/08/hexapod</id><content type="html" xml:base="http://0.0.0.0:4000/roboty/2018/06/08/hexapod/">&lt;p&gt;Sześcionogi stwór z kamerkami.&lt;/p&gt;
 
 &lt;p&gt;Projekt, którym zajmowałem się przez pierwsze 2 lata studiów w ramach działalności koła naukowego Integra. Moim wkładem było oprogramowanie do sterowania robota oraz stereowizji.&lt;/p&gt;
@@ -588,10 +588,10 @@ In order to implement Kalman filter I created Person class where human position 
 &lt;h4 id=&quot;tcp&quot;&gt;TCP&lt;/h4&gt;
 &lt;p&gt;W module TCP znajduję się cały kod do komunikacji pomiędzy Raspberry a laptopem. Kod został zaczerpnięty z &lt;a href=&quot;https://github.com/vichargrave/tcpsockets&quot; title=&quot;3&quot;&gt;3&lt;/a&gt;. W ramach komunikacji laptop łączy się z Raspberry i na porcie 8081 odbiera aktualne napięcie baterii, które Raspberry stale udostępnia. Komunikacja w ramach odczytu napięcia baterii odbywa się w osobnym wątku, aby nie zakłócać pozostałych operacji. Natomiast na port 8080 aplikacja z laptopa wysyła podane komendy.&lt;/p&gt;
 
-&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/TheDarkPhoenix/HexapodPC&quot; style=&quot;background: #0366d6&quot;&gt;Aplikacja na laptopa  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
+&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/macstepien/HexapodPC&quot; style=&quot;background: #0366d6&quot;&gt;Aplikacja na laptopa  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
 &lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/TheDarkPhoenix/HexapodRaspberry&quot; style=&quot;background: #0366d6&quot;&gt;Aplikacja na Raspberry  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
+&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/macstepien/HexapodRaspberry&quot; style=&quot;background: #0366d6&quot;&gt;Aplikacja na Raspberry  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
 &lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;stereowizja&quot;&gt;Stereowizja&lt;/h2&gt;
@@ -658,7 +658,7 @@ Są to wartości niskie, co świadczy o poprawnie wykonanej kalibracji.&lt;/p&gt
 
 &lt;p&gt;Poza samą realizacją stereowizji ważnym elementem był także optymalny przesył obrazu z obu kamer. Pierwszym podejściem było użycie MJPGstreamera. Efekty jednak nie były zadowalające. Klatki, które nie zostały jeszcze wysłane, były składowane w buforze. W wyniku czego, im dłużej działała aplikacja, tym większe było opóźnienie. Dodatkowo występowała różnica czasu pomiędzy klatkami z obu kamer, co w przypadku stereowizji jest nieakceptowalne. Dlatego zdecydowano się użyć gstreamera. Jest on bardziej zaawansowany, przez co uruchomienie go zajęło więcej czasu. Jednak uzyskany efekt jest bardzo dobry. W jego działaniu, jeśli nie zdąży się wysłać klatki przed przybyciem następnej, to zostaje ona porzucona. W wyniku tego wyeliminowane zostało rosnące opóźnienie. Dlatego też nie występowało już opóźnienie pomiędzy klatkami. Rozdzielczość przesyłanych obrazów wynosi 320x240. Przeprowadzono także testy dla rozdzielczości 640x480, ale spadek FPS był nieproporcjonalny do wzrostu jakości.&lt;/p&gt;
 
-&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/TheDarkPhoenix/HexapodStereovision&quot; style=&quot;background: #0366d6&quot;&gt;Stereowizja  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
+&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/macstepien/HexapodStereovision&quot; style=&quot;background: #0366d6&quot;&gt;Stereowizja  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
 &lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;osiągnięcia&quot;&gt;Osiągnięcia&lt;/h3&gt;
@@ -696,7 +696,7 @@ Są to wartości niskie, co świadczy o poprawnie wykonanej kalibracji.&lt;/p&gt
   &lt;/iframe&gt;
 &lt;/div&gt;
 
-&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/TheDarkPhoenix/LightOrb&quot; style=&quot;background: #0366d6&quot;&gt;Kod  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
+&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/macstepien/LightOrb&quot; style=&quot;background: #0366d6&quot;&gt;Kod  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
 &lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="Oprogramowanie" /><summary type="html">Obsługa komputera poprzez ruchy kontrolerem.</summary></entry><entry><title type="html">Efekt gitarowy Fuzz</title><link href="http://0.0.0.0:4000/elektronika/2016/08/28/fuzz/" rel="alternate" type="text/html" title="Efekt gitarowy Fuzz" /><published>2016-08-28T00:00:00-05:00</published><updated>2016-08-28T00:00:00-05:00</updated><id>http://0.0.0.0:4000/elektronika/2016/08/28/fuzz</id><content type="html" xml:base="http://0.0.0.0:4000/elektronika/2016/08/28/fuzz/">&lt;figure class=&quot;figure  figure--center&quot;&gt;
   &lt;img class=&quot;image&quot; src=&quot;/pics/fuzz/front.jpg&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;&quot; /&gt;
   
@@ -751,7 +751,7 @@ oraz
 
 &lt;p&gt;Także w ramach zabawy z robotem zrealizowałem regulator PID i zadawałem punkt, do którego robot dojeżdżał.&lt;/p&gt;
 
-&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/TheDarkPhoenix/MappingRobotPID&quot; style=&quot;background: #0366d6&quot;&gt;PID  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
+&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/macstepien/MappingRobotPID&quot; style=&quot;background: #0366d6&quot;&gt;PID  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
 &lt;/a&gt;&lt;/p&gt;
 
 &lt;div class=&quot;embed-container&quot;&gt;
@@ -772,7 +772,7 @@ oraz
   
 &lt;/figure&gt;
 
-&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/TheDarkPhoenix/MappingRobotKinect&quot; style=&quot;background: #0366d6&quot;&gt;Mapowanie Kinect  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
+&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/macstepien/MappingRobotKinect&quot; style=&quot;background: #0366d6&quot;&gt;Mapowanie Kinect  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
 &lt;/a&gt;&lt;/p&gt;
 
 &lt;div class=&quot;embed-container&quot;&gt;
@@ -780,7 +780,7 @@ oraz
   &lt;/iframe&gt;
 &lt;/div&gt;
 
-&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/TheDarkPhoenix/MappingRobotStereovision&quot; style=&quot;background: #0366d6&quot;&gt;Mapowanie Stereowizja  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
+&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/macstepien/MappingRobotStereovision&quot; style=&quot;background: #0366d6&quot;&gt;Mapowanie Stereowizja  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
 &lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Próbowałem także wykorzystać SLAMa, aby zniwelować niedoskonałości enkoderów. Jednak tutaj barierą był system operacyjny - Windows, na którym nie udało mi się uruchomić żadnej implementacji. Było to także zbyt skomplikowane zadanie jak na wiedzę, którą posiadałem, aby stworzyć własną implementację.&lt;/p&gt;
@@ -792,7 +792,7 @@ oraz
 
 &lt;p&gt;Do sterowania robotem użyłem mikrokontrolera Atmega88Pa. Komunikował się on z komputerem poprzez interfejs UART, wykorzystałem tutaj przejściówkę na USB. Sterował on silnikami - serwami pracy ciągłej. Także mierzył napięcie z transoptorów, zliczając impulsy poprzez zastowanie odpowiedniego progu. Także dla testu wykorzystałem podczerwony czujnik odległości. Do zasilenia całej konstrukcji użyłem akumulatora żelowego. Poprzez mikrokontroler mierzyłem jego napięcie, sprawdzając czy się rozładował. Musiałem także zastosować przetwornicę Step-Up, aby zasilić Kinecta, który wymaga 12V.&lt;/p&gt;
 
-&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/TheDarkPhoenix/MappingRobotControler&quot; style=&quot;background: #0366d6&quot;&gt;Sterownik Robota  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
+&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/macstepien/MappingRobotControler&quot; style=&quot;background: #0366d6&quot;&gt;Sterownik Robota  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
 &lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="Roboty" /><summary type="html">Robot laptopa wożący pokój mapujący.</summary></entry><entry><title type="html">3D Viewer</title><link href="http://0.0.0.0:4000/oprogramowanie/2015/04/09/3dviewer/" rel="alternate" type="text/html" title="3D Viewer" /><published>2015-04-09T00:00:00-05:00</published><updated>2015-04-09T00:00:00-05:00</updated><id>http://0.0.0.0:4000/oprogramowanie/2015/04/09/3dviewer</id><content type="html" xml:base="http://0.0.0.0:4000/oprogramowanie/2015/04/09/3dviewer/">&lt;p&gt;Program służący do wyświetlania perspektywicznego punktów w 3D.&lt;/p&gt;
 
 &lt;figure class=&quot;figure  figure--center&quot;&gt;
@@ -807,7 +807,7 @@ oraz
   
 &lt;/figure&gt;
 
-&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/TheDarkPhoenix/3DViewer&quot; style=&quot;background: #0366d6&quot;&gt;3DViewer  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
+&lt;p&gt;&lt;a class=&quot;button&quot; href=&quot;https://github.com/macstepien/3DViewer&quot; style=&quot;background: #0366d6&quot;&gt;3DViewer  &lt;svg width=&quot;16&quot; height=&quot;16&quot; class=&quot;icon  icon--github&quot; role=&quot;img&quot; alt=&quot;github&quot;&gt;&lt;title&gt;github&lt;/title&gt;&lt;use xlink:href=&quot;#github&quot; fill=&quot;CurrentColor&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
 &lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="Oprogramowanie" /><summary type="html">Program służący do wyświetlania perspektywicznego punktów w 3D.</summary></entry><entry><title type="html">Robot uniwersalny</title><link href="http://0.0.0.0:4000/roboty/2014/08/28/universal-robots/" rel="alternate" type="text/html" title="Robot uniwersalny" /><published>2014-08-28T00:00:00-05:00</published><updated>2014-08-28T00:00:00-05:00</updated><id>http://0.0.0.0:4000/roboty/2014/08/28/universal-robots</id><content type="html" xml:base="http://0.0.0.0:4000/roboty/2014/08/28/universal-robots/">&lt;p&gt;Miał robić kawę…&lt;/p&gt;
 
 &lt;p&gt;Tutaj wyobraźnia mnie poniosła i chciałem zrobić robota uniwersalnego zdolnego do wykonywania różnych czynności np. przygotować napoje, “chodzić” do sklepu. Oczywiście w zamyśle miała być to pierwsza wersja, na której chciałem zbadać moje możliwości. Podnosić miał jedynie atrapy, a poruszać się jedynie po domu.&lt;/p&gt;
