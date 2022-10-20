@@ -1,8 +1,8 @@
-const version = '20210611152016';
+const version = '20221020205251';
 const cacheName = `static::${version}`;
 
 const buildContentBlob = () => {
-  return ["/roboty/2019/09/24/human-following-robot/","/roboty/2019/03/27/tank/","/roboty/2018/06/08/hexapod/","/oprogramowanie/2017/05/26/move/","/elektronika/2016/08/28/fuzz/","/elektronika/2015/12/10/cewkatesli/","/roboty/2015/08/25/mapping-robot/","/oprogramowanie/2015/04/09/3dviewer/","/roboty/2014/08/28/universal-robots/","/elektronika/2014/03/22/elektronicznakostka/","/about/","/categories/","/projekty/","/categories/","/","/manifest.json","/assets/search.json","/assets/styles.css","/redirects.json","/sitemap.xml","/robots.txt","/feed.xml","/pics/logo1.png", "/assets/default-offline-image.png", "/assets/scripts/fetch.js"
+  return ["/2022/10/20/2022-10-20-roomac/","/roboty/2019/09/24/human-following-robot/","/roboty/2019/03/27/tank/","/roboty/2018/06/08/hexapod/","/oprogramowanie/2017/05/26/move/","/elektronika/2016/08/28/fuzz/","/elektronika/2015/12/10/cewkatesli/","/roboty/2015/08/25/mapping-robot/","/oprogramowanie/2015/04/09/3dviewer/","/roboty/2014/08/28/universal-robots/","/about/","/categories/","/projekty/","/categories/","/","/manifest.json","/assets/search.json","/assets/styles.css","/redirects.json","/sitemap.xml","/robots.txt","/feed.xml","/pics/logo1.png", "/assets/default-offline-image.png", "/assets/scripts/fetch.js"
   ]
 }
 
