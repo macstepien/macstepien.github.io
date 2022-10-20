@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Robot mapujący
+title: Mapping robot
 categories:
-  - Roboty
+  - Robots
 excerpt: |
-  Robot laptopa wożący pokój mapujący.
+  Robot that drives around and creates a map of the environment.
    
   <img width="200" height="200" src="/pics/RobotMapujacy/minifront.jpg">
 ---

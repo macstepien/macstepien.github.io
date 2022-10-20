@@ -2,7 +2,7 @@
 layout: post
 title: Human following robot
 categories:
-  - Roboty
+  - Robots
 excerpt: |
   Every move you make |
   Every step you take |

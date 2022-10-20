@@ -1,8 +1,8 @@
-const version = '20210611152016';
+const version = '20221020225833';
 const cacheName = `static::${version}`;
 
 const buildContentBlob = () => {
-  return ["/roboty/2019/09/24/human-following-robot/","/roboty/2019/03/27/tank/","/roboty/2018/06/08/hexapod/","/oprogramowanie/2017/05/26/move/","/elektronika/2016/08/28/fuzz/","/elektronika/2015/12/10/cewkatesli/","/roboty/2015/08/25/mapping-robot/","/oprogramowanie/2015/04/09/3dviewer/","/roboty/2014/08/28/universal-robots/","/elektronika/2014/03/22/elektronicznakostka/","/about/","/categories/","/projekty/","/categories/","/","/manifest.json","/assets/search.json","/assets/styles.css","/redirects.json","/sitemap.xml","/robots.txt","/feed.xml","/pics/logo1.png", "/assets/default-offline-image.png", "/assets/scripts/fetch.js"
+  return ["/robots/2022/10/20/roomac/","/robots/2019/09/24/human-following-robot/","/robots/2019/03/27/tank/","/robots/2018/06/08/hexapod/","/software/2017/05/26/move/","/electronics/2016/08/28/fuzz/","/electronics/2015/12/10/cewkatesli/","/robots/2015/08/25/mapping-robot/","/software/2015/04/09/3dviewer/","/robots/2014/08/28/universal-robots/","/posts_pl/-02-10-stereovision/","/posts_pl/2013-05-31-gry-konsolowe/","/posts_pl/2013-09-23-Blu/","/posts_pl/2014-01-18-2dracing/","/posts_pl/2014-03-22-elektronicznakostka/","/posts_pl/2014-08-28-universal-robots/","/posts_pl/2014-08-28-universal-robots_en/","/posts_pl/2015-04-09-3dviewer/","/posts_pl/2015-04-09-3dviewer_en/","/posts_pl/2015-08-25-mapping-robot/","/posts_pl/2015-08-25-mapping-robot_en/","/posts_pl/2015-12-10-cewkatesli/","/posts_pl/2016-08-28-fuzz/","/posts_pl/2017-05-26-move/","/posts_pl/2018-06-08-hexapod/","/posts_pl/2018-06-08-hexapod_en/","/posts_pl/2019-03-27-tank/","/posts_pl/2019-03-27-tank_en/","/posts_pl/2019-09-24-human-following-robot/","/about/","/categories/","/home/","/","/manifest.json","/assets/search.json","/assets/styles.css","/redirects.json","/sitemap.xml","/robots.txt","/feed.xml","/pics/logo1.png", "/assets/default-offline-image.png", "/assets/scripts/fetch.js"
   ]
 }
 

@@ -36,11 +36,11 @@ paginate_path: blog/page:num
 # Header nav
 navigation_header:
   - title: Home
-    url: /
+    url: /home/
   - title: About
     url: /about/
   - title: Projects
-    url: /projekty/
+    url: /
   - title: Categories
     url: /categories/
 

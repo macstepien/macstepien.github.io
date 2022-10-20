@@ -1,12 +1,10 @@
 ---
 layout: post
-title: Robot uniwersalny
+title: General-purpose robot
 categories:
-- Roboty
+  - Robots
 excerpt: |
- Miał robić kawę...
-  
- <img width="150" height="150" src="/pics/RobotUniwersalny/minirobot.jpg"> 
+  <img width="150" height="150" src="/pics/RobotUniwersalny/minirobot.jpg">
 ---
 
 Miał robić kawę...
@@ -19,9 +17,8 @@ Piękna była to konstrukcja i bardzo skomplikowana. Do obsługi wszystkich koń
 
 {% include figure.html image="/pics/RobotUniwersalny/plytka.jpg" width="600" height="800" %}
 
-Pomimo, że nie spełnił moich oczekiwań to wyszła z niego ciekawa konstrukcja. I mój początek przygody ze stereowizją i mapowaniem. 
+Pomimo, że nie spełnił moich oczekiwań to wyszła z niego ciekawa konstrukcja. I mój początek przygody ze stereowizją i mapowaniem.
 
-W tej konstrukcji wzorowałem się na robocie PR2. Domyślną wersję tej konstrukcji chciałem wykonać 2 razy większą. Zastosowanie tutaj zgięcia w połowie miało na celu zwiększyć zakres chwytania - możliwość schylenia się. Jednak głównym celem była możliwość przetransformowania się w robota jeżdżącego, co umowżliwiłoby wspinanie się po schodach oraz większych przeszkodach. Domyślnie w napędzie chciałem zastosować gąsienice. 
+W tej konstrukcji wzorowałem się na robocie PR2. Domyślną wersję tej konstrukcji chciałem wykonać 2 razy większą. Zastosowanie tutaj zgięcia w połowie miało na celu zwiększyć zakres chwytania - możliwość schylenia się. Jednak głównym celem była możliwość przetransformowania się w robota jeżdżącego, co umowżliwiłoby wspinanie się po schodach oraz większych przeszkodach. Domyślnie w napędzie chciałem zastosować gąsienice.
 
 {% include figure.html image="/pics/RobotUniwersalny/parts.jpg" width="600" height="800" %}
-

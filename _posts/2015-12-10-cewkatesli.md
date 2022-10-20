@@ -1,27 +1,23 @@
 ---
 layout: post
-title: Cewka Tesli
+title: Tesla coil
 categories:
-- Elektronika
+  - Electronics
 excerpt: |
- Robi się groźnie.
-  
- <img width="200" height="200" src="/pics/cewkatesli/miniwieksza.jpg"> 
+  <img width="200" height="200" src="/pics/cewkatesli/miniwieksza.jpg">
 ---
-
-Robi się groźnie.
 
 {% include figure.html image="/pics/cewkatesli/wieksza.jpg" width="600" height="800" %}
 
-Projekt cewki tesli wykonany na podstawie 
+Inspired by
 [ElectroBoom](https://www.electroboom.com/?p=521 "ElectroBoom")
-oraz
+and
 [Ludic Science](https://www.youtube.com/watch?v=4OC7cwI4RNM "Ludic Science")
 
 {% include figure.html image="/pics/cewkatesli/oryginal.jpg" width="400" height="800" %}
 
-Najpierw wykonałem mniejszą wersję opartą na jednym tranzystorze, zasilaną baterią 9V.
+First I made a smaller version based on a single transistor, powered by a 9V battery.
 
-{% include figure.html image="/pics/cewkatesli/nawijanie.jpg" width="600" height="800" caption="Nawijanie cewki"%}
+{% include figure.html image="/pics/cewkatesli/nawijanie.jpg" width="600" height="800" caption="Coil winding"%}
 
-Następnie wykonałem cewkę o większych rozmiarach, w ktrórej zastosowałem 4 tranzystory oraz dodatkowy radiator, aby zapewnić odpowiednie chłodzenie. Jako źródło energii użyłem zasilacza od drukarki.
+Then I made a larger coil, in which I used 4 transistors and an additional heat sink to ensure adequate cooling. I used a power supply from a printer as a power source.
