@@ -40,6 +40,6 @@ I also tried to run a SLAM algorithm to correct errors from encoders but wasn't 
 
 {% include figure.html image="/pics/RobotMapujacy/pcb.jpg" width="600" height="800" %}
 
-To control the robot I used an Atmega88Pa microcontroller, which was connected using a USB-UART converter to the computer. It controlled motors (continuous rotation servos) and measured optocouplers voltage to detect wheel rotations. Additionally, I used an infrared proximity sensor. As a power source, I used a 6V gel battery, which voltage was measured and monitored by MCU. A 12V Step-Up voltage converter was used to power Kinect. 
+To control the robot I used an Atmega88Pa microcontroller, which was connected using a USB-UART converter to the computer. It controlled motors (continuous rotation servos) and measured optocouplers voltage to detect wheel rotations. Additionally, I used an infrared proximity sensor. As a power source, I used a 6V gel battery, voltage on battery was measured and monitored by MCU. A 12V Step-Up voltage converter was used to power Kinect. 
 
 {% include button.html text="Mapping robot controller" icon="github" link="https://github.com/macstepien/MappingRobotControler" color="#0366d6" %}
