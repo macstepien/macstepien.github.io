@@ -11,7 +11,7 @@ Electronic dice based on the example from the book "Electronics. From practice t
 
 {% include figure.html image="/pics/elektronicznaKostka/szostka.jpg" width="600" height="800" %}
 
-The circuit uses a 555 timer circuit to generate pulses, which are then counted in sixes. The corresponding numbers are displayed on the LEDs. The process is stopped by pressing a button, which stops at a "random" value.
+The circuit uses a 555 timer to generate pulses, which are then counted in sixes. The corresponding numbers are displayed on the LEDs. The process is stopped by pressing a button, as numbers are changing very fast, it isn't possible to choose a number, so it can be treated as "random".
 
 Construction steps:
 
