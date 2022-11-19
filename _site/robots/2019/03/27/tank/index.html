@@ -179,60 +179,58 @@
   &nbsp;&middot;&nbsp;<time datetime="2019-03-27T00:00:00+01:00" class="time">27 Mar 2019</time>
 </small>
 
-    <p>Pojazd uniwersalny oparty o Raspberry Pi Zero.</p>
+    <p>General-purpose mobile robot based on Raspberry Pi Zero.</p>
 
 <figure class="figure  figure--center">
   <img class="image" src="/pics/Czolg/front.jpg" alt="" width="600" height="800" />
   
 </figure>
 
-<p>Umożliwia obserwację obrazu z kamerki, odczyt napięcia na baterii (poziom rozładowania ), temperatury z Raspberry oraz wartości enkoderów. Dotychczas odczytów z enkoderów nie wykorzystałem w sposób praktyczny, jednak zamieszczenie ich umożliwi dalszy rozwój konstrukcji.</p>
+<p>The robot can be teleoperated using a web browser, it works quite well in rough terrain:</p>
 
 <div class="embed-container">
   <iframe width="720" height="405" src="https://drive.google.com/file/d/1QSsrb819J34oQ7zTbSGpt-7YVE9Y9KgX/preview" frameborder="0" allowfullscreen="">
   </iframe>
 </div>
 
-<p>Projekt ten zaczął się od płytki PCB.</p>
+<p>Construction started with PCB:</p>
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Czolg/pierwotna.jpg" alt="Płytka wraz z podłączonymi wszystkimi elementami" width="600" height="800" />
-  <figcaption class="caption">Płytka wraz z podłączonymi wszystkimi elementami</figcaption>
+  <img class="image" src="/pics/Czolg/pierwotna.jpg" alt="PCB with connected components" width="600" height="800" />
+  <figcaption class="caption">PCB with connected components</figcaption>
 </figure>
 
-<p>Miała być wykorzystana do sterowania robotem z następującymi elementami:</p>
-
+<p>The PCB was supposed to control the following components:</p>
 <ul>
-  <li>dwa silniki z enkoderami</li>
-  <li>trzy serwa</li>
-  <li>komunikacja z Raspberry pooprzez SPI</li>
-  <li>pomiar napięcia z baterii</li>
-  <li>dwa LEDy ( uruchomienie oraz rozładowanie)</li>
+  <li>2 motors with encoders</li>
+  <li>3 servos</li>
+  <li>SPI communication with Raspberry</li>
+  <li>battery voltage measurements</li>
+  <li>2 LEDs (indicating low battery voltage and “power on”)</li>
 </ul>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Czolg/testowanie.jpg" alt="Złożony schemat prototypowany na płytce stykowej" width="600" height="800" />
-  <figcaption class="caption">Złożony schemat prototypowany na płytce stykowej</figcaption>
+  <img class="image" src="/pics/Czolg/testowanie.jpg" alt="Prototyping PCB" width="600" height="800" />
+  <figcaption class="caption">Prototyping PCB</figcaption>
 </figure>
 
-<p>Jako źródło zasilania wykorzystałem LiPola oraz 2 przetwornicę: jedną do logigki oraz drugą do serw. W trakcie realizacji projektu jednak zorientowałem się, że ten mikrokontroler jest za słaby. Było to spowodowane tym, że potrzebowałem 3 kanałów PWM do serw oraz 2 do sterowania prędkością silników. Nie miałem jednak dostępnej takiej liczby, dlatego sygnały PWM dla serw musiałem generować programowo, przez co znacznie wzrosło obciążenie procesora. Doliczając do tego bardzo często przerwania zewnętrzne z dwóch enkoderów, nie byłem w stanie dostarczyć wystarczająco dokładnego przebiegu PWM by sterować serwami. Dlatego ostatecznie pominąłem użycie serw w tym projekcie.</p>
+<p>As a power source I used a LiPol battery that was connected to 2 voltage converters: one for the microcontroller and one for servos.</p>
 
 <figure class="figure  figure--center">
   <img class="image" src="/pics/Czolg/plytkawobudowie.jpg" alt="" width="600" height="800" />
   
 </figure>
 
-<p>Konstrukcja czołgu została wykonana na drukarce 3D, a jej projekt zaczerpnąłem z
-<a href="https://www.thingiverse.com/thing:652851" title="Konstrukcja">https://www.thingiverse.com/thing:652851</a></p>
+<p>Parts of the construction were 3D printed using 
+<a href="https://www.thingiverse.com/thing:652851" title="Construction">https://www.thingiverse.com/thing:652851</a></p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Czolg/plytka.jpg" alt="Płytka po wytrawieniu" width="600" height="800" />
-  <figcaption class="caption">Płytka po wytrawieniu</figcaption>
+  <img class="image" src="/pics/Czolg/plytka.jpg" alt="PCB" width="600" height="800" />
+  <figcaption class="caption">PCB</figcaption>
 </figure>
 
-<p>Robotem steruje się poprzez przeglądarkę. W tym celu użyłem skryptu z <a href="https://hackaday.io/project/25092-zerobot-raspberry-pi-zero-fpv-robot/log/97988-the-new-zerobot-pro" title="Skrypt">https://hackaday.io/project/25092-zerobot-raspberry-pi-zero-fpv-robot/log/97988-the-new-zerobot-pro</a>
-,który odpowiednio przerobiłem do swoich potrzeb ( zamiana sterowania na takie wykorzystujące SPI).</p>
+<p>The robot was controlled through a web browser, I used <a href="https://hackaday.io/project/25092-zerobot-raspberry-pi-zero-fpv-robot/log/97988-the-new-zerobot-pro" title="Code">https://hackaday.io/project/25092-zerobot-raspberry-pi-zero-fpv-robot/log/97988-the-new-zerobot-pro</a>, modified to work with my SPI communication.</p>
 
-<p><a class="button" href="https://github.com/macstepien/Tank" style="background: #0366d6">Projekt  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
+<p><a class="button" href="https://github.com/macstepien/Tank" style="background: #0366d6">Tank  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
 </a></p>
 
 

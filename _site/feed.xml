@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-10-20T23:25:48+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Maciej Stępień</title><subtitle>Projects</subtitle><entry><title type="html">Roomac</title><link href="http://localhost:4000/robots/2022/10/20/roomac/" rel="alternate" type="text/html" title="Roomac" /><published>2022-10-20T00:00:00+02:00</published><updated>2022-10-20T00:00:00+02:00</updated><id>http://localhost:4000/robots/2022/10/20/roomac</id><content type="html" xml:base="http://localhost:4000/robots/2022/10/20/roomac/"><![CDATA[<p>Roomac is a low-cost autonomous mobile manipulation robot. It consists of differential drive mobile base and 5-DoF manipulator with gripper. Whole construction costed around 550$ and using this platform I was able to prepare proof-of-concept application - bringing bottle to the user.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-11-19T21:30:48+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Maciej Stępień</title><subtitle>Projects</subtitle><entry><title type="html">Roomac</title><link href="http://localhost:4000/robots/2022/10/20/roomac/" rel="alternate" type="text/html" title="Roomac" /><published>2022-10-20T00:00:00+02:00</published><updated>2022-10-20T00:00:00+02:00</updated><id>http://localhost:4000/robots/2022/10/20/roomac</id><content type="html" xml:base="http://localhost:4000/robots/2022/10/20/roomac/"><![CDATA[<p>Roomac is a low-cost autonomous mobile manipulation robot. It consists of differential drive mobile base and 5-DoF manipulator with gripper. Whole construction costed around 550$ and using this platform I was able to prepare proof-of-concept application - bringing bottle to the user.</p>
 
 <div class="embed-container">
   <iframe width="720" height="405" src="https://drive.google.com/file/d/1j3mu3aWPUwXY-2VIavJLfEQMO9fqY_zH/preview" frameborder="0" allowfullscreen="">
@@ -526,219 +526,217 @@ In order to implement Kalman filter I created Person class where human position 
 
 <h2 id="summary">Summary</h2>
 
-<p>In this tutorial you learned how to set up and run human following using ROSbot with ESP remote. After main algorithm walkthrough you should be also able to modify it to suit your robot.</p>]]></content><author><name></name></author><category term="Robots" /><summary type="html"><![CDATA[Every move you make | Every step you take | I'll follow you]]></summary></entry><entry><title type="html">Tank</title><link href="http://localhost:4000/robots/2019/03/27/tank/" rel="alternate" type="text/html" title="Tank" /><published>2019-03-27T00:00:00+01:00</published><updated>2019-03-27T00:00:00+01:00</updated><id>http://localhost:4000/robots/2019/03/27/tank</id><content type="html" xml:base="http://localhost:4000/robots/2019/03/27/tank/"><![CDATA[<p>Pojazd uniwersalny oparty o Raspberry Pi Zero.</p>
+<p>In this tutorial you learned how to set up and run human following using ROSbot with ESP remote. After main algorithm walkthrough you should be also able to modify it to suit your robot.</p>]]></content><author><name></name></author><category term="Robots" /><summary type="html"><![CDATA[Every move you make | Every step you take | I'll follow you]]></summary></entry><entry><title type="html">Tank</title><link href="http://localhost:4000/robots/2019/03/27/tank/" rel="alternate" type="text/html" title="Tank" /><published>2019-03-27T00:00:00+01:00</published><updated>2019-03-27T00:00:00+01:00</updated><id>http://localhost:4000/robots/2019/03/27/tank</id><content type="html" xml:base="http://localhost:4000/robots/2019/03/27/tank/"><![CDATA[<p>General-purpose mobile robot based on Raspberry Pi Zero.</p>
 
 <figure class="figure  figure--center">
   <img class="image" src="/pics/Czolg/front.jpg" alt="" width="600" height="800" />
   
 </figure>
 
-<p>Umożliwia obserwację obrazu z kamerki, odczyt napięcia na baterii (poziom rozładowania ), temperatury z Raspberry oraz wartości enkoderów. Dotychczas odczytów z enkoderów nie wykorzystałem w sposób praktyczny, jednak zamieszczenie ich umożliwi dalszy rozwój konstrukcji.</p>
+<p>The robot can be teleoperated using a web browser, it works quite well in rough terrain:</p>
 
 <div class="embed-container">
   <iframe width="720" height="405" src="https://drive.google.com/file/d/1QSsrb819J34oQ7zTbSGpt-7YVE9Y9KgX/preview" frameborder="0" allowfullscreen="">
   </iframe>
 </div>
 
-<p>Projekt ten zaczął się od płytki PCB.</p>
+<p>Construction started with PCB:</p>
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Czolg/pierwotna.jpg" alt="Płytka wraz z podłączonymi wszystkimi elementami" width="600" height="800" />
-  <figcaption class="caption">Płytka wraz z podłączonymi wszystkimi elementami</figcaption>
+  <img class="image" src="/pics/Czolg/pierwotna.jpg" alt="PCB with connected components" width="600" height="800" />
+  <figcaption class="caption">PCB with connected components</figcaption>
 </figure>
 
-<p>Miała być wykorzystana do sterowania robotem z następującymi elementami:</p>
-
+<p>The PCB was supposed to control the following components:</p>
 <ul>
-  <li>dwa silniki z enkoderami</li>
-  <li>trzy serwa</li>
-  <li>komunikacja z Raspberry pooprzez SPI</li>
-  <li>pomiar napięcia z baterii</li>
-  <li>dwa LEDy ( uruchomienie oraz rozładowanie)</li>
+  <li>2 motors with encoders</li>
+  <li>3 servos</li>
+  <li>SPI communication with Raspberry</li>
+  <li>battery voltage measurements</li>
+  <li>2 LEDs (indicating low battery voltage and “power on”)</li>
 </ul>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Czolg/testowanie.jpg" alt="Złożony schemat prototypowany na płytce stykowej" width="600" height="800" />
-  <figcaption class="caption">Złożony schemat prototypowany na płytce stykowej</figcaption>
+  <img class="image" src="/pics/Czolg/testowanie.jpg" alt="Prototyping PCB" width="600" height="800" />
+  <figcaption class="caption">Prototyping PCB</figcaption>
 </figure>
 
-<p>Jako źródło zasilania wykorzystałem LiPola oraz 2 przetwornicę: jedną do logigki oraz drugą do serw. W trakcie realizacji projektu jednak zorientowałem się, że ten mikrokontroler jest za słaby. Było to spowodowane tym, że potrzebowałem 3 kanałów PWM do serw oraz 2 do sterowania prędkością silników. Nie miałem jednak dostępnej takiej liczby, dlatego sygnały PWM dla serw musiałem generować programowo, przez co znacznie wzrosło obciążenie procesora. Doliczając do tego bardzo często przerwania zewnętrzne z dwóch enkoderów, nie byłem w stanie dostarczyć wystarczająco dokładnego przebiegu PWM by sterować serwami. Dlatego ostatecznie pominąłem użycie serw w tym projekcie.</p>
+<p>As a power source I used a LiPol battery that was connected to 2 voltage converters: one for the microcontroller and one for servos.</p>
 
 <figure class="figure  figure--center">
   <img class="image" src="/pics/Czolg/plytkawobudowie.jpg" alt="" width="600" height="800" />
   
 </figure>
 
-<p>Konstrukcja czołgu została wykonana na drukarce 3D, a jej projekt zaczerpnąłem z
-<a href="https://www.thingiverse.com/thing:652851" title="Konstrukcja">https://www.thingiverse.com/thing:652851</a></p>
+<p>Parts of the construction were 3D printed using 
+<a href="https://www.thingiverse.com/thing:652851" title="Construction">https://www.thingiverse.com/thing:652851</a></p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Czolg/plytka.jpg" alt="Płytka po wytrawieniu" width="600" height="800" />
-  <figcaption class="caption">Płytka po wytrawieniu</figcaption>
+  <img class="image" src="/pics/Czolg/plytka.jpg" alt="PCB" width="600" height="800" />
+  <figcaption class="caption">PCB</figcaption>
 </figure>
 
-<p>Robotem steruje się poprzez przeglądarkę. W tym celu użyłem skryptu z <a href="https://hackaday.io/project/25092-zerobot-raspberry-pi-zero-fpv-robot/log/97988-the-new-zerobot-pro" title="Skrypt">https://hackaday.io/project/25092-zerobot-raspberry-pi-zero-fpv-robot/log/97988-the-new-zerobot-pro</a>
-,który odpowiednio przerobiłem do swoich potrzeb ( zamiana sterowania na takie wykorzystujące SPI).</p>
+<p>The robot was controlled through a web browser, I used <a href="https://hackaday.io/project/25092-zerobot-raspberry-pi-zero-fpv-robot/log/97988-the-new-zerobot-pro" title="Code">https://hackaday.io/project/25092-zerobot-raspberry-pi-zero-fpv-robot/log/97988-the-new-zerobot-pro</a>, modified to work with my SPI communication.</p>
 
-<p><a class="button" href="https://github.com/macstepien/Tank" style="background: #0366d6">Projekt  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
-</a></p>]]></content><author><name></name></author><category term="Robots" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Hexapod</title><link href="http://localhost:4000/robots/2018/06/08/hexapod/" rel="alternate" type="text/html" title="Hexapod" /><published>2018-06-08T00:00:00+02:00</published><updated>2018-06-08T00:00:00+02:00</updated><id>http://localhost:4000/robots/2018/06/08/hexapod</id><content type="html" xml:base="http://localhost:4000/robots/2018/06/08/hexapod/"><![CDATA[<p>Sześcionogi stwór z kamerkami.</p>
-
-<p>Projekt, którym zajmowałem się przez pierwsze 2 lata studiów w ramach działalności koła naukowego Integra. Moim wkładem było oprogramowanie do sterowania robota oraz stereowizji.</p>
+<p><a class="button" href="https://github.com/macstepien/Tank" style="background: #0366d6">Tank  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
+</a></p>]]></content><author><name></name></author><category term="Robots" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Hexapod</title><link href="http://localhost:4000/robots/2018/06/08/hexapod/" rel="alternate" type="text/html" title="Hexapod" /><published>2018-06-08T00:00:00+02:00</published><updated>2018-06-08T00:00:00+02:00</updated><id>http://localhost:4000/robots/2018/06/08/hexapod</id><content type="html" xml:base="http://localhost:4000/robots/2018/06/08/hexapod/"><![CDATA[<p>I worked on this project during my first two years of university in the Integra student research group. My contribution was software (both for controlling the robot and stereo vision).</p>
 
 <figure class="figure  figure--center">
   <img class="image" src="/pics/Hexapod/hexi.jpg" alt="" width="600" height="800" />
   
 </figure>
 
-<p>Do poruszania konstrukcją wykorzystane zostało 18 serw Hitec po 3 na każdą nogę. Jako główny komputer robota wykorzystalismy Raspberry Pi 2. Komunikowała się ona z sterownikiem serw Pololu poprzez interfejs UART umożliwiając zadawanie odpowiednich pozycji serw. Całą konstrukcję zasila bateria LiPol o pojemności 4000 mAh, co pozwalało na ok. 1h użytkowania robota. Napięcie z akumulatora dostowywaliśmy za pomocą przetwornic (3 do zasilania serw oraz 1 dla Raspberry). Wykorzystaliśmy także przetwornik ADC MCP3008, aby móc mierzyć aktualne napięcie na baterii. Komunikował się on z Raspberry za pomocą SPI, a następnie napięcie było wysyłane i wyświetlane w aplikacji klienta.</p>
+<p>In the robot construction 18 Hitec servos (3 for each leg) were used. Raspberry Pi 2 was the main brain of the robot, it controlled servos through the Pololu driver (using UART communication). 4000mAh LiPol battery allowed for around 1h work time, voltage converters were necessary (3 for servos and 1 for Raspberry). MCP3008 ADC was used to measure battery voltage, it sent current value using SPI to the Raspberry, which was later sent and displayed in the client application.</p>
 
 <div class="embed-container">
   <iframe width="720" height="405" src="https://drive.google.com/file/d/1kR9fSGo-6mLM5SdvNPUtoAvgJeeI8Lu-/preview" frameborder="0" allowfullscreen="">
   </iframe>
 </div>
 
-<p>Robot jest sterowany z poziomu laptopa, który komunikuje się z Raspberry poprzez WiFi przez protokół TCP. Do poruszania robotem można używać zarówno pada jak i klawiatury. W celu odpowiedniego sterowania najpierw napisałem aplikację obrazującą model matematyczny robota. Na tym modelu została zaimplementowana kinematyka odwrotna, na której następnie stworzyłem modele poruszania się robota. Odpowiednio przeliczone uzyskane kąty na sygnały PWM dla serwonapędów były wysyłane do sterownika.</p>
+<p>The robot can be controlled using a gamepad or keyboard connected to the laptop, which sends commands to the Raspberry using TCP and WiFi. Using a mathematical model of the robot, the control application calculates the position of the tip of the leg to achieve the desired movement. Then it is converted to joint angles using inverse kinematics, which are used to calculate PWM signals sent to servos.</p>
 
 <figure class="figure  figure--center">
   <img class="image" src="/pics/Hexapod/symulacja.png" alt="" width="600" height="800" />
   
 </figure>
 
-<h2 id="sterowanie-robotem">Sterowanie robotem</h2>
+<h2 id="robot-control">Robot control</h2>
 
-<p>Aplikacja uruchamiana na laptopie zawiera wizualizacje modelu robota oraz odbiera sygnały sterowania od użytkownika, które następnie przekazuje do programu na Raspberry. On natomiast dokonuje odpowiednich przeliczeń na sygnały PWM, które następnie przekazuje do sterownika serw. Z Raspberry wysyłana jest także informacja zwrotna do aplikacji użytkownika z aktualnym napięciem na baterii, dzięki czemu jej poziom jest na bieżąco monitorowany. Osobny program służy do realizacji stereowizji. Raspberry wysyła obrazy z obu kamer przy użyciu programu gstreamer. Na laptopie oba obrazy są odbierane i następnie przy użyciu odpowiednich macierzy (uzyskanych podczas kalibracji) przekształcana oraz liczona jest macierz obrazu dysparcji. Zastosowałem także filtr po przeliczeniu dysparcji, który dodatkowo poprawia rezultaty.</p>
+<p>Application run on laptop includes robot model and sents user commands over to Raspberry Pi mounted on the robot. They are then converted into PWM signals used for servo control. The current battery voltage is sent back from Raspberry to the client application.</p>
 
-<p>Aplikacje modelu Hexapoda można pracować w 2 trybach:</p>
+<p>A separate application is used for stereo vision. Using GStreamer image streams from both cameras are sent from Raspberry to the main application run on a laptop. Then they are processed and disparity image is calculated, which is later used to get information about the distance to obstacles nearby.</p>
 
-<h4 id="tryb-modelu">Tryb modelu</h4>
+<p>The client application can work in 2 modes:</p>
 
-<p>W trybie modelu można poruszać się po środowisku za pomocą klawiszy W/S/A/D/Q/E oraz barów alfa, beta i gamma służących do zmiany kąta widzenia. Modelem robota poruszać można za pomocą klawiszy w/s/a/d/q/e oraz numerów służących do wyboru odpowiedniego trybu chodzenia robota.</p>
+<h4 id="simulation-mode">Simulation mode</h4>
+
+<p>In simulation mode camera can be controlled using keys  W/S/A/D/Q/E and alfa, beta and gamma bars (for changing camera angles). The robot can be controlled using w/s/a/d/q/e and numerical keys to choose a walking mode.</p>
 
 <div class="embed-container">
   <iframe width="720" height="405" src="https://drive.google.com/file/d/1ixW05vog_nNaR9UR6ZqT5rZBkIWlBJeN/preview" frameborder="0" allowfullscreen="">
   </iframe>
 </div>
 
-<h4 id="tryb-połączenia-z-hexapodem">Tryb połączenia z Hexapodem</h4>
+<h4 id="hexapod-connection-mode">Hexapod connection mode</h4>
 
-<p>Uruchamia się jeśli dodatkowo przekażemy do programu przy uruchomieniu adres IP Raspberry. Sterowanie aplikacją na laptopie nie zmienia się. Różnica z poprzednio omówionym trybem (tryb modelu) jest taka, iż teraz odpowiednie komendy wysyłane są także do Hexapoda. Dodatkowo wyświetlane na ekranie laptopa jest również napięcie na baterii.</p>
+<p>When the Raspberry Pi address is passed to the client application, it additionally connects to it and sends commands to the robot.</p>
 
-<p>Bliższy opis elementów zrealizowanej aplikacji</p>
+<p>A more detailed description of implementation:</p>
 
 <h4 id="gui">GUI</h4>
 
-<p>Zadaniem najbardziej oddalonym od samej idei Hexapoda był moduł wyświetlania, czyli GUI. Do wyświetlania użyto wyłącznie prostego okienkowego trybu wyświetlania dołączonego do biblioteki OpenCV w celu debugowania. Zastosowałem rzutowanie perspektywiczne zgodnie ze wzorami zawartymi w <a href="https://en.wikipedia.org/wiki/3D_projection" title="1">1</a>, aby otrzymać symulację w 3D. Zdefiniowałem płaszczyznę kamery, na którą odbywało się rzutowanie świata 3D symulacji. Dodałęm także przesuwanie płaszczyzną kamery za pomocą przycisków oraz możliwość jej obracania przy pomocy toolbarów.</p>
+<p>The GUI of the application was realized using OpenCV, the camera was simulated using 3D projection <a href="https://en.wikipedia.org/wiki/3D_projection" title="1">1</a>. The whole simulated world was projected onto a camera plane, which can be moved around the environment.</p>
 
 <h4 id="robot">Robot</h4>
 
-<p>To jest główny moduł odpowiedzialny za obliczenia związane ze sterowaniem robota. Zawarłem w nim implementację kinematyki odwrotnej w podejściu trygonometrycznym opisaną w <a href="https://oscarliang.com/inverse-kinematics-and-trigonometry-basics/" title="2">2</a>. Główna klasa robota zawiera klasę nóg robota, które są wydzielone. Jest osobna klasa, w której znajdują się różne algorytmy chodzenia.</p>
+<p>This main module is responsible for all calculations necessary for controlling the robot. It includes inverse kinematics implementation (using <a href="https://oscarliang.com/inverse-kinematics-and-trigonometry-basics/" title="2">2</a>).</p>
 
-<h4 id="chodzenie">Chodzenie</h4>
+<h4 id="walking">Walking</h4>
 
-<p>Najlepsze efekty dawało chodzenie po paraboli. Dobierane są kolejne punkty paraboli, która zaczyna się w miejscu, gdzie aktualnie znajduje się końcówka nogi robota. Kończy się tam, gdzie ma się ostatecznie znaleźć. Przy użyciu kinematyki odwrotnej wyliczane są kąty tak, aby końcówka danej nogi znalazła się w punkcie docelowym.</p>
+<p>It generates trajectory points for the tip of the leg to get to the desired position (various approaches were tested, and the best results were achieved with parabolic trajectory). Then using inverse kinematics they are translated into joint commands.</p>
 
-<h4 id="pozostałe-moduły">Pozostałe moduły</h4>
+<h4 id="other-modules">Other modules</h4>
 
-<p>Kontroler, który odpowiednio interpretuje wysłane komendy na funkcje, np.: chodzenia lub poruszania bazą robota. Znajduje się tutaj również moduł do komunikacji z serwami (tylko w wersji programu dla Raspberry). Zamieniane są wyliczone kąty dla każdej nogi na odpowiednie sygnały PWM, dla każdego serwa (jedna noga składa się z trzech serwonapędów). Następnie są one wysyłane.</p>
+<p>It was also necessary to implement conversion between desired joint angle and the PWM signal (it required calibrating servos).</p>
 
 <h4 id="tcp">TCP</h4>
 
-<p>W module TCP znajduję się cały kod do komunikacji pomiędzy Raspberry a laptopem. Kod został zaczerpnięty z <a href="https://github.com/vichargrave/tcpsockets" title="3">3</a>. W ramach komunikacji laptop łączy się z Raspberry i na porcie 8081 odbiera aktualne napięcie baterii, które Raspberry stale udostępnia. Komunikacja w ramach odczytu napięcia baterii odbywa się w osobnym wątku, aby nie zakłócać pozostałych operacji. Natomiast na port 8080 aplikacja z laptopa wysyła podane komendy.</p>
+<p>The TCP module is responsible for communication between Raspberry and the client application. It was based on <a href="https://github.com/vichargrave/tcpsockets" title="3">3</a>. Battery voltage is read on the Raspberry (in a separate thread) and sent on port 8081, which is later read by the client application and shown on the screen. On port 8080 client application sends control commands to the Raspberry.</p>
 
-<p><a class="button" href="https://github.com/macstepien/HexapodPC" style="background: #0366d6">Aplikacja na laptopa  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
+<p><a class="button" href="https://github.com/macstepien/HexapodPC" style="background: #0366d6">Client application  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
 </a></p>
 
-<p><a class="button" href="https://github.com/macstepien/HexapodRaspberry" style="background: #0366d6">Aplikacja na Raspberry  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
+<p><a class="button" href="https://github.com/macstepien/HexapodRaspberry" style="background: #0366d6">Raspberry application  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
 </a></p>
 
-<h2 id="stereowizja">Stereowizja</h2>
+<h2 id="stereo-vision">Stereo vision</h2>
 
-<p>Poniżej przedstawie krótki opis etapów realizacji stereowizji:</p>
+<h3 id="calibration-images">Calibration images</h3>
 
-<h3 id="wykonanie-zdjęć-kalibracyjnych">Wykonanie zdjęć kalibracyjnych</h3>
-
-<p>Aby skalibrować parę stereowizyjną wykonywane są zdjęcia ustalonego wzoru, np. szachownicy. W tym celu napisałem aplikację, która wyświetlała obraz z obu kamer. Co ustalony czas zapisywała zdjęcie pod odpowiednią nazwą oraz tworzyła listę utworzonych obrazów. Wykonałem około 50 zdjęć tak, aby jak najlepiej pokryć cały obszar widoku kamer.</p>
+<p>To calibrate pair of stereo vision cameras it is necessary to take several pictures of some pattern, in this case it was a chessboard. For this purpose I saved around 50 images with chessboard pattern in different positions and orientations.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Hexapod/stereo12.png" alt="Przykładowa para zdjęć wykonanych podczas kalibracji" width="600" height="800" />
-  <figcaption class="caption">Przykładowa para zdjęć wykonanych podczas kalibracji</figcaption>
+  <img class="image" src="/pics/Hexapod/stereo12.png" alt="One of calibration image pairs" width="600" height="800" />
+  <figcaption class="caption">One of calibration image pairs</figcaption>
 </figure>
 
-<p>Widoczny na zdjęciach zamieszczonych powyżej jest także następny napotkany problem - obiektywy w obudowach kamer zamontowane były nierówno. Oczywiście to przesunięcie eliminowane jest podczas kalibracji, jednak w rezultacie podczas właściwej stereowizji ograniczone jest pole widzenia od góry i dołu (część pixeli widoczna jest tylko przez jedną kamerkę).</p>
+<p>There was one problem with the cameras’ mounting - they weren’t properly aligned. This shift was fixed during calibration, but as a result, the stereo vision field of view is slightly decreased.</p>
 
-<h3 id="kalibracja">Kalibracja</h3>
+<h3 id="calibration">Calibration</h3>
 
-<p>Do samej kalibracji użyłem przykładu z książki Learning OpenCV. W parametrach wywołania umieszczano wysokość oraz szerokość szachownicy (liczba pól), a także długość boku kwadratu w centymetrach. Bardzo ważne jest, aby szachownica miała kwadratowe pola, gdyż przy użyciu szachownicy o bokach różniących się nieznacznie cały proces kalibracji zostałby przeprowadzony niepoprawnie wraz z listą zdjęć, powstałych w trakcie tej błędnej kalibracji.</p>
-
-<figure class="figure  figure--center">
-  <img class="image" src="/pics/Hexapod/stereo3.png" alt="Wynik wykrywania krawędzi szachownicy" width="400" height="800" />
-  <figcaption class="caption">Wynik wykrywania krawędzi szachownicy</figcaption>
-</figure>
+<p>Calibration was based on the example from the book “Learning OpenCV”. As input it required the number of rows and columns of the chessboard and the length of one square side (it was important to print the chessboard in original proportions so that squares won’t become rectangles, which will break the calibration process).</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Hexapod/stereo4.png" alt="Wynik rektyfikacji" width="700" height="800" />
-  <figcaption class="caption">Wynik rektyfikacji</figcaption>
-</figure>
-
-<p>W wyniku działania kalibracji otrzymałem parametry zewnętrzne oraz wewnętrzne kamer, które następnie używane były do właściwej stereowizji. Uzyskano błędy:
-błąd średniokwadratowy (RMS) = 0.0503053
-średni błąd epipolarny = 0.517146
-Są to wartości niskie, co świadczy o poprawnie wykonanej kalibracji.</p>
-
-<h3 id="wybór-algorytmu-oraz-dobranie-parametrów">Wybór algorytmu oraz dobranie parametrów</h3>
-
-<p>Najpierw przetestowałem dostępne w bibliotece OpenCV algorytmy BM i SGBM, lepsze rezultaty uzyskałem dla SGBM. Jest on bardziej wymagający obliczeniowo, aczkolwiek przy rozdzielczości 320x240 można było uzyskać dobre przetwarzanie w czasie rzeczywistym. Następnie dobrałem optymalne parametry dla tego algorytmu. W tym celu napisałem aplikację na podstawie przykładu użycia SGBM zawartego w bibliotece OpenCV. Dodałem do niej suwak tak, aby można było wygodnie zmieniać parametry i obserwować uzyskiwane rezultatu.</p>
-
-<figure class="figure  figure--center">
-  <img class="image" src="/pics/Hexapod/stereo5.png" alt="Widok okna z paskami do zmiany parametrów" width="400" height="800" />
-  <figcaption class="caption">Widok okna z paskami do zmiany parametrów</figcaption>
+  <img class="image" src="/pics/Hexapod/stereo3.png" alt="Result of chessboard detection" width="400" height="800" />
+  <figcaption class="caption">Result of chessboard detection</figcaption>
 </figure>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Hexapod/stereo6.png" alt="Przykładowa scena użyta do doboru parametrów" width="400" height="800" />
-  <figcaption class="caption">Przykładowa scena użyta do doboru parametrów</figcaption>
+  <img class="image" src="/pics/Hexapod/stereo4.png" alt="Rectification" width="700" height="800" />
+  <figcaption class="caption">Rectification</figcaption>
+</figure>
+
+<p>The result of the calibration was intrinsic and extrinsic camera parameters, errors of this process were:
+Mean square error (RMS) = 0.0503053
+Epipolar mean error = 0.517146
+These error values are quite low, which means that calibration was successful.</p>
+
+<h3 id="algorithm-and-parameters">Algorithm and parameters</h3>
+
+<p>I tested SGBM and BM algorithms from the OpenCV library, better results were achieved for SGBM. CPU usage was higher for this algorithm, but still it was possible to get real-time results for images with 320x240 resolution. Then I tuned the parameters of the SGBM algorithm, using the application that allowed dynamic reconfiguration of parameters using sliders.</p>
+
+<figure class="figure  figure--center">
+  <img class="image" src="/pics/Hexapod/stereo5.png" alt="Parameter tunning application with sliders" width="400" height="800" />
+  <figcaption class="caption">Parameter tunning application with sliders</figcaption>
 </figure>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Hexapod/stereo7.png" alt="Wynik przeprowadzenia stereowizji" width="400" height="800" />
-  <figcaption class="caption">Wynik przeprowadzenia stereowizji</figcaption>
-</figure>
-
-<h3 id="dobranie-parametrów-dla-postfiltracji">Dobranie parametrów dla postfiltracji</h3>
-
-<p>W celu uzyskania gładszego obrazu stereowizyjnego zastosowałem postfiltrację, która dodana została stosunkowo niedawno do modułów dodatkowych biblioteki OpenCV - contrib.</p>
-
-<figure class="figure  figure--center">
-  <img class="image" src="/pics/Hexapod/stereo9.png" alt="Efekt przeprowadzenia algorytmu SGBM przy optymalnych parametrach" width="400" height="800" />
-  <figcaption class="caption">Efekt przeprowadzenia algorytmu SGBM przy optymalnych parametrach</figcaption>
+  <img class="image" src="/pics/Hexapod/stereo6.png" alt="Scene used for parameter tunning" width="400" height="800" />
+  <figcaption class="caption">Scene used for parameter tunning</figcaption>
 </figure>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Hexapod/stereo10.png" alt="Efekt przeprowadzenia postfiltracji" width="400" height="800" />
-  <figcaption class="caption">Efekt przeprowadzenia postfiltracji</figcaption>
+  <img class="image" src="/pics/Hexapod/stereo7.png" alt="Result of stereo vision" width="400" height="800" />
+  <figcaption class="caption">Result of stereo vision</figcaption>
 </figure>
 
-<h3 id="ostateczna-aplikacja">Ostateczna aplikacja</h3>
+<h3 id="postfiltration-parameters">Postfiltration parameters</h3>
 
-<p>W ostatecznej aplikacji połączone zostały wszystkie opisane elementy. W wyniku czego otrzymano przesył obrazu z obu kamer na laptopa. Tam obraz był rektyfikowany, a pixele były dopasowywane za pomocą algorytmu SGBM. Przy użyciu posfiltracji obraz dysparcji jest poprawiany i na koniec wyświetlany. Dalszym etapem rozwojowym może być przeliczenie chmury punktów na podstawie dysparcji oraz następnie wykrywanie i omijanie przeszkód.</p>
+<p>To get a smoother result I additionally used postfiltration from contrib OpenCV modules.</p>
 
-<p>Poza samą realizacją stereowizji ważnym elementem był także optymalny przesył obrazu z obu kamer. Pierwszym podejściem było użycie MJPGstreamera. Efekty jednak nie były zadowalające. Klatki, które nie zostały jeszcze wysłane, były składowane w buforze. W wyniku czego, im dłużej działała aplikacja, tym większe było opóźnienie. Dodatkowo występowała różnica czasu pomiędzy klatkami z obu kamer, co w przypadku stereowizji jest nieakceptowalne. Dlatego zdecydowano się użyć gstreamera. Jest on bardziej zaawansowany, przez co uruchomienie go zajęło więcej czasu. Jednak uzyskany efekt jest bardzo dobry. W jego działaniu, jeśli nie zdąży się wysłać klatki przed przybyciem następnej, to zostaje ona porzucona. W wyniku tego wyeliminowane zostało rosnące opóźnienie. Dlatego też nie występowało już opóźnienie pomiędzy klatkami. Rozdzielczość przesyłanych obrazów wynosi 320x240. Przeprowadzono także testy dla rozdzielczości 640x480, ale spadek FPS był nieproporcjonalny do wzrostu jakości.</p>
+<figure class="figure  figure--center">
+  <img class="image" src="/pics/Hexapod/stereo9.png" alt="Raw disparity image" width="400" height="800" />
+  <figcaption class="caption">Raw disparity image</figcaption>
+</figure>
 
-<p><a class="button" href="https://github.com/macstepien/HexapodStereovision" style="background: #0366d6">Stereowizja  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
+<figure class="figure  figure--center">
+  <img class="image" src="/pics/Hexapod/stereo10.png" alt="Disparity image after postfiltration" width="400" height="800" />
+  <figcaption class="caption">Disparity image after postfiltration</figcaption>
+</figure>
+
+<h3 id="application">Application</h3>
+
+<p>The final application combined all the elements described above - video stream from cameras connected to Raspberry was sent to the laptop, then images were rectified, pixels matched using SGBM, disparity image calculated and then filtered. Finally disparity was displayed on the screen, as the next step it should be used to calculate the point cloud, which then could be used for obstacle detection.</p>
+
+<p>Getting satisfactory video transmission wasn’t that easy. In the first approach MJPGstreamer was used, but the results weren’t too good - all frames were buffered and as it wasn’t possible to send them in real-time, the delay between registering the image and analyzing it using stereo vision was increasing. Additionally images from two cameras weren’t synchronized. So instead I used GStreamer, which was more tricky to set up, but the results were much better. The resolution of sent images was 320x240 (for 640x480 FPS was too low).</p>
+
+<p><a class="button" href="https://github.com/macstepien/HexapodStereovision" style="background: #0366d6">Stereo vision  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
 </a></p>
 
-<h3 id="osiągnięcia">Osiągnięcia</h3>
+<h3 id="achievements">Achievements</h3>
 
-<h4 id="zawody-robotyczne">Zawody robotyczne</h4>
+<h4 id="robotic-competitions">Robotic competitions</h4>
 
 <ul>
-  <li>Robocomp 2017 w Krakowie (kategoria Freestyle)</li>
-  <li>Robotic Arena 2017 we Wrocławiu (kategorie Freestyle oraz wyścig robotów kroczących). Pierwsze miejsce w kategorii wyścig robotów kroczących.</li>
-  <li>Robomaticon 2018 w Warszawie (kategoria Freestyle)</li>
-  <li>Robotic Tournament 2018 w Rybniku (kategoria Freestyle)</li>
-  <li>Robotic Arena 2019 we Wrocławiu. Drugie miejsce w kategorii wyścig robotów kroczących.</li>
+  <li>Robocomp 2017 in Cracow (Freestyle category)</li>
+  <li>Robotic Arena 2017 in Wrocław (Freestyle and Robosprint). 1st place in Robosprint.</li>
+  <li>Robomaticon 2018 in Warsaw (Freestyle)</li>
+  <li>Robotic Tournament 2018 in Rybnik (Freestyle)</li>
+  <li>Robotic Arena 2019 in Wrocław. 2nd place in Robosprint.</li>
+  <li>Robocomp 2019 in Cracow. 3rd place in Robosprint</li>
+  <li>Robotic Arena 2020 in Wrocław. 3rd place in Robosprint.</li>
 </ul>
 
-<h4 id="wydarzenia">Wydarzenia</h4>
+<h4 id="events">Events</h4>
 
 <ul>
   <li>Targi pracy Kariera IT</li>
@@ -746,20 +744,20 @@ Są to wartości niskie, co świadczy o poprawnie wykonanej kalibracji.</p>
 </ul>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Hexapod/robotic_arena.jpg" alt="Prezentacja na zawodach Robotic Arena fot. Politechnika Wrocławska" width="400" height="800" />
-  <figcaption class="caption">Prezentacja na zawodach Robotic Arena fot. Politechnika Wrocławska</figcaption>
+  <img class="image" src="/pics/Hexapod/robotic_arena.jpg" alt="Hexapod on Robotic Arena 2017, photo by Wrocław UST" width="400" height="800" />
+  <figcaption class="caption">Hexapod on Robotic Arena 2017, photo by Wrocław UST</figcaption>
 </figure>
 
-<p><a href="http://www.integra.agh.edu.pl/robot-kroczacy-freestyle/" title="Strona projektu">Strona projektu</a></p>]]></content><author><name></name></author><category term="Robots" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Luminous ball</title><link href="http://localhost:4000/software/2017/05/26/move/" rel="alternate" type="text/html" title="Luminous ball" /><published>2017-05-26T00:00:00+02:00</published><updated>2017-05-26T00:00:00+02:00</updated><id>http://localhost:4000/software/2017/05/26/move</id><content type="html" xml:base="http://localhost:4000/software/2017/05/26/move/"><![CDATA[<p>Operate the computer by moving the controller.</p>
+<p><a href="http://www.integra.agh.edu.pl/robot-kroczacy-freestyle/" title="Project page">Project page</a></p>]]></content><author><name></name></author><category term="Robots" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Luminous ball</title><link href="http://localhost:4000/software/2017/05/26/move/" rel="alternate" type="text/html" title="Luminous ball" /><published>2017-05-26T00:00:00+02:00</published><updated>2017-05-26T00:00:00+02:00</updated><id>http://localhost:4000/software/2017/05/26/move</id><content type="html" xml:base="http://localhost:4000/software/2017/05/26/move/"><![CDATA[<p>Motion controller for PC.</p>
 
 <figure class="figure  figure--center">
   <img class="image" src="/pics/swiecacaKulka/kontroler.jpg" alt="" width="300" height="300" />
   
 </figure>
 
-<p>The controller inspired by the PlayStation Move. I used a webcam and a controller - a flashlight with a ball. The ball’s movements are tracked and translated into mouse cursor movements. By turning the flashlight on and off a mouse click is simulated.</p>
+<p>The controller was inspired by the PlayStation Move and consists of a flashlight with a ball. The ball’s movements are tracked on a webcam and translated into mouse cursor movements. By turning the flashlight on and off a mouse click is simulated.</p>
 
-<p>To analyze the image I used the OpenCV library and the detection method outlined in the <a href="https://forbot.pl/blog/opencv-2-wykrywanie-obiektow-id4888">https://forbot.pl/blog/opencv-2-wykrywanie-obiektow-id4888</a></p>
+<p>To analyze the image and detect the ball I used the OpenCV library and the detection method as in the <a href="https://forbot.pl/blog/opencv-2-wykrywanie-obiektow-id4888">https://forbot.pl/blog/opencv-2-wykrywanie-obiektow-id4888</a></p>
 
 <div class="embed-container">
   <iframe width="720" height="405" src="https://drive.google.com/file/d/1Ifl4nigfpzm73YRJDlyJJY3RQRywG9NQ/preview" frameborder="0" allowfullscreen="">
@@ -767,12 +765,12 @@ Są to wartości niskie, co świadczy o poprawnie wykonanej kalibracji.</p>
 </div>
 
 <p><a class="button" href="https://github.com/macstepien/LightOrb" style="background: #0366d6">Code  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
-</a></p>]]></content><author><name></name></author><category term="Software" /><summary type="html"><![CDATA[Operate the computer by moving the controller.]]></summary></entry><entry><title type="html">Fuzz guitar effect</title><link href="http://localhost:4000/electronics/2016/08/28/fuzz/" rel="alternate" type="text/html" title="Fuzz guitar effect" /><published>2016-08-28T00:00:00+02:00</published><updated>2016-08-28T00:00:00+02:00</updated><id>http://localhost:4000/electronics/2016/08/28/fuzz</id><content type="html" xml:base="http://localhost:4000/electronics/2016/08/28/fuzz/"><![CDATA[<figure class="figure  figure--center">
+</a></p>]]></content><author><name></name></author><category term="Software" /><summary type="html"><![CDATA[Motion controller for PC]]></summary></entry><entry><title type="html">Fuzz guitar effect</title><link href="http://localhost:4000/electronics/2016/08/28/fuzz/" rel="alternate" type="text/html" title="Fuzz guitar effect" /><published>2016-08-28T00:00:00+02:00</published><updated>2016-08-28T00:00:00+02:00</updated><id>http://localhost:4000/electronics/2016/08/28/fuzz</id><content type="html" xml:base="http://localhost:4000/electronics/2016/08/28/fuzz/"><![CDATA[<figure class="figure  figure--center">
   <img class="image" src="/pics/fuzz/front.jpg" alt="" width="600" height="" />
   
 </figure>
 
-<p>Guitar effect made from a schematic:</p>
+<p>Guitar effect made using the schematic:</p>
 <figure class="figure  figure--center">
   <img class="image" src="/pics/fuzz/fuzzSchemat.gif" alt="" width="600" height="800" />
   
@@ -803,21 +801,21 @@ and
   <figcaption class="caption">Coil winding</figcaption>
 </figure>
 
-<p>Then I made a larger coil, in which I used 4 transistors and an additional heat sink to ensure adequate cooling. I used a power supply from a printer as a power source.</p>]]></content><author><name></name></author><category term="Electronics" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Mapping robot</title><link href="http://localhost:4000/robots/2015/08/25/mapping-robot/" rel="alternate" type="text/html" title="Mapping robot" /><published>2015-08-25T00:00:00+02:00</published><updated>2015-08-25T00:00:00+02:00</updated><id>http://localhost:4000/robots/2015/08/25/mapping-robot</id><content type="html" xml:base="http://localhost:4000/robots/2015/08/25/mapping-robot/"><![CDATA[<p>Robot laptopa wożący pokój mapujący.</p>
+<p>Then I made a larger coil, in which I used 4 transistors and an additional heat sink to ensure adequate cooling. I used a power supply from a printer as a power source.</p>]]></content><author><name></name></author><category term="Electronics" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Mapping robot</title><link href="http://localhost:4000/robots/2015/08/25/mapping-robot/" rel="alternate" type="text/html" title="Mapping robot" /><published>2015-08-25T00:00:00+02:00</published><updated>2015-08-25T00:00:00+02:00</updated><id>http://localhost:4000/robots/2015/08/25/mapping-robot</id><content type="html" xml:base="http://localhost:4000/robots/2015/08/25/mapping-robot/"><![CDATA[<p>Robot that drives around and creates a map of the environment.</p>
 
 <figure class="figure  figure--center">
   <img class="image" src="/pics/RobotMapujacy/front.jpg" alt="" width="600" height="800" />
   
 </figure>
 
-<p>Ten robot jest drugą, uproszczoną wersją robota uniwersalnego. Wyciągając wnioski z poprzedniej konstrukcji uprościłem robota i jego jedynym zadaniem było mapowanie pomieszczeń. Także aby zadanie się udało zamieniłem Stereowizję na Kinecta, ponieważ rezultaty z niej osiągane nie były zadowalające. Dodałem także enkodery na koła, jednak wciąż zbyt pewny siebie zrobiłem swoje - inkrementalne bazujące na transoptorach. Nie sprawdzały się one idealnie, ale jednak pozwoliły osiągnąć rezultaty.</p>
+<p>This robot was a simplified version of a previously created general-purpose robot. In this construction I simplified requirements and focused only on mapping and navigation. Instead of stereo vision I decided to use a Kinect sensor because results achieved previously with only cameras weren’t satisfactory. I also added custom-made wheel encoders based on optocouplers and black and white patterns on wheels.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/RobotMapujacy/test.jpg" alt="Prototypowanie eletkroniki" width="600" height="800" />
-  <figcaption class="caption">Prototypowanie eletkroniki</figcaption>
+  <img class="image" src="/pics/RobotMapujacy/test.jpg" alt="Prototype of electronic components connections" width="600" height="800" />
+  <figcaption class="caption">Prototype of electronic components connections</figcaption>
 </figure>
 
-<p>Także w ramach zabawy z robotem zrealizowałem regulator PID i zadawałem punkt, do którego robot dojeżdżał.</p>
+<p>On this robot I implemented a PID controller for driving up to the point:</p>
 
 <p><a class="button" href="https://github.com/macstepien/MappingRobotPID" style="background: #0366d6">PID  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
 </a></p>
@@ -827,20 +825,20 @@ and
   </iframe>
 </div>
 
-<p>Aby stworzyć mapę najpierw podrzebowałem odpowiednio obrobić dane. W danych głębi z Kinecta zawarte były informacje o podłodze oraz obiektach. Musiałem pozbyć się podłogi. Do osiągnięcia tego testowałem 2 metody: dopasowywanie płaszczyzny oparte na RANSACu z OpenCV oraz metodą UV-disparity, która przyspieszała obliczenia - wykrywałem linię zamiast płaszczyzny.</p>
+<p>To create a map of the environment first it was necessary to remove floor points from data from Kinect. I tested two approaches - fitting the plane using the RANSAC algorithm and the UV-disparity method (which required lower computational load - instead of plane line was fitted).</p>
 
 <figure class="figure  figure--center">
   <img class="image" src="/pics/RobotMapujacy/side.jpg" alt="" width="600" height="800" />
   
 </figure>
 
-<p>Na tworzoną mapę typu Grid map nakładałem następnie wykryte obiekty. Do wyliczenia przesunięcia robota używałem wyłącznie enkoderów.</p>
+<p>Then obstacle points were projected onto grid map, robot position was calculated using wheel encoders.</p>
 <figure class="figure  figure--center">
   <img class="image" src="/pics/RobotMapujacy/map.jpg" alt="" width="500" height="800" />
   
 </figure>
 
-<p><a class="button" href="https://github.com/macstepien/MappingRobotKinect" style="background: #0366d6">Mapowanie Kinect  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
+<p><a class="button" href="https://github.com/macstepien/MappingRobotKinect" style="background: #0366d6">Kinect mapping  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
 </a></p>
 
 <div class="embed-container">
@@ -848,27 +846,27 @@ and
   </iframe>
 </div>
 
-<p><a class="button" href="https://github.com/macstepien/MappingRobotStereovision" style="background: #0366d6">Mapowanie Stereowizja  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
+<p><a class="button" href="https://github.com/macstepien/MappingRobotStereovision" style="background: #0366d6">Stereo vision mapping  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
 </a></p>
 
-<p>Próbowałem także wykorzystać SLAMa, aby zniwelować niedoskonałości enkoderów. Jednak tutaj barierą był system operacyjny - Windows, na którym nie udało mi się uruchomić żadnej implementacji. Było to także zbyt skomplikowane zadanie jak na wiedzę, którą posiadałem, aby stworzyć własną implementację.</p>
+<p>I also tried to run a SLAM algorithm to correct errors from encoders but wasn’t able to run any available implementation on Windows (which I was using at that time).</p>
 
 <figure class="figure  figure--center">
   <img class="image" src="/pics/RobotMapujacy/pcb.jpg" alt="" width="600" height="800" />
   
 </figure>
 
-<p>Do sterowania robotem użyłem mikrokontrolera Atmega88Pa. Komunikował się on z komputerem poprzez interfejs UART, wykorzystałem tutaj przejściówkę na USB. Sterował on silnikami - serwami pracy ciągłej. Także mierzył napięcie z transoptorów, zliczając impulsy poprzez zastowanie odpowiedniego progu. Także dla testu wykorzystałem podczerwony czujnik odległości. Do zasilenia całej konstrukcji użyłem akumulatora żelowego. Poprzez mikrokontroler mierzyłem jego napięcie, sprawdzając czy się rozładował. Musiałem także zastosować przetwornicę Step-Up, aby zasilić Kinecta, który wymaga 12V.</p>
+<p>To control the robot I used an Atmega88Pa microcontroller, which was connected using a USB-UART converter to the computer. It controlled motors (continuous rotation servos) and measured optocouplers voltage to detect wheel rotations. Additionally, I used an infrared proximity sensor. As a power source, I used a 6V gel battery, voltage on battery was measured and monitored by MCU. A 12V Step-Up voltage converter was used to power Kinect.</p>
 
-<p><a class="button" href="https://github.com/macstepien/MappingRobotControler" style="background: #0366d6">Sterownik Robota  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
-</a></p>]]></content><author><name></name></author><category term="Robots" /><summary type="html"><![CDATA[Robot that drives around and creates a map of the environment.]]></summary></entry><entry><title type="html">3D Viewer</title><link href="http://localhost:4000/software/2015/04/09/3dviewer/" rel="alternate" type="text/html" title="3D Viewer" /><published>2015-04-09T00:00:00+02:00</published><updated>2015-04-09T00:00:00+02:00</updated><id>http://localhost:4000/software/2015/04/09/3dviewer</id><content type="html" xml:base="http://localhost:4000/software/2015/04/09/3dviewer/"><![CDATA[<p>Program służący do wyświetlania perspektywicznego punktów w 3D.</p>
+<p><a class="button" href="https://github.com/macstepien/MappingRobotControler" style="background: #0366d6">Mapping robot controller  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
+</a></p>]]></content><author><name></name></author><category term="Robots" /><summary type="html"><![CDATA[Robot that drives around and creates a map of the environment.]]></summary></entry><entry><title type="html">3D Viewer</title><link href="http://localhost:4000/software/2015/04/09/3dviewer/" rel="alternate" type="text/html" title="3D Viewer" /><published>2015-04-09T00:00:00+02:00</published><updated>2015-04-09T00:00:00+02:00</updated><id>http://localhost:4000/software/2015/04/09/3dviewer</id><content type="html" xml:base="http://localhost:4000/software/2015/04/09/3dviewer/"><![CDATA[<p>Application for the perspective visualization of point clouds in 3D.</p>
 
 <figure class="figure  figure--center">
   <img class="image" src="/pics/3dviewer/viewer1.png" alt="" width="600" height="800" />
   
 </figure>
 
-<p>Program ten napisałem w ramach lekcji Informatyki w Liceum. Zaimplementowałem wczytywanie chmur punktów z pliku txt. Są one w formacie współrzędne (X, Y, Z), a następnie kolory (R, G, B). Chmury punktów uzyskiwałem poprzez kamery stereowizyjne. Stworzyłem także możliwość wyświetlania kształtów geometrycznych, na przykład domku. Całość została napisana w Pascalu.</p>
+<p>Point clouds (positions (X, Y, Z), color (R, G, B)) is read from a txt file and then projected on the camera plane in a simulated environment. The camera can be moved around. Point clouds that I visualized were calculated using the stereo vision camera that I constructed. Additionally, it is possible to display simple geometric shapes.</p>
 
 <figure class="figure  figure--center">
   <img class="image" src="/pics/3dviewer/viewer2.png" alt="" width="600" height="800" />
@@ -876,25 +874,19 @@ and
 </figure>
 
 <p><a class="button" href="https://github.com/macstepien/3DViewer" style="background: #0366d6">3DViewer  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
-</a></p>]]></content><author><name></name></author><category term="Software" /><summary type="html"><![CDATA[A piece of software for the perspective display of points in 3D.]]></summary></entry><entry><title type="html">General-purpose robot</title><link href="http://localhost:4000/robots/2014/08/28/universal-robots/" rel="alternate" type="text/html" title="General-purpose robot" /><published>2014-08-28T00:00:00+02:00</published><updated>2014-08-28T00:00:00+02:00</updated><id>http://localhost:4000/robots/2014/08/28/universal-robots</id><content type="html" xml:base="http://localhost:4000/robots/2014/08/28/universal-robots/"><![CDATA[<p>Miał robić kawę…</p>
-
-<p>Tutaj wyobraźnia mnie poniosła i chciałem zrobić robota uniwersalnego zdolnego do wykonywania różnych czynności np. przygotować napoje, “chodzić” do sklepu. Oczywiście w zamyśle miała być to pierwsza wersja, na której chciałem zbadać moje możliwości. Podnosić miał jedynie atrapy, a poruszać się jedynie po domu.</p>
+</a></p>]]></content><author><name></name></author><category term="Software" /><summary type="html"><![CDATA[Application for the perspective visualization of point clouds in 3D.]]></summary></entry><entry><title type="html">General-purpose robot</title><link href="http://localhost:4000/robots/2014/08/28/universal-robots/" rel="alternate" type="text/html" title="General-purpose robot" /><published>2014-08-28T00:00:00+02:00</published><updated>2014-08-28T00:00:00+02:00</updated><id>http://localhost:4000/robots/2014/08/28/universal-robots</id><content type="html" xml:base="http://localhost:4000/robots/2014/08/28/universal-robots/"><![CDATA[<p>It was my first attempt at creating a general-purpose robot. Due to the low budget, it was supposed to be only a scaled version, without many real capabilities, only a proof-of-concept.</p>
 
 <figure class="figure  figure--center">
   <img class="image" src="/pics/RobotUniwersalny/robot.jpg" alt="" width="300" height="800" />
   
 </figure>
 
-<p>Piękna była to konstrukcja i bardzo skomplikowana. Do obsługi wszystkich kończyn planowałem zastosować 11 serw. Znacznie przekroczyło to liczbę kanałów PWM w mikrokontrolerze Atmega88Pa. Dlatego właśnie zmuszony byłem zastosować programowe generowanie PWM, które znacznie bardziej obciąża procesor. Z tego właśnie powodu zmuszony byłem użyć drugi mikrokontroler odpowiedzialny za komunikację z komputerem, sterowaniem silnikami oraz zadawanie poprzez SPI położeń serw do drugiego mikrokontrolera. Wiele rzeczy mogło się zepsuć po drodze, dlatego gdy ostatecznie nie mogłem zapanować nad serwami nie wiedziałem co się dzieje. Dopiero po dłuższym czasie doszedłem do wniosku, że musiałem mieć za słabe źródło zasilania, coś czego wcześniej nawet nie brałem pod uwagę. Jednak pomimo niedziałających serw nie porzuciłem tej konstrukcji. Wciąż miałem działające silniki, którymi mogłem sterować z poziomu komputera. Zająłem się w takim razie niezbędnym elementem takiego robota - wykrywaniem przeszkód oraz mapowaniem. W tym celu chciałem zasotosować parę stereowizyjną. Po wielu przygodach udało mi się wreszcie doprowadzić stereowizję do poziomu zadowalającego. Wciąż jednak występowało dużo szumów - szczególnie na podłodze. Nic dziwnego, podłoga, ściana, to mało szczegółów i ciężko jest uzyskać pewny obraz głębi. Udało się zatem mniej więcej wykrywać przeszkody, jednak gdy doszedł do tego ruch to już kompletnie co innego. Zastosowane kamerki internetowe zwracały poruszone obrazy co jeszcze pogarszało wynik wykrywania. Do tego nie zastosowałem enkoderów, ponieważ planowałem wykrywać punkty szczególne i póżniej na podstawie ich oraz uzyskanej mapy głębokości obliczać przesunięcie. Po takich jednak rozczarowujących efektach stereowizji nie próbowałem już tego rozwiązania.</p>
+<p>In this construction, I planned to use 11 servos, which were more than the available PWM lines on Atmega88Pa microcontroller that I used. That’s why I was generating a PWM signal using a timer, but due to high resource usage, it was necessary to dedicate one microcontroller solely for this purpose. The second microcontroller was used to communicate with a computer, control wheel motors and send commands to the first MCU using SPI. This approach was very complicated and because of additional problems with the power supply, I decided to skip manipulation and focus on navigation. As the only sensor in this task, I used stereo vision. I was able to make it work quite well statically, but when mounted on the robot, motion caused images from cameras to become blurry and as a result detected point cloud wasn’t accurate enough.</p>
 
 <figure class="figure  figure--center">
   <img class="image" src="/pics/RobotUniwersalny/plytka.jpg" alt="" width="600" height="800" />
   
 </figure>
-
-<p>Pomimo, że nie spełnił moich oczekiwań to wyszła z niego ciekawa konstrukcja. I mój początek przygody ze stereowizją i mapowaniem.</p>
-
-<p>W tej konstrukcji wzorowałem się na robocie PR2. Domyślną wersję tej konstrukcji chciałem wykonać 2 razy większą. Zastosowanie tutaj zgięcia w połowie miało na celu zwiększyć zakres chwytania - możliwość schylenia się. Jednak głównym celem była możliwość przetransformowania się w robota jeżdżącego, co umowżliwiłoby wspinanie się po schodach oraz większych przeszkodach. Domyślnie w napędzie chciałem zastosować gąsienice.</p>
 
 <figure class="figure  figure--center">
   <img class="image" src="/pics/RobotUniwersalny/parts.jpg" alt="" width="600" height="800" />
