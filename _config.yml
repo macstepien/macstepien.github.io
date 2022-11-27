@@ -7,6 +7,7 @@ exclude:
   - README.md
   - Gemfile
   - Gemfile.lock
+  - files
 
 # Set plugins
 plugins:
