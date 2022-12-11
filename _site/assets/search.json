@@ -99,7 +99,7 @@
       {
         "title": "Roomac",
         "excerpt": "Affordable autonomous mobile manipulation robot\n\n\n",
-        "content": "Roomac is a low-cost autonomous mobile manipulation robot. It consists of a differential drive mobile base and a 5-DoF manipulator with a gripper. The whole construction costed around 550$ and using this platform I was able to prepare a proof-of-concept application - bringing a bottle to the user. This project was described in detail in my master’s thesis.\n\n\n  \n  \n\n\nroomac_ros  github\n\n",
+        "content": "Roomac is a low-cost autonomous mobile manipulation robot that consists of a differential drive mobile base and a 5-DoF manipulator with a gripper. The costs of the whole construction summed up to around 550$ and using this platform I was able to prepare a proof-of-concept application - fetching a bottle to the user. This project was described in detail in my master’s thesis.\n\n\n  \n\n\nroomac_ros  github\n\n",
         "url": "/robots/2022/10/20/roomac/"
       },
     
