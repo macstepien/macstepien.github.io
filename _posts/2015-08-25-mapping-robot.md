@@ -5,17 +5,16 @@ categories:
   - Robots
 excerpt: |
   Robot that drives around and creates a map of the environment.
-   
-  <img width="200" height="200" src="/pics/RobotMapujacy/minifront.jpg">
+  <center><img width="600" src="/pics/7_mapping_robot/mapping_robot_compressed.jpg"></center>
 ---
 
 Robot that drives around and creates a map of the environment.
 
-{% include figure.html image="/pics/RobotMapujacy/front.jpg" width="600" height="800" %}
+{% include figure.html image="/pics/7_mapping_robot/front.jpg" width="600" height="800" %}
 
 This robot was a simplified version of a previously created general-purpose robot. In this construction I simplified requirements and focused only on mapping and navigation. Instead of stereo vision I decided to use a Kinect sensor because results achieved previously with only cameras weren't satisfactory. I also added custom-made wheel encoders based on optocouplers and black and white patterns on wheels.
 
-{% include figure.html image="/pics/RobotMapujacy/test.jpg"  width="600" height="800" caption="Prototype of electronic components connections" %}
+{% include figure.html image="/pics/7_mapping_robot/test.jpg"  width="600" height="800" caption="Prototype of electronic components connections" %}
 
 On this robot I implemented a PID controller for driving up to the point:
 
@@ -25,10 +24,10 @@ On this robot I implemented a PID controller for driving up to the point:
 
 To create a map of the environment first it was necessary to remove floor points from data from Kinect. I tested two approaches - fitting the plane using the RANSAC algorithm and the UV-disparity method (which required lower computational load - instead of plane line was fitted).
 
-{% include figure.html image="/pics/RobotMapujacy/side.jpg" width="600" height="800" %}
+{% include figure.html image="/pics/7_mapping_robot/side.jpg" width="600" height="800" %}
 
 Then obstacle points were projected onto grid map, robot position was calculated using wheel encoders.
-{% include figure.html image="/pics/RobotMapujacy/map.jpg" width="500" height="800" %}
+{% include figure.html image="/pics/7_mapping_robot/map.jpg" width="500" height="800" %}
 
 {% include button.html text="Kinect mapping" icon="github" link="https://github.com/macstepien/MappingRobotKinect" color="#0366d6" %}
 
@@ -38,7 +37,7 @@ Then obstacle points were projected onto grid map, robot position was calculated
 
 I also tried to run a SLAM algorithm to correct errors from encoders but wasn't able to run any available implementation on Windows (which I was using at that time).
 
-{% include figure.html image="/pics/RobotMapujacy/pcb.jpg" width="600" height="800" %}
+{% include figure.html image="/pics/7_mapping_robot/pcb.jpg" width="600" height="800" %}
 
 To control the robot I used an Atmega88Pa microcontroller, which was connected using a USB-UART converter to the computer. It controlled motors (continuous rotation servos) and measured optocouplers voltage to detect wheel rotations. Additionally, I used an infrared proximity sensor. As a power source, I used a 6V gel battery, voltage on battery was measured and monitored by MCU. A 12V Step-Up voltage converter was used to power Kinect. 
 

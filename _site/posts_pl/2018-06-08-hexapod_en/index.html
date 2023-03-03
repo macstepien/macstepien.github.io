@@ -16,11 +16,11 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Projects" />
 <meta property="og:description" content="Projects" />
-<link rel="canonical" href="http://localhost:4000/posts_pl/2018-06-08-hexapod_en/" />
-<meta property="og:url" content="http://localhost:4000/posts_pl/2018-06-08-hexapod_en/" />
+<link rel="canonical" href="http://localhost:5000/posts_pl/2018-06-08-hexapod_en/" />
+<meta property="og:url" content="http://localhost:5000/posts_pl/2018-06-08-hexapod_en/" />
 <meta property="og:site_name" content="Maciej Stępień" />
 <script type="application/ld+json">
-{"@type":"WebPage","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/pics/logo1.png"}},"headline":"Hexapod","url":"http://localhost:4000/posts_pl/2018-06-08-hexapod_en/","description":"Projects","@context":"https://schema.org"}</script>
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:5000/pics/logo1.png"}},"description":"Projects","@type":"WebPage","headline":"Hexapod","url":"http://localhost:5000/posts_pl/2018-06-08-hexapod_en/","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     
@@ -180,7 +180,7 @@
     <p>A project I was involved in for the first 2 years of my studies as part of the Integra student research group. My contribution was software for robot control and stereovision.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Hexapod/hexi.jpg" alt="" width="600" height="800" />
+  <img class="image" src="/pics/11_hexapod/hexi.jpg" alt="" width="600" height="800" />
   
 </figure>
 
@@ -194,7 +194,7 @@
 <p>The robot is controlled from a laptop, which communicates with the Raspberry via WiFi via TCP protocol. Both a pad and a keyboard can be used to move the robot. In order to properly control it, I first wrote an application with a mathematical model of the robot. Inverse kinematics was implemented on this model, on which I then created models of the robot’s movement. The obtained angles were then converted into PWM signals and sent to servos through controller.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Hexapod/symulacja.png" alt="" width="600" height="800" />
+  <img class="image" src="/pics/11_hexapod/symulacja.png" alt="" width="600" height="800" />
   
 </figure>
 
@@ -254,7 +254,7 @@
 <p>Aby skalibrować parę stereowizyjną wykonywane są zdjęcia ustalonego wzoru, np. szachownicy. W tym celu napisałem aplikację, która wyświetlała obraz z obu kamer. Co ustalony czas zapisywała zdjęcie pod odpowiednią nazwą oraz tworzyła listę utworzonych obrazów. Wykonałem około 50 zdjęć tak, aby jak najlepiej pokryć cały obszar widoku kamer.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Hexapod/stereo12.png" alt="Przykładowa para zdjęć wykonanych podczas kalibracji" width="600" height="800" />
+  <img class="image" src="/pics/11_hexapod/stereo12.png" alt="Przykładowa para zdjęć wykonanych podczas kalibracji" width="600" height="800" />
   <figcaption class="caption">Przykładowa para zdjęć wykonanych podczas kalibracji</figcaption>
 </figure>
 
@@ -265,12 +265,12 @@
 <p>Do samej kalibracji użyłem przykładu z książki Learning OpenCV. W parametrach wywołania umieszczano wysokość oraz szerokość szachownicy (liczba pól), a także długość boku kwadratu w centymetrach. Bardzo ważne jest, aby szachownica miała kwadratowe pola, gdyż przy użyciu szachownicy o bokach różniących się nieznacznie cały proces kalibracji zostałby przeprowadzony niepoprawnie wraz z listą zdjęć, powstałych w trakcie tej błędnej kalibracji.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Hexapod/stereo3.png" alt="Wynik wykrywania krawędzi szachownicy" width="400" height="800" />
+  <img class="image" src="/pics/11_hexapod/stereo3.png" alt="Wynik wykrywania krawędzi szachownicy" width="400" height="800" />
   <figcaption class="caption">Wynik wykrywania krawędzi szachownicy</figcaption>
 </figure>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Hexapod/stereo4.png" alt="Wynik rektyfikacji" width="700" height="800" />
+  <img class="image" src="/pics/11_hexapod/stereo4.png" alt="Wynik rektyfikacji" width="700" height="800" />
   <figcaption class="caption">Wynik rektyfikacji</figcaption>
 </figure>
 
@@ -284,17 +284,17 @@ Są to wartości niskie, co świadczy o poprawnie wykonanej kalibracji.</p>
 <p>Najpierw przetestowałem dostępne w bibliotece OpenCV algorytmy BM i SGBM, lepsze rezultaty uzyskałem dla SGBM. Jest on bardziej wymagający obliczeniowo, aczkolwiek przy rozdzielczości 320x240 można było uzyskać dobre przetwarzanie w czasie rzeczywistym. Następnie dobrałem optymalne parametry dla tego algorytmu. W tym celu napisałem aplikację na podstawie przykładu użycia SGBM zawartego w bibliotece OpenCV. Dodałem do niej suwak tak, aby można było wygodnie zmieniać parametry i obserwować uzyskiwane rezultatu.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Hexapod/stereo5.png" alt="Widok okna z paskami do zmiany parametrów" width="400" height="800" />
+  <img class="image" src="/pics/11_hexapod/stereo5.png" alt="Widok okna z paskami do zmiany parametrów" width="400" height="800" />
   <figcaption class="caption">Widok okna z paskami do zmiany parametrów</figcaption>
 </figure>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Hexapod/stereo6.png" alt="Przykładowa scena użyta do doboru parametrów" width="400" height="800" />
+  <img class="image" src="/pics/11_hexapod/stereo6.png" alt="Przykładowa scena użyta do doboru parametrów" width="400" height="800" />
   <figcaption class="caption">Przykładowa scena użyta do doboru parametrów</figcaption>
 </figure>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Hexapod/stereo7.png" alt="Wynik przeprowadzenia stereowizji" width="400" height="800" />
+  <img class="image" src="/pics/11_hexapod/stereo7.png" alt="Wynik przeprowadzenia stereowizji" width="400" height="800" />
   <figcaption class="caption">Wynik przeprowadzenia stereowizji</figcaption>
 </figure>
 
@@ -303,12 +303,12 @@ Są to wartości niskie, co świadczy o poprawnie wykonanej kalibracji.</p>
 <p>W celu uzyskania gładszego obrazu stereowizyjnego zastosowałem postfiltrację, która dodana została stosunkowo niedawno do modułów dodatkowych biblioteki OpenCV - contrib.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Hexapod/stereo9.png" alt="Efekt przeprowadzenia algorytmu SGBM przy optymalnych parametrach" width="400" height="800" />
+  <img class="image" src="/pics/11_hexapod/stereo9.png" alt="Efekt przeprowadzenia algorytmu SGBM przy optymalnych parametrach" width="400" height="800" />
   <figcaption class="caption">Efekt przeprowadzenia algorytmu SGBM przy optymalnych parametrach</figcaption>
 </figure>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Hexapod/stereo10.png" alt="Efekt przeprowadzenia postfiltracji" width="400" height="800" />
+  <img class="image" src="/pics/11_hexapod/stereo10.png" alt="Efekt przeprowadzenia postfiltracji" width="400" height="800" />
   <figcaption class="caption">Efekt przeprowadzenia postfiltracji</figcaption>
 </figure>
 
@@ -341,7 +341,7 @@ Są to wartości niskie, co świadczy o poprawnie wykonanej kalibracji.</p>
 </ul>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Hexapod/robotic_arena.jpg" alt="Prezentacja na zawodach Robotic Arena fot. Politechnika Wrocławska" width="400" height="800" />
+  <img class="image" src="/pics/11_hexapod/robotic_arena.jpg" alt="Prezentacja na zawodach Robotic Arena fot. Politechnika Wrocławska" width="400" height="800" />
   <figcaption class="caption">Prezentacja na zawodach Robotic Arena fot. Politechnika Wrocławska</figcaption>
 </figure>
 
@@ -365,7 +365,7 @@ Są to wartości niskie, co świadczy o poprawnie wykonanej kalibracji.</p>
 <footer class="footer">
   <div class="container">
     <div class="copyright  typeset">
-      <small class="small">&copy; Maciej Stępień 2022</small>
+      <small class="small">&copy; Maciej Stępień 2023</small>
     </div>
 
     

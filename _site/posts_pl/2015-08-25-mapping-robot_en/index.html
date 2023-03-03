@@ -16,11 +16,11 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Robot that drives around and creates a map of the environment." />
 <meta property="og:description" content="Robot that drives around and creates a map of the environment." />
-<link rel="canonical" href="http://localhost:4000/posts_pl/2015-08-25-mapping-robot_en/" />
-<meta property="og:url" content="http://localhost:4000/posts_pl/2015-08-25-mapping-robot_en/" />
+<link rel="canonical" href="http://localhost:5000/posts_pl/2015-08-25-mapping-robot_en/" />
+<meta property="og:url" content="http://localhost:5000/posts_pl/2015-08-25-mapping-robot_en/" />
 <meta property="og:site_name" content="Maciej Stępień" />
 <script type="application/ld+json">
-{"@type":"WebPage","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/pics/logo1.png"}},"headline":"Mapping robot","url":"http://localhost:4000/posts_pl/2015-08-25-mapping-robot_en/","description":"Robot that drives around and creates a map of the environment.","@context":"https://schema.org"}</script>
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:5000/pics/logo1.png"}},"description":"Robot that drives around and creates a map of the environment.","@type":"WebPage","headline":"Mapping robot","url":"http://localhost:5000/posts_pl/2015-08-25-mapping-robot_en/","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     
@@ -180,14 +180,14 @@
     <p>Robot that drives around and creates a map of the environment.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/RobotMapujacy/front.jpg" alt="" width="600" height="800" />
+  <img class="image" src="/pics/7_mapping_robot/front.jpg" alt="" width="600" height="800" />
   
 </figure>
 
 <p>This robot is the second, simplified version of the general-purpose robot. Learning from the previous design, I simplified the robot and its only task was to map rooms. Also to make the task successful I replaced the Stereovision with Kinect, as the results from it were not satisfactory. I also added encoders to the wheels, but still I made my own - incremental based on optocouplers. They didn’t work perfectly, but still allowed to achieve good results.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/RobotMapujacy/test.jpg" alt="Prototypowanie eletkroniki" width="600" height="800" />
+  <img class="image" src="/pics/7_mapping_robot/test.jpg" alt="Prototypowanie eletkroniki" width="600" height="800" />
   <figcaption class="caption">Prototypowanie eletkroniki</figcaption>
 </figure>
 
@@ -204,13 +204,13 @@
 <p>Aby stworzyć mapę najpierw podrzebowałem odpowiednio obrobić dane. W danych głębi z Kinecta zawarte były informacje o podłodze oraz obiektach. Musiałem pozbyć się podłogi. Do osiągnięcia tego testowałem 2 metody: dopasowywanie płaszczyzny oparte na RANSACu z OpenCV oraz metodą UV-disparity, która przyspieszała obliczenia - wykrywałem linię zamiast płaszczyzny.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/RobotMapujacy/side.jpg" alt="" width="600" height="800" />
+  <img class="image" src="/pics/7_mapping_robot/side.jpg" alt="" width="600" height="800" />
   
 </figure>
 
 <p>Na tworzoną mapę typu Grid map nakładałem następnie wykryte obiekty. Do wyliczenia przesunięcia robota używałem wyłącznie enkoderów.</p>
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/RobotMapujacy/map.jpg" alt="" width="500" height="800" />
+  <img class="image" src="/pics/7_mapping_robot/map.jpg" alt="" width="500" height="800" />
   
 </figure>
 
@@ -228,7 +228,7 @@
 <p>Próbowałem także wykorzystać SLAMa, aby zniwelować niedoskonałości enkoderów. Jednak tutaj barierą był system operacyjny - Windows, na którym nie udało mi się uruchomić żadnej implementacji. Było to także zbyt skomplikowane zadanie jak na wiedzę, którą posiadałem, aby stworzyć własną implementację.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/RobotMapujacy/pcb.jpg" alt="" width="600" height="800" />
+  <img class="image" src="/pics/7_mapping_robot/pcb.jpg" alt="" width="600" height="800" />
   
 </figure>
 
@@ -255,7 +255,7 @@
 <footer class="footer">
   <div class="container">
     <div class="copyright  typeset">
-      <small class="small">&copy; Maciej Stępień 2022</small>
+      <small class="small">&copy; Maciej Stępień 2023</small>
     </div>
 
     

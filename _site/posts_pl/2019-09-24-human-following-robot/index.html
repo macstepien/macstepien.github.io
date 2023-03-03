@@ -16,11 +16,11 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Every move you make | Every step you take | I’ll follow you" />
 <meta property="og:description" content="Every move you make | Every step you take | I’ll follow you" />
-<link rel="canonical" href="http://localhost:4000/posts_pl/2019-09-24-human-following-robot/" />
-<meta property="og:url" content="http://localhost:4000/posts_pl/2019-09-24-human-following-robot/" />
+<link rel="canonical" href="http://localhost:5000/posts_pl/2019-09-24-human-following-robot/" />
+<meta property="og:url" content="http://localhost:5000/posts_pl/2019-09-24-human-following-robot/" />
 <meta property="og:site_name" content="Maciej Stępień" />
 <script type="application/ld+json">
-{"@type":"WebPage","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/pics/logo1.png"}},"headline":"Human following robot","url":"http://localhost:4000/posts_pl/2019-09-24-human-following-robot/","description":"Every move you make | Every step you take | I’ll follow you","@context":"https://schema.org"}</script>
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:5000/pics/logo1.png"}},"description":"Every move you make | Every step you take | I’ll follow you","@type":"WebPage","headline":"Human following robot","url":"http://localhost:5000/posts_pl/2019-09-24-human-following-robot/","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     
@@ -204,7 +204,7 @@
 <p>Wire your ESP32 accordingly to schematics:</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/RosbotFollower/remoteSchematics.png" alt="" width="600" height="800" />
+  <img class="image" src="/pics/13_human_following_robot/remoteSchematics.png" alt="" width="600" height="800" />
   
 </figure>
 
@@ -279,7 +279,7 @@ Roslaunch command:
 <p>After whole system is up and running stand in front of ROSbot, but not too far away. When you are detected blue LED on ESP should turn on. Then you can press first button (the one closer to ESP on schematics) and if you start walking robot should follow you. When LED turns off it means that algorithm lost detection of you and need to recalibrate (stand closer to robot and wait until blue LED is back on). If robot had false detection you can calibrate again by pressing second button. On RViz you can see visualization: scan from LiDAR, robot model and detections. Green spheres are all potential legs, blue cylinders are detected legs and red tall cylinder is human position. In version with Kalman filter we also publish circle around human, which shows how much estimated position differs from measurement.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/RosbotFollower/rviz.png" alt="" width="600" height="800" />
+  <img class="image" src="/pics/13_human_following_robot/rviz.png" alt="" width="600" height="800" />
   
 </figure>
 
@@ -720,7 +720,7 @@ In order to implement Kalman filter I created Person class where human position 
 <footer class="footer">
   <div class="container">
     <div class="copyright  typeset">
-      <small class="small">&copy; Maciej Stępień 2022</small>
+      <small class="small">&copy; Maciej Stępień 2023</small>
     </div>
 
     

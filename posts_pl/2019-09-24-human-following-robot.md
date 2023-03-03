@@ -8,7 +8,7 @@ excerpt: |
   Every step you take |
   I'll follow you
    
-  <img width="200" height="200" src="/pics/RosbotFollower/rosbot.jpg">
+  <img width="200" height="200" src="/pics/13_human_following_robot/rosbot.jpg">
 ---
 
 In this tutorial I describe one way to make robot detect and follow people - it won't make a great spy but could be useful to carry luggage or groceries. Whole system was implemented on Husarion's ROSbot with ESP32 as a remote. To find people I used scans from LiDAR (RPLidar A2) with my detector, which is simple but turned out to be fast and quite reliable. I also checked other LiDAR approaches available on ROS - leg_detector and leg_tracker but in this case didn't perform well enough. Another package I tested is upper_body_detector, which uses RGBD camera to detect humans. As name suggests it needs to see upper part of body - this will be a problem if we want our robot to stay close, also in this case it didn't perform very well and was slower.
@@ -34,7 +34,7 @@ Then get your Husarnet join code and customize code as described in [ESP32 Husar
 
 Wire your ESP32 accordingly to schematics:
 
-{% include figure.html image="/pics/RosbotFollower/remoteSchematics.png" width="600" height="800" %}
+{% include figure.html image="/pics/13_human_following_robot/remoteSchematics.png" width="600" height="800" %}
 
 As a source of power you can use a Powerbank connected to the ESP.
 
@@ -106,7 +106,7 @@ There are two options available:
 
 After whole system is up and running stand in front of ROSbot, but not too far away. When you are detected blue LED on ESP should turn on. Then you can press first button (the one closer to ESP on schematics) and if you start walking robot should follow you. When LED turns off it means that algorithm lost detection of you and need to recalibrate (stand closer to robot and wait until blue LED is back on). If robot had false detection you can calibrate again by pressing second button. On RViz you can see visualization: scan from LiDAR, robot model and detections. Green spheres are all potential legs, blue cylinders are detected legs and red tall cylinder is human position. In version with Kalman filter we also publish circle around human, which shows how much estimated position differs from measurement.
 
-{% include figure.html image="/pics/RosbotFollower/rviz.png" width="600" height="800" %}
+{% include figure.html image="/pics/13_human_following_robot/rviz.png" width="600" height="800" %}
 
 ### Troubleshooting
 
