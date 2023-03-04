@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.0">Jekyll</generator><link href="http://localhost:5000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:5000/" rel="alternate" type="text/html" /><updated>2023-03-04T13:31:29+00:00</updated><id>http://localhost:5000/feed.xml</id><title type="html">Maciej Stępień</title><subtitle>Projects</subtitle><entry><title type="html">Roomac</title><link href="http://localhost:5000/robots/2022/10/20/roomac/" rel="alternate" type="text/html" title="Roomac" /><published>2022-10-20T00:00:00+00:00</published><updated>2022-10-20T00:00:00+00:00</updated><id>http://localhost:5000/robots/2022/10/20/roomac</id><content type="html" xml:base="http://localhost:5000/robots/2022/10/20/roomac/"><![CDATA[<p><a class="button" href="https://github.com/macorobots/roomac_ros" style="background: #0366d6">Github repository  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.0">Jekyll</generator><link href="http://localhost:5000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:5000/" rel="alternate" type="text/html" /><updated>2023-03-04T14:08:35+00:00</updated><id>http://localhost:5000/feed.xml</id><title type="html">Maciej Stępień</title><subtitle>Projects</subtitle><entry><title type="html">Roomac</title><link href="http://localhost:5000/robots/2022/10/20/roomac/" rel="alternate" type="text/html" title="Roomac" /><published>2022-10-20T00:00:00+00:00</published><updated>2022-10-20T00:00:00+00:00</updated><id>http://localhost:5000/robots/2022/10/20/roomac</id><content type="html" xml:base="http://localhost:5000/robots/2022/10/20/roomac/"><![CDATA[<p><a class="button" href="https://github.com/macorobots/roomac_ros" style="background: #0366d6">Github repository  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
 </a></p>
 
 <p>Roomac is a low-cost autonomous mobile manipulation robot that consists of a differential drive mobile base and a 5-DoF manipulator with a gripper. The costs of the whole construction summed up to around 550$ and using this platform I was able to create a proof-of-concept application - fetching a bottle to the user. This project was described in more detail in my <a href="https://raw.githubusercontent.com/macstepien/macstepien.github.io/master/files/masters_thesis_maciej_stepien.pdf">master’s thesis</a>.</p>
@@ -42,9 +42,8 @@
 <p>In this tutorial I describe one way to make robot detect and follow people - it won’t make a great spy but could be useful to carry luggage or groceries. Whole system was implemented on Husarion’s ROSbot 2 with ESP32 as a remote. To find people I used scans from LiDAR (RPLidar A2) with my leg detector, which is simple but turned out to be fast and quite reliable.
 <!-- I also checked other LiDAR approaches available on ROS - leg_detector and leg_tracker but in this case didn't perform well enough. Another package I tested is upper_body_detector, which uses RGBD camera to detect humans. As name suggests it needs to see upper part of body - this will be a problem if we want our robot to stay close, also in this case it didn't perform very well and was slower. --></p>
 
-<div class="embed-container">
-  <iframe width="720" height="405" src="https://drive.google.com/file/d/1jNWkf1M97UBEypOCILnGTzXXnH618SYN/preview" frameborder="0" allowfullscreen="">
-  </iframe>
+<div class="video">
+  <iframe src="https://www.youtube.com/embed/u0uAg5_CGms" frameborder="0" allowfullscreen="" title="ROSbot follower demo"></iframe>
 </div>
 
 <h2 id="setup">Setup</h2>
@@ -575,9 +574,8 @@ In order to implement Kalman filter I created Person class where human position 
 
 <p>The robot can be teleoperated using a web browser, it works quite well in rough terrain:</p>
 
-<div class="embed-container">
-  <iframe width="720" height="405" src="https://drive.google.com/file/d/1QSsrb819J34oQ7zTbSGpt-7YVE9Y9KgX/preview" frameborder="0" allowfullscreen="">
-  </iframe>
+<div class="video">
+  <iframe src="https://www.youtube.com/embed/aftyQMt_rrg" frameborder="0" allowfullscreen="" title="Tank demo"></iframe>
 </div>
 
 <p>Construction started with PCB:</p>
@@ -624,9 +622,8 @@ In order to implement Kalman filter I created Person class where human position 
 
 <p>In the robot construction 18 Hitec servos (3 for each leg) were used. Raspberry Pi 2 was the main brain of the robot, it controlled servos through the Pololu driver (using UART communication). 4000mAh LiPol battery allowed for around 1h work time, voltage converters were necessary (3 for servos and 1 for Raspberry). MCP3008 ADC was used to measure battery voltage, it sent current value using SPI to the Raspberry, which was later sent and displayed in the client application.</p>
 
-<div class="embed-container">
-  <iframe width="720" height="405" src="https://drive.google.com/file/d/1kR9fSGo-6mLM5SdvNPUtoAvgJeeI8Lu-/preview" frameborder="0" allowfullscreen="">
-  </iframe>
+<div class="video">
+  <iframe src="https://www.youtube.com/embed/64r3feQxPdw" frameborder="0" allowfullscreen="" title="Hexapod demo"></iframe>
 </div>
 
 <p>The robot can be controlled using a gamepad or keyboard connected to the laptop, which sends commands to the Raspberry using TCP and WiFi. Using a mathematical model of the robot, the control application calculates the position of the tip of the leg to achieve the desired movement. Then it is converted to joint angles using inverse kinematics, which are used to calculate PWM signals sent to servos.</p>
@@ -653,9 +650,8 @@ In order to implement Kalman filter I created Person class where human position 
 
 <p>In simulation mode camera can be controlled using keys  W/S/A/D/Q/E and alfa, beta and gamma bars (for changing camera angles). The robot can be controlled using w/s/a/d/q/e and numerical keys to choose a walking mode.</p>
 
-<div class="embed-container">
-  <iframe width="720" height="405" src="https://drive.google.com/file/d/1ixW05vog_nNaR9UR6ZqT5rZBkIWlBJeN/preview" frameborder="0" allowfullscreen="">
-  </iframe>
+<div class="video">
+  <iframe src="https://www.youtube.com/embed/GZeBIGUJX7w" frameborder="0" allowfullscreen="" title="Hexapod simulation demo"></iframe>
 </div>
 
 <h4 id="hexapod-connection-mode">Hexapod connection mode</h4>
@@ -795,9 +791,8 @@ These error values are quite low, which means that calibration was successful.</
 
 <p>To analyze the image and detect the ball I used the OpenCV library and the detection method as in the <a href="https://forbot.pl/blog/opencv-2-wykrywanie-obiektow-id4888">https://forbot.pl/blog/opencv-2-wykrywanie-obiektow-id4888</a></p>
 
-<div class="embed-container">
-  <iframe width="720" height="405" src="https://drive.google.com/file/d/1Ifl4nigfpzm73YRJDlyJJY3RQRywG9NQ/preview" frameborder="0" allowfullscreen="">
-  </iframe>
+<div class="video">
+  <iframe src="https://www.youtube.com/embed/R8JSr6QHfQk" frameborder="0" allowfullscreen="" title="Luminous ball demo"></iframe>
 </div>
 
 <p><a class="button" href="https://github.com/macstepien/LightOrb" style="background: #0366d6">Github repository  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
@@ -839,6 +834,10 @@ and
 
 <p>Then I made a larger coil, in which I used 4 transistors and an additional heat sink to ensure adequate cooling. I used a power supply from a printer as a power source.</p>]]></content><author><name></name></author><category term="Electronics" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Mapping robot</title><link href="http://localhost:5000/robots/2015/08/25/mapping-robot/" rel="alternate" type="text/html" title="Mapping robot" /><published>2015-08-25T00:00:00+00:00</published><updated>2015-08-25T00:00:00+00:00</updated><id>http://localhost:5000/robots/2015/08/25/mapping-robot</id><content type="html" xml:base="http://localhost:5000/robots/2015/08/25/mapping-robot/"><![CDATA[<p>Robot that drives around and creates a map of the environment.</p>
 
+<div class="video">
+  <iframe src="https://www.youtube.com/embed/iwo5ig7E9Z4" frameborder="0" allowfullscreen="" title="Mapping robot mapping demo"></iframe>
+</div>
+
 <figure class="figure  figure--center">
   <img class="image" src="/pics/7_mapping_robot/front.jpg" alt="" width="600" height="800" />
   
@@ -856,9 +855,8 @@ and
 <p><a class="button" href="https://github.com/macstepien/MappingRobotPID" style="background: #0366d6">PID Github repository  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
 </a></p>
 
-<div class="embed-container">
-  <iframe width="720" height="405" src="https://drive.google.com/file/d/1SI5PMQt-zXZ0vf6xvoXPK_p1-t72E7ty/preview" frameborder="0" allowfullscreen="">
-  </iframe>
+<div class="video">
+  <iframe src="https://www.youtube.com/embed/W4FkBKJvG38" frameborder="0" allowfullscreen="" title="Mapping robot PID demo"></iframe>
 </div>
 
 <p>To create a map of the environment first it was necessary to remove floor points from data from Kinect. I tested two approaches - fitting the plane using the RANSAC algorithm and the UV-disparity method (which required lower computational load - instead of plane line was fitted).</p>
@@ -876,11 +874,6 @@ and
 
 <p><a class="button" href="https://github.com/macstepien/MappingRobotKinect" style="background: #0366d6">Kinect Mapping Github repository  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
 </a></p>
-
-<div class="embed-container">
-  <iframe width="720" height="405" src="https://drive.google.com/file/d/11cBjTDrB67s6sojRpdoVRc-anlgDSwj5/preview" frameborder="0" allowfullscreen="">
-  </iframe>
-</div>
 
 <p><a class="button" href="https://github.com/macstepien/MappingRobotStereovision" style="background: #0366d6">Stereo Vision Mapping Github repository  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
 </a></p>

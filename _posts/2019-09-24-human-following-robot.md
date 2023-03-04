@@ -13,7 +13,7 @@ excerpt: |
 In this tutorial I describe one way to make robot detect and follow people - it won't make a great spy but could be useful to carry luggage or groceries. Whole system was implemented on Husarion's ROSbot 2 with ESP32 as a remote. To find people I used scans from LiDAR (RPLidar A2) with my leg detector, which is simple but turned out to be fast and quite reliable.
 <!-- I also checked other LiDAR approaches available on ROS - leg_detector and leg_tracker but in this case didn't perform well enough. Another package I tested is upper_body_detector, which uses RGBD camera to detect humans. As name suggests it needs to see upper part of body - this will be a problem if we want our robot to stay close, also in this case it didn't perform very well and was slower. -->
 
-{% include googleDrivePlayer.html id="1jNWkf1M97UBEypOCILnGTzXXnH618SYN/preview" %}
+{% include video.html id="u0uAg5_CGms" title="ROSbot follower demo" %}
 
 ## Setup
 

@@ -10,6 +10,7 @@ excerpt: |
 
 Robot that drives around and creates a map of the environment.
 
+{% include video.html id="iwo5ig7E9Z4" title="Mapping robot mapping demo" %}
 {% include figure.html image="/pics/7_mapping_robot/front.jpg" width="600" height="800" %}
 
 This robot was a simplified version of a previously created general-purpose robot. In this construction I simplified requirements and focused only on mapping and navigation. Instead of stereo vision I decided to use a Kinect sensor because results achieved previously with only cameras weren't satisfactory. I also added custom-made wheel encoders based on optocouplers and black and white patterns on wheels.
@@ -20,7 +21,7 @@ On this robot I implemented a PID controller for driving up to the point:
 
 {% include button.html text="PID Github repository" icon="github" link="https://github.com/macstepien/MappingRobotPID" color="#0366d6" %}
 
-{% include googleDrivePlayer.html id="1SI5PMQt-zXZ0vf6xvoXPK_p1-t72E7ty/preview" %}
+{% include video.html id="W4FkBKJvG38" title="Mapping robot PID demo" %}
 
 To create a map of the environment first it was necessary to remove floor points from data from Kinect. I tested two approaches - fitting the plane using the RANSAC algorithm and the UV-disparity method (which required lower computational load - instead of plane line was fitted).
 
@@ -30,8 +31,6 @@ Then obstacle points were projected onto grid map, robot position was calculated
 {% include figure.html image="/pics/7_mapping_robot/map.jpg" width="500" height="800" %}
 
 {% include button.html text="Kinect Mapping Github repository" icon="github" link="https://github.com/macstepien/MappingRobotKinect" color="#0366d6" %}
-
-{% include googleDrivePlayer.html id="11cBjTDrB67s6sojRpdoVRc-anlgDSwj5/preview" %}
 
 {% include button.html text="Stereo Vision Mapping Github repository" icon="github" link="https://github.com/macstepien/MappingRobotStereovision" color="#0366d6" %}
 
