@@ -202,6 +202,11 @@
 
 <h2 id="robot-control">Robot control</h2>
 
+<p><a class="button" href="https://github.com/macstepien/HexapodPC" style="background: #0366d6">PC Client Application Github repository  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
+</a>
+<a class="button" href="https://github.com/macstepien/HexapodRaspberry" style="background: #0366d6">Raspberry Application Github repository  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
+</a></p>
+
 <p>Application run on laptop includes robot model and sents user commands over to Raspberry Pi mounted on the robot. They are then converted into PWM signals used for servo control. The current battery voltage is sent back from Raspberry to the client application.</p>
 
 <p>A separate application is used for stereo vision. Using GStreamer image streams from both cameras are sent from Raspberry to the main application run on a laptop. Then they are processed and disparity image is calculated, which is later used to get information about the distance to obstacles nearby.</p>
@@ -243,13 +248,10 @@
 
 <p>The TCP module is responsible for communication between Raspberry and the client application. It was based on <a href="https://github.com/vichargrave/tcpsockets" title="3">3</a>. Battery voltage is read on the Raspberry (in a separate thread) and sent on port 8081, which is later read by the client application and shown on the screen. On port 8080 client application sends control commands to the Raspberry.</p>
 
-<p><a class="button" href="https://github.com/macstepien/HexapodPC" style="background: #0366d6">Client application  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
-</a></p>
-
-<p><a class="button" href="https://github.com/macstepien/HexapodRaspberry" style="background: #0366d6">Raspberry application  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
-</a></p>
-
 <h2 id="stereo-vision">Stereo vision</h2>
+
+<p><a class="button" href="https://github.com/macstepien/HexapodStereovision" style="background: #0366d6">Stereo Vision Github repository  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
+</a></p>
 
 <h3 id="calibration-images">Calibration images</h3>
 
@@ -319,9 +321,6 @@ These error values are quite low, which means that calibration was successful.</
 <p>The final application combined all the elements described above - video stream from cameras connected to Raspberry was sent to the laptop, then images were rectified, pixels matched using SGBM, disparity image calculated and then filtered. Finally disparity was displayed on the screen, as the next step it should be used to calculate the point cloud, which then could be used for obstacle detection.</p>
 
 <p>Getting satisfactory video transmission wasn’t that easy. In the first approach MJPGstreamer was used, but the results weren’t too good - all frames were buffered and as it wasn’t possible to send them in real-time, the delay between registering the image and analyzing it using stereo vision was increasing. Additionally images from two cameras weren’t synchronized. So instead I used GStreamer, which was more tricky to set up, but the results were much better. The resolution of sent images was 320x240 (for 640x480 FPS was too low).</p>
-
-<p><a class="button" href="https://github.com/macstepien/HexapodStereovision" style="background: #0366d6">Stereo vision  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
-</a></p>
 
 <h3 id="achievements">Achievements</h3>
 
