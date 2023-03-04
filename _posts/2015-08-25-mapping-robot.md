@@ -18,7 +18,7 @@ This robot was a simplified version of a previously created general-purpose robo
 
 On this robot I implemented a PID controller for driving up to the point:
 
-{% include button.html text="PID" icon="github" link="https://github.com/macstepien/MappingRobotPID" color="#0366d6" %}
+{% include button.html text="PID Github repository" icon="github" link="https://github.com/macstepien/MappingRobotPID" color="#0366d6" %}
 
 {% include googleDrivePlayer.html id="1SI5PMQt-zXZ0vf6xvoXPK_p1-t72E7ty/preview" %}
 
@@ -29,11 +29,11 @@ To create a map of the environment first it was necessary to remove floor points
 Then obstacle points were projected onto grid map, robot position was calculated using wheel encoders.
 {% include figure.html image="/pics/7_mapping_robot/map.jpg" width="500" height="800" %}
 
-{% include button.html text="Kinect mapping" icon="github" link="https://github.com/macstepien/MappingRobotKinect" color="#0366d6" %}
+{% include button.html text="Kinect Mapping Github repository" icon="github" link="https://github.com/macstepien/MappingRobotKinect" color="#0366d6" %}
 
 {% include googleDrivePlayer.html id="11cBjTDrB67s6sojRpdoVRc-anlgDSwj5/preview" %}
 
-{% include button.html text="Stereo vision mapping" icon="github" link="https://github.com/macstepien/MappingRobotStereovision" color="#0366d6" %}
+{% include button.html text="Stereo Vision Mapping Github repository" icon="github" link="https://github.com/macstepien/MappingRobotStereovision" color="#0366d6" %}
 
 I also tried to run a SLAM algorithm to correct errors from encoders but wasn't able to run any available implementation on Windows (which I was using at that time).
 
@@ -41,4 +41,4 @@ I also tried to run a SLAM algorithm to correct errors from encoders but wasn't 
 
 To control the robot I used an Atmega88Pa microcontroller, which was connected using a USB-UART converter to the computer. It controlled motors (continuous rotation servos) and measured optocouplers voltage to detect wheel rotations. Additionally, I used an infrared proximity sensor. As a power source, I used a 6V gel battery, voltage on battery was measured and monitored by MCU. A 12V Step-Up voltage converter was used to power Kinect. 
 
-{% include button.html text="Mapping robot controller" icon="github" link="https://github.com/macstepien/MappingRobotControler" color="#0366d6" %}
+{% include button.html text="Mapping Robot Controller Github repository" icon="github" link="https://github.com/macstepien/MappingRobotControler" color="#0366d6" %}
