@@ -53,8 +53,3 @@ navigation_footer:
 collections:
   posts:
     title: Projects
-
-jekyll_analytics:
-  GoogleAnalytics: # Add, if you want to track with Google Analytics
-    id: UA-138286459-1 # Required - replace with your tracking id
-    anonymizeIp: true # Optional - Default: false - set to true for anonymized tracking
