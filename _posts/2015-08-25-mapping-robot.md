@@ -4,8 +4,9 @@ title: Mapping robot
 categories:
   - Robots
 excerpt: |
-  Robot that drives around and creates a map of the environment.
+  Robot with place for laptop and Kinect 360, which purpose was reasearching variuous mapping and navigation techinques. 
   <center><img width="600" src="/pics/7_mapping_robot/mapping_robot_compressed.jpg"></center>
+  <br>
 ---
 
 Robot that drives around and creates a map of the environment.

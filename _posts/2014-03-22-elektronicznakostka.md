@@ -4,7 +4,9 @@ title: Electronic dice
 categories:
   - Electronics
 excerpt: |
+  555 timer based LED dice
   <center><img width="600" src="/pics/4_electronic_dice/electronic_dice_compressed.jpg"></center>
+  <br>
 ---
 
 Electronic dice based on the example from the book "Electronics. From practice to theory"

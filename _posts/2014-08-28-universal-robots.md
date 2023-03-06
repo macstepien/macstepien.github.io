@@ -4,7 +4,9 @@ title: General-purpose robot
 categories:
   - Robots
 excerpt: |
-  <center><img width="300" src="/pics/5_general_purpose_robot/robot_compressed.jpg"></center>
+  My first attempt at creating a general-purpose robot, consisted of 11 servos, 2 motors and Stereo vision set for navigation.
+  <center><img width="250" src="/pics/5_general_purpose_robot/robot_compressed.jpg"></center>
+  <br>
 ---
 
 It was my first attempt at creating a general-purpose robot. Due to the low budget, it was supposed to be only a scaled version, without many real capabilities, only a proof-of-concept. 

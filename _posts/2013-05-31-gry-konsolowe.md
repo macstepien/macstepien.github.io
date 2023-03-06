@@ -4,8 +4,9 @@ title: Command line games
 categories:
   - Software
 excerpt: |
-  Tic-tac-toe, Snake and Pong
+  Tic-tac-toe, Snake and Pong games created in C++
   <center><img width="600" src="/pics/1_command_line_games/snake_pong.png"></center>
+  <br>
 ---
 
 All games were created in C++ as part of the IT project in Middle School.
