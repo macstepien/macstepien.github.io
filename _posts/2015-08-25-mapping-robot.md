@@ -4,7 +4,7 @@ title: Mapping robot
 categories:
   - Robots
 excerpt: |
-  Robot with place for laptop and Kinect 360, which purpose was reasearching variuous mapping and navigation techinques. 
+  Mobile robot with Kinect 360 and place for laptop, used for testing various mapping and navigation techniques 
   <center><img width="600" src="/pics/7_mapping_robot/mapping_robot_compressed.jpg"></center>
   <br>
 ---

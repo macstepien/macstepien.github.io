@@ -4,7 +4,7 @@ title: Self-Driving Car Engineer ND
 categories:
   - Software
 excerpt: |
-  Projects from Udacity Self-Driving Car Engineer Nanodegree that I completed during my work in the Formula Student team.
+  Projects from Udacity Self-Driving Car Engineer Nanodegree that I completed during my work in the Formula Student team
   <center><img width="600" src="/pics/15_selfdriving_car_eng/selfdrving_car_eng.jpg"></center>
   <br>
 ---

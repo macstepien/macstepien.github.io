@@ -4,7 +4,7 @@ title: Electronic dice
 categories:
   - Electronics
 excerpt: |
-  555 timer based LED dice
+  LED dice based on 555 timer
   <center><img width="600" src="/pics/4_electronic_dice/electronic_dice_compressed.jpg"></center>
   <br>
 ---

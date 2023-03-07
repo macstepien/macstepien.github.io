@@ -4,7 +4,7 @@ title: Human following robot
 categories:
   - Robots
 excerpt: |
-  Lidar-based legs detection and tracking and people following implemented on Husarion's ROSbot 2.
+  Lidar-based legs detection and human following implemented on Husarion's ROSbot 2
   <center><img width="600" src="/pics/13_human_following_robot/rosbot_follower.png"></center>
   <br>
 ---

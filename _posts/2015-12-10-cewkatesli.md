@@ -4,7 +4,7 @@ title: Tesla coil
 categories:
   - Electronics
 excerpt: |
-  Transistor based with hand winded coil
+  Hand-winded tesla coil with transistor-based controller 
   <center><img width="600" src="/pics/8_tesla_coil/wieksza_compressed.jpg"></center>
   <br>
 ---
