@@ -14,15 +14,15 @@
 <meta name="generator" content="Jekyll v4.3.0" />
 <meta property="og:title" content="Roomac" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The affordable general-purpose robot that I built from scratch. Using it I implemented fetching bottle application." />
-<meta property="og:description" content="The affordable general-purpose robot that I built from scratch. Using it I implemented fetching bottle application." />
+<meta name="description" content="Affordable general-purpose personal robot capable of autonomously fetching objects" />
+<meta property="og:description" content="Affordable general-purpose personal robot capable of autonomously fetching objects" />
 <link rel="canonical" href="http://localhost:5000/robots/2022/10/20/roomac/" />
 <meta property="og:url" content="http://localhost:5000/robots/2022/10/20/roomac/" />
 <meta property="og:site_name" content="Maciej Stępień" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-10-20T00:00:00+00:00" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:5000/pics/logo1.png"}},"description":"The affordable general-purpose robot that I built from scratch. Using it I implemented fetching bottle application.","@type":"BlogPosting","headline":"Roomac","dateModified":"2022-10-20T00:00:00+00:00","datePublished":"2022-10-20T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:5000/robots/2022/10/20/roomac/"},"url":"http://localhost:5000/robots/2022/10/20/roomac/","@context":"https://schema.org"}</script>
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:5000/pics/logo1.png"}},"description":"Affordable general-purpose personal robot capable of autonomously fetching objects","@type":"BlogPosting","headline":"Roomac","dateModified":"2022-10-20T00:00:00+00:00","datePublished":"2022-10-20T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:5000/robots/2022/10/20/roomac/"},"url":"http://localhost:5000/robots/2022/10/20/roomac/","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     
@@ -182,21 +182,29 @@
     <p><a class="button" href="https://github.com/macorobots/roomac_ros" style="background: #0366d6">Github repository  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
 </a></p>
 
-<p>Roomac is a low-cost autonomous mobile manipulation robot that consists of a differential drive mobile base and a 5-DoF manipulator with a gripper. The costs of the whole construction summed up to around 550$ and using this platform I was able to create a proof-of-concept application - fetching a bottle to the user. This project was described in more detail in my <a href="https://raw.githubusercontent.com/macstepien/macstepien.github.io/master/files/masters_thesis_maciej_stepien.pdf">master’s thesis</a>.</p>
+<p>Roomac is a low-cost autonomous general-purpose robot that consists of a differential drive mobile base and a 5-DoF manipulator with a gripper. The costs of the whole construction summed up to around 550$ and using this platform I was able to create a proof-of-concept application - fetching a bottle to the user. This project was described in more detail in my <a href="https://raw.githubusercontent.com/macstepien/macstepien.github.io/master/files/masters_thesis_maciej_stepien.pdf">master’s thesis</a>.</p>
 
 <div class="video">
-  <iframe src="https://www.youtube.com/embed/toHzFQhAP44" frameborder="0" allowfullscreen="" title="roomac autonomously fetching bottle demo"></iframe>
+  <iframe src="https://www.youtube.com/embed/toHzFQhAP44" frameborder="0" allowfullscreen="" title="Roomac autonomously fetching bottle demo"></iframe>
 </div>
 
-<p>Software is based on ROS Melodic, I used many ROS packages, some of them are RTABMap, move_base (with TEB as a local planner), robot_localization, MoveIt with BioIKKinematics (robot’s arm has 5DoF and only with BioIK I was able to achieve desired positions), ar_track_alvar.</p>
+<p>The robot was designed in Fusion 360, most of the construction was 3D printed. The base consists of DC drill motors, encoders, IMU and STM32BluePill MCU. In the manipulator there are 6 servos: 3 XYZrobot A1-16 and 3 cheaper TowerPro (MG996R and 2xSG-92R) which are controlled by the second STM32BluePill. To detect obstacles and create a map of the environment I used Kinect (the one from Xbox360). The second Kinect was mounted above the table and it is used for the manipulation (robot’s position is detected using ARTags). Navigation computations are run on the laptop placed in the base of the robot.</p>
 
-<p>Working with cheap components was quite a challenge and I’m still amazed that it was possible to configure TEB to smoothly control the drill motors that I used in the base. Overall I worked on this project alone, and it is awesome, what is possible to achieve using ROS, even without a large budget.</p>
+<figure class="figure  figure--center">
+  <img class="image" src="/pics/16_roomac/frame_design.png" alt="Robot without panels in Fusion 360" width="400" height="" />
+  <figcaption class="caption">Robot without panels in Fusion 360</figcaption>
+</figure>
 
-<p>Most of the construction was 3D printed, the base consists of DC drill motors, encoders, IMU and STM32BluePill MCU. In the manipulator there are 6 servos: 3 XYZrobot A1-16 and 3 cheaper TowerPro (MG996R and 2xSG-92R) which are controlled by the second STM32BluePill. To detect obstacles and create a map of the environment I used Kinect (the one from Xbox360). The second Kinect is mounted above the table and it is used for the manipulation (robot’s position is detected using ARTags). Navigation computations are run on the laptop placed in the base of the robot.</p>
+<p>Software is based on ROS Melodic, I used many ROS packages, some of them are <a href="http://introlab.github.io/rtabmap/">RTABMap</a>, <a href="http://wiki.ros.org/move_base">move base</a> (with <a href="http://wiki.ros.org/teb_local_planner">TEB</a> as a local planner), <a href="http://docs.ros.org/en/noetic/api/robot_localization/html/index.html">robot localization</a>, <a href="https://moveit.ros.org/">MoveIt</a> with <a href="https://github.com/TAMS-Group/bio_ik.git">BioIKKinematics</a> (robot’s arm has 5DoF and only with BioIK I was able to achieve desired positions), <a href="http://wiki.ros.org/ar_track_alvar">ARTrackAlvar</a>. Working with cheap mechanical components was quite challenging control-wise, but in the end, I was able to achieve smooth performance.</p>
 
-<p>If you’re interested in this project, you can check out the Github repository 38 and my master’s thesis 17, which describes it in much more detail.</p>
+<figure class="figure  figure--center">
+  <img class="image" src="/pics/16_roomac/roomac_simulation.gif" alt="Simulation in Gazebo" width="400" height="" />
+  <figcaption class="caption">Simulation in Gazebo</figcaption>
+</figure>
 
-<p>Apart from construction I also created a simulation of the robot in the Gazebo. There is a docker image with it, so executing the demo is really easy (basically you only need to copy and paste two commands). For further details please refer to the instruction in the README on Github, hope you like it!</p>
+<p>Apart from construction I also created a simulation of the robot in the Gazebo. There is a docker image with it, so executing the demo is really easy (basically you only need to copy and paste two commands). For further details please refer to the instruction in the README on Github.</p>
+
+<p><a class="button" href="https://hub.docker.com/r/macorobots/roomac" style="background: #03befc">Dockerhub repository</a></p>
 
 
     <div class="share">
