@@ -14,15 +14,15 @@
 <meta name="generator" content="Jekyll v4.3.0" />
 <meta property="og:title" content="Human following robot" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Every move you make | Every step you take | I’ll follow you" />
-<meta property="og:description" content="Every move you make | Every step you take | I’ll follow you" />
-<link rel="canonical" href="http://localhost:4000/robots/2019/09/24/human-following-robot/" />
-<meta property="og:url" content="http://localhost:4000/robots/2019/09/24/human-following-robot/" />
+<meta name="description" content="Lidar-based legs detection and human following implemented on Husarion’s ROSbot 2" />
+<meta property="og:description" content="Lidar-based legs detection and human following implemented on Husarion’s ROSbot 2" />
+<link rel="canonical" href="http://localhost:5000/robots/2019/09/24/human-following-robot/" />
+<meta property="og:url" content="http://localhost:5000/robots/2019/09/24/human-following-robot/" />
 <meta property="og:site_name" content="Maciej Stępień" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-09-24T00:00:00+02:00" />
+<meta property="article:published_time" content="2019-09-24T00:00:00+00:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/pics/logo1.png"}},"headline":"Human following robot","dateModified":"2019-09-24T00:00:00+02:00","datePublished":"2019-09-24T00:00:00+02:00","url":"http://localhost:4000/robots/2019/09/24/human-following-robot/","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/robots/2019/09/24/human-following-robot/"},"description":"Every move you make | Every step you take | I’ll follow you","@context":"https://schema.org"}</script>
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:5000/pics/logo1.png"}},"description":"Lidar-based legs detection and human following implemented on Husarion’s ROSbot 2","@type":"BlogPosting","headline":"Human following robot","dateModified":"2019-09-24T00:00:00+00:00","datePublished":"2019-09-24T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:5000/robots/2019/09/24/human-following-robot/"},"url":"http://localhost:5000/robots/2019/09/24/human-following-robot/","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     
@@ -176,14 +176,17 @@
     
       <span class="label  label--category"><a href="/categories/#robots">Robots</a></span>
     
-  &nbsp;&middot;&nbsp;<time datetime="2019-09-24T00:00:00+02:00" class="time">24 Sep 2019</time>
+  &nbsp;&middot;&nbsp;<time datetime="2019-09-24T00:00:00+00:00" class="time">24 Sep 2019</time>
 </small>
 
-    <p>In this tutorial I describe one way to make robot detect and follow people - it won’t make a great spy but could be useful to carry luggage or groceries. Whole system was implemented on Husarion’s ROSbot with ESP32 as a remote. To find people I used scans from LiDAR (RPLidar A2) with my detector, which is simple but turned out to be fast and quite reliable. I also checked other LiDAR approaches available on ROS - leg_detector and leg_tracker but in this case didn’t perform well enough. Another package I tested is upper_body_detector, which uses RGBD camera to detect humans. As name suggests it needs to see upper part of body - this will be a problem if we want our robot to stay close, also in this case it didn’t perform very well and was slower.</p>
+    <p><a class="button" href="https://github.com/macstepien/rosbot_follower" style="background: #0366d6">Github repository  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
+</a></p>
 
-<div class="embed-container">
-  <iframe width="720" height="405" src="https://drive.google.com/file/d/1jNWkf1M97UBEypOCILnGTzXXnH618SYN/preview" frameborder="0" allowfullscreen="">
-  </iframe>
+<p>In this tutorial I describe one way to make robot detect and follow people - it won’t make a great spy but could be useful to carry luggage or groceries. Whole system was implemented on Husarion’s ROSbot 2 with ESP32 as a remote. To find people I used scans from LiDAR (RPLidar A2) with my leg detector, which is simple but turned out to be fast and quite reliable.
+<!-- I also checked other LiDAR approaches available on ROS - leg_detector and leg_tracker but in this case didn't perform well enough. Another package I tested is upper_body_detector, which uses RGBD camera to detect humans. As name suggests it needs to see upper part of body - this will be a problem if we want our robot to stay close, also in this case it didn't perform very well and was slower. --></p>
+
+<div class="video">
+  <iframe src="https://www.youtube.com/embed/u0uAg5_CGms" frameborder="0" allowfullscreen="" title="ROSbot follower demo"></iframe>
 </div>
 
 <h2 id="setup">Setup</h2>
@@ -206,7 +209,7 @@
 <p>Wire your ESP32 accordingly to schematics:</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/RosbotFollower/remoteSchematics.png" alt="" width="600" height="800" />
+  <img class="image" src="/pics/13_human_following_robot/remoteSchematics.png" alt="" width="600" height="800" />
   
 </figure>
 
@@ -281,7 +284,7 @@ Roslaunch command:
 <p>After whole system is up and running stand in front of ROSbot, but not too far away. When you are detected blue LED on ESP should turn on. Then you can press first button (the one closer to ESP on schematics) and if you start walking robot should follow you. When LED turns off it means that algorithm lost detection of you and need to recalibrate (stand closer to robot and wait until blue LED is back on). If robot had false detection you can calibrate again by pressing second button. On RViz you can see visualization: scan from LiDAR, robot model and detections. Green spheres are all potential legs, blue cylinders are detected legs and red tall cylinder is human position. In version with Kalman filter we also publish circle around human, which shows how much estimated position differs from measurement.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/RosbotFollower/rviz.png" alt="" width="600" height="800" />
+  <img class="image" src="/pics/13_human_following_robot/rviz.png" alt="" width="600" height="800" />
   
 </figure>
 
@@ -722,7 +725,7 @@ In order to implement Kalman filter I created Person class where human position 
 <footer class="footer">
   <div class="container">
     <div class="copyright  typeset">
-      <small class="small">&copy; Maciej Stępień 2022</small>
+      <small class="small">&copy; Maciej Stępień 2023</small>
     </div>
 
     

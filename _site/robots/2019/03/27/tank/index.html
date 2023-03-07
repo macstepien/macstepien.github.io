@@ -14,15 +14,15 @@
 <meta name="generator" content="Jekyll v4.3.0" />
 <meta property="og:title" content="Tank" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Projects" />
-<meta property="og:description" content="Projects" />
-<link rel="canonical" href="http://localhost:4000/robots/2019/03/27/tank/" />
-<meta property="og:url" content="http://localhost:4000/robots/2019/03/27/tank/" />
+<meta name="description" content="3D printed remotely controlled inspection robot" />
+<meta property="og:description" content="3D printed remotely controlled inspection robot" />
+<link rel="canonical" href="http://localhost:5000/robots/2019/03/27/tank/" />
+<meta property="og:url" content="http://localhost:5000/robots/2019/03/27/tank/" />
 <meta property="og:site_name" content="Maciej Stępień" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-03-27T00:00:00+01:00" />
+<meta property="article:published_time" content="2019-03-27T00:00:00+00:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/pics/logo1.png"}},"headline":"Tank","dateModified":"2019-03-27T00:00:00+01:00","datePublished":"2019-03-27T00:00:00+01:00","url":"http://localhost:4000/robots/2019/03/27/tank/","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/robots/2019/03/27/tank/"},"description":"Projects","@context":"https://schema.org"}</script>
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:5000/pics/logo1.png"}},"description":"3D printed remotely controlled inspection robot","@type":"BlogPosting","headline":"Tank","dateModified":"2019-03-27T00:00:00+00:00","datePublished":"2019-03-27T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:5000/robots/2019/03/27/tank/"},"url":"http://localhost:5000/robots/2019/03/27/tank/","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     
@@ -176,26 +176,28 @@
     
       <span class="label  label--category"><a href="/categories/#robots">Robots</a></span>
     
-  &nbsp;&middot;&nbsp;<time datetime="2019-03-27T00:00:00+01:00" class="time">27 Mar 2019</time>
+  &nbsp;&middot;&nbsp;<time datetime="2019-03-27T00:00:00+00:00" class="time">27 Mar 2019</time>
 </small>
 
-    <p>General-purpose mobile robot based on Raspberry Pi Zero.</p>
+    <p><a class="button" href="https://github.com/macstepien/Tank" style="background: #0366d6">Github repository  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
+</a></p>
+
+<p>Remotely controlled inspection robot based on Raspberry Pi Zero.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Czolg/front.jpg" alt="" width="600" height="800" />
+  <img class="image" src="/pics/12_tank/front.jpg" alt="" width="600" height="800" />
   
 </figure>
 
 <p>The robot can be teleoperated using a web browser, it works quite well in rough terrain:</p>
 
-<div class="embed-container">
-  <iframe width="720" height="405" src="https://drive.google.com/file/d/1QSsrb819J34oQ7zTbSGpt-7YVE9Y9KgX/preview" frameborder="0" allowfullscreen="">
-  </iframe>
+<div class="video">
+  <iframe src="https://www.youtube.com/embed/aftyQMt_rrg" frameborder="0" allowfullscreen="" title="Tank demo"></iframe>
 </div>
 
 <p>Construction started with PCB:</p>
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Czolg/pierwotna.jpg" alt="PCB with connected components" width="600" height="800" />
+  <img class="image" src="/pics/12_tank/pierwotna.jpg" alt="PCB with connected components" width="600" height="800" />
   <figcaption class="caption">PCB with connected components</figcaption>
 </figure>
 
@@ -209,14 +211,14 @@
 </ul>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Czolg/testowanie.jpg" alt="Prototyping PCB" width="600" height="800" />
+  <img class="image" src="/pics/12_tank/testowanie.jpg" alt="Prototyping PCB" width="600" height="800" />
   <figcaption class="caption">Prototyping PCB</figcaption>
 </figure>
 
 <p>As a power source I used a LiPol battery that was connected to 2 voltage converters: one for the microcontroller and one for servos.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Czolg/plytkawobudowie.jpg" alt="" width="600" height="800" />
+  <img class="image" src="/pics/12_tank/plytkawobudowie.jpg" alt="" width="600" height="800" />
   
 </figure>
 
@@ -224,14 +226,11 @@
 <a href="https://www.thingiverse.com/thing:652851" title="Construction">https://www.thingiverse.com/thing:652851</a></p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Czolg/plytka.jpg" alt="PCB" width="600" height="800" />
+  <img class="image" src="/pics/12_tank/plytka.jpg" alt="PCB" width="600" height="800" />
   <figcaption class="caption">PCB</figcaption>
 </figure>
 
 <p>The robot was controlled through a web browser, I used <a href="https://hackaday.io/project/25092-zerobot-raspberry-pi-zero-fpv-robot/log/97988-the-new-zerobot-pro" title="Code">https://hackaday.io/project/25092-zerobot-raspberry-pi-zero-fpv-robot/log/97988-the-new-zerobot-pro</a>, modified to work with my SPI communication.</p>
-
-<p><a class="button" href="https://github.com/macstepien/Tank" style="background: #0366d6">Tank  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
-</a></p>
 
 
     <div class="share">
@@ -251,7 +250,7 @@
 <footer class="footer">
   <div class="container">
     <div class="copyright  typeset">
-      <small class="small">&copy; Maciej Stępień 2022</small>
+      <small class="small">&copy; Maciej Stępień 2023</small>
     </div>
 
     

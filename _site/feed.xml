@@ -1,15 +1,61 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-12-11T19:38:37+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Maciej Stępień</title><subtitle>Projects</subtitle><entry><title type="html">Roomac</title><link href="http://localhost:4000/robots/2022/10/20/roomac/" rel="alternate" type="text/html" title="Roomac" /><published>2022-10-20T00:00:00+02:00</published><updated>2022-10-20T00:00:00+02:00</updated><id>http://localhost:4000/robots/2022/10/20/roomac</id><content type="html" xml:base="http://localhost:4000/robots/2022/10/20/roomac/"><![CDATA[<p>Roomac is a low-cost autonomous mobile manipulation robot that consists of a differential drive mobile base and a 5-DoF manipulator with a gripper. The costs of the whole construction summed up to around 550$ and using this platform I was able to prepare a proof-of-concept application - fetching a bottle to the user. This project was described in detail in my <a href="https://raw.githubusercontent.com/macstepien/macstepien.github.io/master/files/masters_thesis_maciej_stepien.pdf">master’s thesis</a>.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.0">Jekyll</generator><link href="http://localhost:5000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:5000/" rel="alternate" type="text/html" /><updated>2023-03-07T23:31:28+00:00</updated><id>http://localhost:5000/feed.xml</id><title type="html">Maciej Stępień</title><subtitle>Projects</subtitle><entry><title type="html">Roomac</title><link href="http://localhost:5000/robots/2022/10/20/roomac/" rel="alternate" type="text/html" title="Roomac" /><published>2022-10-20T00:00:00+00:00</published><updated>2022-10-20T00:00:00+00:00</updated><id>http://localhost:5000/robots/2022/10/20/roomac</id><content type="html" xml:base="http://localhost:5000/robots/2022/10/20/roomac/"><![CDATA[<p><a class="button" href="https://github.com/macorobots/roomac_ros" style="background: #0366d6">Github repository  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
+</a></p>
+
+<p>Roomac is a low-cost autonomous general-purpose robot that consists of a differential drive mobile base and a 5-DoF manipulator with a gripper. The costs of the whole construction summed up to around 550$ and using this platform I was able to create a proof-of-concept application - fetching a bottle to the user. This project was described in more detail in my <a href="https://raw.githubusercontent.com/macstepien/macstepien.github.io/master/files/masters_thesis_maciej_stepien.pdf">master’s thesis</a>.</p>
 
 <div class="video">
-  <iframe src="https://www.youtube.com/embed/toHzFQhAP44" frameborder="0" allowfullscreen="" title="roomac autonomously fetching bottle demo"></iframe>
+  <iframe src="https://www.youtube.com/embed/toHzFQhAP44" frameborder="0" allowfullscreen="" title="Roomac autonomously fetching bottle demo"></iframe>
 </div>
 
-<p><a class="button" href="https://github.com/macorobots/roomac_ros" style="background: #0366d6">roomac_ros  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
-</a></p>]]></content><author><name></name></author><category term="Robots" /><summary type="html"><![CDATA[Affordable autonomous mobile manipulation robot]]></summary></entry><entry><title type="html">Human following robot</title><link href="http://localhost:4000/robots/2019/09/24/human-following-robot/" rel="alternate" type="text/html" title="Human following robot" /><published>2019-09-24T00:00:00+02:00</published><updated>2019-09-24T00:00:00+02:00</updated><id>http://localhost:4000/robots/2019/09/24/human-following-robot</id><content type="html" xml:base="http://localhost:4000/robots/2019/09/24/human-following-robot/"><![CDATA[<p>In this tutorial I describe one way to make robot detect and follow people - it won’t make a great spy but could be useful to carry luggage or groceries. Whole system was implemented on Husarion’s ROSbot with ESP32 as a remote. To find people I used scans from LiDAR (RPLidar A2) with my detector, which is simple but turned out to be fast and quite reliable. I also checked other LiDAR approaches available on ROS - leg_detector and leg_tracker but in this case didn’t perform well enough. Another package I tested is upper_body_detector, which uses RGBD camera to detect humans. As name suggests it needs to see upper part of body - this will be a problem if we want our robot to stay close, also in this case it didn’t perform very well and was slower.</p>
+<p>The robot was designed in Fusion 360, most of the construction was 3D printed. The base consists of DC drill motors, encoders, IMU and STM32BluePill MCU. In the manipulator there are 6 servos: 3 XYZrobot A1-16 and 3 cheaper TowerPro (MG996R and 2xSG-92R) which are controlled by the second STM32BluePill. To detect obstacles and create a map of the environment I used Kinect (the one from Xbox360). The second Kinect was mounted above the table and it is used for the manipulation (robot’s position is detected using ARTags). Navigation computations are run on the laptop placed in the base of the robot.</p>
 
-<div class="embed-container">
-  <iframe width="720" height="405" src="https://drive.google.com/file/d/1jNWkf1M97UBEypOCILnGTzXXnH618SYN/preview" frameborder="0" allowfullscreen="">
-  </iframe>
+<figure class="figure  figure--center">
+  <img class="image" src="/pics/16_roomac/frame_design.png" alt="Robot without panels in Fusion 360" width="400" height="" />
+  <figcaption class="caption">Robot without panels in Fusion 360</figcaption>
+</figure>
+
+<p>Software is based on ROS Melodic, I used many ROS packages, some of them are <a href="http://introlab.github.io/rtabmap/">RTABMap</a>, <a href="http://wiki.ros.org/move_base">move base</a> (with <a href="http://wiki.ros.org/teb_local_planner">TEB</a> as a local planner), <a href="http://docs.ros.org/en/noetic/api/robot_localization/html/index.html">robot localization</a>, <a href="https://moveit.ros.org/">MoveIt</a> with <a href="https://github.com/TAMS-Group/bio_ik.git">BioIKKinematics</a> (robot’s arm has 5DoF and only with BioIK I was able to achieve desired positions), <a href="http://wiki.ros.org/ar_track_alvar">ARTrackAlvar</a>. Working with cheap mechanical components was quite challenging control-wise, but in the end, I was able to achieve smooth performance.</p>
+
+<figure class="figure  figure--center">
+  <img class="image" src="/pics/16_roomac/roomac_simulation.gif" alt="Simulation in Gazebo" width="400" height="" />
+  <figcaption class="caption">Simulation in Gazebo</figcaption>
+</figure>
+
+<p>Apart from construction I also created a simulation of the robot in the Gazebo. There is a docker image with it, so executing the demo is really easy (basically you only need to copy and paste two commands). For further details please refer to the instruction in the README on Github.</p>
+
+<p><a class="button" href="https://hub.docker.com/r/macorobots/roomac" style="background: #03befc">Dockerhub repository</a></p>]]></content><author><name></name></author><category term="Robots" /><summary type="html"><![CDATA[Affordable general-purpose personal robot capable of autonomously fetching objects]]></summary></entry><entry><title type="html">Self-Driving Car Engineer ND</title><link href="http://localhost:5000/software/2021/04/05/selfdriving-car-eng-nanodegree/" rel="alternate" type="text/html" title="Self-Driving Car Engineer ND" /><published>2021-04-05T00:00:00+00:00</published><updated>2021-04-05T00:00:00+00:00</updated><id>http://localhost:5000/software/2021/04/05/selfdriving-car-eng-nanodegree</id><content type="html" xml:base="http://localhost:5000/software/2021/04/05/selfdriving-car-eng-nanodegree/"><![CDATA[<p><a class="button" href="https://github.com/macstepien/SelfDrivingCarEngineerNDUdacity" style="background: #0366d6">Github repository  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
+</a></p>
+
+<p>Projects from Udacity Self-Driving Car Engineer Nanodegree that I completed during my work in the Formula Student team.</p>
+
+<center><img width="600" src="/pics/15_selfdriving_car_eng/udacity_p2.gif" /></center>
+
+<h2 id="projects">Projects</h2>
+<ul>
+  <li><strong>Behavioral cloning</strong> - end-to-end Deep Learning approach to control car’s steering angle based on images from cameras (training CNN with a demonstration of center-line driving, data augmentation, Keras).</li>
+  <li><strong>Traffic sign classifier</strong> - traffic sign classification using CNN implemented in Tensorflow (data preprocessing, designing model architecture).</li>
+  <li><strong>Particle filter</strong> - Particle Filter implementation for estimating the position of the robot based on landmark map, landmark detections and robot’s control information (C++).</li>
+  <li><strong>Extended Kalman Filter</strong> - KF and EKF implementation for estimating the state of a moving object based on noisy lidar and radar measurements (C++, Eigen).</li>
+  <li><strong>Path planning</strong> - this project consisted of two parts: Behavior Planner - controlling the car’s speed and changing lanes to overtake other cars and Trajectory Planner - using splines to create a smooth trajectory based on sparse path points (C++).</li>
+  <li><strong>Lane line detection</strong> - road lane line detection using OpenCV in Python (Canny Edge detection, Hough transform).</li>
+  <li><strong>Advanced lane line detection</strong> - road lane line detection using OpenCV in Python (camera calibration, distortion correction, edge detection with Sobel operator, birds-eye view transform, fitting second-degree polynomial).</li>
+  <li><strong>PID</strong> - PID controller for controlling the car’s steering angle and throttle (C++).</li>
+  <li><strong>Capstone</strong> - Generating trajectory with desired speeds and sending controls to the simulated car (ROS).</li>
+</ul>]]></content><author><name></name></author><category term="Software" /><summary type="html"><![CDATA[Projects from Udacity Self-Driving Car Engineer Nanodegree that I completed during my work in the Formula Student team]]></summary></entry><entry><title type="html">FSD EKF SLAM</title><link href="http://localhost:5000/software/2020/01/10/ekf-slam/" rel="alternate" type="text/html" title="FSD EKF SLAM" /><published>2020-01-10T00:00:00+00:00</published><updated>2020-01-10T00:00:00+00:00</updated><id>http://localhost:5000/software/2020/01/10/ekf-slam</id><content type="html" xml:base="http://localhost:5000/software/2020/01/10/ekf-slam/"><![CDATA[<p><a class="button" href="https://github.com/macstepien/fsd_ekf_slam" style="background: #0366d6">Github repository  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
+</a></p>
+
+<p>EKF SLAM that I implemented during my work on Formula Student Driverless car. I used C++ and Eigen for matrix operations. It also includes a simple cone detector, which processes Lidar data with PCL and calculates the position of a cone. Detected cones are later used as observations for EKF SLAM. The whole thing was implemented as a ROS Node.</p>
+
+<div class="video">
+  <iframe src="https://www.youtube.com/embed/TMYYV3xASdM" frameborder="0" allowfullscreen="" title="EKF SLAM demo"></iframe>
+</div>]]></content><author><name></name></author><category term="Software" /><summary type="html"><![CDATA[Implementation of EKF SLAM algorithm for Formula Student Driverless car]]></summary></entry><entry><title type="html">Human following robot</title><link href="http://localhost:5000/robots/2019/09/24/human-following-robot/" rel="alternate" type="text/html" title="Human following robot" /><published>2019-09-24T00:00:00+00:00</published><updated>2019-09-24T00:00:00+00:00</updated><id>http://localhost:5000/robots/2019/09/24/human-following-robot</id><content type="html" xml:base="http://localhost:5000/robots/2019/09/24/human-following-robot/"><![CDATA[<p><a class="button" href="https://github.com/macstepien/rosbot_follower" style="background: #0366d6">Github repository  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
+</a></p>
+
+<p>In this tutorial I describe one way to make robot detect and follow people - it won’t make a great spy but could be useful to carry luggage or groceries. Whole system was implemented on Husarion’s ROSbot 2 with ESP32 as a remote. To find people I used scans from LiDAR (RPLidar A2) with my leg detector, which is simple but turned out to be fast and quite reliable.
+<!-- I also checked other LiDAR approaches available on ROS - leg_detector and leg_tracker but in this case didn't perform well enough. Another package I tested is upper_body_detector, which uses RGBD camera to detect humans. As name suggests it needs to see upper part of body - this will be a problem if we want our robot to stay close, also in this case it didn't perform very well and was slower. --></p>
+
+<div class="video">
+  <iframe src="https://www.youtube.com/embed/u0uAg5_CGms" frameborder="0" allowfullscreen="" title="ROSbot follower demo"></iframe>
 </div>
 
 <h2 id="setup">Setup</h2>
@@ -32,7 +78,7 @@
 <p>Wire your ESP32 accordingly to schematics:</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/RosbotFollower/remoteSchematics.png" alt="" width="600" height="800" />
+  <img class="image" src="/pics/13_human_following_robot/remoteSchematics.png" alt="" width="600" height="800" />
   
 </figure>
 
@@ -107,7 +153,7 @@ Roslaunch command:
 <p>After whole system is up and running stand in front of ROSbot, but not too far away. When you are detected blue LED on ESP should turn on. Then you can press first button (the one closer to ESP on schematics) and if you start walking robot should follow you. When LED turns off it means that algorithm lost detection of you and need to recalibrate (stand closer to robot and wait until blue LED is back on). If robot had false detection you can calibrate again by pressing second button. On RViz you can see visualization: scan from LiDAR, robot model and detections. Green spheres are all potential legs, blue cylinders are detected legs and red tall cylinder is human position. In version with Kalman filter we also publish circle around human, which shows how much estimated position differs from measurement.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/RosbotFollower/rviz.png" alt="" width="600" height="800" />
+  <img class="image" src="/pics/13_human_following_robot/rviz.png" alt="" width="600" height="800" />
   
 </figure>
 
@@ -528,23 +574,25 @@ In order to implement Kalman filter I created Person class where human position 
 
 <h2 id="summary">Summary</h2>
 
-<p>In this tutorial you learned how to set up and run human following using ROSbot with ESP remote. After main algorithm walkthrough you should be also able to modify it to suit your robot.</p>]]></content><author><name></name></author><category term="Robots" /><summary type="html"><![CDATA[Every move you make | Every step you take | I'll follow you]]></summary></entry><entry><title type="html">Tank</title><link href="http://localhost:4000/robots/2019/03/27/tank/" rel="alternate" type="text/html" title="Tank" /><published>2019-03-27T00:00:00+01:00</published><updated>2019-03-27T00:00:00+01:00</updated><id>http://localhost:4000/robots/2019/03/27/tank</id><content type="html" xml:base="http://localhost:4000/robots/2019/03/27/tank/"><![CDATA[<p>General-purpose mobile robot based on Raspberry Pi Zero.</p>
+<p>In this tutorial you learned how to set up and run human following using ROSbot with ESP remote. After main algorithm walkthrough you should be also able to modify it to suit your robot.</p>]]></content><author><name></name></author><category term="Robots" /><summary type="html"><![CDATA[Lidar-based legs detection and human following implemented on Husarion's ROSbot 2]]></summary></entry><entry><title type="html">Tank</title><link href="http://localhost:5000/robots/2019/03/27/tank/" rel="alternate" type="text/html" title="Tank" /><published>2019-03-27T00:00:00+00:00</published><updated>2019-03-27T00:00:00+00:00</updated><id>http://localhost:5000/robots/2019/03/27/tank</id><content type="html" xml:base="http://localhost:5000/robots/2019/03/27/tank/"><![CDATA[<p><a class="button" href="https://github.com/macstepien/Tank" style="background: #0366d6">Github repository  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
+</a></p>
+
+<p>Remotely controlled inspection robot based on Raspberry Pi Zero.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Czolg/front.jpg" alt="" width="600" height="800" />
+  <img class="image" src="/pics/12_tank/front.jpg" alt="" width="600" height="800" />
   
 </figure>
 
 <p>The robot can be teleoperated using a web browser, it works quite well in rough terrain:</p>
 
-<div class="embed-container">
-  <iframe width="720" height="405" src="https://drive.google.com/file/d/1QSsrb819J34oQ7zTbSGpt-7YVE9Y9KgX/preview" frameborder="0" allowfullscreen="">
-  </iframe>
+<div class="video">
+  <iframe src="https://www.youtube.com/embed/aftyQMt_rrg" frameborder="0" allowfullscreen="" title="Tank demo"></iframe>
 </div>
 
 <p>Construction started with PCB:</p>
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Czolg/pierwotna.jpg" alt="PCB with connected components" width="600" height="800" />
+  <img class="image" src="/pics/12_tank/pierwotna.jpg" alt="PCB with connected components" width="600" height="800" />
   <figcaption class="caption">PCB with connected components</figcaption>
 </figure>
 
@@ -558,14 +606,14 @@ In order to implement Kalman filter I created Person class where human position 
 </ul>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Czolg/testowanie.jpg" alt="Prototyping PCB" width="600" height="800" />
+  <img class="image" src="/pics/12_tank/testowanie.jpg" alt="Prototyping PCB" width="600" height="800" />
   <figcaption class="caption">Prototyping PCB</figcaption>
 </figure>
 
 <p>As a power source I used a LiPol battery that was connected to 2 voltage converters: one for the microcontroller and one for servos.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Czolg/plytkawobudowie.jpg" alt="" width="600" height="800" />
+  <img class="image" src="/pics/12_tank/plytkawobudowie.jpg" alt="" width="600" height="800" />
   
 </figure>
 
@@ -573,35 +621,36 @@ In order to implement Kalman filter I created Person class where human position 
 <a href="https://www.thingiverse.com/thing:652851" title="Construction">https://www.thingiverse.com/thing:652851</a></p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Czolg/plytka.jpg" alt="PCB" width="600" height="800" />
+  <img class="image" src="/pics/12_tank/plytka.jpg" alt="PCB" width="600" height="800" />
   <figcaption class="caption">PCB</figcaption>
 </figure>
 
-<p>The robot was controlled through a web browser, I used <a href="https://hackaday.io/project/25092-zerobot-raspberry-pi-zero-fpv-robot/log/97988-the-new-zerobot-pro" title="Code">https://hackaday.io/project/25092-zerobot-raspberry-pi-zero-fpv-robot/log/97988-the-new-zerobot-pro</a>, modified to work with my SPI communication.</p>
-
-<p><a class="button" href="https://github.com/macstepien/Tank" style="background: #0366d6">Tank  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
-</a></p>]]></content><author><name></name></author><category term="Robots" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Hexapod</title><link href="http://localhost:4000/robots/2018/06/08/hexapod/" rel="alternate" type="text/html" title="Hexapod" /><published>2018-06-08T00:00:00+02:00</published><updated>2018-06-08T00:00:00+02:00</updated><id>http://localhost:4000/robots/2018/06/08/hexapod</id><content type="html" xml:base="http://localhost:4000/robots/2018/06/08/hexapod/"><![CDATA[<p>I worked on this project during my first two years of university in the Integra student research group. My contribution was software (both for controlling the robot and stereo vision).</p>
+<p>The robot was controlled through a web browser, I used <a href="https://hackaday.io/project/25092-zerobot-raspberry-pi-zero-fpv-robot/log/97988-the-new-zerobot-pro" title="Code">https://hackaday.io/project/25092-zerobot-raspberry-pi-zero-fpv-robot/log/97988-the-new-zerobot-pro</a>, modified to work with my SPI communication.</p>]]></content><author><name></name></author><category term="Robots" /><summary type="html"><![CDATA[3D printed remotely controlled inspection robot]]></summary></entry><entry><title type="html">Hexapod</title><link href="http://localhost:5000/robots/2018/06/08/hexapod/" rel="alternate" type="text/html" title="Hexapod" /><published>2018-06-08T00:00:00+00:00</published><updated>2018-06-08T00:00:00+00:00</updated><id>http://localhost:5000/robots/2018/06/08/hexapod</id><content type="html" xml:base="http://localhost:5000/robots/2018/06/08/hexapod/"><![CDATA[<p>I worked on this project during my first two years of university in the Integra student research group. My contribution was software (both for controlling the robot and stereo vision).</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Hexapod/hexi.jpg" alt="" width="600" height="800" />
+  <img class="image" src="/pics/11_hexapod/hexi.jpg" alt="" width="600" height="800" />
   
 </figure>
 
 <p>In the robot construction 18 Hitec servos (3 for each leg) were used. Raspberry Pi 2 was the main brain of the robot, it controlled servos through the Pololu driver (using UART communication). 4000mAh LiPol battery allowed for around 1h work time, voltage converters were necessary (3 for servos and 1 for Raspberry). MCP3008 ADC was used to measure battery voltage, it sent current value using SPI to the Raspberry, which was later sent and displayed in the client application.</p>
 
-<div class="embed-container">
-  <iframe width="720" height="405" src="https://drive.google.com/file/d/1kR9fSGo-6mLM5SdvNPUtoAvgJeeI8Lu-/preview" frameborder="0" allowfullscreen="">
-  </iframe>
+<div class="video">
+  <iframe src="https://www.youtube.com/embed/64r3feQxPdw" frameborder="0" allowfullscreen="" title="Hexapod demo"></iframe>
 </div>
 
 <p>The robot can be controlled using a gamepad or keyboard connected to the laptop, which sends commands to the Raspberry using TCP and WiFi. Using a mathematical model of the robot, the control application calculates the position of the tip of the leg to achieve the desired movement. Then it is converted to joint angles using inverse kinematics, which are used to calculate PWM signals sent to servos.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Hexapod/symulacja.png" alt="" width="600" height="800" />
+  <img class="image" src="/pics/11_hexapod/symulacja.png" alt="" width="600" height="800" />
   
 </figure>
 
 <h2 id="robot-control">Robot control</h2>
+
+<p><a class="button" href="https://github.com/macstepien/HexapodPC" style="background: #0366d6">PC Client Application Github repository  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
+</a>
+<a class="button" href="https://github.com/macstepien/HexapodRaspberry" style="background: #0366d6">Raspberry Application Github repository  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
+</a></p>
 
 <p>Application run on laptop includes robot model and sents user commands over to Raspberry Pi mounted on the robot. They are then converted into PWM signals used for servo control. The current battery voltage is sent back from Raspberry to the client application.</p>
 
@@ -613,9 +662,8 @@ In order to implement Kalman filter I created Person class where human position 
 
 <p>In simulation mode camera can be controlled using keys  W/S/A/D/Q/E and alfa, beta and gamma bars (for changing camera angles). The robot can be controlled using w/s/a/d/q/e and numerical keys to choose a walking mode.</p>
 
-<div class="embed-container">
-  <iframe width="720" height="405" src="https://drive.google.com/file/d/1ixW05vog_nNaR9UR6ZqT5rZBkIWlBJeN/preview" frameborder="0" allowfullscreen="">
-  </iframe>
+<div class="video">
+  <iframe src="https://www.youtube.com/embed/GZeBIGUJX7w" frameborder="0" allowfullscreen="" title="Hexapod simulation demo"></iframe>
 </div>
 
 <h4 id="hexapod-connection-mode">Hexapod connection mode</h4>
@@ -644,20 +692,17 @@ In order to implement Kalman filter I created Person class where human position 
 
 <p>The TCP module is responsible for communication between Raspberry and the client application. It was based on <a href="https://github.com/vichargrave/tcpsockets" title="3">3</a>. Battery voltage is read on the Raspberry (in a separate thread) and sent on port 8081, which is later read by the client application and shown on the screen. On port 8080 client application sends control commands to the Raspberry.</p>
 
-<p><a class="button" href="https://github.com/macstepien/HexapodPC" style="background: #0366d6">Client application  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
-</a></p>
-
-<p><a class="button" href="https://github.com/macstepien/HexapodRaspberry" style="background: #0366d6">Raspberry application  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
-</a></p>
-
 <h2 id="stereo-vision">Stereo vision</h2>
+
+<p><a class="button" href="https://github.com/macstepien/HexapodStereovision" style="background: #0366d6">Stereo Vision Github repository  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
+</a></p>
 
 <h3 id="calibration-images">Calibration images</h3>
 
 <p>To calibrate pair of stereo vision cameras it is necessary to take several pictures of some pattern, in this case it was a chessboard. For this purpose I saved around 50 images with chessboard pattern in different positions and orientations.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Hexapod/stereo12.png" alt="One of calibration image pairs" width="600" height="800" />
+  <img class="image" src="/pics/11_hexapod/stereo12.png" alt="One of calibration image pairs" width="600" height="800" />
   <figcaption class="caption">One of calibration image pairs</figcaption>
 </figure>
 
@@ -668,12 +713,12 @@ In order to implement Kalman filter I created Person class where human position 
 <p>Calibration was based on the example from the book “Learning OpenCV”. As input it required the number of rows and columns of the chessboard and the length of one square side (it was important to print the chessboard in original proportions so that squares won’t become rectangles, which will break the calibration process).</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Hexapod/stereo3.png" alt="Result of chessboard detection" width="400" height="800" />
+  <img class="image" src="/pics/11_hexapod/stereo3.png" alt="Result of chessboard detection" width="400" height="800" />
   <figcaption class="caption">Result of chessboard detection</figcaption>
 </figure>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Hexapod/stereo4.png" alt="Rectification" width="700" height="800" />
+  <img class="image" src="/pics/11_hexapod/stereo4.png" alt="Rectification" width="700" height="800" />
   <figcaption class="caption">Rectification</figcaption>
 </figure>
 
@@ -687,17 +732,17 @@ These error values are quite low, which means that calibration was successful.</
 <p>I tested SGBM and BM algorithms from the OpenCV library, better results were achieved for SGBM. CPU usage was higher for this algorithm, but still it was possible to get real-time results for images with 320x240 resolution. Then I tuned the parameters of the SGBM algorithm, using the application that allowed dynamic reconfiguration of parameters using sliders.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Hexapod/stereo5.png" alt="Parameter tunning application with sliders" width="400" height="800" />
+  <img class="image" src="/pics/11_hexapod/stereo5.png" alt="Parameter tunning application with sliders" width="400" height="800" />
   <figcaption class="caption">Parameter tunning application with sliders</figcaption>
 </figure>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Hexapod/stereo6.png" alt="Scene used for parameter tunning" width="400" height="800" />
+  <img class="image" src="/pics/11_hexapod/stereo6.png" alt="Scene used for parameter tunning" width="400" height="800" />
   <figcaption class="caption">Scene used for parameter tunning</figcaption>
 </figure>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Hexapod/stereo7.png" alt="Result of stereo vision" width="400" height="800" />
+  <img class="image" src="/pics/11_hexapod/stereo7.png" alt="Result of stereo vision" width="400" height="800" />
   <figcaption class="caption">Result of stereo vision</figcaption>
 </figure>
 
@@ -706,12 +751,12 @@ These error values are quite low, which means that calibration was successful.</
 <p>To get a smoother result I additionally used postfiltration from contrib OpenCV modules.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Hexapod/stereo9.png" alt="Raw disparity image" width="400" height="800" />
+  <img class="image" src="/pics/11_hexapod/stereo9.png" alt="Raw disparity image" width="400" height="800" />
   <figcaption class="caption">Raw disparity image</figcaption>
 </figure>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Hexapod/stereo10.png" alt="Disparity image after postfiltration" width="400" height="800" />
+  <img class="image" src="/pics/11_hexapod/stereo10.png" alt="Disparity image after postfiltration" width="400" height="800" />
   <figcaption class="caption">Disparity image after postfiltration</figcaption>
 </figure>
 
@@ -720,9 +765,6 @@ These error values are quite low, which means that calibration was successful.</
 <p>The final application combined all the elements described above - video stream from cameras connected to Raspberry was sent to the laptop, then images were rectified, pixels matched using SGBM, disparity image calculated and then filtered. Finally disparity was displayed on the screen, as the next step it should be used to calculate the point cloud, which then could be used for obstacle detection.</p>
 
 <p>Getting satisfactory video transmission wasn’t that easy. In the first approach MJPGstreamer was used, but the results weren’t too good - all frames were buffered and as it wasn’t possible to send them in real-time, the delay between registering the image and analyzing it using stereo vision was increasing. Additionally images from two cameras weren’t synchronized. So instead I used GStreamer, which was more tricky to set up, but the results were much better. The resolution of sent images was 320x240 (for 640x480 FPS was too low).</p>
-
-<p><a class="button" href="https://github.com/macstepien/HexapodStereovision" style="background: #0366d6">Stereo vision  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
-</a></p>
 
 <h3 id="achievements">Achievements</h3>
 
@@ -746,14 +788,14 @@ These error values are quite low, which means that calibration was successful.</
 </ul>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/Hexapod/robotic_arena.jpg" alt="Hexapod on Robotic Arena 2017, photo by Wrocław UST" width="400" height="800" />
+  <img class="image" src="/pics/11_hexapod/robotic_arena.jpg" alt="Hexapod on Robotic Arena 2017, photo by Wrocław UST" width="400" height="800" />
   <figcaption class="caption">Hexapod on Robotic Arena 2017, photo by Wrocław UST</figcaption>
 </figure>
 
-<p><a href="http://www.integra.agh.edu.pl/robot-kroczacy-freestyle/" title="Project page">Project page</a></p>]]></content><author><name></name></author><category term="Robots" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Luminous ball</title><link href="http://localhost:4000/software/2017/05/26/move/" rel="alternate" type="text/html" title="Luminous ball" /><published>2017-05-26T00:00:00+02:00</published><updated>2017-05-26T00:00:00+02:00</updated><id>http://localhost:4000/software/2017/05/26/move</id><content type="html" xml:base="http://localhost:4000/software/2017/05/26/move/"><![CDATA[<p>Motion controller for PC.</p>
+<p><a href="http://www.integra.agh.edu.pl/robot-kroczacy-freestyle/" title="Project page">Project page</a></p>]]></content><author><name></name></author><category term="Robots" /><summary type="html"><![CDATA[Six-legged walking robot with a stereo vision camera]]></summary></entry><entry><title type="html">Luminous ball</title><link href="http://localhost:5000/software/2017/05/26/move/" rel="alternate" type="text/html" title="Luminous ball" /><published>2017-05-26T00:00:00+00:00</published><updated>2017-05-26T00:00:00+00:00</updated><id>http://localhost:5000/software/2017/05/26/move</id><content type="html" xml:base="http://localhost:5000/software/2017/05/26/move/"><![CDATA[<p>Motion controller for PC.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/swiecacaKulka/kontroler.jpg" alt="" width="300" height="300" />
+  <img class="image" src="/pics/10_luminous_ball/kontroler.jpg" alt="" width="300" height="300" />
   
 </figure>
 
@@ -761,28 +803,27 @@ These error values are quite low, which means that calibration was successful.</
 
 <p>To analyze the image and detect the ball I used the OpenCV library and the detection method as in the <a href="https://forbot.pl/blog/opencv-2-wykrywanie-obiektow-id4888">https://forbot.pl/blog/opencv-2-wykrywanie-obiektow-id4888</a></p>
 
-<div class="embed-container">
-  <iframe width="720" height="405" src="https://drive.google.com/file/d/1Ifl4nigfpzm73YRJDlyJJY3RQRywG9NQ/preview" frameborder="0" allowfullscreen="">
-  </iframe>
+<div class="video">
+  <iframe src="https://www.youtube.com/embed/R8JSr6QHfQk" frameborder="0" allowfullscreen="" title="Luminous ball demo"></iframe>
 </div>
 
-<p><a class="button" href="https://github.com/macstepien/LightOrb" style="background: #0366d6">Code  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
-</a></p>]]></content><author><name></name></author><category term="Software" /><summary type="html"><![CDATA[Motion controller for PC]]></summary></entry><entry><title type="html">Fuzz guitar effect</title><link href="http://localhost:4000/electronics/2016/08/28/fuzz/" rel="alternate" type="text/html" title="Fuzz guitar effect" /><published>2016-08-28T00:00:00+02:00</published><updated>2016-08-28T00:00:00+02:00</updated><id>http://localhost:4000/electronics/2016/08/28/fuzz</id><content type="html" xml:base="http://localhost:4000/electronics/2016/08/28/fuzz/"><![CDATA[<figure class="figure  figure--center">
-  <img class="image" src="/pics/fuzz/front.jpg" alt="" width="600" height="" />
+<p><a class="button" href="https://github.com/macstepien/LightOrb" style="background: #0366d6">Github repository  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
+</a></p>]]></content><author><name></name></author><category term="Software" /><summary type="html"><![CDATA[Visual motion tracking pointing device for PC]]></summary></entry><entry><title type="html">Fuzz guitar effect</title><link href="http://localhost:5000/electronics/2016/08/28/fuzz/" rel="alternate" type="text/html" title="Fuzz guitar effect" /><published>2016-08-28T00:00:00+00:00</published><updated>2016-08-28T00:00:00+00:00</updated><id>http://localhost:5000/electronics/2016/08/28/fuzz</id><content type="html" xml:base="http://localhost:5000/electronics/2016/08/28/fuzz/"><![CDATA[<figure class="figure  figure--center">
+  <img class="image" src="/pics/9_fuzz_guitar_effect/front.jpg" alt="" width="600" height="" />
   
 </figure>
 
 <p>Guitar effect made using the schematic:</p>
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/fuzz/fuzzSchemat.gif" alt="" width="600" height="800" />
+  <img class="image" src="/pics/9_fuzz_guitar_effect/fuzzSchemat.gif" alt="" width="600" height="800" />
   
 </figure>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/fuzz/inside.jpg" alt="" width="600" height="" />
+  <img class="image" src="/pics/9_fuzz_guitar_effect/inside.jpg" alt="" width="600" height="" />
   
-</figure>]]></content><author><name></name></author><category term="Electronics" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Tesla coil</title><link href="http://localhost:4000/electronics/2015/12/10/cewkatesli/" rel="alternate" type="text/html" title="Tesla coil" /><published>2015-12-10T00:00:00+01:00</published><updated>2015-12-10T00:00:00+01:00</updated><id>http://localhost:4000/electronics/2015/12/10/cewkatesli</id><content type="html" xml:base="http://localhost:4000/electronics/2015/12/10/cewkatesli/"><![CDATA[<figure class="figure  figure--center">
-  <img class="image" src="/pics/cewkatesli/wieksza.jpg" alt="" width="600" height="800" />
+</figure>]]></content><author><name></name></author><category term="Electronics" /><summary type="html"><![CDATA[Based on Roger Mayer's Axis Fuzz]]></summary></entry><entry><title type="html">Tesla coil</title><link href="http://localhost:5000/electronics/2015/12/10/cewkatesli/" rel="alternate" type="text/html" title="Tesla coil" /><published>2015-12-10T00:00:00+00:00</published><updated>2015-12-10T00:00:00+00:00</updated><id>http://localhost:5000/electronics/2015/12/10/cewkatesli</id><content type="html" xml:base="http://localhost:5000/electronics/2015/12/10/cewkatesli/"><![CDATA[<figure class="figure  figure--center">
+  <img class="image" src="/pics/8_tesla_coil/wieksza.jpg" alt="" width="600" height="800" />
   
 </figure>
 
@@ -792,105 +833,71 @@ and
 <a href="https://www.youtube.com/watch?v=4OC7cwI4RNM" title="Ludic Science">Ludic Science</a></p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/cewkatesli/oryginal.jpg" alt="" width="400" height="800" />
+  <img class="image" src="/pics/8_tesla_coil/oryginal.jpg" alt="" width="400" height="800" />
   
 </figure>
 
 <p>First I made a smaller version based on a single transistor, powered by a 9V battery.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/cewkatesli/nawijanie.jpg" alt="Coil winding" width="600" height="800" />
+  <img class="image" src="/pics/8_tesla_coil/nawijanie.jpg" alt="Coil winding" width="600" height="800" />
   <figcaption class="caption">Coil winding</figcaption>
 </figure>
 
-<p>Then I made a larger coil, in which I used 4 transistors and an additional heat sink to ensure adequate cooling. I used a power supply from a printer as a power source.</p>]]></content><author><name></name></author><category term="Electronics" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Mapping robot</title><link href="http://localhost:4000/robots/2015/08/25/mapping-robot/" rel="alternate" type="text/html" title="Mapping robot" /><published>2015-08-25T00:00:00+02:00</published><updated>2015-08-25T00:00:00+02:00</updated><id>http://localhost:4000/robots/2015/08/25/mapping-robot</id><content type="html" xml:base="http://localhost:4000/robots/2015/08/25/mapping-robot/"><![CDATA[<p>Robot that drives around and creates a map of the environment.</p>
+<p>Then I made a larger coil, in which I used 4 transistors and an additional heat sink to ensure adequate cooling. I used a power supply from a printer as a power source.</p>]]></content><author><name></name></author><category term="Electronics" /><summary type="html"><![CDATA[Hand-winded tesla coil with transistor-based controller]]></summary></entry><entry><title type="html">Mapping robot</title><link href="http://localhost:5000/robots/2015/08/25/mapping-robot/" rel="alternate" type="text/html" title="Mapping robot" /><published>2015-08-25T00:00:00+00:00</published><updated>2015-08-25T00:00:00+00:00</updated><id>http://localhost:5000/robots/2015/08/25/mapping-robot</id><content type="html" xml:base="http://localhost:5000/robots/2015/08/25/mapping-robot/"><![CDATA[<p>Robot that drives around and creates a map of the environment.</p>
+
+<div class="video">
+  <iframe src="https://www.youtube.com/embed/iwo5ig7E9Z4" frameborder="0" allowfullscreen="" title="Mapping robot mapping demo"></iframe>
+</div>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/RobotMapujacy/front.jpg" alt="" width="600" height="800" />
+  <img class="image" src="/pics/7_mapping_robot/front.jpg" alt="" width="600" height="800" />
   
 </figure>
 
 <p>This robot was a simplified version of a previously created general-purpose robot. In this construction I simplified requirements and focused only on mapping and navigation. Instead of stereo vision I decided to use a Kinect sensor because results achieved previously with only cameras weren’t satisfactory. I also added custom-made wheel encoders based on optocouplers and black and white patterns on wheels.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/RobotMapujacy/test.jpg" alt="Prototype of electronic components connections" width="600" height="800" />
+  <img class="image" src="/pics/7_mapping_robot/test.jpg" alt="Prototype of electronic components connections" width="600" height="800" />
   <figcaption class="caption">Prototype of electronic components connections</figcaption>
 </figure>
 
 <p>On this robot I implemented a PID controller for driving up to the point:</p>
 
-<p><a class="button" href="https://github.com/macstepien/MappingRobotPID" style="background: #0366d6">PID  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
+<p><a class="button" href="https://github.com/macstepien/MappingRobotPID" style="background: #0366d6">PID Github repository  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
 </a></p>
 
-<div class="embed-container">
-  <iframe width="720" height="405" src="https://drive.google.com/file/d/1SI5PMQt-zXZ0vf6xvoXPK_p1-t72E7ty/preview" frameborder="0" allowfullscreen="">
-  </iframe>
+<div class="video">
+  <iframe src="https://www.youtube.com/embed/W4FkBKJvG38" frameborder="0" allowfullscreen="" title="Mapping robot PID demo"></iframe>
 </div>
 
 <p>To create a map of the environment first it was necessary to remove floor points from data from Kinect. I tested two approaches - fitting the plane using the RANSAC algorithm and the UV-disparity method (which required lower computational load - instead of plane line was fitted).</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/RobotMapujacy/side.jpg" alt="" width="600" height="800" />
+  <img class="image" src="/pics/7_mapping_robot/side.jpg" alt="" width="600" height="800" />
   
 </figure>
 
 <p>Then obstacle points were projected onto grid map, robot position was calculated using wheel encoders.</p>
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/RobotMapujacy/map.jpg" alt="" width="500" height="800" />
+  <img class="image" src="/pics/7_mapping_robot/map.jpg" alt="" width="500" height="800" />
   
 </figure>
 
-<p><a class="button" href="https://github.com/macstepien/MappingRobotKinect" style="background: #0366d6">Kinect mapping  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
+<p><a class="button" href="https://github.com/macstepien/MappingRobotKinect" style="background: #0366d6">Kinect Mapping Github repository  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
 </a></p>
 
-<div class="embed-container">
-  <iframe width="720" height="405" src="https://drive.google.com/file/d/11cBjTDrB67s6sojRpdoVRc-anlgDSwj5/preview" frameborder="0" allowfullscreen="">
-  </iframe>
-</div>
-
-<p><a class="button" href="https://github.com/macstepien/MappingRobotStereovision" style="background: #0366d6">Stereo vision mapping  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
+<p><a class="button" href="https://github.com/macstepien/MappingRobotStereovision" style="background: #0366d6">Stereo Vision Mapping Github repository  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
 </a></p>
 
 <p>I also tried to run a SLAM algorithm to correct errors from encoders but wasn’t able to run any available implementation on Windows (which I was using at that time).</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/RobotMapujacy/pcb.jpg" alt="" width="600" height="800" />
+  <img class="image" src="/pics/7_mapping_robot/pcb.jpg" alt="" width="600" height="800" />
   
 </figure>
 
 <p>To control the robot I used an Atmega88Pa microcontroller, which was connected using a USB-UART converter to the computer. It controlled motors (continuous rotation servos) and measured optocouplers voltage to detect wheel rotations. Additionally, I used an infrared proximity sensor. As a power source, I used a 6V gel battery, voltage on battery was measured and monitored by MCU. A 12V Step-Up voltage converter was used to power Kinect.</p>
 
-<p><a class="button" href="https://github.com/macstepien/MappingRobotControler" style="background: #0366d6">Mapping robot controller  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
-</a></p>]]></content><author><name></name></author><category term="Robots" /><summary type="html"><![CDATA[Robot that drives around and creates a map of the environment.]]></summary></entry><entry><title type="html">3D Viewer</title><link href="http://localhost:4000/software/2015/04/09/3dviewer/" rel="alternate" type="text/html" title="3D Viewer" /><published>2015-04-09T00:00:00+02:00</published><updated>2015-04-09T00:00:00+02:00</updated><id>http://localhost:4000/software/2015/04/09/3dviewer</id><content type="html" xml:base="http://localhost:4000/software/2015/04/09/3dviewer/"><![CDATA[<p>Application for the perspective visualization of point clouds in 3D.</p>
-
-<figure class="figure  figure--center">
-  <img class="image" src="/pics/3dviewer/viewer1.png" alt="" width="600" height="800" />
-  
-</figure>
-
-<p>Point clouds (positions (X, Y, Z), color (R, G, B)) is read from a txt file and then projected on the camera plane in a simulated environment. The camera can be moved around. Point clouds that I visualized were calculated using the stereo vision camera that I constructed. Additionally, it is possible to display simple geometric shapes.</p>
-
-<figure class="figure  figure--center">
-  <img class="image" src="/pics/3dviewer/viewer2.png" alt="" width="600" height="800" />
-  
-</figure>
-
-<p><a class="button" href="https://github.com/macstepien/3DViewer" style="background: #0366d6">3DViewer  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
-</a></p>]]></content><author><name></name></author><category term="Software" /><summary type="html"><![CDATA[Application for the perspective visualization of point clouds in 3D.]]></summary></entry><entry><title type="html">General-purpose robot</title><link href="http://localhost:4000/robots/2014/08/28/universal-robots/" rel="alternate" type="text/html" title="General-purpose robot" /><published>2014-08-28T00:00:00+02:00</published><updated>2014-08-28T00:00:00+02:00</updated><id>http://localhost:4000/robots/2014/08/28/universal-robots</id><content type="html" xml:base="http://localhost:4000/robots/2014/08/28/universal-robots/"><![CDATA[<p>It was my first attempt at creating a general-purpose robot. Due to the low budget, it was supposed to be only a scaled version, without many real capabilities, only a proof-of-concept.</p>
-
-<figure class="figure  figure--center">
-  <img class="image" src="/pics/RobotUniwersalny/robot.jpg" alt="" width="300" height="800" />
-  
-</figure>
-
-<p>In this construction, I planned to use 11 servos, which were more than the available PWM lines on Atmega88Pa microcontroller that I used. That’s why I was generating a PWM signal using a timer, but due to high resource usage, it was necessary to dedicate one microcontroller solely for this purpose. The second microcontroller was used to communicate with a computer, control wheel motors and send commands to the first MCU using SPI. This approach was very complicated and because of additional problems with the power supply, I decided to skip manipulation and focus on navigation. As the only sensor in this task, I used stereo vision. I was able to make it work quite well statically, but when mounted on the robot, motion caused images from cameras to become blurry and as a result detected point cloud wasn’t accurate enough.</p>
-
-<figure class="figure  figure--center">
-  <img class="image" src="/pics/RobotUniwersalny/plytka.jpg" alt="" width="600" height="800" />
-  
-</figure>
-
-<figure class="figure  figure--center">
-  <img class="image" src="/pics/RobotUniwersalny/parts.jpg" alt="" width="600" height="800" />
-  
-</figure>]]></content><author><name></name></author><category term="Robots" /><summary type="html"><![CDATA[]]></summary></entry></feed>
+<p><a class="button" href="https://github.com/macstepien/MappingRobotControler" style="background: #0366d6">Mapping Robot Controller Github repository  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
+</a></p>]]></content><author><name></name></author><category term="Robots" /><summary type="html"><![CDATA[Mobile robot with Kinect 360 and place for laptop, used for testing various mapping and navigation techniques]]></summary></entry></feed>

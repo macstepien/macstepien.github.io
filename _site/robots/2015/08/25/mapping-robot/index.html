@@ -14,15 +14,15 @@
 <meta name="generator" content="Jekyll v4.3.0" />
 <meta property="og:title" content="Mapping robot" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Robot that drives around and creates a map of the environment." />
-<meta property="og:description" content="Robot that drives around and creates a map of the environment." />
-<link rel="canonical" href="http://localhost:4000/robots/2015/08/25/mapping-robot/" />
-<meta property="og:url" content="http://localhost:4000/robots/2015/08/25/mapping-robot/" />
+<meta name="description" content="Mobile robot with Kinect 360 and place for laptop, used for testing various mapping and navigation techniques" />
+<meta property="og:description" content="Mobile robot with Kinect 360 and place for laptop, used for testing various mapping and navigation techniques" />
+<link rel="canonical" href="http://localhost:5000/robots/2015/08/25/mapping-robot/" />
+<meta property="og:url" content="http://localhost:5000/robots/2015/08/25/mapping-robot/" />
 <meta property="og:site_name" content="Maciej Stępień" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2015-08-25T00:00:00+02:00" />
+<meta property="article:published_time" content="2015-08-25T00:00:00+00:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/pics/logo1.png"}},"headline":"Mapping robot","dateModified":"2015-08-25T00:00:00+02:00","datePublished":"2015-08-25T00:00:00+02:00","url":"http://localhost:4000/robots/2015/08/25/mapping-robot/","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/robots/2015/08/25/mapping-robot/"},"description":"Robot that drives around and creates a map of the environment.","@context":"https://schema.org"}</script>
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:5000/pics/logo1.png"}},"description":"Mobile robot with Kinect 360 and place for laptop, used for testing various mapping and navigation techniques","@type":"BlogPosting","headline":"Mapping robot","dateModified":"2015-08-25T00:00:00+00:00","datePublished":"2015-08-25T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:5000/robots/2015/08/25/mapping-robot/"},"url":"http://localhost:5000/robots/2015/08/25/mapping-robot/","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     
@@ -176,67 +176,65 @@
     
       <span class="label  label--category"><a href="/categories/#robots">Robots</a></span>
     
-  &nbsp;&middot;&nbsp;<time datetime="2015-08-25T00:00:00+02:00" class="time">25 Aug 2015</time>
+  &nbsp;&middot;&nbsp;<time datetime="2015-08-25T00:00:00+00:00" class="time">25 Aug 2015</time>
 </small>
 
     <p>Robot that drives around and creates a map of the environment.</p>
 
+<div class="video">
+  <iframe src="https://www.youtube.com/embed/iwo5ig7E9Z4" frameborder="0" allowfullscreen="" title="Mapping robot mapping demo"></iframe>
+</div>
+
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/RobotMapujacy/front.jpg" alt="" width="600" height="800" />
+  <img class="image" src="/pics/7_mapping_robot/front.jpg" alt="" width="600" height="800" />
   
 </figure>
 
 <p>This robot was a simplified version of a previously created general-purpose robot. In this construction I simplified requirements and focused only on mapping and navigation. Instead of stereo vision I decided to use a Kinect sensor because results achieved previously with only cameras weren’t satisfactory. I also added custom-made wheel encoders based on optocouplers and black and white patterns on wheels.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/RobotMapujacy/test.jpg" alt="Prototype of electronic components connections" width="600" height="800" />
+  <img class="image" src="/pics/7_mapping_robot/test.jpg" alt="Prototype of electronic components connections" width="600" height="800" />
   <figcaption class="caption">Prototype of electronic components connections</figcaption>
 </figure>
 
 <p>On this robot I implemented a PID controller for driving up to the point:</p>
 
-<p><a class="button" href="https://github.com/macstepien/MappingRobotPID" style="background: #0366d6">PID  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
+<p><a class="button" href="https://github.com/macstepien/MappingRobotPID" style="background: #0366d6">PID Github repository  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
 </a></p>
 
-<div class="embed-container">
-  <iframe width="720" height="405" src="https://drive.google.com/file/d/1SI5PMQt-zXZ0vf6xvoXPK_p1-t72E7ty/preview" frameborder="0" allowfullscreen="">
-  </iframe>
+<div class="video">
+  <iframe src="https://www.youtube.com/embed/W4FkBKJvG38" frameborder="0" allowfullscreen="" title="Mapping robot PID demo"></iframe>
 </div>
 
 <p>To create a map of the environment first it was necessary to remove floor points from data from Kinect. I tested two approaches - fitting the plane using the RANSAC algorithm and the UV-disparity method (which required lower computational load - instead of plane line was fitted).</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/RobotMapujacy/side.jpg" alt="" width="600" height="800" />
+  <img class="image" src="/pics/7_mapping_robot/side.jpg" alt="" width="600" height="800" />
   
 </figure>
 
 <p>Then obstacle points were projected onto grid map, robot position was calculated using wheel encoders.</p>
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/RobotMapujacy/map.jpg" alt="" width="500" height="800" />
+  <img class="image" src="/pics/7_mapping_robot/map.jpg" alt="" width="500" height="800" />
   
 </figure>
 
-<p><a class="button" href="https://github.com/macstepien/MappingRobotKinect" style="background: #0366d6">Kinect mapping  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
+<p><a class="button" href="https://github.com/macstepien/MappingRobotKinect" style="background: #0366d6">Kinect Mapping Github repository  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
 </a></p>
 
-<div class="embed-container">
-  <iframe width="720" height="405" src="https://drive.google.com/file/d/11cBjTDrB67s6sojRpdoVRc-anlgDSwj5/preview" frameborder="0" allowfullscreen="">
-  </iframe>
-</div>
-
-<p><a class="button" href="https://github.com/macstepien/MappingRobotStereovision" style="background: #0366d6">Stereo vision mapping  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
+<p><a class="button" href="https://github.com/macstepien/MappingRobotStereovision" style="background: #0366d6">Stereo Vision Mapping Github repository  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
 </a></p>
 
 <p>I also tried to run a SLAM algorithm to correct errors from encoders but wasn’t able to run any available implementation on Windows (which I was using at that time).</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/RobotMapujacy/pcb.jpg" alt="" width="600" height="800" />
+  <img class="image" src="/pics/7_mapping_robot/pcb.jpg" alt="" width="600" height="800" />
   
 </figure>
 
 <p>To control the robot I used an Atmega88Pa microcontroller, which was connected using a USB-UART converter to the computer. It controlled motors (continuous rotation servos) and measured optocouplers voltage to detect wheel rotations. Additionally, I used an infrared proximity sensor. As a power source, I used a 6V gel battery, voltage on battery was measured and monitored by MCU. A 12V Step-Up voltage converter was used to power Kinect.</p>
 
-<p><a class="button" href="https://github.com/macstepien/MappingRobotControler" style="background: #0366d6">Mapping robot controller  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
+<p><a class="button" href="https://github.com/macstepien/MappingRobotControler" style="background: #0366d6">Mapping Robot Controller Github repository  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
 </a></p>
 
 
@@ -257,7 +255,7 @@
 <footer class="footer">
   <div class="container">
     <div class="copyright  typeset">
-      <small class="small">&copy; Maciej Stępień 2022</small>
+      <small class="small">&copy; Maciej Stępień 2023</small>
     </div>
 
     

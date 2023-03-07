@@ -16,11 +16,11 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Robot laptopa wożący pokój mapujący." />
 <meta property="og:description" content="Robot laptopa wożący pokój mapujący." />
-<link rel="canonical" href="http://localhost:4000/posts_pl/2015-08-25-mapping-robot/" />
-<meta property="og:url" content="http://localhost:4000/posts_pl/2015-08-25-mapping-robot/" />
+<link rel="canonical" href="http://localhost:5000/posts_pl/2015-08-25-mapping-robot/" />
+<meta property="og:url" content="http://localhost:5000/posts_pl/2015-08-25-mapping-robot/" />
 <meta property="og:site_name" content="Maciej Stępień" />
 <script type="application/ld+json">
-{"@type":"WebPage","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/pics/logo1.png"}},"headline":"Robot mapujący","url":"http://localhost:4000/posts_pl/2015-08-25-mapping-robot/","description":"Robot laptopa wożący pokój mapujący.","@context":"https://schema.org"}</script>
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:5000/pics/logo1.png"}},"description":"Robot laptopa wożący pokój mapujący.","@type":"WebPage","headline":"Robot mapujący","url":"http://localhost:5000/posts_pl/2015-08-25-mapping-robot/","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     
@@ -180,14 +180,14 @@
     <p>Robot laptopa wożący pokój mapujący.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/RobotMapujacy/front.jpg" alt="" width="600" height="800" />
+  <img class="image" src="/pics/7_mapping_robot/front.jpg" alt="" width="600" height="800" />
   
 </figure>
 
 <p>Ten robot jest drugą, uproszczoną wersją robota uniwersalnego. Wyciągając wnioski z poprzedniej konstrukcji uprościłem robota i jego jedynym zadaniem było mapowanie pomieszczeń. Także aby zadanie się udało zamieniłem Stereowizję na Kinecta, ponieważ rezultaty z niej osiągane nie były zadowalające. Dodałem także enkodery na koła, jednak wciąż zbyt pewny siebie zrobiłem swoje - inkrementalne bazujące na transoptorach. Nie sprawdzały się one idealnie, ale jednak pozwoliły osiągnąć rezultaty.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/RobotMapujacy/test.jpg" alt="Prototypowanie eletkroniki" width="600" height="800" />
+  <img class="image" src="/pics/7_mapping_robot/test.jpg" alt="Prototypowanie eletkroniki" width="600" height="800" />
   <figcaption class="caption">Prototypowanie eletkroniki</figcaption>
 </figure>
 
@@ -204,13 +204,13 @@
 <p>Aby stworzyć mapę najpierw podrzebowałem odpowiednio obrobić dane. W danych głębi z Kinecta zawarte były informacje o podłodze oraz obiektach. Musiałem pozbyć się podłogi. Do osiągnięcia tego testowałem 2 metody: dopasowywanie płaszczyzny oparte na RANSACu z OpenCV oraz metodą UV-disparity, która przyspieszała obliczenia - wykrywałem linię zamiast płaszczyzny.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/RobotMapujacy/side.jpg" alt="" width="600" height="800" />
+  <img class="image" src="/pics/7_mapping_robot/side.jpg" alt="" width="600" height="800" />
   
 </figure>
 
 <p>Na tworzoną mapę typu Grid map nakładałem następnie wykryte obiekty. Do wyliczenia przesunięcia robota używałem wyłącznie enkoderów.</p>
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/RobotMapujacy/map.jpg" alt="" width="500" height="800" />
+  <img class="image" src="/pics/7_mapping_robot/map.jpg" alt="" width="500" height="800" />
   
 </figure>
 
@@ -228,7 +228,7 @@
 <p>Próbowałem także wykorzystać SLAMa, aby zniwelować niedoskonałości enkoderów. Jednak tutaj barierą był system operacyjny - Windows, na którym nie udało mi się uruchomić żadnej implementacji. Było to także zbyt skomplikowane zadanie jak na wiedzę, którą posiadałem, aby stworzyć własną implementację.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/RobotMapujacy/pcb.jpg" alt="" width="600" height="800" />
+  <img class="image" src="/pics/7_mapping_robot/pcb.jpg" alt="" width="600" height="800" />
   
 </figure>
 
@@ -255,7 +255,7 @@
 <footer class="footer">
   <div class="container">
     <div class="copyright  typeset">
-      <small class="small">&copy; Maciej Stępień 2022</small>
+      <small class="small">&copy; Maciej Stępień 2023</small>
     </div>
 
     

@@ -16,11 +16,11 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Miał robić kawę…" />
 <meta property="og:description" content="Miał robić kawę…" />
-<link rel="canonical" href="http://localhost:4000/posts_pl/2014-08-28-universal-robots/" />
-<meta property="og:url" content="http://localhost:4000/posts_pl/2014-08-28-universal-robots/" />
+<link rel="canonical" href="http://localhost:5000/posts_pl/2014-08-28-universal-robots/" />
+<meta property="og:url" content="http://localhost:5000/posts_pl/2014-08-28-universal-robots/" />
 <meta property="og:site_name" content="Maciej Stępień" />
 <script type="application/ld+json">
-{"@type":"WebPage","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/pics/logo1.png"}},"headline":"Robot uniwersalny","url":"http://localhost:4000/posts_pl/2014-08-28-universal-robots/","description":"Miał robić kawę…","@context":"https://schema.org"}</script>
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:5000/pics/logo1.png"}},"description":"Miał robić kawę…","@type":"WebPage","headline":"Robot uniwersalny","url":"http://localhost:5000/posts_pl/2014-08-28-universal-robots/","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     
@@ -182,14 +182,14 @@
 <p>Tutaj wyobraźnia mnie poniosła i chciałem zrobić robota uniwersalnego zdolnego do wykonywania różnych czynności np. przygotować napoje, “chodzić” do sklepu. Oczywiście w zamyśle miała być to pierwsza wersja, na której chciałem zbadać moje możliwości. Podnosić miał jedynie atrapy, a poruszać się jedynie po domu.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/RobotUniwersalny/robot.jpg" alt="" width="300" height="800" />
+  <img class="image" src="/pics/5_general_purpose_robot/robot.jpg" alt="" width="300" height="800" />
   
 </figure>
 
 <p>Piękna była to konstrukcja i bardzo skomplikowana. Do obsługi wszystkich kończyn planowałem zastosować 11 serw. Znacznie przekroczyło to liczbę kanałów PWM w mikrokontrolerze Atmega88Pa. Dlatego właśnie zmuszony byłem zastosować programowe generowanie PWM, które znacznie bardziej obciąża procesor. Z tego właśnie powodu zmuszony byłem użyć drugi mikrokontroler odpowiedzialny za komunikację z komputerem, sterowaniem silnikami oraz zadawanie poprzez SPI położeń serw do drugiego mikrokontrolera. Wiele rzeczy mogło się zepsuć po drodze, dlatego gdy ostatecznie nie mogłem zapanować nad serwami nie wiedziałem co się dzieje. Dopiero po dłuższym czasie doszedłem do wniosku, że musiałem mieć za słabe źródło zasilania, coś czego wcześniej nawet nie brałem pod uwagę. Jednak pomimo niedziałających serw nie porzuciłem tej konstrukcji. Wciąż miałem działające silniki, którymi mogłem sterować z poziomu komputera. Zająłem się w takim razie niezbędnym elementem takiego robota - wykrywaniem przeszkód oraz mapowaniem. W tym celu chciałem zasotosować parę stereowizyjną. Po wielu przygodach udało mi się wreszcie doprowadzić stereowizję do poziomu zadowalającego. Wciąż jednak występowało dużo szumów - szczególnie na podłodze. Nic dziwnego, podłoga, ściana, to mało szczegółów i ciężko jest uzyskać pewny obraz głębi. Udało się zatem mniej więcej wykrywać przeszkody, jednak gdy doszedł do tego ruch to już kompletnie co innego. Zastosowane kamerki internetowe zwracały poruszone obrazy co jeszcze pogarszało wynik wykrywania. Do tego nie zastosowałem enkoderów, ponieważ planowałem wykrywać punkty szczególne i póżniej na podstawie ich oraz uzyskanej mapy głębokości obliczać przesunięcie. Po takich jednak rozczarowujących efektach stereowizji nie próbowałem już tego rozwiązania.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/RobotUniwersalny/plytka.jpg" alt="" width="600" height="800" />
+  <img class="image" src="/pics/5_general_purpose_robot/plytka.jpg" alt="" width="600" height="800" />
   
 </figure>
 
@@ -198,7 +198,7 @@
 <p>W tej konstrukcji wzorowałem się na robocie PR2. Domyślną wersję tej konstrukcji chciałem wykonać 2 razy większą. Zastosowanie tutaj zgięcia w połowie miało na celu zwiększyć zakres chwytania - możliwość schylenia się. Jednak głównym celem była możliwość przetransformowania się w robota jeżdżącego, co umowżliwiłoby wspinanie się po schodach oraz większych przeszkodach. Domyślnie w napędzie chciałem zastosować gąsienice.</p>
 
 <figure class="figure  figure--center">
-  <img class="image" src="/pics/RobotUniwersalny/parts.jpg" alt="" width="600" height="800" />
+  <img class="image" src="/pics/5_general_purpose_robot/parts.jpg" alt="" width="600" height="800" />
   
 </figure>
 
@@ -221,7 +221,7 @@
 <footer class="footer">
   <div class="container">
     <div class="copyright  typeset">
-      <small class="small">&copy; Maciej Stępień 2022</small>
+      <small class="small">&copy; Maciej Stępień 2023</small>
     </div>
 
     

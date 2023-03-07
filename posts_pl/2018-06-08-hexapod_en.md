@@ -4,12 +4,12 @@ title: Hexapod
 categories:
   - Robots
 excerpt: |
-  <img width="200" height="200" src="/pics/Hexapod/minihexi.jpg">
+  <img width="200" height="200" src="/pics/11_hexapod/minihexi.jpg">
 ---
 
 A project I was involved in for the first 2 years of my studies as part of the Integra student research group. My contribution was software for robot control and stereovision.
 
-{% include figure.html image="/pics/Hexapod/hexi.jpg" width="600" height="800" %}
+{% include figure.html image="/pics/11_hexapod/hexi.jpg" width="600" height="800" %}
 
 To move robot uses 18 Hitec servos, 3 for each leg. We used a Raspberry Pi 2 as the robot's main computer, it communicated with the Pololu servo controller via a UART interface, which set servo positions. The entire design was powered by a 4000 mAh LiPol battery, which allowed the robot to be used for about 1h. We supplied voltage from the battery using voltage converters (3 to power the servos and 1 for the Raspberry). We also used an ADC MCP3008 to measure voltage on the battery. It communicated with the Raspberry via SPI, and then the voltage was sent and displayed in the client application.
 
@@ -17,7 +17,7 @@ To move robot uses 18 Hitec servos, 3 for each leg. We used a Raspberry Pi 2 as 
 
 The robot is controlled from a laptop, which communicates with the Raspberry via WiFi via TCP protocol. Both a pad and a keyboard can be used to move the robot. In order to properly control it, I first wrote an application with a mathematical model of the robot. Inverse kinematics was implemented on this model, on which I then created models of the robot's movement. The obtained angles were then converted into PWM signals and sent to servos through controller.
 
-{% include figure.html image="/pics/Hexapod/symulacja.png" width="600" height="800" %}
+{% include figure.html image="/pics/11_hexapod/symulacja.png" width="600" height="800" %}
 
 ## Controlling the robot
 
@@ -69,7 +69,7 @@ Poniżej przedstawie krótki opis etapów realizacji stereowizji:
 
 Aby skalibrować parę stereowizyjną wykonywane są zdjęcia ustalonego wzoru, np. szachownicy. W tym celu napisałem aplikację, która wyświetlała obraz z obu kamer. Co ustalony czas zapisywała zdjęcie pod odpowiednią nazwą oraz tworzyła listę utworzonych obrazów. Wykonałem około 50 zdjęć tak, aby jak najlepiej pokryć cały obszar widoku kamer.
 
-{% include figure.html image="/pics/Hexapod/stereo12.png" width="600" height="800" caption="Przykładowa para zdjęć wykonanych podczas kalibracji"%}
+{% include figure.html image="/pics/11_hexapod/stereo12.png" width="600" height="800" caption="Przykładowa para zdjęć wykonanych podczas kalibracji"%}
 
 Widoczny na zdjęciach zamieszczonych powyżej jest także następny napotkany problem - obiektywy w obudowach kamer zamontowane były nierówno. Oczywiście to przesunięcie eliminowane jest podczas kalibracji, jednak w rezultacie podczas właściwej stereowizji ograniczone jest pole widzenia od góry i dołu (część pixeli widoczna jest tylko przez jedną kamerkę).
 
@@ -77,9 +77,9 @@ Widoczny na zdjęciach zamieszczonych powyżej jest także następny napotkany p
 
 Do samej kalibracji użyłem przykładu z książki Learning OpenCV. W parametrach wywołania umieszczano wysokość oraz szerokość szachownicy (liczba pól), a także długość boku kwadratu w centymetrach. Bardzo ważne jest, aby szachownica miała kwadratowe pola, gdyż przy użyciu szachownicy o bokach różniących się nieznacznie cały proces kalibracji zostałby przeprowadzony niepoprawnie wraz z listą zdjęć, powstałych w trakcie tej błędnej kalibracji.
 
-{% include figure.html image="/pics/Hexapod/stereo3.png" width="400" height="800" caption="Wynik wykrywania krawędzi szachownicy"%}
+{% include figure.html image="/pics/11_hexapod/stereo3.png" width="400" height="800" caption="Wynik wykrywania krawędzi szachownicy"%}
 
-{% include figure.html image="/pics/Hexapod/stereo4.png" width="700" height="800" caption="Wynik rektyfikacji" %}
+{% include figure.html image="/pics/11_hexapod/stereo4.png" width="700" height="800" caption="Wynik rektyfikacji" %}
 
 W wyniku działania kalibracji otrzymałem parametry zewnętrzne oraz wewnętrzne kamer, które następnie używane były do właściwej stereowizji. Uzyskano błędy:
 błąd średniokwadratowy (RMS) = 0.0503053
@@ -90,19 +90,19 @@ Są to wartości niskie, co świadczy o poprawnie wykonanej kalibracji.
 
 Najpierw przetestowałem dostępne w bibliotece OpenCV algorytmy BM i SGBM, lepsze rezultaty uzyskałem dla SGBM. Jest on bardziej wymagający obliczeniowo, aczkolwiek przy rozdzielczości 320x240 można było uzyskać dobre przetwarzanie w czasie rzeczywistym. Następnie dobrałem optymalne parametry dla tego algorytmu. W tym celu napisałem aplikację na podstawie przykładu użycia SGBM zawartego w bibliotece OpenCV. Dodałem do niej suwak tak, aby można było wygodnie zmieniać parametry i obserwować uzyskiwane rezultatu.
 
-{% include figure.html image="/pics/Hexapod/stereo5.png" width="400" height="800" caption="Widok okna z paskami do zmiany parametrów" %}
+{% include figure.html image="/pics/11_hexapod/stereo5.png" width="400" height="800" caption="Widok okna z paskami do zmiany parametrów" %}
 
-{% include figure.html image="/pics/Hexapod/stereo6.png" width="400" height="800" caption="Przykładowa scena użyta do doboru parametrów" %}
+{% include figure.html image="/pics/11_hexapod/stereo6.png" width="400" height="800" caption="Przykładowa scena użyta do doboru parametrów" %}
 
-{% include figure.html image="/pics/Hexapod/stereo7.png" width="400" height="800" caption="Wynik przeprowadzenia stereowizji" %}
+{% include figure.html image="/pics/11_hexapod/stereo7.png" width="400" height="800" caption="Wynik przeprowadzenia stereowizji" %}
 
 ### Dobranie parametrów dla postfiltracji
 
 W celu uzyskania gładszego obrazu stereowizyjnego zastosowałem postfiltrację, która dodana została stosunkowo niedawno do modułów dodatkowych biblioteki OpenCV - contrib.
 
-{% include figure.html image="/pics/Hexapod/stereo9.png" width="400" height="800" caption="Efekt przeprowadzenia algorytmu SGBM przy optymalnych parametrach" %}
+{% include figure.html image="/pics/11_hexapod/stereo9.png" width="400" height="800" caption="Efekt przeprowadzenia algorytmu SGBM przy optymalnych parametrach" %}
 
-{% include figure.html image="/pics/Hexapod/stereo10.png" width="400" height="800" caption="Efekt przeprowadzenia postfiltracji" %}
+{% include figure.html image="/pics/11_hexapod/stereo10.png" width="400" height="800" caption="Efekt przeprowadzenia postfiltracji" %}
 
 ### Ostateczna aplikacja
 
@@ -127,6 +127,6 @@ Poza samą realizacją stereowizji ważnym elementem był także optymalny przes
 - Targi pracy Kariera IT
 - TEDxAGHUniversity
 
-{% include figure.html image="/pics/Hexapod/robotic_arena.jpg" width="400" height="800" caption="Prezentacja na zawodach Robotic Arena fot. Politechnika Wrocławska" %}
+{% include figure.html image="/pics/11_hexapod/robotic_arena.jpg" width="400" height="800" caption="Prezentacja na zawodach Robotic Arena fot. Politechnika Wrocławska" %}
 
 [Strona projektu](http://www.integra.agh.edu.pl/robot-kroczacy-freestyle/ "Strona projektu")
