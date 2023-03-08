@@ -10,3 +10,4 @@ Through my experience, I've developed a wide range of skills in software develop
 When I'm not working, I enjoy staying up-to-date with the latest robotics technology and advancements, experimenting with new ideas, and building robots in my spare time.
 
 {% include button.html text="Github" icon="github" link="https://github.com/macstepien" color="#0366d6" %}
+{% include button.html text="LinkedIn" icon="linkedin" link="https://www.linkedin.com/in/maciej-st%C4%99pie%C5%84-7a14b3166/" color="#0e76a8" %}
