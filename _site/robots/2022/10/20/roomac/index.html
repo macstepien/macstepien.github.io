@@ -182,7 +182,7 @@
     <p><a class="button" href="https://github.com/macorobots/roomac_ros" style="background: #0366d6">Github repository  <svg width="16" height="16" class="icon  icon--github" role="img" alt="github"><title>github</title><use xlink:href="#github" fill="CurrentColor"></use></svg>
 </a></p>
 
-<p>Roomac is a low-cost autonomous general-purpose robot that consists of a differential drive mobile base and a 5-DoF manipulator with a gripper. The costs of the whole construction summed up to around 550$ and using this platform I was able to create a proof-of-concept application - fetching a bottle to the user. This project was described in more detail in my <a href="https://raw.githubusercontent.com/macstepien/macstepien.github.io/master/files/masters_thesis_maciej_stepien.pdf">master’s thesis</a>.</p>
+<p>Roomac is a low-cost autonomous general-purpose robot that consists of a differential drive mobile base and a 5-DoF manipulator with a gripper. The costs of the whole construction summed up to around 550$ and using this platform I was able to create a proof-of-concept application - fetching a bottle to the user. Below you can find a short summary of this project, in more detail it was described in my <a href="https://raw.githubusercontent.com/macstepien/macstepien.github.io/master/files/masters_thesis_maciej_stepien.pdf">master’s thesis</a>.</p>
 
 <div class="video">
   <iframe src="https://www.youtube.com/embed/toHzFQhAP44" frameborder="0" allowfullscreen="" title="Roomac autonomously fetching bottle demo"></iframe>
@@ -195,14 +195,30 @@
   <figcaption class="caption">Robot without panels in Fusion 360</figcaption>
 </figure>
 
-<p>Software is based on ROS Melodic, I used many ROS packages, some of them are <a href="http://introlab.github.io/rtabmap/">RTABMap</a>, <a href="http://wiki.ros.org/move_base">move base</a> (with <a href="http://wiki.ros.org/teb_local_planner">TEB</a> as a local planner), <a href="http://docs.ros.org/en/noetic/api/robot_localization/html/index.html">robot localization</a>, <a href="https://moveit.ros.org/">MoveIt</a> with <a href="https://github.com/TAMS-Group/bio_ik.git">BioIKKinematics</a> (robot’s arm has 5DoF and only with BioIK I was able to achieve desired positions), <a href="http://wiki.ros.org/ar_track_alvar">ARTrackAlvar</a>. Working with cheap mechanical components was quite challenging control-wise, but in the end, I was able to achieve smooth performance.</p>
+<p>The whole software stack is based on ROS Melodic, system can be divided into two main components: autonomous navigation and manipulation.</p>
+
+<p>One part of the navigation system is SLAM, for which I used a visual solution (<a href="http://introlab.github.io/rtabmap/">RTABMap</a>). It is graph-based and uses a bag-of-words approach for detecting loop closures (features are extracted using the SURF algorithm). Based on RGBD data from Kinect dense map of the environment is constructed, which, after conversion to a 2D grid map, is later used in navigation. Odometry, in form of fused information from wheel encoders and orientation from IMU (using EKF implementation from <a href="http://docs.ros.org/en/noetic/api/robot_localization/html/index.html">robot localization</a> package), is also provided to SLAM algorithm. After initial mapping, a map is saved and later RTABMap works in localization mode and only tries to relocalize the robot, without updating the map.</p>
+
+<figure class="figure  figure--center">
+  <img class="image" src="/pics/16_roomac/map.png" alt="3D map of the environment" width="800" height="" />
+  <figcaption class="caption">3D map of the environment</figcaption>
+</figure>
+
+<p>To allow the robot to reach goals autonomously the navigation system uses <a href="http://wiki.ros.org/move_base">move base</a>, which divides the problem into global planning (searching for optimal path using Dijkstra’s algorithm) and execution of the global plan (which is called local planning). Local planner (<a href="http://wiki.ros.org/teb_local_planner">TEB</a>) takes into account the model of the robot (limits on accelerations and velocities) and simplified dimensions to calculate collision free plan and sends velocity commands to the base of the robot. Smooth control of the base was especially challenging due to the cheap drill motors used, but I was able to achieve satisfactory performance.</p>
+
+<figure class="figure  figure--center">
+  <img class="image" src="/pics/16_roomac/costmaps.png" alt="Costmaps, global and local plan" width="800" height="" />
+  <figcaption class="caption">Costmaps, global and local plan</figcaption>
+</figure>
+
+<p>In the manipulation task first it is necessary to detect the position of the robot in respect to Kinect mounted above the table (using <a href="http://wiki.ros.org/ar_track_alvar">ARTrackAlvar</a>). Kinect provides information about the scene - obstacles and position of the object (which is detected using point cloud information). To plan the collision-free trajectory of the manipulator I used <a href="https://moveit.ros.org/">MoveIt</a> with <a href="https://github.com/TAMS-Group/bio_ik.git">BioIKKinematics</a> (robot’s arm has 5DoF and only with BioIK I was able to achieve desired positions). The calculated plan is then executed by the controller that sends appropriate commands to servos.</p>
+
+<p>Apart from construction I also created a simulation of the robot in the Gazebo. There is a docker image with simulation, so executing the demo is really easy (basically you only need to copy and paste two commands). For further details please refer to the instruction in the README on Github.</p>
 
 <figure class="figure  figure--center">
   <img class="image" src="/pics/16_roomac/roomac_simulation.gif" alt="Simulation in Gazebo" width="400" height="" />
   <figcaption class="caption">Simulation in Gazebo</figcaption>
 </figure>
-
-<p>Apart from construction I also created a simulation of the robot in the Gazebo. There is a docker image with it, so executing the demo is really easy (basically you only need to copy and paste two commands). For further details please refer to the instruction in the README on Github.</p>
 
 <p><a class="button" href="https://hub.docker.com/r/macorobots/roomac" style="background: #03befc">Dockerhub repository</a></p>
 
