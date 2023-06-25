@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Tesla coil
-categories:
-  - Electronics
+permalink: /projects/tesla_coil
 excerpt: |
   Hand-winded tesla coil with transistor-based controller 
   <center><img width="600" src="/pics/8_tesla_coil/wieksza_compressed.jpg"></center>
   <br>
+date: 2015-12-10
 ---
 
 {% include figure.html image="/pics/8_tesla_coil/wieksza.jpg" width="600" height="800" %}

@@ -1,12 +1,12 @@
 ---
 layout: post
 title: General-purpose robot
-categories:
-  - Robots
+permalink: /projects/general_purpose_robot
 excerpt: |
   My first attempt at creating a general-purpose robot, this construction consisted of 13 servos and a stereo vision camera for navigation
   <center><img width="250" src="/pics/5_general_purpose_robot/robot_compressed.jpg"></center>
   <br>
+date: 2014-08-28
 ---
 
 It was my first attempt at creating a general-purpose robot. Due to the low budget, it was supposed to be only a scaled version, without many real capabilities, only a proof-of-concept. 

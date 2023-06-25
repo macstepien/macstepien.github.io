@@ -1,8 +1,6 @@
 ---
 layout: post
 title: Furuta pendulum
-categories:
-  - Robots
 excerpt: |
   LQR, MPC and RL approaches to control the Furuta pendulum in simulation
   <center><img width="600" src="/pics/17_furuta_pendulum/fp_mpc_ignition.gif"></center>

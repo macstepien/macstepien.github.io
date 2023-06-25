@@ -1,12 +1,12 @@
 ---
 layout: post
 title: 2D Racing
-categories:
-  - Software
+permalink: /projects/2d_racing
 excerpt: |
   Top-down racing game created using C++, SFML and Box2D
   <center><img width="600" src="/pics/3_2dracing/2dracing_demo.png"></center>
   <br>
+date: 2014-01-18
 ---
 
 A 2D racing game with a top-down view. Written in C++ using SFML and Box2D libraries.

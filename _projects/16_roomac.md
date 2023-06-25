@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Roomac
-categories:
-  - Robots
+permalink: /robots/2022/10/20/roomac/
 excerpt: |
   Affordable general-purpose personal robot capable of autonomously fetching objects
   <center><img width="600" src="/pics/16_roomac/roomac_manipulation_navigation.gif"></center>
   <br>
+date: 2022-10-20
 ---
 {% include button.html text="Github repository" icon="github" link="https://github.com/macorobots/roomac_ros" color="#0366d6" %}
 
@@ -14,7 +14,7 @@ Roomac is a low-cost autonomous general-purpose robot that consists of a differe
 
 
 {% include video.html id="toHzFQhAP44" title="Roomac autonomously fetching bottle demo" %}
-
+<!-- todo type of encoders and imu -->
 The robot was designed in Fusion 360, most of the construction was 3D printed. The base consists of DC drill motors, encoders, IMU and STM32BluePill MCU. In the manipulator there are 6 servos: 3 XYZrobot A1-16 and 3 cheaper TowerPro (MG996R and 2xSG-92R) which are controlled by the second STM32BluePill. To detect obstacles and create a map of the environment I used Kinect (the one from Xbox360). The second Kinect was mounted above the table and it is used for the manipulation (robot’s position is detected using ARTags). Navigation computations are run on the laptop placed in the base of the robot.
 
 {% include figure.html image="/pics/16_roomac/frame_design.png" width="400" caption="Robot without panels in Fusion 360" %}
