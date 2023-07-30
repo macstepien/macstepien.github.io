@@ -7,6 +7,7 @@ excerpt: |
   <center><img width="600" src="/pics/7_mapping_robot/mapping_robot_compressed.jpg"></center>
   <br>
 date: 2015-08-25
+order_number: 10
 ---
 
 Robot that drives around and creates a map of the environment.

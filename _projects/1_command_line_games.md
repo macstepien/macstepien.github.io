@@ -7,6 +7,7 @@ excerpt: |
   <center><img width="600" src="/pics/1_command_line_games/snake_pong.png"></center>
   <br>
 date: 2013-05-31
+order_number: 17
 ---
 
 All games were created in C++ as part of the IT project in Middle School.

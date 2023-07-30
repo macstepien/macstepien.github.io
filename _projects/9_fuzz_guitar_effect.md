@@ -7,6 +7,7 @@ excerpt: |
   <center><img width="600" src="/pics/9_fuzz_guitar_effect/front_compressed.jpg"></center>
   <br>
 date: 2016-08-28
+order_number: 14
 ---
 
 {% include figure.html image="/pics/9_fuzz_guitar_effect/front.jpg" width="600" %}
