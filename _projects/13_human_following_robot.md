@@ -7,6 +7,7 @@ excerpt: |
   <center><img width="600" src="/pics/13_human_following_robot/rosbot_follower.png"></center>
   <br>
 date: 2019-09-24
+order_number: 5
 ---
 {% include button.html text="Github repository" icon="github" link="https://github.com/macstepien/rosbot_follower" color="#0366d6" %}
 

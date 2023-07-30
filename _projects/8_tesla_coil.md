@@ -7,6 +7,7 @@ excerpt: |
   <center><img width="600" src="/pics/8_tesla_coil/wieksza_compressed.jpg"></center>
   <br>
 date: 2015-12-10
+order_number: 8
 ---
 
 {% include figure.html image="/pics/8_tesla_coil/wieksza.jpg" width="600" height="800" %}

@@ -7,6 +7,7 @@ excerpt: |
   <center><img width="600" src="/pics/16_roomac/roomac_manipulation_navigation.gif"></center>
   <br>
 date: 2022-10-20
+order_number: 1
 ---
 {% include button.html text="Github repository" icon="github" link="https://github.com/macorobots/roomac_ros" color="#0366d6" %}
 

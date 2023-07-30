@@ -7,6 +7,7 @@ excerpt: |
   <center><img width="600" src="/pics/15_selfdriving_car_eng/selfdrving_car_eng.jpg"></center>
   <br>
 date: 2021-04-05
+order_number: 4
 ---
 {% include button.html text="Github repository" icon="github" link="https://github.com/macstepien/SelfDrivingCarEngineerNDUdacity" color="#0366d6" %}
 

@@ -9,6 +9,7 @@ excerpt: |
   <center><img width="600" src="/pics/10_luminous_ball/kontroler_compressed.jpg"></center>
   <br>
 date: 2017-05-26
+order_number: 13
 ---
 
 Motion controller for PC.

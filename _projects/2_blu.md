@@ -7,6 +7,7 @@ excerpt: |
   <center><img width="600" src="/pics/2_blu/blu_cropped.png"></center>
   <br>
 date: 2013-08-23
+order_number: 16
 ---
 
 In this game you can drive the car on the hills collecting coins and fuel. Made in C++ using SFML and Box2D libraries.

@@ -7,6 +7,7 @@ excerpt: |
   <center><img width="600" src="/pics/17_furuta_pendulum/fp_mpc_ignition.gif"></center>
   <br>
 date: 2023-04-15
+order_number: 2
 ---
 
 {% include button.html text="Github repository" icon="github" link="https://github.com/macstepien/furuta_pendulum" color="#0366d6" %}
