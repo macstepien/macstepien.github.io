@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Mapping robot
-permalink: /projects/mapping_robot
+permalink: /projects/mapping-robot
 excerpt: |
   Mobile robot with Kinect 360 and place for laptop, used for testing various mapping and navigation techniques 
   <center><img width="600" src="/pics/7_mapping_robot/mapping_robot_compressed.jpg"></center>

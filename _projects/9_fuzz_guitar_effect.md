@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Fuzz guitar effect
-permalink: /projects/fuzz_guitar_effect
+permalink: /projects/fuzz-guitar-effect
 excerpt: |
   Based on Roger Mayer's Axis Fuzz
   <center><img width="600" src="/pics/9_fuzz_guitar_effect/front_compressed.jpg"></center>

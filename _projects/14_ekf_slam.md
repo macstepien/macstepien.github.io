@@ -1,7 +1,7 @@
 ---
 layout: post
 title: FSD EKF SLAM
-permalink: /projects/fsd_ekf_slam
+permalink: /projects/fsd-ekf-slam
 excerpt: |
   Implementation of EKF SLAM algorithm for Formula Student Driverless car
   <center><img width="600" src="/pics/14_ekf_slam/ekf_slam_demo.gif"></center>

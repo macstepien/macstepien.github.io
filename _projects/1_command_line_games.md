@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Command line games
-permalink: /projects/command_line_games
+permalink: /projects/command-line-games
 excerpt: |
   Tic-tac-toe, Snake and Pong games created in C++
   <center><img width="600" src="/pics/1_command_line_games/snake_pong.png"></center>

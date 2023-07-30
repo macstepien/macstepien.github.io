@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 3D Viewer
-permalink: /projects/3d_viewer
+permalink: /projects/3d-viewer
 excerpt: |
   Application for the perspective visualization of point clouds in 3D
   <center><img width="600" src="/pics/6_3dviewer/viewer1_cropped.png"></center>
