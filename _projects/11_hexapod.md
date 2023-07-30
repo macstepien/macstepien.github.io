@@ -6,7 +6,7 @@ excerpt: |
   Six-legged walking robot with a stereo vision camera
   <center><img width="600" src="/pics/11_hexapod/hexi_compressed.jpg"></center>
   <br>
-date: 2018-06-08
+# date: 2018-06-08
 ---
 
 I worked on this project during my first two years of university in the Integra student research group. My contribution was software (both for controlling the robot and stereo vision).

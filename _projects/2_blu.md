@@ -6,7 +6,7 @@ excerpt: |
   Racing game created using C++, SFML and Box2D
   <center><img width="600" src="/pics/2_blu/blu_cropped.png"></center>
   <br>
-date: 2013-08-23
+# date: 2013-08-23
 ---
 
 In this game you can drive the car on the hills collecting coins and fuel. Made in C++ using SFML and Box2D libraries.

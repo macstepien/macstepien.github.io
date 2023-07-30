@@ -53,20 +53,20 @@ collections:
   projects:
     output: true
     order:
-      - 1_roomac.md
-      - 2_furuta_pendulum.md
-      - 3_ekf_slam.md
-      - 4_selfdriving_car_eng.md
-      - 5_human_following_robot.md
-      - 6_tank.md
-      - 7_hexapod.md
+      - 16_roomac.md
+      - 17_furuta_pendulum.md
+      - 15_selfdriving_car_eng.md
+      - 14_ekf_slam.md
+      - 13_human_following_robot.md
+      - 12_tank.md
+      - 11_hexapod.md
+      - 10_luminous_ball.md
+      - 9_fuzz_guitar_effect.md
       - 8_tesla_coil.md
-      - 9_general_purpose_robot.md
-      - 10_mapping_robot.md
-      - 11_3dviewer.md
-      - 12_electronic_dice.md
-      - 13_luminous_ball.md
-      - 14_fuzz_guitar_effect.md
-      - 15_2dracing.md
-      - 16_blu.md
-      - 17_command_line_games.md
+      - 7_mapping_robot.md
+      - 6_3dviewer.md
+      - 5_general_purpose_robot.md
+      - 4_electronic_dice.md
+      - 3_2dracing.md
+      - 2_blu.md
+      - 1_command_line_games.md
