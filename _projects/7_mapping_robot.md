@@ -6,7 +6,7 @@ excerpt: |
   Mobile robot with Kinect 360 and place for laptop, used for testing various mapping and navigation techniques 
   <center><img width="600" src="/pics/7_mapping_robot/mapping_robot_compressed.jpg"></center>
   <br>
-date: 2015-08-25
+# date: 2015-08-25
 ---
 
 Robot that drives around and creates a map of the environment.
