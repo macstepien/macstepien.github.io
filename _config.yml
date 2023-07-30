@@ -42,14 +42,31 @@ navigation_header:
     url: /about/
   - title: Projects
     url: /
-  - title: Categories
-    url: /categories/
+  - title: Blog
+    url: /blog
 
 # Footer nav
 navigation_footer:
   Back to top: "#top"
 
-# Collections
 collections:
-  posts:
-    title: Projects
+  projects:
+    output: true
+    order:
+      - 16_roomac.md
+      - 17_furuta_pendulum.md
+      - 15_selfdriving_car_eng.md
+      - 14_ekf_slam.md
+      - 13_human_following_robot.md
+      - 12_tank.md
+      - 11_hexapod.md
+      - 10_luminous_ball.md
+      - 9_fuzz_guitar_effect.md
+      - 8_tesla_coil.md
+      - 7_mapping_robot.md
+      - 6_3dviewer.md
+      - 5_general_purpose_robot.md
+      - 4_electronic_dice.md
+      - 3_2dracing.md
+      - 2_blu.md
+      - 1_command_line_games.md
