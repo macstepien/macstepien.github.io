@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Furuta pendulum
-permalink: /projects/furuta_pendulum
+permalink: /projects/furuta-pendulum
 excerpt: |
   Rotational inverted pendulum I'm building as a testbench for different control algorithms
   <center><img width="600" src="/pics/17_furuta_pendulum/fp_mpc_ignition.gif"></center>

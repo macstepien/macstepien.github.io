@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Human following robot
-permalink: /projects/human_following_robot
+permalink: /projects/human-following-robot
 excerpt: |
   Lidar-based legs detection and human following implemented on Husarion's ROSbot 2
   <center><img width="600" src="/pics/13_human_following_robot/rosbot_follower.png"></center>

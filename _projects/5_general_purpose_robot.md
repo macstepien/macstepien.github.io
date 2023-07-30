@@ -1,7 +1,7 @@
 ---
 layout: post
 title: General-purpose robot
-permalink: /projects/general_purpose_robot
+permalink: /projects/general-purpose-robot
 excerpt: |
   My first attempt at creating a general-purpose robot, this construction consisted of 13 servos and a stereo vision camera for navigation
   <center><img width="250" src="/pics/5_general_purpose_robot/robot_compressed.jpg"></center>

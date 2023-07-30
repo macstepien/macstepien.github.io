@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Luminous ball
-permalink: /projects/luminous_ball
+permalink: /projects/luminous-ball
 categories:
   - Software
 excerpt: |
