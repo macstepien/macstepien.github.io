@@ -6,7 +6,7 @@ excerpt: |
   LED dice based on 555 timer
   <center><img width="600" src="/pics/4_electronic_dice/electronic_dice_compressed.jpg"></center>
   <br>
-# date: 2014-03-22
+date: 2014-03-22
 ---
 
 Electronic dice based on the example from the book "Electronics. From practice to theory"

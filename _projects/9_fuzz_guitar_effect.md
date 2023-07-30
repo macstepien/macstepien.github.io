@@ -6,7 +6,7 @@ excerpt: |
   Based on Roger Mayer's Axis Fuzz
   <center><img width="600" src="/pics/9_fuzz_guitar_effect/front_compressed.jpg"></center>
   <br>
-# date: 2016-08-28
+date: 2016-08-28
 ---
 
 {% include figure.html image="/pics/9_fuzz_guitar_effect/front.jpg" width="600" %}

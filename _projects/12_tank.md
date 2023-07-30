@@ -6,7 +6,7 @@ excerpt: |
   3D printed remotely controlled inspection robot
   <center><img width="600" src="/pics/12_tank/front_compressed.jpg"></center>
   <br>
-# date: 2019-03-27
+date: 2019-03-27
 ---
 {% include button.html text="Github repository" icon="github" link="https://github.com/macstepien/Tank" color="#0366d6" %}
 
