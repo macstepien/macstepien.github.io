@@ -6,7 +6,7 @@ excerpt: |
   Implementation of EKF SLAM algorithm for Formula Student Driverless car
   <center><img width="600" src="/pics/14_ekf_slam/ekf_slam_demo.gif"></center>
   <br>
-# date: 2020-01-10
+date: 2020-01-10
 ---
 {% include button.html text="Github repository" icon="github" link="https://github.com/macstepien/fsd_ekf_slam" color="#0366d6" %}
 

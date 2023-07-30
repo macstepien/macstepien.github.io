@@ -6,7 +6,7 @@ excerpt: |
   Application for the perspective visualization of point clouds in 3D
   <center><img width="600" src="/pics/6_3dviewer/viewer1_cropped.png"></center>
   <br>
-# date: 2015-04-09
+date: 2015-04-09
 ---
 
 Application for the perspective visualization of point clouds in 3D.
