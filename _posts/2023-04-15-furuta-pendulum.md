@@ -118,7 +118,7 @@ As the full control problem, from the downward position to the upward stabilizat
 
 Every approach worked, but every single one used a different simulation. To better compare them and verify, it would be best to use a single simulator. I decided to use Gazebo and DE simulations - they already had ROS 2 interface and I also implemented every controller as a ROS 2 node.
 
-{% include video.html id="VV_vyhF-OuU" title="Comparison of different approaches using Gazebo simulation" %}
+{% include video.html id="borVRL4AJBw" title="Comparison of different approaches using Gazebo simulation" %}
 
 In the Gazebo simulation every approach worked, but in case of the RL method difference is visible - the controller is much slower in getting to the upward position. The interesting thing is that it got the general idea of how to swing it up, and even with differences in the behavior of the pendulum, it was still able to achieve the goal.
 
