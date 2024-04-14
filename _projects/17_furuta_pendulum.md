@@ -15,6 +15,7 @@ order_number: 2
 To refresh my knowledge about dynamical systems and to try out different control approaches in practice I decided to build Furuta Pendulum. I started the project with simulation, in this part I created LQR, MPC and RL controllers and tested them on simulation (Gazebo), about this part of the project you can find out more in my blog post [Furuta Pendulum Simulation](/blog/furuta-pendulum-simulation).
 
 Currently I'm transitioning all the code to the pendulum that I built. This is a work in progress, I plan to update this series so stay tuned.
-Meanwhile, here you can see the first successful run (LQR + Swing-up):
+Meanwhile, here you can see the first successful run (LQR + Swing-up) and a more recent update with the Deep Reinforcement Learning controller:
 
 {% include video.html id="XmboNpksQVI" title="Furuta pendulum (LQR + Swing-up controller)" %}
+{% include video.html id="6VREUts-rxU" title="Deep Reinforcement Learning Controller for a Furuta Pendulum" %}
