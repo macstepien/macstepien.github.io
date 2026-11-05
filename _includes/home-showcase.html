@@ -1,0 +1,24 @@
+<section class="home-showcase" aria-labelledby="recent-publications">
+  <h2 id="recent-publications">Publications</h2>
+  {% include publication-list.html limit=2 heading=3 %}
+  <p class="showcase-actions"><a class="button plain-link" href="{{ '/publications/' | relative_url }}" aria-label="See all publications">See all</a></p>
+</section>
+
+<section class="home-showcase" aria-labelledby="recent-projects">
+  <h2 id="recent-projects">Projects</h2>
+  {% assign recent_projects = site.projects | sort: "date" | reverse %}
+  <div class="showcase-projects">
+    {% for project in recent_projects limit: 2 %}
+    <article class="showcase-project">
+      <a class="plain-link showcase-project-preview" href="{{ project.url | relative_url }}">
+        {% if project.preview_image %}
+        <img src="{{ project.preview_image | relative_url }}" alt="{{ project.title | escape }} demo" width="360" loading="lazy">
+        {% endif %}
+      </a>
+      <h3><a class="plain-link" href="{{ project.url | relative_url }}">{{ project.title | escape }}</a></h3>
+      <p>{{ project.excerpt | strip_html | strip }}</p>
+    </article>
+    {% endfor %}
+  </div>
+  <p class="showcase-actions"><a class="button plain-link" href="{{ '/projects/' | relative_url }}" aria-label="See all projects">See all</a></p>
+</section>

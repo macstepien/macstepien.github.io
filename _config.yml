@@ -1,5 +1,5 @@
 # Set theme
-remote_theme: daviddarnes/alembic
+theme: alembic-jekyll-theme
 
 environment: prod
 # File excludes
@@ -19,16 +19,14 @@ plugins:
   - jekyll-default-layout
   - jekyll-feed
   - jemoji
-  - jekyll-remote-theme
   - jekyll-analytics
 
 # Site settings
 url: "https://macstepien.github.io/"
 baseurl: ""
 title: "Maciej Stępień"
-description: "Projects"
+description: "Robotics projects and publications by Maciej Stępień"
 permalink: pretty
-logo: "/pics/logo1.png"
 
 # Pagination
 paginate: 5
@@ -37,13 +35,13 @@ paginate_path: blog/page:num
 # Header nav
 navigation_header:
   - title: Home
-    url: /home/
+    url: /
+  - title: Publications
+    url: /publications/
+  - title: Projects
+    url: /projects/
   - title: About
     url: /about/
-  - title: Projects
-    url: /
-  - title: Blog
-    url: /blog
 
 # Footer nav
 navigation_footer:

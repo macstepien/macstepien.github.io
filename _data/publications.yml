@@ -1,0 +1,34 @@
+- title: Predictive Auxiliary Objective for Payload-Adaptive Multi-Motion Humanoid Balancing
+  date: "2026"
+  authors:
+    - Maciej Stępień
+    - Constant Roux
+    - Olivier Stasse
+  venue: Preprint
+  url: https://macstepien.github.io/PAO/
+  image: /pics/previews/pao.webp
+  image_alt: PAO humanoid payload-adaptive balancing demo
+  links:
+    - label: Project page
+      url: https://macstepien.github.io/PAO/
+    - label: Paper
+      url: https://hal.science/hal-05839971v2
+
+- title: Latent Conditioned Loco-Manipulation Using Motion Priors
+  date: "2025"
+  authors:
+    - Maciej Stępień
+    - Rafael Kourdis
+    - Constant Roux
+    - Olivier Stasse
+  venue: IEEE-RAS 24th International Conference on Humanoid Robots (Humanoids)
+  url: https://gepetto.github.io/LaCoLoco/
+  image: /pics/previews/lacoloco.webp
+  image_alt: LaCoLoco robot locomotion and manipulation demo
+  links:
+    - label: Project page
+      url: https://gepetto.github.io/LaCoLoco/
+    - label: Paper
+      url: https://arxiv.org/pdf/2509.16061
+    - label: Code
+      url: https://github.com/Gepetto/LaCoLoco
