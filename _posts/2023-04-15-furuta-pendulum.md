@@ -4,12 +4,12 @@ title: Furuta pendulum simulation
 permalink: /blog/furuta-pendulum-simulation
 excerpt: |
   LQR, MPC and RL approaches to control the Furuta pendulum in simulation
-  <center><img width="600" src="/pics/17_furuta_pendulum/fp_mpc_ignition.gif"></center>
+  <center><img loading="lazy" decoding="async" width="600" src="/pics/17_furuta_pendulum/fp_mpc_ignition.gif"></center>
   <br>
 date: 2023-04-15
 ---
 
-<center><img width="600" src="/pics/17_furuta_pendulum/fp_mpc_ignition.gif"></center>
+<center><img loading="lazy" decoding="async" width="600" src="/pics/17_furuta_pendulum/fp_mpc_ignition.gif"></center>
 
 {% include button.html text="Github repository" icon="github" link="https://github.com/macstepien/furuta_pendulum" color="#0366d6" %}
 

@@ -4,7 +4,7 @@ title: Human following robot
 permalink: /projects/human-following-robot
 excerpt: |
   Lidar-based legs detection and human following implemented on Husarion's ROSbot 2
-  <center><img width="600" src="/pics/13_human_following_robot/rosbot_follower.png"></center>
+  <center><img loading="lazy" decoding="async" width="600" src="/pics/13_human_following_robot/rosbot_follower.webp"></center>
   <br>
 date: 2019-09-24
 order_number: 5
@@ -35,7 +35,7 @@ Then get your Husarnet join code and customize code as described in [ESP32 Husar
 
 Wire your ESP32 accordingly to schematics:
 
-{% include figure.html image="/pics/13_human_following_robot/remoteSchematics.png" width="600" height="800" %}
+{% include figure.html image="/pics/13_human_following_robot/remoteSchematics.webp" width="600" height="800" %}
 
 As a source of power you can use a Powerbank connected to the ESP.
 
@@ -107,7 +107,7 @@ There are two options available:
 
 After whole system is up and running stand in front of ROSbot, but not too far away. When you are detected blue LED on ESP should turn on. Then you can press first button (the one closer to ESP on schematics) and if you start walking robot should follow you. When LED turns off it means that algorithm lost detection of you and need to recalibrate (stand closer to robot and wait until blue LED is back on). If robot had false detection you can calibrate again by pressing second button. On RViz you can see visualization: scan from LiDAR, robot model and detections. Green spheres are all potential legs, blue cylinders are detected legs and red tall cylinder is human position. In version with Kalman filter we also publish circle around human, which shows how much estimated position differs from measurement.
 
-{% include figure.html image="/pics/13_human_following_robot/rviz.png" width="600" height="800" %}
+{% include figure.html image="/pics/13_human_following_robot/rviz.webp" width="600" height="800" %}
 
 ### Troubleshooting
 

@@ -6,7 +6,7 @@ categories:
   - Software
 excerpt: |
   Visual motion tracking pointing device for PC
-  <center><img width="600" src="/pics/10_luminous_ball/kontroler_compressed.jpg"></center>
+  <center><img loading="lazy" decoding="async" width="600" src="/pics/10_luminous_ball/kontroler_compressed.webp"></center>
   <br>
 date: 2017-05-26
 order_number: 13
@@ -14,7 +14,7 @@ order_number: 13
 
 Motion controller for PC.
 
-{% include figure.html image="/pics/10_luminous_ball/kontroler.jpg" width="300" height="300" %}
+{% include figure.html image="/pics/10_luminous_ball/kontroler.webp" width="300" height="300" %}
 
 The controller was inspired by the PlayStation Move and consists of a flashlight with a ball. The ball's movements are tracked on a webcam and translated into mouse cursor movements. By turning the flashlight on and off a mouse click is simulated.
 

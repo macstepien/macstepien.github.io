@@ -4,7 +4,7 @@ title: Self-Driving Car Engineer ND
 permalink: /projects/self-driving-car-engineer-nd
 excerpt: |
   Projects from Udacity Self-Driving Car Engineer Nanodegree that I completed during my work in the Formula Student team
-  <center><img width="600" src="/pics/15_selfdriving_car_eng/selfdrving_car_eng.jpg"></center>
+  <center><img loading="lazy" decoding="async" width="600" src="/pics/15_selfdriving_car_eng/selfdrving_car_eng.webp"></center>
   <br>
 date: 2021-04-05
 order_number: 4
@@ -13,7 +13,7 @@ order_number: 4
 
 Projects from Udacity Self-Driving Car Engineer Nanodegree that I completed during my work in the Formula Student team.
 
-<center><img width="600" src="/pics/15_selfdriving_car_eng/udacity_p2.gif"></center>
+<video class="demo-video" width="600" loop muted playsinline controls preload="none" poster="/pics/demos/self-driving-car.webp" aria-label="Self-driving car demonstration"><source src="/pics/demos/self-driving-car.mp4" type="video/mp4"></video>
 
 ## Projects
   * **Behavioral cloning** - end-to-end Deep Learning approach to control car's steering angle based on images from cameras (training CNN with a demonstration of center-line driving, data augmentation, Keras).
