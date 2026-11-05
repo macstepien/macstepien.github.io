@@ -1,0 +1,137 @@
+---
+title: false
+styles: true
+---
+
+@import "alembic";
+
+.demo-video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1rem auto;
+}
+
+// The theme draws paragraph-link underlines with a background gradient.
+.typeset a.plain-link,
+.typeset a.plain-link:hover,
+.typeset a.plain-link:focus,
+.typeset a.plain-link:active {
+  background-image: none;
+  text-decoration: none;
+  text-shadow: none;
+}
+
+.typeset .publications-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.typeset .publication {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: center;
+  margin: 0;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.typeset .publication:last-child {
+  border-bottom: 0;
+}
+
+.typeset .publication::before {
+  content: none;
+}
+
+.publication-preview {
+  display: block;
+}
+
+.publication-preview img {
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  margin: 0;
+}
+
+.typeset .publication-title {
+  font-size: 1.05rem;
+  line-height: 1.45;
+  margin: 0 0 0.5rem;
+  padding: 0;
+}
+
+.typeset .publication-details p {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin: 0 0 0.35rem;
+  padding: 0;
+}
+
+.publication-venue {
+  color: #555;
+}
+
+.home-showcase {
+  margin-top: 2rem;
+}
+
+.typeset .home-showcase > h2 {
+  margin-bottom: 0;
+}
+
+.showcase-projects {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.showcase-project-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 10;
+}
+
+.showcase-project-preview img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  margin: 0;
+}
+
+.typeset .showcase-project h3 {
+  font-size: 1.05rem;
+  line-height: 1.45;
+  margin: 0.75rem 0 0.25rem;
+  padding: 0;
+}
+
+.typeset .showcase-project p {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin: 0 0 0.5rem;
+  padding: 0;
+}
+
+.typeset .showcase-actions {
+  margin-top: 1rem;
+}
+
+@media (max-width: 640px) {
+  .showcase-projects {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .typeset .publication {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+}

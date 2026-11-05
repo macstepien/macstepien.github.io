@@ -1,10 +1,11 @@
 ---
 layout: post
 title: Furuta pendulum
+preview_image: /pics/previews/furuta-pendulum.webp
 permalink: /projects/furuta-pendulum
 excerpt: |
-  Rotational inverted pendulum I'm building as a testbench for different control algorithms
-  <center><img width="600" src="/pics/17_furuta_pendulum/furuta_pendulum_rl.gif"></center>
+  I built a rotational inverted pendulum and developed an RL controller.
+  <video class="demo-video" width="600" loop muted playsinline controls preload="none" poster="/pics/demos/furuta-pendulum.webp" aria-label="Furuta pendulum controlled by an RL controller"><source src="/pics/demos/furuta-pendulum.mp4" type="video/mp4"></video>
   <br>
 date: 2023-04-15
 order_number: 2

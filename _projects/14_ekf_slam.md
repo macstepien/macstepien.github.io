@@ -4,7 +4,7 @@ title: FSD EKF SLAM
 permalink: /projects/fsd-ekf-slam
 excerpt: |
   Implementation of EKF SLAM algorithm for Formula Student Driverless car
-  <center><img width="600" src="/pics/14_ekf_slam/ekf_slam_demo.gif"></center>
+  <video class="demo-video" width="600" loop muted playsinline controls preload="none" poster="/pics/demos/ekf-slam.webp" aria-label="EKF SLAM demonstration"><source src="/pics/demos/ekf-slam.mp4" type="video/mp4"></video>
   <br>
 date: 2020-01-10
 order_number: 3

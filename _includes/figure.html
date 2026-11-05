@@ -1,0 +1,4 @@
+<figure class="figure figure--{{ include.position | default: 'center' }}">
+  <img class="image" src="{{ include.image | relative_url }}" alt="{{ include.alt | default: include.caption | escape }}"{% if include.width %} width="{{ include.width }}"{% endif %} loading="lazy" decoding="async">
+  {% if include.caption %}<figcaption class="caption">{{ include.caption }}</figcaption>{% endif %}
+</figure>
